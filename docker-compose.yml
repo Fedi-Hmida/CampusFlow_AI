@@ -1,1 +1,75 @@
-# CampusFlow AI stack — defined in CF-002
+# CampusFlow AI stack — n8n + Qdrant + Ollama on one network.
+# Versions are pinned (see VERSIONS.md); never use "latest".
+# Ports are bound to 127.0.0.1 only: reachable from this laptop, not from the LAN.
+# Memory limits keep the total at 11.5 GB inside the 12 GB Docker VM (.wslconfig).
+
+name: campusflow_ai
+
+services:
+  n8n:
+    image: n8nio/n8n:2.44.6
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:5678:5678"
+    environment:
+      GENERIC_TIMEZONE: Europe/Paris
+      TZ: Europe/Paris
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?Set N8N_ENCRYPTION_KEY in .env}
+      WEBHOOK_URL: ${WEBHOOK_URL:?Set WEBHOOK_URL in .env}
+      # n8n 2.x only reads files from allow-listed folders; regulation PDFs live in /data
+      N8N_RESTRICT_FILE_ACCESS_TO: /data
+      # n8n sits behind the ngrok reverse proxy
+      N8N_PROXY_HOPS: "1"
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./data:/data:ro
+    depends_on:
+      - qdrant
+      - ollama
+    mem_limit: 1536m
+    networks:
+      - campusflow-net
+
+  qdrant:
+    image: qdrant/qdrant:v1.20.0
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    mem_limit: 1g
+    networks:
+      - campusflow-net
+
+  ollama:
+    image: ollama/ollama:0.40.10
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:11434:11434"
+    environment:
+      # Keep the chat and embedding models loaded between requests
+      OLLAMA_KEEP_ALIVE: 30m
+      OLLAMA_CONTEXT_LENGTH: "8192"
+    volumes:
+      - ollama_data:/root/.ollama
+    mem_limit: 9g
+    networks:
+      - campusflow-net
+    # GPU disabled: the reference laptop has an NVIDIA MX330 with 2 GB VRAM, too small for an 8B model
+    # (partial offload is slower than CPU). See ADR-007. On a laptop with >= 8 GB VRAM, uncomment:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: all
+    #           capabilities: [gpu]
+
+networks:
+  campusflow-net:
+    name: campusflow-net
+
+volumes:
+  n8n_data:
+  qdrant_data:
+  ollama_data:
