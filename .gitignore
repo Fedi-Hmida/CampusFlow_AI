@@ -1,0 +1,23 @@
+# Private reference docs — never commit
+Docs/
+
+# Secrets
+.env
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python / Jupyter
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+
+# Local Claude Code settings
+.claude/settings.local.json
+
+# Superpowers execution scratch
+.superpowers/
