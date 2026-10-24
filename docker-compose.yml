@@ -15,7 +15,8 @@ services:
       GENERIC_TIMEZONE: Europe/Paris
       TZ: Europe/Paris
       N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?Set N8N_ENCRYPTION_KEY in .env}
-      WEBHOOK_URL: ${WEBHOOK_URL:?Set WEBHOOK_URL in .env}
+      # n8n 2.x name (WEBHOOK_URL is deprecated); the value still comes from WEBHOOK_URL in .env
+      N8N_WEBHOOK_URL: ${WEBHOOK_URL:?Set WEBHOOK_URL in .env}
       # n8n 2.x only reads files from allow-listed folders; regulation PDFs live in /data
       N8N_RESTRICT_FILE_ACCESS_TO: /data
       # n8n sits behind the ngrok reverse proxy
