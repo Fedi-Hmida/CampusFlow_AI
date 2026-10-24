@@ -1,7 +1,7 @@
-# CampusFlow AI stack — n8n + Qdrant + Ollama on one network.
+# CampusFlow AI stack — n8n + Qdrant + Ollama + ngrok tunnel on one network.
 # Versions are pinned (see VERSIONS.md); never use "latest".
 # Ports are bound to 127.0.0.1 only: reachable from this laptop, not from the LAN.
-# Memory limits keep the total at 11.5 GB inside the 12 GB Docker VM (.wslconfig).
+# Memory limits keep the total under 12 GB inside the 12 GB Docker VM (.wslconfig).
 
 name: campusflow_ai
 
@@ -68,6 +68,19 @@ services:
     #         - driver: nvidia
     #           count: all
     #           capabilities: [gpu]
+
+  ngrok:
+    # Public HTTPS tunnel for the Telegram webhook (free static dev domain), started with the rest of the stack
+    image: ngrok/ngrok:3.39.13-alpine
+    restart: unless-stopped
+    command: ["http", "--url=https://${NGROK_DOMAIN:?Set NGROK_DOMAIN in .env}", "--log=stdout", "n8n:5678"]
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN:?Set NGROK_AUTHTOKEN in .env}
+    depends_on:
+      - n8n
+    mem_limit: 128m
+    networks:
+      - campusflow-net
 
 networks:
   campusflow-net:

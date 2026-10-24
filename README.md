@@ -9,7 +9,7 @@ Final project — Advanced DL (DS14), ESPRIT 2026–2027 · Team: Fedi, Doua, In
 ## Repository layout
 | Path | Content |
 |---|---|
-| `docker-compose.yml` | n8n + Qdrant + Ollama on network `campusflow-net` |
+| `docker-compose.yml` | n8n + Qdrant + Ollama + ngrok on network `campusflow-net` |
 | `.env.example` | variables to copy into `.env` (never commit `.env`) |
 | `VERSIONS.md` | pinned images, models, measured speeds |
 | `workflows/` | exported n8n workflows (JSON) |
@@ -40,13 +40,14 @@ $b = New-Object byte[] 32; [Security.Cryptography.RandomNumberGenerator]::Create
 ```
 - **Back the key up** (password manager). n8n encrypts every saved credential with it: if it changes or is lost,
   all credentials become unreadable and must be re-entered.
-- Set `WEBHOOK_URL=https://<your-domain>.ngrok-free.dev/` (your ngrok dev domain, step 6).
-- API keys and tokens do **not** go in `.env`: they live encrypted in n8n credentials (step 7).
+- Set `WEBHOOK_URL=https://<your-domain>.ngrok-free.dev/` and the two `NGROK_*` values (step 6).
+- Gemini and Telegram secrets do **not** go in `.env`: they live encrypted in n8n credentials (step 7). The only
+  secrets in `.env` are the n8n encryption key and the ngrok authtoken, needed to start the containers.
 
 ## 4. Start the stack
 ```powershell
 docker compose up -d
-docker compose ps        # n8n, qdrant, ollama: Up
+docker compose ps        # n8n, qdrant, ollama, ngrok: Up
 ```
 Check: n8n http://localhost:5678 · Qdrant http://localhost:6333/dashboard · Ollama http://localhost:11434/api/version.
 Ports are bound to `127.0.0.1` (not reachable from the LAN).
@@ -60,12 +61,15 @@ docker compose exec ollama ollama pull qwen3:8b                        # optiona
 Do not use the plain `qwen3:4b` tag (thinking-only build: ignores `think:false`).
 
 ## 6. Public tunnel for Telegram (ngrok)
-Telegram delivers messages to a public HTTPS webhook; `localhost` cannot receive them.
-```powershell
-ngrok config add-authtoken <your-ngrok-authtoken>      # once
-ngrok http --domain=<your-domain>.ngrok-free.dev 5678  # keep this window open
+Telegram delivers messages to a public HTTPS webhook; `localhost` cannot receive them. The `ngrok` service in
+`docker-compose.yml` opens that tunnel automatically with `docker compose up -d`. Put in `.env`:
 ```
-(Newer ngrok versions also accept `--url=https://<your-domain>.ngrok-free.dev`.)
+NGROK_AUTHTOKEN=<ngrok dashboard → Your Authtoken>
+NGROK_DOMAIN=<your-domain>.ngrok-free.dev        # dashboard → Domains (free dev domain)
+```
+Check: `docker compose logs ngrok` shows `started tunnel … url=https://<your-domain>.ngrok-free.dev`.
+Only **one** ngrok agent may serve a domain: do not also run `ngrok http …` on the host.
+Fallback without the container: `ngrok http --domain=<your-domain>.ngrok-free.dev 5678`.
 
 ## 7. n8n credentials
 Open http://localhost:5678, create the owner account (skip the n8n Assistant), then **Overview → Credentials → Create**:
@@ -100,6 +104,6 @@ driver; Linux needs the NVIDIA Container Toolkit; macOS is CPU only. Check: `doc
 | `docker compose exec … /tmp/x` fails with a `C:/Users/.../Temp/...` path | Git Bash rewrites Unix paths | Prefix the command with `MSYS_NO_PATHCONV=1`, or use PowerShell |
 | "Problem running workflow … Telegram Trigger can't listen for test executions" | Telegram allows one webhook per bot; the published workflow already holds it | Don't click *Execute*; message the bot and watch **Executions** (or unpublish to test) |
 | Credentials show errors / "could not decrypt" after a reinstall | `N8N_ENCRYPTION_KEY` changed | Restore the original key in `.env`, `docker compose up -d n8n` |
-| Bot does not answer | ngrok window closed, or message sent to BotFather | Restart the ngrok command; check `https://api.telegram.org/bot<TOKEN>/getWebhookInfo` (url = your domain, no `last_error_message`) |
-| `ngrok http … --url` → "unknown flag" | Old ngrok CLI | Use `--domain=<your-domain>.ngrok-free.dev`, or `ngrok update` |
-| `docker compose up` → "Set N8N_ENCRYPTION_KEY in .env" | `.env` missing or empty | Step 3 |
+| Bot does not answer | ngrok container down, a second ngrok agent on the same domain, or message sent to BotFather | `docker compose logs ngrok`, `docker compose up -d ngrok`; check `https://api.telegram.org/bot<TOKEN>/getWebhookInfo` (url = your domain, no `last_error_message`) |
+| `ngrok http … --url` → "unknown flag" (host fallback) | Old ngrok CLI | Use `--domain=<your-domain>.ngrok-free.dev`, or `ngrok update` |
+| `docker compose up` → "Set N8N_ENCRYPTION_KEY / NGROK_AUTHTOKEN / NGROK_DOMAIN in .env" | `.env` missing or incomplete | Steps 3 and 6 |
