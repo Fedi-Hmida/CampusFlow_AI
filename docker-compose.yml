@@ -50,6 +50,9 @@ services:
       # Keep the chat and embedding models loaded between requests
       OLLAMA_KEEP_ALIVE: 30m
       OLLAMA_CONTEXT_LENGTH: "8192"
+      # Ollama sizes itself on the VM's RAM, not this container's limit: cap it to one chat model + bge-m3,
+      # otherwise a third model gets loaded and the container thrashes (CF-004 finding)
+      OLLAMA_MAX_LOADED_MODELS: "2"
     volumes:
       - ollama_data:/root/.ollama
     mem_limit: 9g
