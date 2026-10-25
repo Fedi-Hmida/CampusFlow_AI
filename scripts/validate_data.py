@@ -9,7 +9,7 @@ import sys
 import unicodedata
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).resolve().parent / "lib"))
 from corpus_lookup import CLEAN, all_doc_ids, article_keys, doc, longest_shared_run  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -162,7 +162,7 @@ check("D4: REQ-08 split by regime (REQ-08-J jour / REQ-08-SA soir;alternance)",
       {(r["request_id"], r["regime"]) for r in rq if r["request_id"].startswith("REQ-08")} == {("REQ-08-J", "jour"), ("REQ-08-SA", "soir;alternance")})
 
 # ---------------------------------------------------------------- test sets
-t1p = ROOT / "eval/T1_regulations.csv"
+t1p = ROOT / "eval/testsets/T1_regulations.csv"
 if t1p.exists():
     t1 = read(t1p)
     check("T1: 25 rows", len(t1) == 25, str(len(t1)))
@@ -187,18 +187,18 @@ if t1p.exists():
     check("T1: all 25 rows verified by Fedi", nver == 25, f"{nver}/25 verified", level="PENDING")
 else:
     check("T1 present", False, level="PENDING")
-    sys.path.insert(0, str(ROOT / "eval"))
+    sys.path.insert(0, str(ROOT / "eval/retrieval"))
     import retrieval_metrics as rm
     try:
         rm.self_test(); mt = True
     except AssertionError:
         mt = False
-    check("eval/retrieval_metrics.py: Hit@5 / Recall@5 / MRR self-test on '|'-separated key lists", mt)
+    check("eval/retrieval/retrieval_metrics.py: Hit@5 / Recall@5 / MRR self-test on '|'-separated key lists", mt)
     check("T1: multi-source rows parse into existing keys", all(all(k in KEYS for k in rm.parse_expected(r["expected_article"])) for r in t1))
 for name, n in [("T2_calendar.csv", 12), ("T3_contacts_requests.csv", 10), ("T5_adversarial.csv", 6), ("T4_photos.csv", 10)]:
-    p = ROOT / "eval" / name
+    p = ROOT / "eval/testsets" / name
     check(f"{name}: {n} rows", p.exists() and len(read(p)) == n, f"{len(read(p)) if p.exists() else 0} rows", level="PENDING" if not p.exists() else "ERROR")
-p2 = ROOT / "eval/T2_calendar.csv"
+p2 = ROOT / "eval/testsets/T2_calendar.csv"
 if p2.exists():
     calkeys = {(r["class_group"], r["module_name"], r["session"]) for r in cal}
     t2 = read(p2)
@@ -215,7 +215,7 @@ if p2.exists():
     proj = {(r["class_group"], r["module_name"], r["session"]) for r in cal if r["data_status"] != "FICTITIOUS"}
     inv = [r["id"] for r in found if (r["class_group"], r["module"], r["session"]) in proj and (r["expected_room"] != "non communiqué" or r["expected_end_time"] != "non communiqué")]
     check("T2: projected rows expect 'non communiqué' for room and end time", not inv, str(inv))
-p3 = ROOT / "eval/T3_contacts_requests.csv"
+p3 = ROOT / "eval/testsets/T3_contacts_requests.csv"
 if p3.exists():
     t3 = read(p3)
     bad = [r["id"] for r in t3 if r["expected_role_id"] not in roles]
@@ -227,9 +227,9 @@ if p3.exists():
     other = [(r["id"], n) for r in t3 if r["regime"] != "all" for reg, n in NAMES.items()
              if reg not in r["regime"].split(";") and n in (r["expected_documents"] + " " + r["expected_deadline"]).lower()]
     check("T3: expected values mention no other regime than the question's (regime-specific)", not other, str(other))
-p4 = ROOT / "eval/T4_photos.csv"
+p4 = ROOT / "eval/testsets/T4_photos.csv"
 if p4.exists():
-    miss = [r["file"] for r in read(p4) if not (ROOT / "eval/T4_photos" / r["file"]).exists()]
+    miss = [r["file"] for r in read(p4) if not (ROOT / "eval/testsets/T4_photos" / r["file"]).exists()]
     check("T4: every image file present", not miss, str(miss), level="PENDING")
 
 # ---------------------------------------------------------------- privacy

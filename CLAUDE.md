@@ -23,14 +23,18 @@ VERSIONS.md         pinned versions
 docker-compose.yml  n8n + Qdrant + Ollama
 .env.example        variable names only, no secrets
 workflows/          exported n8n JSON (WF-1..WF-4)
-data/regs/          regulation PDFs (D1)
-data/tables/        calendar, directory, request catalogue CSVs (D2-D4)
+data/raw/           team delivery, byte-for-byte (never edit; excluded/ is git-ignored)
+data/regs/          official/ (3 PDFs) · fictitious/ (8 *_FICTIF.pdf) · clean/ (D1-*.json) · CORPUS_CARD.md
+data/tables/        calendar, module codes, directory, request catalogue CSVs (D2-D4)
+scripts/            run_all.py · validate_data.py · lib/ · corpus/ · tables/ · testsets/ (see scripts/README.md)
 prompts/            versioned prompt library
-eval/               test sets T1-T5, retrieval notebook (WF-5)
+eval/               testsets/ (T1-T5 + T4_photos/) · review/{sheets,ticks,verified}/ · retrieval/ · agents/
+                    · latency/ · baselines/
 diagrams/           PUBLIC diagrams for the report (committed)
 report/             final report
-Docs/               PRIVATE reference docs (git-ignored, never commit)
+Docs/               PRIVATE (git-ignored): reference/ · planning/ · decisions/ · reports/ (index: Docs/00_Index.md)
 ```
+Rebuild all data outputs: `.venv/Scripts/python scripts/run_all.py` (ends with the validator).
 
 ## Working rules
 - Read `Docs/` before any task; follow the spec book and action plan; if a request conflicts with them, say so.
@@ -40,8 +44,8 @@ Docs/               PRIVATE reference docs (git-ignored, never commit)
 - **No Claude attribution in Git**: no `Co-Authored-By: Claude`, no "🤖 Generated with Claude Code" line, no Claude
   icon or mention in commit messages, PR titles or PR bodies.
 - Pin every version; no `latest` image tags.
-- After each ticket: verify the acceptance criteria, update the progress tracker in `Docs/03_Action_Plan.md`,
-  and note anything useful for the final report in `Docs/04_Decisions_Log.md`.
+- After each ticket: verify the acceptance criteria, update the progress tracker in `Docs/planning/03_Action_Plan.md`,
+  and note anything useful for the final report in `Docs/decisions/04_Decisions_Log.md`.
 - When a step needs a human action (GUI, account creation, secrets), stop and give a clear checklist.
 
 ## Conventions

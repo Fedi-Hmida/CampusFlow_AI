@@ -1,7 +1,7 @@
 # T1 review sheet — 25 regulation questions (CF-111)
 
 Claim-level evidence: every factual claim of the expected answer is backed by a verbatim quote (doc_id, article key,
-page), an absence check or a table cell — all checked automatically by `scripts/build_t1.py`.
+page), an absence check or a table cell — all checked automatically by `scripts/testsets/build_t1.py`.
 
 ## Coverage
 

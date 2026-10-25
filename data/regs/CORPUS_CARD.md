@@ -12,11 +12,11 @@
 | Period | academic year 2024-2025 (official texts created Oct 2024 – May 2025) |
 | Source | official: ESPRIT regulations delivered by the team (raw copies in `data/raw/regs/`, SHA-256 in `data/raw/MANIFEST.md`); FICTITIOUS: written by the team on 24 Oct 2026, corrected (CF-108b) and regenerated with a "DOCUMENT FICTIF" label (CF-104) |
 | Privacy | author metadata stripped from the official PDFs; no personal names, e-mails or phone numbers in the cleaned text (validator) |
-| Built by | `scripts/extract_regs.py`, `scripts/regenerate_fictif.py` (25 Oct 2026) |
+| Built by | `scripts/corpus/extract_regs.py`, `scripts/corpus/regenerate_fictif.py` (25 Oct 2026) |
 
 ## Documents
 
-| doc_id | File (`data/regs/`) | Title | Regime | doc_status | Pages | Characters | Articles + sub-sections | Date | Why it fits |
+| doc_id | File (`data/regs/official/` · `data/regs/fictitious/`) | Title | Regime | doc_status | Pages | Characters | Articles + sub-sections | Date | Why it fits |
 |---|---|---|---|---|---|---|---|---|---|
 | D1-001 | reglement_scolarite-cours-du-jour_2024-2025.pdf | Règlement de scolarité 2024-2025 — Cours du jour | jour | official | 19 | 35 063 | 12 + 10 | 2025-05-11 | Core rules for day students: exams, retakes, absences (7-8), internships and PFE (7-9, 7-10), discipline |
 | D1-002 | reglement_scolarite-cours-du-soir_2024-2025.pdf | Règlement de scolarité 2024-2025 — Cours du soir | soir | official | 13 | 29 519 | 14 + 9 | 2024-11-19 | Evening-course rules (48 h absence rule, double correction, sanctions list) |
@@ -44,6 +44,6 @@
 - 11 documents is below the course's 20–60 guideline; it is the complete set of public regulations we could obtain.
 - FICTITIOUS share: 8 of 11 documents but only 22 % of the characters (26 297 of 121 206).
 - Rules are those of 2024-2025; the calendar is projected to 2026-2027 (`data/tables/exam_calendar.csv`, `data_status`).
-- Four tables of D1-001 were serialised by hand because automatic extraction mixed their cells (`scripts/manual_tables.json`).
+- Four tables of D1-001 were serialised by hand because automatic extraction mixed their cells (`scripts/corpus/manual_tables.json`).
 - Excluded: a duplicate day regulation, the exam charter (contained in D1-001) and a 2011-2012 PFE procedure with personal
   e-mail addresses (`data/raw/excluded/`, git-ignored).

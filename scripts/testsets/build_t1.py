@@ -7,8 +7,8 @@ Every expected answer is a list of CLAIMS; each factual claim carries evidence t
 Claims of kind "note" are presentation rules (e.g. "present as non-official"), not facts.
 expected_article = the article keys of the accepted sources, separated by "|" (used by Hit@5 / Recall@5 / MRR).
 The A5 rule (no more than 5 consecutive words copied from a source article) and the coverage rules are enforced.
-Outputs: eval/T1_regulations.csv, eval/review/T1_review.md, eval/review/T1_changed_rows.md (vs the reviewed version)
-Run: .venv/Scripts/python scripts/build_t1.py
+Outputs: eval/testsets/T1_regulations.csv, eval/review/sheets/T1_review.md, eval/review/ticks/T1_changed_rows.md (vs the reviewed version)
+Run: .venv/Scripts/python scripts/testsets/build_t1.py
 """
 import collections
 import csv
@@ -17,11 +17,11 @@ import re
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path[:0] = [str(Path(__file__).resolve().parents[1] / "lib"), str(Path(__file__).resolve().parent)]
 from corpus_lookup import all_doc_ids, canon, doc, find_quote, longest_shared_run, write_review  # noqa: E402
 
-ROOT = Path(__file__).resolve().parents[1]
-VERIFIED = ROOT / "eval/review/T1_verified.json"   # {"T1-01": "Fedi", ...}
+ROOT = Path(__file__).resolve().parents[2]
+VERIFIED = ROOT / "eval/review/verified/T1_verified.json"   # {"T1-01": "Fedi", ...}
 PREVIOUS = ROOT / ".superpowers/T1_review_v1.md"   # the sheet Fedi reviewed (for the changed-rows report)
 OFFICIAL = ["D1-001", "D1-002", "D1-003"]
 NOTE_FICTIF = ("note", "Source FICTIVE : à présenter comme non officielle (règle de précédence A2).")
@@ -252,18 +252,18 @@ def main() -> None:
                f"  multi-source rows: {multi}; unanswerable: {unans}; topics: {topics}"] + [f"- {'✅' if ok else '❌'} {n}" for n, ok in checks.items()]
     if errors or not all(checks.values()):
         print("\n".join(errors + summary)); sys.exit(1)
-    with open(ROOT / "eval/T1_regulations.csv", "w", encoding="utf-8", newline="") as f:
+    with open(ROOT / "eval/testsets/T1_regulations.csv", "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(csv_rows[0]), lineterminator="\n"); w.writeheader(); w.writerows(csv_rows)
     intro = ["# T1 review sheet — 25 regulation questions (CF-111)", "",
              "Claim-level evidence: every factual claim of the expected answer is backed by a verbatim quote (doc_id, article key,",
-             "page), an absence check or a table cell — all checked automatically by `scripts/build_t1.py`.", "", "## Coverage", ""]
-    write_review(ROOT / "eval/review/T1_review.md", "\n".join(intro + summary + ["", "## Rows", ""] + review) + "\n")
+             "page), an absence check or a table cell — all checked automatically by `scripts/testsets/build_t1.py`.", "", "## Coverage", ""]
+    write_review(ROOT / "eval/review/sheets/T1_review.md", "\n".join(intro + summary + ["", "## Rows", ""] + review) + "\n")
     ch = ["# T1 — rows changed since your review (final tick)", "",
           f"{len(changed)} rows with new evidence, other keys or another regime: {', '.join(changed)}",
           f"Reworded into claims only (same quotes, same keys — already verified if you accepted them): {', '.join(reworded) or '—'}", "",
           "## Rows", ""]
     ch += [ln for blk in "\n".join(review).split("### ")[1:] if blk.split(" ")[0] in changed for ln in ("### " + blk).splitlines()]
-    write_review(ROOT / "eval/review/T1_changed_rows.md", "\n".join(ch) + "\n")
+    write_review(ROOT / "eval/review/ticks/T1_changed_rows.md", "\n".join(ch) + "\n")
     print("\n".join(summary)); print(f"verified rows: {sum(1 for r in csv_rows if r['verified_by'])}/25 · changed rows to tick: {changed}")
 
 

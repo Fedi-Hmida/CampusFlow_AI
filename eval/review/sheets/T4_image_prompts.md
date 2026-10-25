@@ -1,6 +1,6 @@
 # T4 — image-generation prompts (CF-113)
 
-Generate each image, save it in `eval/T4_photos/` with the exact file name, then tick.
+Generate each image, save it in `eval/testsets/T4_photos/` with the exact file name, then tick.
 Every academic image must show **DOCUMENT FICTIF**; no real names, logos or ID numbers.
 
 ## T4-01_convocation_sharp.png  (convocation, sharp)
@@ -21,7 +21,7 @@ Every academic image must show **DOCUMENT FICTIF**; no real names, logos or ID n
 
 ## T4-02_convocation_blurry.png  (convocation, blurry)
 
-**Prompt:** DERIVED by scripts/degrade_t4.py from T4-02_convocation_sharp_source.png (dim light, motion blur, slight angle). Do not generate.
+**Prompt:** DERIVED by scripts/testsets/degrade_t4.py from T4-02_convocation_sharp_source.png (dim light, motion blur, slight angle). Do not generate.
 
 **Expected fields:** `{"module": "DS15 MLOps et déploiement", "class_group": "5DS7", "session": "Principale", "date": "2027-01-20", "time": "09:00-11:00", "room": "B13"}`
 
@@ -37,7 +37,7 @@ Every academic image must show **DOCUMENT FICTIF**; no real names, logos or ID n
 
 ## T4-03_timetable_rotated.png  (timetable, rotated)
 
-**Prompt:** DERIVED by scripts/degrade_t4.py from T4-03_timetable_upright_source.png (rotated 90° clockwise). Do not generate.
+**Prompt:** DERIVED by scripts/testsets/degrade_t4.py from T4-03_timetable_upright_source.png (rotated 90° clockwise). Do not generate.
 
 **Expected fields:** `{"class_group": "5DS6", "week": "2027-01-11", "entries": "Lundi 09:00 DS14 Advanced Deep Learning B12; Mercredi 13:00 DS12 Big Data Analytics B13"}`
 

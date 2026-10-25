@@ -4,7 +4,7 @@ Input : data/raw/tables/exam_calendar_D2_v4.xlsx (untouched)
 Output: data/tables/exam_calendar.csv, data/tables/module_codes.csv
 Rules : unknown values stay EMPTY (end_time and room of the projected rows); the FICTITIOUS demo block is the only
         place with rooms and end times; every row carries data_status and last_updated.
-Run   : .venv/Scripts/python scripts/transform_calendar.py
+Run   : .venv/Scripts/python scripts/tables/transform_calendar.py
 """
 import csv
 import re
@@ -13,7 +13,7 @@ from pathlib import Path
 
 import openpyxl
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 RAW = ROOT / "data/raw/tables/exam_calendar_D2_v4.xlsx"
 OUT = ROOT / "data/tables"
 LAST_UPDATED = "2026-10-25"

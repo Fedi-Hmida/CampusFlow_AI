@@ -8,7 +8,7 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-CLEAN = Path(__file__).resolve().parents[1] / "data/regs/clean"
+CLEAN = Path(__file__).resolve().parents[2] / "data/regs/clean"
 
 
 def canon(s: str) -> str:
