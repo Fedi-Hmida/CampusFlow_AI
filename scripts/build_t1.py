@@ -260,7 +260,8 @@ def main() -> None:
     write_review(ROOT / "eval/review/T1_review.md", "\n".join(intro + summary + ["", "## Rows", ""] + review) + "\n")
     ch = ["# T1 — rows changed since your review (final tick)", "",
           f"{len(changed)} rows with new evidence, other keys or another regime: {', '.join(changed)}",
-          f"Reworded into claims only (same quotes, same keys — already verified if you accepted them): {', '.join(reworded) or '—'}", ""]
+          f"Reworded into claims only (same quotes, same keys — already verified if you accepted them): {', '.join(reworded) or '—'}", "",
+          "## Rows", ""]
     ch += [ln for blk in "\n".join(review).split("### ")[1:] if blk.split(" ")[0] in changed for ln in ("### " + blk).splitlines()]
     write_review(ROOT / "eval/review/T1_changed_rows.md", "\n".join(ch) + "\n")
     print("\n".join(summary)); print(f"verified rows: {sum(1 for r in csv_rows if r['verified_by'])}/25 · changed rows to tick: {changed}")

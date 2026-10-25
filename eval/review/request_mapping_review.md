@@ -3,6 +3,8 @@
 Each row: delivered value → catalogue value, the article keys it now cites and the evidence. Tick or fix.
 Rule A2: where the delivered row contradicted an official article, the official rule was applied.
 
+## Rows
+
 ### REQ-01 — Attestation de scolarité · regime `all` · handler `SCO-LEVEL`
 - source_ref: D1-006/4/Comment faire la demande
 - source: FICTITIOUS — procedure D1-006 ; values aligned with the cited articles (CF-108)

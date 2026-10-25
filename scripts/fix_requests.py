@@ -130,7 +130,8 @@ def main() -> None:
     raw = list(csv.DictReader(open(ROOT / "data/raw/tables/D4_catalogue_demandes.csv", encoding="utf-8")))
     out, review = [], ["# CF-108 — Request catalogue mapping review", "",
                        "Each row: delivered value → catalogue value, the article keys it now cites and the evidence. Tick or fix.",
-                       "Rule A2: where the delivered row contradicted an official article, the official rule was applied.", ""]
+                       "Rule A2: where the delivered row contradicted an official article, the official rule was applied.", "",
+                       "## Rows", ""]
     for r in raw:
         rid, dec = r["request_id"], DECISIONS[r["request_id"]]
         base = {c: r.get(c, "") for c in COLUMNS}
