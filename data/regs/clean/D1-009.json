@@ -6,17 +6,14 @@
  "regime": "jour;soir",
  "doc_status": "FICTITIOUS",
  "source": "synthetic (team)",
+ "source_pdf": "data/regs/procedure_report-annulation-inscription_2024-2025_FICTIF.pdf",
  "date": "2026-10-24",
  "language": "fr",
- "n_pages": 2,
+ "n_pages": 1,
  "pages": [
   {
    "page": 1,
-   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : report et annulation d'inscription\nVersion d'octobre 2026\n[Tableau p.1]\nRéférence: Public concerné; ESPRIT-INS-01: Cours du jour et cours du soir (alternance : voir la convention ESPRIT-entreprise)\nRéférence: Année de référence; ESPRIT-INS-01: 2024-2025\nArticle 1 : Objet\nCe guide décrit comment reporter ou annuler son inscription et ce que prévoient les règlements pour le\nremboursement des frais.\nArticle 2 : Report d'inscription\nLe report consiste à reporter l'inscription de l'année en cours à une date ultérieure. Chaque étudiant\nbénéficie d'un seul report sur la durée totale de sa scolarité.\nUn formulaire de demande est rempli et déposé au bureau d'ordre de l'école. Pour bénéficier d'un\nremboursement, la demande doit être déposée au plus tard le 30 novembre de l'année en cours. Aucune\ndemande de report n'est recevable après le 30 novembre (cours du soir).\nSi le délai est respecté, les frais de scolarité sont remboursés, à l'exception des frais (droits) d'inscription.\nArticle 3 : Annulation d'inscription\nL'annulation est le retrait de l'inscription de l'année en cours ou l'abandon définitif du cursus. Un formulaire\nd'annulation est déposé au bureau d'ordre. Trois cas :\n• demande déposée avant le 30 novembre : remboursement des frais de scolarité, à l'exception des frais\nd'inscription ;\n• demande déposée entre le 1er décembre et le 31 janvier : la première tranche des frais de scolarité est\nretenue et non remboursée ; le reste est remboursé ;\n• demande déposée à partir du 1er février : aucun remboursement.\nArticle 4 : Délai de remboursement\nCours du soir : le remboursement est effectué dans un délai ne dépassant pas un mois à compter de la\ndate de notification. La première tranche est exigée à l'inscription et la deuxième doit être réglée avant la\nfin du mois de janvier.\nCours du jour : le règlement ne fixe pas de délai de remboursement.\nArticle 5 : Démarche pratique\nL'étudiant retire le formulaire à la scolarité ou au bureau d'ordre, le remplit, joint une copie de sa pièce\nd'identité et dépose le tout contre un accusé de réception daté. La date de l'accusé de réception fait foi\npour les délais.\nArticle 6 : Effets du report\nL'étudiant dont le report est accepté est réinscrit l'année suivante dans la même année d'études, sous\nréserve des places disponibles et du règlement de scolarité en vigueur à cette date."
-  },
-  {
-   "page": 2,
-   "text": "Le report ne remplace pas le redoublement, qui reste autorisé une seule fois par cycle (cours du jour) ou\nune seule fois au cours des quatre années (cours du soir et alternance)."
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : report et annulation d'inscription\nVersion d'octobre 2026\nRéférence : ESPRIT-INS-01\nPublic concerné : Cours du jour et cours du soir (alternance : voir la convention ESPRIT-entreprise)\nAnnée de référence : 2024-2025\nArticle 1 : Objet\nCe guide décrit comment reporter ou annuler son inscription et ce que prévoient les règlements pour le\nremboursement des frais.\nArticle 2 : Report d'inscription\nLe report consiste à reporter l'inscription de l'année en cours à une date ultérieure. Chaque étudiant\nbénéficie d'un seul report sur la durée totale de sa scolarité. Un formulaire de demande est rempli et\ndéposé au bureau d'ordre de l'école. Pour bénéficier d'un remboursement, la demande doit être déposée\nau plus tard le 30 novembre de l'année en cours. Aucune demande de report n'est recevable après le 30\nnovembre (cours du soir).\nSi le délai est respecté, les frais de scolarité sont remboursés, à l'exception des frais (droits) d'inscription.\nArticle 3 : Annulation d'inscription\nL'annulation est le retrait de l'inscription de l'année en cours ou l'abandon définitif du cursus. Un formulaire\nd'annulation est déposé au bureau d'ordre. Trois cas :\n• demande déposée avant le 30 novembre : remboursement des frais de scolarité, à l'exception des frais\nd'inscription ;\n• demande déposée entre le 1er décembre et le 31 janvier : la première tranche des frais de scolarité est\nretenue et non remboursée ; le reste est remboursé ;\n• demande déposée à partir du 1er février : aucun remboursement.\nArticle 4 : Délai de remboursement\nCours du soir : le remboursement est effectué dans un délai ne dépassant pas un mois à compter de la\ndate de notification. La première tranche est exigée à l'inscription et la deuxième doit être réglée avant la\nfin du mois de janvier.\nCours du jour : le règlement ne fixe pas de délai de remboursement.\nArticle 5 : Démarche pratique\nL'étudiant retire le formulaire à la scolarité ou au bureau d'ordre, le remplit, joint une copie de sa pièce\nd'identité et dépose le tout contre un accusé de réception daté. La date de l'accusé de réception fait foi\npour les délais.\nArticle 6 : Effets du report\nL'étudiant dont le report est accepté est réinscrit l'année suivante dans la même année d'études, sous\nréserve des places disponibles et du règlement de scolarité en vigueur à cette date. Le report ne remplace\npas le redoublement, qui reste autorisé une seule fois par cycle (cours du jour) ou une seule fois au cours\ndes quatre années (cours du soir et alternance)."
   }
  ],
  "articles": [
@@ -28,8 +25,8 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : report et annulation d'inscription\nVersion d'octobre 2026\n[Tableau p.1]\nRéférence: Public concerné; ESPRIT-INS-01: Cours du jour et cours du soir (alternance : voir la convention ESPRIT-entreprise)\nRéférence: Année de référence; ESPRIT-INS-01: 2024-2025",
-   "chars": 330
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nEcole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : report et annulation d'inscription\nVersion d'octobre 2026\nRéférence : ESPRIT-INS-01\nPublic concerné : Cours du jour et cours du soir (alternance : voir la convention ESPRIT-entreprise)\nAnnée de référence : 2024-2025",
+   "chars": 292
   },
   {
    "key": "D1-009/1/Objet",
@@ -39,7 +36,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 1 : Objet\nCe guide décrit comment reporter ou annuler son inscription et ce que prévoient les règlements pour le\nremboursement des frais.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 1 : Objet\nCe guide décrit comment reporter ou annuler son inscription et ce que prévoient les règlements pour le\nremboursement des frais.",
    "chars": 145
   },
   {
@@ -50,7 +47,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 2 : Report d'inscription\nLe report consiste à reporter l'inscription de l'année en cours à une date ultérieure. Chaque étudiant\nbénéficie d'un seul report sur la durée totale de sa scolarité.\nUn formulaire de demande est rempli et déposé au bureau d'ordre de l'école. Pour bénéficier d'un\nremboursement, la demande doit être déposée au plus tard le 30 novembre de l'année en cours. Aucune\ndemande de report n'est recevable après le 30 novembre (cours du soir).\nSi le délai est respecté, les frais de scolarité sont remboursés, à l'exception des frais (droits) d'inscription.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 2 : Report d'inscription\nLe report consiste à reporter l'inscription de l'année en cours à une date ultérieure. Chaque étudiant\nbénéficie d'un seul report sur la durée totale de sa scolarité. Un formulaire de demande est rempli et\ndéposé au bureau d'ordre de l'école. Pour bénéficier d'un remboursement, la demande doit être déposée\nau plus tard le 30 novembre de l'année en cours. Aucune demande de report n'est recevable après le 30\nnovembre (cours du soir).\nSi le délai est respecté, les frais de scolarité sont remboursés, à l'exception des frais (droits) d'inscription.",
    "chars": 582
   },
   {
@@ -61,7 +58,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 3 : Annulation d'inscription\nL'annulation est le retrait de l'inscription de l'année en cours ou l'abandon définitif du cursus. Un formulaire\nd'annulation est déposé au bureau d'ordre. Trois cas :\n• demande déposée avant le 30 novembre : remboursement des frais de scolarité, à l'exception des frais\nd'inscription ;\n• demande déposée entre le 1er décembre et le 31 janvier : la première tranche des frais de scolarité est\nretenue et non remboursée ; le reste est remboursé ;\n• demande déposée à partir du 1er février : aucun remboursement.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 3 : Annulation d'inscription\nL'annulation est le retrait de l'inscription de l'année en cours ou l'abandon définitif du cursus. Un formulaire\nd'annulation est déposé au bureau d'ordre. Trois cas :\n• demande déposée avant le 30 novembre : remboursement des frais de scolarité, à l'exception des frais\nd'inscription ;\n• demande déposée entre le 1er décembre et le 31 janvier : la première tranche des frais de scolarité est\nretenue et non remboursée ; le reste est remboursé ;\n• demande déposée à partir du 1er février : aucun remboursement.",
    "chars": 547
   },
   {
@@ -72,7 +69,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 4 : Délai de remboursement\nCours du soir : le remboursement est effectué dans un délai ne dépassant pas un mois à compter de la\ndate de notification. La première tranche est exigée à l'inscription et la deuxième doit être réglée avant la\nfin du mois de janvier.\nCours du jour : le règlement ne fixe pas de délai de remboursement.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 4 : Délai de remboursement\nCours du soir : le remboursement est effectué dans un délai ne dépassant pas un mois à compter de la\ndate de notification. La première tranche est exigée à l'inscription et la deuxième doit être réglée avant la\nfin du mois de janvier.\nCours du jour : le règlement ne fixe pas de délai de remboursement.",
    "chars": 337
   },
   {
@@ -83,7 +80,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 5 : Démarche pratique\nL'étudiant retire le formulaire à la scolarité ou au bureau d'ordre, le remplit, joint une copie de sa pièce\nd'identité et dépose le tout contre un accusé de réception daté. La date de l'accusé de réception fait foi\npour les délais.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 5 : Démarche pratique\nL'étudiant retire le formulaire à la scolarité ou au bureau d'ordre, le remplit, joint une copie de sa pièce\nd'identité et dépose le tout contre un accusé de réception daté. La date de l'accusé de réception fait foi\npour les délais.",
    "chars": 262
   },
   {
@@ -93,8 +90,8 @@
    "title": "Effets du report",
    "section": "",
    "page_start": 1,
-   "page_end": 2,
-   "text": "Article 6 : Effets du report\nL'étudiant dont le report est accepté est réinscrit l'année suivante dans la même année d'études, sous\nréserve des places disponibles et du règlement de scolarité en vigueur à cette date.\nLe report ne remplace pas le redoublement, qui reste autorisé une seule fois par cycle (cours du jour) ou\nune seule fois au cours des quatre années (cours du soir et alternance).",
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 6 : Effets du report\nL'étudiant dont le report est accepté est réinscrit l'année suivante dans la même année d'études, sous\nréserve des places disponibles et du règlement de scolarité en vigueur à cette date. Le report ne remplace\npas le redoublement, qui reste autorisé une seule fois par cycle (cours du jour) ou une seule fois au cours\ndes quatre années (cours du soir et alternance).",
    "chars": 395
   }
  ]

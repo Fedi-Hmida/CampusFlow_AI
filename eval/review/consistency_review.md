@@ -7,41 +7,41 @@ before regeneration (CF-104). Tick each correction.
 ## 1. Conflicts and corrections (4 conflicts, 1 clarification)
 
 ### C1 — absences / exceptional retake (conflict)
-- **Fictitious** (D1-004 · `D1-004/3/Dossier de demande de repassage exceptionnel` · p.1): « Cours du jour : il est recommandé de déposer le dossier dans les 48 heures suivant l'épreuve, comme pour les autres régimes. »
+- **Fictitious, as delivered** (D1-004 raw · p.1): « Cours du jour : il est recommandé de déposer le dossier dans les 48 heures suivant l'épreuve, comme pour les autres régimes. »
 - **Official** (D1-001 · `D1-001/7-8/Déroulement des épreuves` · p.10): « Toutefois, les demandes de repassage exceptionnelles sont traitées au cas par cas et se font suite à un dépôt de dossier auprès de la scolarité »
 - **Why**: The day regulation sets no deadline; the 48 h rule belongs to cours du soir / alternance only. The fictitious text invented a 48 h deadline for day students.
-- **Proposed text**: « Cours du jour : le règlement ne fixe pas de délai de dépôt ; la demande est traitée au cas par cas par la scolarité. »
+- **Corrected text (now in the regenerated PDF, D1-004 · `D1-004/3/Dossier de demande de repassage exceptionnel` · p.1)**: « Cours du jour : le règlement ne fixe pas de délai de dépôt ; la demande est traitée au cas par cas par la scolarité. »
 - [ ] OK  [ ] fix: ____
 
 ### C2 — absences / medical certificate (evening) (conflict)
-- **Fictitious** (D1-004 · `D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)` · p.1): « Un simple certificat médical peut ne pas être considéré comme un motif valable. »
+- **Fictitious, as delivered** (D1-004 raw · p.1): « Un simple certificat médical peut ne pas être considéré comme un motif valable. »
 - **Official** (D1-002 · `D1-002/7-2/Evaluation des élèves` · p.5): « Il est à noter qu’un simple certificat médical n'est pas considéré comme un motif valable. »
 - **Official** (D1-003 · `D1-003/8/Absences des examens` · p.7): « Il est à noter qu’un simple certificat médical peut ne pas être considéré comme un motif valable. »
 - **Why**: The fictitious text applied the softer alternance wording ('peut ne pas') to cours du soir, whose regulation is categorical ('n'est pas').
-- **Proposed text**: « Cours du soir : un simple certificat médical n'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être considéré comme un motif valable. »
+- **Corrected text (now in the regenerated PDF, D1-004 · `D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)` · p.1)**: « Cours du soir : un simple certificat médical n'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être considéré comme un motif valable. »
 - [ ] OK  [ ] fix: ____
 
 ### C3 — grade review (double correction) (conflict)
-- **Fictitious** (D1-008 · `D1-008/2/Principe de la double correction` · p.1): « Cette règle s'applique au cours du soir, à l'alternance et au cours du jour. »
+- **Fictitious, as delivered** (D1-008 raw · p.1): « Cette règle s'applique au cours du soir, à l'alternance et au cours du jour. »
 - **Official** (D1-002 · `D1-002/7-2/Evaluation des élèves` · p.5): « L’étudiant peut déposer une demande de double correction d’une épreuve écrite auprès de service examen dans un délai d’une semaine après l’affichage de la note de cette épreuve. »
 - **Official** (D1-003 · `D1-003/7-2/Evaluation des alternant` · p.4): « L’étudiant peut déposer une demande de double correction d’une épreuve écrite auprès de service examen dans un délai d’une semaine après l’affichage de la note de cette épreuve. »
 - **Official absent**: « double correction » appears 0 time(s) in D1-001.
 - **Why**: Double correction exists only in the evening and work-study regulations; extending it to day students is not supported by an official text.
-- **Proposed text**: « Cette règle est prévue par les règlements du cours du soir et de l'alternance (article 7-2). Le règlement du cours du jour ne la mentionne pas : l'étudiant du cours du jour se renseigne auprès du service examen. »
+- **Corrected text (now in the regenerated PDF, D1-008 · `D1-008/2/Principe de la double correction` · p.1)**: « Cette règle est prévue par les règlements du cours du soir et de l'alternance (article 7-2). Le règlement du cours du jour ne la mentionne pas : l'étudiant du cours du jour se renseigne auprès du service examen. »
 - [ ] OK  [ ] fix: ____
 
 ### C4 — discipline / sanctions (conflict)
-- **Fictitious** (D1-011 · `D1-011/9/Sanctions disciplinaires` · p.2): « Les sanctions possibles sont : avertissement, blâme, interdiction de passer les examens d'une ou deux sessions, renvoi de l'école pour une durée maximale d'une année universitaire, renvoi définitif. Dans les deux derniers cas, l'élève n'a pas droit au remboursement des frais de scolarité. »
+- **Fictitious, as delivered** (D1-011 raw · p.2): « Les sanctions possibles sont : avertissement, blâme, interdiction de passer les examens d'une ou deux sessions, renvoi de l'école pour une durée maximale d'une année universitaire, renvoi définitif. Dans les deux derniers cas, l'élève n'a pas droit au remboursement des frais de scolarité. »
 - **Official** (D1-001 · `D1-001/7-8/Déroulement des épreuves` · p.10): « Les sanctions peuvent être sous forme d’avertissement, de blâme, d'interdiction de participation à une ou deux des sessions d'examen, de privation du rachat, de privation de la mobilité internationale »
 - **Official** (D1-002 · `D1-002/12/Comparution devant le conseil de discipline` · p.10): « Dans les deux derniers cas, l’élève n’a pas le droit au remboursement des frais de scolarité. »
 - **Why**: The fictitious 'all regimes' list copies the evening list; the day list is longer (rachat, mobility, 2-year registration ban) and the non-refund rule is only in the evening regulation.
-- **Proposed text**: « Les sanctions possibles sont fixées par le règlement de scolarité du régime de l'étudiant : cours du jour (règlement du cours du jour, article 7-8, gestion des fraudes) et cours du soir (règlement du cours du soir, article 12). Le non-remboursement des frais de scolarité en cas de renvoi est prévu par le règlement du cours du soir. »
+- **Corrected text (now in the regenerated PDF, D1-011 · `D1-011/9/Sanctions disciplinaires` · p.2)**: « Les sanctions possibles sont fixées par le règlement de scolarité du régime de l'étudiant : cours du jour (règlement du cours du jour, article 7-8, gestion des fraudes) et cours du soir (règlement du cours du soir, article 12). Le non-remboursement des frais de scolarité en cas de renvoi est prévu par le règlement du cours du soir. »
 - [ ] OK  [ ] fix: ____
 
 ### C5 — citations (clarification)
-- **Fictitious** (D1-004 · `D1-004/1/Objet et champ d'application` · p.1): « Il complète RS-Jour (articles 7-6, 7-8 et 9), RS-Soir (articles 7-2, 7-7 et 9) et RS-Alt (articles 5, 8 et 10). »
+- **Fictitious, as delivered** (D1-004 raw · p.1): « Il complète RS-Jour (articles 7-6, 7-8 et 9), RS-Soir (articles 7-2, 7-7 et 9) et RS-Alt (articles 5, 8 et 10). »
 - **Why**: Replace the private abbreviations by the document names and state the precedence rule (A2) inside the fictitious text.
-- **Proposed text**: « Il complète le règlement du cours du jour (articles 7-6, 7-8 et 9), le règlement du cours du soir (articles 7-2, 7-7 et 9) et le règlement de l'alternance (articles 5, 8 et 10). En cas de différence, le règlement officiel du régime de l'étudiant prévaut. »
+- **Corrected text (now in the regenerated PDF, D1-004 · `D1-004/1/Objet et champ d'application` · p.1)**: « Il complète le règlement du cours du jour (articles 7-6, 7-8 et 9), le règlement du cours du soir (articles 7-2, 7-7 et 9) et le règlement de l'alternance (articles 5, 8 et 10). En cas de différence, le règlement officiel du régime de l'étudiant prévaut. »
 - [ ] OK  [ ] fix: ____
 
 ## 2. Overlaps checked and consistent
@@ -61,7 +61,7 @@ before regeneration (CF-104). Tick each correction.
 | PFE jury (evening/work-study) | D1-007 · `D1-007/5/Jury et soutenance` · p.1: « le jury est désigné par le directeur de l'école et compte au moins trois membres » | D1-002 · `D1-002/7-9/Projet de Fin d’Etudes (PFE)` · p.8: « Ce jury est composé au moins de trois membres dont le président du jury, le ou les encadrants et le rapporteur. » |
 | registration | D1-009 · `D1-009/2/Report d'inscription` · p.1: « Chaque étudiant bénéficie d'un seul report sur la durée totale de sa scolarité. » | D1-001 · `D1-001/3/Inscription des élèves` · p.3: « Chaque étudiant bénéficie d’un seul report d’inscription sur la durée totale de la scolarité. » |
 | registration (refund, evening) | D1-009 · `D1-009/4/Délai de remboursement` · p.1: « le remboursement est effectué dans un délai ne dépassant pas un mois » | D1-002 · `D1-002/3/Inscription des élèves` · p.3: « remboursable dans un délai ne dépassant pas un mois à compter de la date de notification » |
-| repeating a year | D1-009 · `D1-009/6/Effets du report` · p.2: « une seule fois au cours des quatre années (cours du soir et alternance) » | D1-002 · `D1-002/7-8/Redoublement` · p.7: « Le redoublement est autorisé une seule fois au cours des quatre années de la scolarité. » |
+| repeating a year | D1-009 · `D1-009/6/Effets du report` · p.1: « une seule fois au cours des quatre années (cours du soir et alternance) » | D1-002 · `D1-002/7-8/Redoublement` · p.7: « Le redoublement est autorisé une seule fois au cours des quatre années de la scolarité. » |
 | internships | D1-010 · `D1-010/2/Les trois stages` · p.1: « Stage ingénieur : 5 ECTS, 8 semaines minimum » | D1-001 · `D1-001/7-9/Stage` · p.11: « Stage: Stage ingénieur; Nombre d'ECTS: 5; Durée minimale: 8 semaines » |
 | exam room rules | D1-005 · `D1-005/6/Rappel des règles le jour de l'épreuve` · p.1: « Aucun étudiant ne peut quitter la salle avant 30 minutes. » | D1-001 · `D1-001/7-8/Déroulement des épreuves` · p.9: « L’étudiant pourra quitter la salle après au moins 30 minutes du démarrage de l’épreuve. » |
 
@@ -69,13 +69,13 @@ before regeneration (CF-104). Tick each correction.
 
 | Location | Text |
 |---|---|
-| D1-004 · `D1-004/4/Instruction de la demande` · p.2 | « Délai de réponse indicatif : 7 jours ouvrables après le dépôt d'un dossier complet. » |
+| D1-004 · `D1-004/4/Instruction de la demande` · p.1 | « Délai de réponse indicatif : 7 jours ouvrables après le dépôt d'un dossier complet. » |
 | D1-005 · `D1-005/3/Aménagements possibles` · p.1 | « un temps supplémentaire d'un tiers de la durée de l'épreuve » |
 | D1-005 · `D1-005/4/Dossier de demande` · p.1 | « Il est déposé à la scolarité au moins 7 jours avant le début de la session d'examens. » |
 | D1-006 · `D1-006/4/Comment faire la demande` · p.1 | « certificat de scolarité, 3 jours ouvrables ; relevé de notes, 7 jours ouvrables » |
 | D1-007 · `D1-007/4/Calendrier de dépôt` · p.1 | « Le rapport complet est déposé au plus tard 15 jours avant la date de soutenance. » |
 | D1-008 · `D1-008/6/Note retenue` · p.1 | « Si l'écart entre les deux notes dépasse 3 points sur » |
-| D1-010 · `D1-010/7/Dépôt et évaluation` · p.2 | « au plus tard le 30 septembre suivant la fin du stage » |
+| D1-010 · `D1-010/7/Dépôt et évaluation` · p.1 | « au plus tard le 30 septembre suivant la fin du stage » |
 | D1-010 · `D1-010/6/Rapport de stage et honnêteté intellectuelle` · p.1 | « un taux de similarité inférieur à 18 % est attendu, comme pour le » |
 | D1-011 · `D1-011/2/Accès aux locaux` · p.1 | « l'étudiant le signale à la scolarité dans un délai de 48 heures » |
 

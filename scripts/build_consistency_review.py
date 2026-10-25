@@ -9,6 +9,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from corpus_lookup import canon, doc, find_quote  # noqa: E402
+import extract_regs as ex  # noqa: E402
+import pdfplumber  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 CORR = json.loads((ROOT / "scripts/fictif_corrections.json").read_text(encoding="utf-8"))
@@ -62,6 +64,18 @@ ADDITIONS = [
 ]
 
 
+def raw_loc(doc_id: str, quote: str) -> str:
+    """Locate a quote in the untouched delivered PDF (before the CF-108b corrections)."""
+    raw = next(r for d, r, *_ in ex.DOCS if d == doc_id)
+    with pdfplumber.open(str(ex.RAW / raw)) as pdf:
+        toc = {}
+        pages = [ex.page_lines(doc_id, p, {}, toc) for p in pdf.pages]
+    for i, lines in enumerate(pages, 1):
+        if canon(quote) in canon(" ".join(lines)):
+            return f"{doc_id} raw · p.{i}"
+    sys.exit(f"QUOTE NOT FOUND in raw {doc_id}: {quote[:80]}")
+
+
 def loc(doc_id: str, quote: str) -> str:
     f = find_quote(doc_id, quote)
     if not f:
@@ -78,14 +92,15 @@ def main() -> None:
            f"{sum(c['type'] != 'conflict' for c in CORR)} clarification)", ""]
     for c in CORR:
         out += [f"### {c['id']} — {c['topic']} ({c['type']})",
-                f"- **Fictitious** ({loc(c['doc_id'], c['old'])}): « {c['old']} »"]
+                f"- **Fictitious, as delivered** ({raw_loc(c['doc_id'], c['old'])}): « {c['old']} »"]
         for o in c["official"]:
             out.append(f"- **Official** ({loc(o['doc_id'], o['quote'])}): « {o['quote']} »")
         if c.get("official_absent"):
             a = c["official_absent"]
             hits = canon(" ".join(p["text"] for p in doc(a["doc_id"])["pages"])).count(canon(a["search"]))
             out.append(f"- **Official absent**: « {a['search']} » appears {hits} time(s) in {a['doc_id']}.")
-        out += [f"- **Why**: {c['reason']}", f"- **Proposed text**: « {c['new']} »", "- [ ] OK  [ ] fix: ____", ""]
+        out += [f"- **Why**: {c['reason']}", f"- **Corrected text (now in the regenerated PDF, {loc(c['doc_id'], c['new'])})**: « {c['new']} »",
+                "- [ ] OK  [ ] fix: ____", ""]
     out += ["## 2. Overlaps checked and consistent", "", "| Topic | Fictitious | Official |", "|---|---|---|"]
     for t, fd, fq, od, oq in CONSISTENT:
         out.append(f"| {t} | {loc(fd, fq)}: « {fq} » | {loc(od, oq)}: « {oq} » |")

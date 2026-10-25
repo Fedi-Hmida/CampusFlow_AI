@@ -54,6 +54,7 @@ TOC_LINE = re.compile(r"^\s*(Article\s*(\d+|premier|1er)|CHAPITRE\s+[IVXL]+|\d{1
 ARTICLE = re.compile(r"^\s*Article\s*(\d+|premier|1er)\s*[:.–-]\s*(.*)$", re.I)
 SUB = re.compile(r"^\s*(\d{1,2})\s*[-.]\s*(\d{1,2})\s*(?!%)([A-ZÉÈÀÂÎa-zé].*)$")  # "7-8Projet…" has no space in D1-003
 CHAPTER = re.compile(r"^\s*CHAPITRE\s+([IVXL]+)\s*:?\s*(.*)$", re.I)
+FICTIF_LABEL = "DOCUMENT FICTIF — projet CampusFlow AI, non officiel"  # header drawn by regenerate_fictif.py
 MANUAL = ROOT / "scripts/manual_tables.json"  # hand-written serialisations (A6), keyed "<doc_id>/p<page>/t<index>"
 
 
@@ -63,6 +64,8 @@ def norm_ws(s: str) -> str:
 
 def serialise(rows: list[list]) -> list[str]:
     rows = [[norm_ws(str(c or "")) for c in r] for r in rows if r and any(c for c in r)]
+    if rows and len(rows[0]) == 2 and rows[0][0] in ("Référence", "Reference"):  # key/value header block of a procedure
+        return [f"{k} : {v}" for k, v in rows]
     if len(rows) < 2:
         return [" ; ".join(c for c in r if c) for r in rows]
     head = [h or f"col{i + 1}" for i, h in enumerate(rows[0])]
@@ -89,7 +92,7 @@ def page_lines(doc_id: str, page, manual: dict, toc_titles: dict) -> list[str]:
     out = []
     for _, txt in items:
         txt = CID.sub("•", txt).strip()
-        if not txt or FOOTER.match(txt) or PAGENUM.match(txt) or txt.upper() in ("SOMMAIRE", "TABLE DES MATIÈRES", "TABLE DES MATIERES"):
+        if not txt or txt == FICTIF_LABEL or FOOTER.match(txt) or PAGENUM.match(txt) or txt.upper() in ("SOMMAIRE", "TABLE DES MATIÈRES", "TABLE DES MATIERES"):
             continue
         m = TOC_LINE.match(txt)
         if m:
@@ -155,12 +158,17 @@ def main() -> None:
     CLEAN.mkdir(parents=True, exist_ok=True)
     manual = json.loads(MANUAL.read_text(encoding="utf-8")) if MANUAL.exists() else {}
     for doc_id, raw, target, title, regime, status, source, date in DOCS:
-        with pdfplumber.open(str(RAW / raw)) as pdf:
+        # FICTITIOUS documents are read from their regenerated, labelled copy (CF-104) once it exists
+        src = OUT / target if status == "FICTITIOUS" and (OUT / target).exists() else RAW / raw
+        with pdfplumber.open(str(src)) as pdf:
             toc_titles = {}
             pages = [page_lines(doc_id, p, manual, toc_titles) for p in pdf.pages]
         units = split_units(doc_id, pages, toc_titles)
+        if status == "FICTITIOUS":  # every unit (future chunk) carries the label (A2)
+            for u in units:
+                u["text"] = f"[{FICTIF_LABEL}]\n" + u["text"]
         doc = {"doc_id": doc_id, "file": target, "raw_file": raw, "title": title, "regime": regime, "doc_status": status,
-               "source": source, "date": date, "language": "fr", "n_pages": len(pages),
+               "source": source, "source_pdf": str(src.relative_to(ROOT)).replace("\\", "/"), "date": date, "language": "fr", "n_pages": len(pages),
                "pages": [{"page": i + 1, "text": "\n".join(p)} for i, p in enumerate(pages)], "articles": units}
         (CLEAN / f"{doc_id}.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1), encoding="utf-8", newline="\n")
         if status == "official":

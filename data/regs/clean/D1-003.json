@@ -6,6 +6,7 @@
  "regime": "alternance",
  "doc_status": "official",
  "source": "ESPRIT (team delivery)",
+ "source_pdf": "data/raw/regs/REGLEMENT-ALT2024-2025.pdf",
  "date": "2024-11-19",
  "language": "fr",
  "n_pages": 12,
@@ -221,9 +222,20 @@
    "title": "Redoublement",
    "section": "",
    "page_start": 6,
+   "page_end": 6,
+   "text": "7-7 Redoublement\nLe redoublement est autorisé une seule fois au cours des quatre années de la scolarité.\nEn cas de redoublement, les UE sont de deux types :\n- UE validée durant l’année précédente : dans ce cas, l’élève peut repasser tout module composant l’UE dans\nle but d’améliorer sa moyenne générale. La nouvelle moyenne du module est calculée selon la même\nprocédure décrite dans le paragraphe 7.3. Elle sera retenue si elle est supérieure à l'ancienne moyenne.\n- UE non validée durant l’année précédente (moyenne UE inférieure à 10/20) : dans ce cas, l'élève doit\nobligatoirement repasser tous les modules dont la moyenne est inférieure à 10/20 de l'UE non validée. Tous\nles résultats obtenus l’année précédente dans ces modules sont annulés et l’élève est tenu d’assister à\ntoutes les séances, de passer toutes les épreuves d’évaluation : contrôle continu, TP, test, examen, etc.\n- L'élève doit assister à tout nouveau module introduit dans le programme.\n- En cas de modification dans l'UE (ajout / suppression de modules ou modification des coefficients des\nmodules), l'élève doit contacter le directeur de la formation.\nIl est vivement recommandé à l’élève d’assister à tous les modules même s’ils sont validés.",
+   "chars": 1220
+  },
+  {
+   "key": "D1-003/7-8/Projet de Fin d’Etudes (PFE)",
+   "level": "subsection",
+   "number": "7-8",
+   "title": "Projet de Fin d’Etudes (PFE)",
+   "section": "",
+   "page_start": 6,
    "page_end": 7,
-   "text": "7-7 Redoublement\nLe redoublement est autorisé une seule fois au cours des quatre années de la scolarité.\nEn cas de redoublement, les UE sont de deux types :\n- UE validée durant l’année précédente : dans ce cas, l’élève peut repasser tout module composant l’UE dans\nle but d’améliorer sa moyenne générale. La nouvelle moyenne du module est calculée selon la même\nprocédure décrite dans le paragraphe 7.3. Elle sera retenue si elle est supérieure à l'ancienne moyenne.\n- UE non validée durant l’année précédente (moyenne UE inférieure à 10/20) : dans ce cas, l'élève doit\nobligatoirement repasser tous les modules dont la moyenne est inférieure à 10/20 de l'UE non validée. Tous\nles résultats obtenus l’année précédente dans ces modules sont annulés et l’élève est tenu d’assister à\ntoutes les séances, de passer toutes les épreuves d’évaluation : contrôle continu, TP, test, examen, etc.\n- L'élève doit assister à tout nouveau module introduit dans le programme.\n- En cas de modification dans l'UE (ajout / suppression de modules ou modification des coefficients des\nmodules), l'élève doit contacter le directeur de la formation.\nIl est vivement recommandé à l’élève d’assister à tous les modules même s’ils sont validés.\n7-8Projet de Fin d’Etudes (PFE)\nLe projet de fin d'études (PFE) peut démarrer pour un étudiant inscrit en quatrième année et a pour objectif la mise\nen pratique des connaissances acquises durant le cursus.\nLe projet de fin d'études donne lieu à la rédaction d'un rapport et est couronné par une soutenance devant un jury\ndésigné par le directeur de l’école sur proposition du chef de la spécialité concernée. Ce jury est composé au moins\nde trois membres dont le président du jury, le ou les encadrants et le rapporteur. Le directeur de l’École peut inviter,\nen outre, toute personne dont la compétence est reconnue dans le domaine pour faire partie du jury.\nNe sont autorisés à soutenir le projet de fin d’études que les élèves ayant réussi les examens de la quatrième année\net ayant obtenu la validation de toutes les UE.\nLes élèves n’ayant pas obtenu la validation de leur stage et/ou n’ayant pas soutenu avec succès le projet de fin\nd’études et/ou n’ayant pas obtenu leurs certifications linguistiques, peuvent bénéficier d’une prolongation de\nscolarité d'une durée maximale de 6 mois.\nA l’issue de la prolongation, l’élève n’ayant pas validé son PFE, est considéré comme redoublant et doit refaire son\nPFE avec un sujet différent si les conditions de redoublement sont satisfaites.",
-   "chars": 2507
+   "text": "7-8Projet de Fin d’Etudes (PFE)\nLe projet de fin d'études (PFE) peut démarrer pour un étudiant inscrit en quatrième année et a pour objectif la mise\nen pratique des connaissances acquises durant le cursus.\nLe projet de fin d'études donne lieu à la rédaction d'un rapport et est couronné par une soutenance devant un jury\ndésigné par le directeur de l’école sur proposition du chef de la spécialité concernée. Ce jury est composé au moins\nde trois membres dont le président du jury, le ou les encadrants et le rapporteur. Le directeur de l’École peut inviter,\nen outre, toute personne dont la compétence est reconnue dans le domaine pour faire partie du jury.\nNe sont autorisés à soutenir le projet de fin d’études que les élèves ayant réussi les examens de la quatrième année\net ayant obtenu la validation de toutes les UE.\nLes élèves n’ayant pas obtenu la validation de leur stage et/ou n’ayant pas soutenu avec succès le projet de fin\nd’études et/ou n’ayant pas obtenu leurs certifications linguistiques, peuvent bénéficier d’une prolongation de\nscolarité d'une durée maximale de 6 mois.\nA l’issue de la prolongation, l’élève n’ayant pas validé son PFE, est considéré comme redoublant et doit refaire son\nPFE avec un sujet différent si les conditions de redoublement sont satisfaites.",
+   "chars": 1286
   },
   {
    "key": "D1-003/8/Absences des examens",

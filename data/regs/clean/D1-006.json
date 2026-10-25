@@ -6,13 +6,14 @@
  "regime": "all",
  "doc_status": "FICTITIOUS",
  "source": "synthetic (team)",
+ "source_pdf": "data/regs/procedure_certificats-releves-de-notes_2024-2025_FICTIF.pdf",
  "date": "2026-10-24",
  "language": "fr",
  "n_pages": 1,
  "pages": [
   {
    "page": 1,
-   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : certificats de scolarité, relevés de notes et diplôme\nVersion d'octobre 2026\n[Tableau p.1]\nRéférence: Public concerné; ESPRIT-ATT-01: Tous les étudiants (cours du jour, cours du soir, alternance)\nRéférence: Année de référence; ESPRIT-ATT-01: 2024-2025\nArticle 1 : Objet\nCe guide explique comment obtenir un certificat de scolarité, un relevé de notes ou les documents de fin\nd'études.\nArticle 2 : Documents concernés\n• Certificat (ou attestation) de scolarité : prouve l'inscription de l'étudiant pour l'année en cours.\n• Relevé de notes : résultats par module et par unité d'enseignement (UE), avec les crédits ECTS.\n• Documents de fin d'études : diplôme d'ingénieur, relevé de notes de la dernière année, attestation de\ndiplôme et, éventuellement, supplément au diplôme (SD).\nArticle 3 : Conditions de délivrance\nL'étudiant doit être régulièrement inscrit. Pour les documents de fin d'études, il doit avoir obtenu un quitus\nadministratif délivré par la scolarité, attestant qu'il a rempli toutes ses obligations administratives et légales\nvis-à-vis de l'école (paiement intégral des frais de scolarité, restitution des documents et du matériel\nempruntés).\nArticle 4 : Comment faire la demande\nLa demande se fait auprès du service de la scolarité avec le formulaire FORM-03 et une pièce d'identité\n(CIN, passeport ou carte d'étudiant).\nDélais indicatifs : certificat de scolarité, 3 jours ouvrables ; relevé de notes, 7 jours ouvrables à partir de la\npublication officielle des résultats.\nLe document est retiré à la scolarité par l'étudiant ou par une personne munie d'une procuration écrite et\nde sa propre pièce d'identité.\nArticle 5 : Duplicata\nEn cas de perte, l'étudiant peut demander un duplicata en précisant la nature du document. Le duplicata\nporte la mention « duplicata » et est délivré dans un délai indicatif de 10 jours ouvrables.\nArticle 6 : Protection des données personnelles\nLes données personnelles des étudiants sont traitées conformément à la loi organique n°63-2004 du 27\njuillet 2004. L'accès est limité aux personnes concernées par le traitement."
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : certificats de scolarité, relevés de notes et diplôme\nVersion d'octobre 2026\nRéférence : ESPRIT-ATT-01\nPublic concerné : Tous les étudiants (cours du jour, cours du soir, alternance)\nAnnée de référence : 2024-2025\nArticle 1 : Objet\nCe guide explique comment obtenir un certificat de scolarité, un relevé de notes ou les documents de fin\nd'études.\nArticle 2 : Documents concernés\n• Certificat (ou attestation) de scolarité : prouve l'inscription de l'étudiant pour l'année en cours.\n• Relevé de notes : résultats par module et par unité d'enseignement (UE), avec les crédits ECTS.\n• Documents de fin d'études : diplôme d'ingénieur, relevé de notes de la dernière année, attestation de\ndiplôme et, éventuellement, supplément au diplôme (SD).\nArticle 3 : Conditions de délivrance\nL'étudiant doit être régulièrement inscrit. Pour les documents de fin d'études, il doit avoir obtenu un quitus\nadministratif délivré par la scolarité, attestant qu'il a rempli toutes ses obligations administratives et légales\nvis-à-vis de l'école (paiement intégral des frais de scolarité, restitution des documents et du matériel\nempruntés).\nArticle 4 : Comment faire la demande\nLa demande se fait auprès du service de la scolarité avec le formulaire FORM-03 et une pièce d'identité\n(CIN, passeport ou carte d'étudiant).\nDélais indicatifs : certificat de scolarité, 3 jours ouvrables ; relevé de notes, 7 jours ouvrables à partir de la\npublication officielle des résultats. Le document est retiré à la scolarité par l'étudiant ou par une personne\nmunie d'une procuration écrite et de sa propre pièce d'identité.\nArticle 5 : Duplicata\nEn cas de perte, l'étudiant peut demander un duplicata en précisant la nature du document. Le duplicata\nporte la mention « duplicata » et est délivré dans un délai indicatif de 10 jours ouvrables.\nArticle 6 : Protection des données personnelles\nLes données personnelles des étudiants sont traitées conformément à la loi organique n°63-2004 du 27\njuillet 2004. L'accès est limité aux personnes concernées par le traitement."
   }
  ],
  "articles": [
@@ -24,8 +25,8 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : certificats de scolarité, relevés de notes et diplôme\nVersion d'octobre 2026\n[Tableau p.1]\nRéférence: Public concerné; ESPRIT-ATT-01: Tous les étudiants (cours du jour, cours du soir, alternance)\nRéférence: Année de référence; ESPRIT-ATT-01: 2024-2025",
-   "chars": 328
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nEcole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : certificats de scolarité, relevés de notes et diplôme\nVersion d'octobre 2026\nRéférence : ESPRIT-ATT-01\nPublic concerné : Tous les étudiants (cours du jour, cours du soir, alternance)\nAnnée de référence : 2024-2025",
+   "chars": 290
   },
   {
    "key": "D1-006/1/Objet",
@@ -35,7 +36,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 1 : Objet\nCe guide explique comment obtenir un certificat de scolarité, un relevé de notes ou les documents de fin\nd'études.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 1 : Objet\nCe guide explique comment obtenir un certificat de scolarité, un relevé de notes ou les documents de fin\nd'études.",
    "chars": 132
   },
   {
@@ -46,7 +47,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 2 : Documents concernés\n• Certificat (ou attestation) de scolarité : prouve l'inscription de l'étudiant pour l'année en cours.\n• Relevé de notes : résultats par module et par unité d'enseignement (UE), avec les crédits ECTS.\n• Documents de fin d'études : diplôme d'ingénieur, relevé de notes de la dernière année, attestation de\ndiplôme et, éventuellement, supplément au diplôme (SD).",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 2 : Documents concernés\n• Certificat (ou attestation) de scolarité : prouve l'inscription de l'étudiant pour l'année en cours.\n• Relevé de notes : résultats par module et par unité d'enseignement (UE), avec les crédits ECTS.\n• Documents de fin d'études : diplôme d'ingénieur, relevé de notes de la dernière année, attestation de\ndiplôme et, éventuellement, supplément au diplôme (SD).",
    "chars": 392
   },
   {
@@ -57,7 +58,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 3 : Conditions de délivrance\nL'étudiant doit être régulièrement inscrit. Pour les documents de fin d'études, il doit avoir obtenu un quitus\nadministratif délivré par la scolarité, attestant qu'il a rempli toutes ses obligations administratives et légales\nvis-à-vis de l'école (paiement intégral des frais de scolarité, restitution des documents et du matériel\nempruntés).",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 3 : Conditions de délivrance\nL'étudiant doit être régulièrement inscrit. Pour les documents de fin d'études, il doit avoir obtenu un quitus\nadministratif délivré par la scolarité, attestant qu'il a rempli toutes ses obligations administratives et légales\nvis-à-vis de l'école (paiement intégral des frais de scolarité, restitution des documents et du matériel\nempruntés).",
    "chars": 379
   },
   {
@@ -68,7 +69,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 4 : Comment faire la demande\nLa demande se fait auprès du service de la scolarité avec le formulaire FORM-03 et une pièce d'identité\n(CIN, passeport ou carte d'étudiant).\nDélais indicatifs : certificat de scolarité, 3 jours ouvrables ; relevé de notes, 7 jours ouvrables à partir de la\npublication officielle des résultats.\nLe document est retiré à la scolarité par l'étudiant ou par une personne munie d'une procuration écrite et\nde sa propre pièce d'identité.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 4 : Comment faire la demande\nLa demande se fait auprès du service de la scolarité avec le formulaire FORM-03 et une pièce d'identité\n(CIN, passeport ou carte d'étudiant).\nDélais indicatifs : certificat de scolarité, 3 jours ouvrables ; relevé de notes, 7 jours ouvrables à partir de la\npublication officielle des résultats. Le document est retiré à la scolarité par l'étudiant ou par une personne\nmunie d'une procuration écrite et de sa propre pièce d'identité.",
    "chars": 469
   },
   {
@@ -79,7 +80,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 5 : Duplicata\nEn cas de perte, l'étudiant peut demander un duplicata en précisant la nature du document. Le duplicata\nporte la mention « duplicata » et est délivré dans un délai indicatif de 10 jours ouvrables.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 5 : Duplicata\nEn cas de perte, l'étudiant peut demander un duplicata en précisant la nature du document. Le duplicata\nporte la mention « duplicata » et est délivré dans un délai indicatif de 10 jours ouvrables.",
    "chars": 218
   },
   {
@@ -90,7 +91,7 @@
    "section": "",
    "page_start": 1,
    "page_end": 1,
-   "text": "Article 6 : Protection des données personnelles\nLes données personnelles des étudiants sont traitées conformément à la loi organique n°63-2004 du 27\njuillet 2004. L'accès est limité aux personnes concernées par le traitement.",
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 6 : Protection des données personnelles\nLes données personnelles des étudiants sont traitées conformément à la loi organique n°63-2004 du 27\njuillet 2004. L'accès est limité aux personnes concernées par le traitement.",
    "chars": 225
   }
  ]
