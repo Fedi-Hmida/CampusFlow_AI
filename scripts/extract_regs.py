@@ -34,7 +34,7 @@ DOCS = [
     ("D1-006", "ESPRIT_Procedure_Certificats_Releves_de_notes_2024-25.pdf", "procedure_certificats-releves-de-notes_2024-2025_FICTIF.pdf",
      "Procédure : certificats de scolarité, relevés de notes et diplôme", "all", "FICTITIOUS", "synthetic (team)", "2026-10-24"),
     ("D1-007", "ESPRIT_Procedure_Depot_Soutenance_PFE_2024-25.pdf", "procedure_depot-soutenance-pfe_2024-2025_FICTIF.pdf",
-     "Procédure : dépôt du rapport et soutenance du projet de fin d'études", "jour;soir", "FICTITIOUS", "synthetic (team)", "2026-10-24"),
+     "Procédure : dépôt du rapport et soutenance du projet de fin d'études", "all", "FICTITIOUS", "synthetic (team)", "2026-10-24"),
     ("D1-008", "ESPRIT_Procedure_Reclamation_Revision_Note_2024-25.pdf", "procedure_reclamation-revision-note_2024-2025_FICTIF.pdf",
      "Procédure : réclamation et révision de note (double correction)", "all", "FICTITIOUS", "synthetic (team)", "2026-10-24"),
     ("D1-009", "ESPRIT_Procedure_Report_Annulation_Inscription_2024-25.pdf", "procedure_report-annulation-inscription_2024-2025_FICTIF.pdf",
@@ -52,7 +52,7 @@ TOC = re.compile(r"(\.{4,}|…{2,}|\s\d{1,2}\s*$)")
 # a heading (Article / CHAPITRE / N.N / N-N) followed by dot leaders or a page number = table-of-contents line
 TOC_LINE = re.compile(r"^\s*(Article\s*(\d+|premier|1er)|CHAPITRE\s+[IVXL]+|\d{1,2}\s*[.-]\s*\d{1,2})\s*:?\s*(.*?)\s*(\.{4,}|…{2,}|\s\d{1,3})\s*$", re.I)
 ARTICLE = re.compile(r"^\s*Article\s*(\d+|premier|1er)\s*[:.–-]\s*(.*)$", re.I)
-SUB = re.compile(r"^\s*(\d{1,2})\s*[-.]\s*(\d{1,2})\s+(?!%)([A-ZÉÈÀÂÎa-zé].*)$")
+SUB = re.compile(r"^\s*(\d{1,2})\s*[-.]\s*(\d{1,2})\s*(?!%)([A-ZÉÈÀÂÎa-zé].*)$")  # "7-8Projet…" has no space in D1-003
 CHAPTER = re.compile(r"^\s*CHAPITRE\s+([IVXL]+)\s*:?\s*(.*)$", re.I)
 MANUAL = ROOT / "scripts/manual_tables.json"  # hand-written serialisations (A6), keyed "<doc_id>/p<page>/t<index>"
 
@@ -123,7 +123,7 @@ def split_units(doc_id: str, pages: list[list[str]], toc_titles: dict) -> list[d
             if m_art:
                 art_no = "1" if m_art.group(1).lower() in ("premier", "1er") else m_art.group(1)
                 title = m_art.group(2)
-                if len(title) > 70 or title.rstrip().endswith("."):  # body heading is a sentence, not a title
+                if title.rstrip().endswith(".") or ". " in title or len(title) > 110:  # heading is a sentence, not a title
                     title = toc_titles.get(art_no, "(sans titre)")
                 start("article", art_no, title, pno)
                 cur["lines"].append(ln)
