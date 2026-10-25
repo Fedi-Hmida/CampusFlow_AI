@@ -7,7 +7,7 @@ RAG-sized prompt, then estimates the time of one full CampusFlow question (Route
 Each run starts with a unique nonce so Ollama cannot reuse its prompt cache (a real question never shares its
 retrieved chunks with the previous one).
 
-Usage:  python eval/latency_benchmark.py qwen3:4b-instruct-2507-q4_K_M [qwen3:8b ...] [--runs 3]
+Usage:  python eval/latency/latency_benchmark.py qwen3:4b-instruct-2507-q4_K_M [qwen3:8b ...] [--runs 3]
 """
 import argparse
 import json

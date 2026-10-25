@@ -1,12 +1,12 @@
 """CF-104 — regenerate and label the 8 FICTITIOUS procedures (ADR-013, A1, A2).
 
-Reads the untouched synthetic PDFs from data/raw/regs/, applies the CF-108b corrections (scripts/fictif_corrections.json),
-and writes data/regs/*_FICTIF.pdf with:
+Reads the untouched synthetic PDFs from data/raw/regs/, applies the CF-108b corrections (scripts/corpus/fictif_corrections.json),
+and writes data/regs/fictitious/*_FICTIF.pdf with:
   - "DOCUMENT FICTIF — projet CampusFlow AI, non officiel" in the header of every page;
   - the reference footer drawn in the bottom margin (outside the text flow);
   - metadata title "[FICTIF] <title>"; Arial TTF so bullets render as "•".
 Checks: word-level similarity of each article with its (corrected) source ≥ 0.98 and 0 "(cid:" after re-extraction.
-Run: .venv/Scripts/python scripts/regenerate_fictif.py   (then re-run scripts/extract_regs.py)
+Run: .venv/Scripts/python scripts/corpus/regenerate_fictif.py   (then re-run scripts/corpus/extract_regs.py)
 """
 import difflib
 import json
@@ -27,10 +27,10 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import Paragraph, SimpleDocTemplate, Spacer
 from xml.sax.saxutils import escape
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path[:0] = [str(Path(__file__).resolve().parents[1] / "lib"), str(Path(__file__).resolve().parent)]
 import extract_regs as ex  # noqa: E402
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 LABEL = "DOCUMENT FICTIF — projet CampusFlow AI, non officiel"
 pdfmetrics.registerFont(TTFont("Arial", "C:/Windows/Fonts/arial.ttf"))
 pdfmetrics.registerFont(TTFont("Arial-Bold", "C:/Windows/Fonts/arialbd.ttf"))
@@ -100,7 +100,7 @@ def render(path: Path, title: str, ref: str, units: list[dict]) -> None:
 
 
 def main() -> None:
-    corr = json.loads((ROOT / "scripts/fictif_corrections.json").read_text(encoding="utf-8"))
+    corr = json.loads((ROOT / "scripts/corpus/fictif_corrections.json").read_text(encoding="utf-8"))
     applied, ok = [], True
     for doc_id, raw, target, title, regime, status, *_ in ex.DOCS:
         if status != "FICTITIOUS":
@@ -111,7 +111,8 @@ def main() -> None:
         units = ex.split_units(doc_id, pages, toc)
         ref = next((re.search(r"ESPRIT-[A-Z]+-\d+", u["text"]).group(0) for u in units if re.search(r"ESPRIT-[A-Z]+-\d+", u["text"])), "ESPRIT-FICTIF")
         applied += apply_corrections(doc_id, units, corr)
-        out = ex.OUT / target
+        out = ex.OUT / "fictitious" / target
+        out.parent.mkdir(parents=True, exist_ok=True)
         render(out, title, ref, units)
         # verification: re-extract and compare article by article
         with pdfplumber.open(str(out)) as pdf:

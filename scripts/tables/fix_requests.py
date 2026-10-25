@@ -1,19 +1,19 @@
 """CF-108 — request catalogue to spec D4 + regime (ADR-017, P5), aligned with the official regulations (A2).
 
 Input : data/raw/tables/D4_catalogue_demandes.csv (untouched), data/regs/clean/ (for source_ref checks)
-Output: data/tables/request_catalogue.csv, eval/review/request_mapping_review.md
+Output: data/tables/request_catalogue.csv, eval/review/sheets/request_mapping_review.md
 source_ref = "<article key>" values separated by " | " (they must exist in data/regs/clean/), or
 "FICTITIOUS — no source". Where the delivered value contradicts an official article, the official rule wins.
-Run   : .venv/Scripts/python scripts/fix_requests.py
+Run   : .venv/Scripts/python scripts/tables/fix_requests.py
 """
 import csv
 import sys
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent))
+sys.path[:0] = [str(Path(__file__).resolve().parents[1] / "lib"), str(Path(__file__).resolve().parent)]
 from corpus_lookup import article_keys, find_quote, write_review  # noqa: E402
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 COLUMNS = ["request_type", "handler_role_id", "required_documents", "deadline_rule", "source_ref", "regime",
            "request_id", "category", "routing_rule", "processing_time", "source"]
 NO_SRC = "FICTITIOUS — no source"
@@ -169,7 +169,7 @@ def main() -> None:
                        "- [ ] OK  [ ] fix: ____", ""]
     with open(ROOT / "data/tables/request_catalogue.csv", "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=COLUMNS, lineterminator="\n"); w.writeheader(); w.writerows(out)
-    write_review(ROOT / "eval/review/request_mapping_review.md", "\n".join(review) + "\n")
+    write_review(ROOT / "eval/review/sheets/request_mapping_review.md", "\n".join(review) + "\n")
     print(f"request_catalogue.csv: {len(out)} rows ({len(raw)} delivered, REQ-07 and REQ-08 split by regime)")
 
 

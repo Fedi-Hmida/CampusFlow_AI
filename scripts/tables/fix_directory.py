@@ -3,12 +3,12 @@
 Input : data/raw/tables/D3_annuaire_hierarchie.csv (untouched)
 Output: data/tables/directory.csv
 Invented roles use the reserved domain esprit.example (RFC 2606) and leave office/hours EMPTY (unknown).
-Run   : .venv/Scripts/python scripts/fix_directory.py
+Run   : .venv/Scripts/python scripts/tables/fix_directory.py
 """
 import csv
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 COLUMNS = ["role_id", "role_title", "department", "person_name", "email", "office", "hours", "handles", "reports_to",
            "escalation_level", "level_scope", "source"]
 DEPARTMENT = {"SCO-1A": "Scolarité", "SCO-2A": "Scolarité", "SCO-3A": "Scolarité", "SCO-4A": "Scolarité",
