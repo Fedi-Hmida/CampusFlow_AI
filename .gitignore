@@ -21,3 +21,6 @@ __pycache__/
 
 # Superpowers execution scratch
 .superpowers/
+
+# Excluded raw documents (duplicates / personal data) — kept locally only
+data/raw/excluded/
