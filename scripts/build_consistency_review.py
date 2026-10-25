@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from corpus_lookup import canon, doc, find_quote  # noqa: E402
+from corpus_lookup import canon, doc, find_quote, write_review  # noqa: E402
 import extract_regs as ex  # noqa: E402
 import pdfplumber  # noqa: E402
 
@@ -113,8 +113,7 @@ def main() -> None:
             "(the plan said `jour;soir`).", "- D1-009 (report/annulation) covers jour and soir only → `jour;soir`.",
             "- D1-010 (stages) covers the 3 day-course internships → `jour`.", "- D1-004, D1-005, D1-006, D1-008, D1-011 → `all`."]
     p = ROOT / "eval/review/consistency_review.md"
-    p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text("\n".join(out) + "\n", encoding="utf-8", newline="\n")
+    p = write_review(p, "\n".join(out) + "\n")
     print(f"written {p.relative_to(ROOT)}: {len(CORR)} corrections, {len(CONSISTENT)} consistent overlaps, {len(ADDITIONS)} additions")
 
 

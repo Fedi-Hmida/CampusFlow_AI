@@ -7,7 +7,11 @@ Run: .venv/Scripts/python scripts/build_tests_t2_t5.py
 """
 import csv
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from corpus_lookup import write_review  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 T, E = ROOT / "data/tables", ROOT / "eval"
@@ -148,10 +152,10 @@ for r, spec in zip(t3, T3_SPEC):
 rv += ["", "## T5 — adversarial", ""]
 for r in t5:
     rv += [f"- **{r['id']}** [{r['case_type']}] {r['question_or_input']}  ", f"  → expected: {r['expected_behaviour']}  ", "  - [ ] OK  [ ] fix: ____"]
-(E / "review/T2_T3_T5_review.md").write_text("\n".join(rv) + "\n", encoding="utf-8", newline="\n")
+write_review(E / "review/T2_T3_T5_review.md", "\n".join(rv) + "\n")
 pr = ["# T4 — image-generation prompts (CF-113)", "", "Generate each image, save it in `eval/T4_photos/` with the exact file name, then tick.",
       "Every academic image must show **DOCUMENT FICTIF**; no real names, logos or ID numbers.", ""]
 for f, d, c, x, prompt in T4:
     pr += [f"## {f}  ({d}, {c})", "", f"**Prompt:** {prompt}", "", f"**Expected fields:** `{json.dumps(x, ensure_ascii=False)}`", "", "- [ ] generated  [ ] fields visible", ""]
-(E / "review/T4_image_prompts.md").write_text("\n".join(pr) + "\n", encoding="utf-8", newline="\n")
+write_review(E / "review/T4_image_prompts.md", "\n".join(pr) + "\n")
 print(f"T2 {len(t2)} · T3 {len(t3)} · T5 {len(t5)} · T4 {len(t4)} specs; picked projected rows: {p1['exam_id']}, {p2['exam_id']}, {p3['exam_id']}")

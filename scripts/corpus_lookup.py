@@ -57,3 +57,13 @@ def longest_shared_run(a: str, b: str) -> int:
             else:
                 break
     return best
+
+
+def write_review(path, text: str) -> Path:
+    """Write a review sheet, but never overwrite one that Fedi has started ticking ("[x]"): write <name>_new.md instead."""
+    path = Path(path)
+    if path.exists() and re.search(r"\[x\]", path.read_text(encoding="utf-8"), re.I):
+        path = path.with_name(path.stem + "_new.md")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(text, encoding="utf-8", newline="\n")
+    return path

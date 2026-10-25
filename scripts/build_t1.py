@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from corpus_lookup import all_doc_ids, canon, doc, find_quote, longest_shared_run  # noqa: E402
+from corpus_lookup import all_doc_ids, canon, doc, find_quote, longest_shared_run, write_review  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 VERIFIED = ROOT / "eval/review/T1_verified.json"  # {"T1-01": "Fedi", ...} written after Fedi's review
@@ -164,7 +164,7 @@ def main() -> None:
             "Each row: tick **OK** if the proposed answer is exactly what the quoted source says, or write the fix.",
             "Quotes were located verbatim in `data/regs/clean/` by `scripts/build_t1.py`; article keys and pages are",
             "derived from them (A4). FICTITIOUS sources must be presented as non-official (A2).", "", "## Coverage", ""] + summary + ["", "## Rows", ""]
-    (ROOT / "eval/review/T1_review.md").write_text("\n".join(head + review) + "\n", encoding="utf-8", newline="\n")
+    write_review(ROOT / "eval/review/T1_review.md", "\n".join(head + review) + "\n")
     print("\n".join(summary)); print(f"verified rows: {sum(1 for r in csv_rows if r['verified_by'])}/25")
 
 

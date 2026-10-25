@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from corpus_lookup import article_keys, find_quote  # noqa: E402
+from corpus_lookup import article_keys, find_quote, write_review  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 COLUMNS = ["request_type", "handler_role_id", "required_documents", "deadline_rule", "source_ref", "regime",
@@ -129,7 +129,7 @@ def main() -> None:
                        "- [ ] OK  [ ] fix: ____", ""]
     with open(ROOT / "data/tables/request_catalogue.csv", "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=COLUMNS, lineterminator="\n"); w.writeheader(); w.writerows(out)
-    (ROOT / "eval/review/request_mapping_review.md").write_text("\n".join(review) + "\n", encoding="utf-8", newline="\n")
+    write_review(ROOT / "eval/review/request_mapping_review.md", "\n".join(review) + "\n")
     print(f"request_catalogue.csv: {len(out)} rows ({len(raw)} delivered, REQ-07 and REQ-08 split by regime)")
 
 
