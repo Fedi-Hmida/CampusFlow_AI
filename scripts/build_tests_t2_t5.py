@@ -22,7 +22,14 @@ def read(p):
     return list(csv.DictReader(open(p, encoding="utf-8")))
 
 
+VERIFIED = json.loads((E / "review/verified.json").read_text(encoding="utf-8")) if (E / "review/verified.json").exists() else {}
+
+
 def write(p, rows):
+    """Write a test set; verified_by comes from eval/review/verified.json (rows Fedi ticked), keyed by id or file."""
+    ticks = VERIFIED.get(p.stem.split("_")[0], {})
+    for r in rows:
+        r["verified_by"] = ticks.get(r.get("id") or r.get("file"), "")
     with open(p, "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n"); w.writeheader(); w.writerows(rows)
 
