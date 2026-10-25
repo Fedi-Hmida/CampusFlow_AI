@@ -3,3 +3,5 @@
 *.pdf binary
 *.png binary
 *.jpg binary
+# Raw delivery: stored byte-for-byte (checksums in data/raw/MANIFEST.md)
+data/raw/** -text

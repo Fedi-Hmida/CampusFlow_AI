@@ -1,0 +1,102 @@
+[
+  {
+    "id": "C1",
+    "topic": "absences / exceptional retake",
+    "doc_id": "D1-004",
+    "article": "3",
+    "type": "conflict",
+    "old": "Cours du jour : il est recommandé de déposer le dossier dans les 48 heures suivant l'épreuve, comme pour les autres régimes.",
+    "new": "Cours du jour : le règlement ne fixe pas de délai de dépôt ; la demande est traitée au cas par cas par la scolarité.",
+    "official": [
+      {
+        "doc_id": "D1-001",
+        "quote": "Toutefois, les demandes de repassage exceptionnelles sont traitées au cas par cas et se font suite à un dépôt de dossier auprès de la scolarité"
+      }
+    ],
+    "reason": "The day regulation sets no deadline; the 48 h rule belongs to cours du soir / alternance only. The fictitious text invented a 48 h deadline for day students."
+  },
+  {
+    "id": "C2",
+    "topic": "absences / medical certificate (evening)",
+    "doc_id": "D1-004",
+    "article": "2",
+    "type": "conflict",
+    "old": "Un simple certificat médical peut ne pas être considéré comme un motif valable.",
+    "new": "Cours du soir : un simple certificat médical n'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être considéré comme un motif valable.",
+    "official": [
+      {
+        "doc_id": "D1-002",
+        "quote": "Il est à noter qu’un simple certificat médical n'est pas considéré comme un motif valable."
+      },
+      {
+        "doc_id": "D1-003",
+        "quote": "Il est à noter qu’un simple certificat médical peut ne pas être considéré comme un motif valable."
+      }
+    ],
+    "reason": "The fictitious text applied the softer alternance wording ('peut ne pas') to cours du soir, whose regulation is categorical ('n'est pas')."
+  },
+  {
+    "id": "C3",
+    "topic": "grade review (double correction)",
+    "doc_id": "D1-008",
+    "article": "2",
+    "type": "conflict",
+    "old": "Cette règle s'applique au cours du soir, à l'alternance et au cours du jour.",
+    "new": "Cette règle est prévue par les règlements du cours du soir et de l'alternance (article 7-2). Le règlement du cours du jour ne la mentionne pas : l'étudiant du cours du jour se renseigne auprès du service examen.",
+    "official": [
+      {
+        "doc_id": "D1-002",
+        "quote": "L’étudiant peut déposer une demande de double correction d’une épreuve écrite auprès de service examen dans un délai d’une semaine après l’affichage de la note de cette épreuve."
+      },
+      {
+        "doc_id": "D1-003",
+        "quote": "L’étudiant peut déposer une demande de double correction d’une épreuve écrite auprès de service examen dans un délai d’une semaine après l’affichage de la note de cette épreuve."
+      }
+    ],
+    "official_absent": {
+      "doc_id": "D1-001",
+      "search": "double correction",
+      "hits": 0
+    },
+    "reason": "Double correction exists only in the evening and work-study regulations; extending it to day students is not supported by an official text."
+  },
+  {
+    "id": "C4",
+    "topic": "discipline / sanctions",
+    "doc_id": "D1-011",
+    "article": "9",
+    "type": "conflict",
+    "old": "Les sanctions possibles sont : avertissement, blâme, interdiction de passer les examens d'une ou deux sessions, renvoi de l'école pour une durée maximale d'une année universitaire, renvoi définitif. Dans les deux derniers cas, l'élève n'a pas droit au remboursement des frais de scolarité.",
+    "new": "Les sanctions possibles sont fixées par le règlement de scolarité du régime de l'étudiant : cours du jour (règlement du cours du jour, article 7-8, gestion des fraudes) et cours du soir (règlement du cours du soir, article 12). Alternance : le règlement de l'alternance (article 12, Discipline) impose le respect mutuel et interdit toute violence, sans fixer de liste de sanctions ; en cas de fraude, le conseil de discipline décide de la sanction, qui peut aller jusqu'à l'exclusion de l'école (article 11). Le non-remboursement des frais de scolarité en cas de renvoi est prévu par le règlement du cours du soir.",
+    "official": [
+      {
+        "doc_id": "D1-001",
+        "quote": "Les sanctions peuvent être sous forme d’avertissement, de blâme, d'interdiction de participation à une ou deux des sessions d'examen, de privation du rachat, de privation de la mobilité internationale"
+      },
+      {
+        "doc_id": "D1-002",
+        "quote": "Dans les deux derniers cas, l’élève n’a pas le droit au remboursement des frais de scolarité."
+      },
+      {
+        "doc_id": "D1-003",
+        "quote": "En aucune circonstance, l’usage de la violence physique comme verbale ne saurait être toléré."
+      },
+      {
+        "doc_id": "D1-003",
+        "quote": "décidera de la sanction à prendre qui peut aller jusqu’à l’exclusion de l’école"
+      }
+    ],
+    "reason": "The fictitious 'all regimes' list copies the evening list; the day list is longer (rachat, mobility, 2-year registration ban) and the non-refund rule is only in the evening regulation. Fedi's fix: also cite the work-study regulation (D1-003 art. 12 Discipline has no sanctions list; art. 11 sets the fraud sanction)."
+  },
+  {
+    "id": "C5",
+    "topic": "citations",
+    "doc_id": "D1-004",
+    "article": "1",
+    "type": "clarification",
+    "old": "Il complète RS-Jour (articles 7-6, 7-8 et 9), RS-Soir (articles 7-2, 7-7 et 9) et RS-Alt (articles 5, 8 et 10).",
+    "new": "Il complète le règlement du cours du jour (articles 7-6, 7-8 et 9), le règlement du cours du soir (articles 7-2, 7-7 et 9) et le règlement de l'alternance (articles 5, 8 et 10). En cas de différence, le règlement officiel du régime de l'étudiant prévaut.",
+    "official": [],
+    "reason": "Replace the private abbreviations by the document names and state the precedence rule (A2) inside the fictitious text."
+  }
+]

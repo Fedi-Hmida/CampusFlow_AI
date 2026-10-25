@@ -1,0 +1,13 @@
+id,question,class_group,module,session,expected_date,expected_start_time,expected_end_time,expected_room,verified_by
+T2-01,Quand est mon examen de DS14 ? Je suis en 5DS6.,5DS6,Advanced Deep Learning,Principale,2027-01-15,09:00,11:00,B12,Fedi
+T2-02,c'est quand le rattrapage de deep learning pour la 5DS6 ?,5DS6,Advanced Deep Learning,Rattrapage,2027-02-15,09:00,11:00,A21,Fedi
+T2-03,5DS7 : l'exam de MLOps il est dans quelle salle ?,5DS7,MLOps et déploiement,Principale,2027-01-20,09:00,11:00,B13,Fedi
+T2-04,"Big data analytics en 5SIM1, session principale, ça commence à quelle heure et ça finit quand ?",5SIM1,Big Data Analytics,Principale,2027-01-18,13:00,15:00,C04,Fedi
+T2-05,Le rattrapage MLOps de la 5SIM1 c'est quel jour ?,5SIM1,MLOps et déploiement,Rattrapage,2027-02-17,09:00,11:00,A21,Fedi
+T2-06,Rattrapage de Big Data Analytics pour 5DS7 : date et salle stp,5DS7,Big Data Analytics,Rattrapage,2027-02-16,09:00,11:00,A21,Fedi
+T2-07,Dans quelle salle est mon examen de Financial Analysis en 3A1 ?,3A1,Financial Analysis,Principale,2026-10-27,09:00,non communiqué,non communiqué,Fedi
+T2-08,"Le DS de framework PHP en 4SE1, il finit à quelle heure ?",4SE1,framework PHP,Principale,2026-10-27,11:00,non communiqué,non communiqué,Fedi
+T2-09,C'est quand l'examen de Algorithmic 2 pour la 1A1 ?,1A1,Algorithmic 2,Principale,2027-03-11,10:30,non communiqué,non communiqué,Fedi
+T2-10,Quand est l'examen de Quantum Computing pour la 5DS6 ?,5DS6,Quantum Computing,Principale,not found,not found,not found,not found,Fedi
+T2-11,c'est quand mon DS de Microcontroller Architecture en 2A1 ?,2A1,Microcontroller Architecture,Principale,2026-10-28,09:00,non communiqué,non communiqué,Fedi
+T2-12,"Et le rattrapage de Financial Analysis pour la 3A1, c'est quand ?",3A1,Financial Analysis,Rattrapage,non communiqué (pas encore publié),non communiqué (pas encore publié),non communiqué (pas encore publié),non communiqué (pas encore publié),Fedi

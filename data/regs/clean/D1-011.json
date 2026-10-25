@@ -1,0 +1,135 @@
+{
+ "doc_id": "D1-011",
+ "file": "reglement_interieur-vie-campus_2024-2025_FICTIF.pdf",
+ "raw_file": "ESPRIT_Reglement_interieur_vie_campus_2024-25.pdf",
+ "title": "Règlement intérieur : vie sur le campus",
+ "regime": "all",
+ "doc_status": "FICTITIOUS",
+ "source": "synthetic (team)",
+ "source_pdf": "data/regs/reglement_interieur-vie-campus_2024-2025_FICTIF.pdf",
+ "date": "2026-10-24",
+ "language": "fr",
+ "n_pages": 2,
+ "pages": [
+  {
+   "page": 1,
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nRèglement intérieur : vie sur le campus\nVersion d'octobre 2026\nRéférence : ESPRIT-RI-01\nPublic concerné : Tous les étudiants (cours du jour, cours du soir, alternance)\nAnnée de référence : 2024-2025\nArticle 1 : Objet\nLe présent règlement complète la charte de l'étudiante et de l'étudiant espritiens, les articles sur la\ndiscipline et l'article sur la vie à ESPRIT des règlements de scolarité. Tout étudiant s'engage à le\nrespecter.\nArticle 2 : Accès aux locaux\nLes étudiants accèdent aux locaux et installations de l'école sous réserve d'être porteurs d'une carte ou\nd'un document attestant la régularité de leur situation.\nEn cas de perte de la carte d'étudiant, l'étudiant le signale à la scolarité dans un délai de 48 heures.\nArticle 3 : Respect mutuel et comportement\nLe respect mutuel est la règle entre étudiants, enseignants et personnel. Toute forme de violence\npsychologique, physique ou morale, de harcèlement, de menace, de discrimination ou de diffamation est\ninterdite.\nLa tenue vestimentaire doit être soignée, propre et correcte. Le non-respect répété du code vestimentaire\npeut donner lieu à des sanctions.\nArticle 4 : Interdictions\nIl est interdit de fumer à l'intérieur des locaux de l'école. La diffusion et la consommation de boissons\nalcoolisées, de drogues et de tout produit toxique sont strictement interdites dans l'établissement et\ndonnent lieu à des sanctions. Il est interdit d'écrire sur les murs. Tout affichage doit être autorisé par\nl'administration.\nArticle 5 : Locaux, matériel et laboratoires\nChaque étudiant préserve les locaux, le mobilier et le matériel. En cas de dégâts ou de vol, il peut être\ntraduit devant le conseil de l'école ; l'école peut demander réparation. L'accès aux laboratoires est soumis\nà l'autorisation de l'administration, sur proposition des enseignants et des directeurs de département. Les\nétudiants respectent les consignes de sécurité lors de l'utilisation des équipements et machines. L'école\nn'est pas responsable des vols et dégradations touchant les biens personnels des étudiants.\nArticle 6 : Réunions, clubs et activités\nToute réunion non autorisée explicitement par la direction est interdite. Les activités sportives, culturelles\net de loisirs organisées dans le cadre des clubs sont soumises au visa préalable de l'administration et\ns'inscrivent dans le programme d'activité du comité des élèves.\nArticle 7 : Usage du numérique\nL'étudiant utilise de façon responsable les ressources informatiques et les plateformes pédagogiques\nmises à disposition par l'école (espace étudiant, plateformes de cours). Le partage de son compte\npersonnel est interdit. Les échanges sur la liste de diffusion des anciens respectent la charte de la mailing\nliste : tout propos insultant, diffamatoire, haineux ou contraire à la loi entraîne le blocage de la liste.\nArticle 8 : Cellule d'écoute et d'accompagnement"
+  },
+  {
+   "page": 2,
+   "text": "La cellule d'écoute est un espace confidentiel et volontaire qui accueille, écoute, informe et oriente les\nétudiants (scolarité, stress, anxiété, mal-être). Elle reçoit aussi les réclamations sur le déroulement des\ncours, la logistique et l'environnement scolaire, et peut orienter vers un praticien si nécessaire.\nArticle 9 : Sanctions disciplinaires\nUn étudiant peut être traduit devant le conseil de discipline en cas d'irrespect envers un enseignant ou un\nagent de l'administration, de fraude ou tentative de fraude, ou de plagiat. Il est convoqué par écrit, informé\ndes faits reprochés et a le droit de se défendre. Les sanctions possibles sont fixées par le règlement de\nscolarité du régime de l'étudiant : cours du jour (règlement du cours du jour, article 7-8, gestion des\nfraudes) et cours du soir (règlement du cours du soir, article 12). Alternance : le règlement de l'alternance\n(article 12, Discipline) impose le respect mutuel et interdit toute violence, sans fixer de liste de sanctions ;\nen cas de fraude, le conseil de discipline décide de la sanction, qui peut aller jusqu'à l'exclusion de l'école\n(article 11). Le non-remboursement des frais de scolarité en cas de renvoi est prévu par le règlement du\ncours du soir."
+  }
+ ],
+ "articles": [
+  {
+   "key": "D1-011/0/Préambule",
+   "level": "preamble",
+   "number": "0",
+   "title": "Préambule",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nEcole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nRèglement intérieur : vie sur le campus\nVersion d'octobre 2026\nRéférence : ESPRIT-RI-01\nPublic concerné : Tous les étudiants (cours du jour, cours du soir, alternance)\nAnnée de référence : 2024-2025",
+   "chars": 263
+  },
+  {
+   "key": "D1-011/1/Objet",
+   "level": "article",
+   "number": "1",
+   "title": "Objet",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 1 : Objet\nLe présent règlement complète la charte de l'étudiante et de l'étudiant espritiens, les articles sur la\ndiscipline et l'article sur la vie à ESPRIT des règlements de scolarité. Tout étudiant s'engage à le\nrespecter.",
+   "chars": 233
+  },
+  {
+   "key": "D1-011/2/Accès aux locaux",
+   "level": "article",
+   "number": "2",
+   "title": "Accès aux locaux",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 2 : Accès aux locaux\nLes étudiants accèdent aux locaux et installations de l'école sous réserve d'être porteurs d'une carte ou\nd'un document attestant la régularité de leur situation.\nEn cas de perte de la carte d'étudiant, l'étudiant le signale à la scolarité dans un délai de 48 heures.",
+   "chars": 296
+  },
+  {
+   "key": "D1-011/3/Respect mutuel et comportement",
+   "level": "article",
+   "number": "3",
+   "title": "Respect mutuel et comportement",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 3 : Respect mutuel et comportement\nLe respect mutuel est la règle entre étudiants, enseignants et personnel. Toute forme de violence\npsychologique, physique ou morale, de harcèlement, de menace, de discrimination ou de diffamation est\ninterdite.\nLa tenue vestimentaire doit être soignée, propre et correcte. Le non-respect répété du code vestimentaire\npeut donner lieu à des sanctions.",
+   "chars": 393
+  },
+  {
+   "key": "D1-011/4/Interdictions",
+   "level": "article",
+   "number": "4",
+   "title": "Interdictions",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 4 : Interdictions\nIl est interdit de fumer à l'intérieur des locaux de l'école. La diffusion et la consommation de boissons\nalcoolisées, de drogues et de tout produit toxique sont strictement interdites dans l'établissement et\ndonnent lieu à des sanctions. Il est interdit d'écrire sur les murs. Tout affichage doit être autorisé par\nl'administration.",
+   "chars": 359
+  },
+  {
+   "key": "D1-011/5/Locaux, matériel et laboratoires",
+   "level": "article",
+   "number": "5",
+   "title": "Locaux, matériel et laboratoires",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 5 : Locaux, matériel et laboratoires\nChaque étudiant préserve les locaux, le mobilier et le matériel. En cas de dégâts ou de vol, il peut être\ntraduit devant le conseil de l'école ; l'école peut demander réparation. L'accès aux laboratoires est soumis\nà l'autorisation de l'administration, sur proposition des enseignants et des directeurs de département. Les\nétudiants respectent les consignes de sécurité lors de l'utilisation des équipements et machines. L'école\nn'est pas responsable des vols et dégradations touchant les biens personnels des étudiants.",
+   "chars": 565
+  },
+  {
+   "key": "D1-011/6/Réunions, clubs et activités",
+   "level": "article",
+   "number": "6",
+   "title": "Réunions, clubs et activités",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 6 : Réunions, clubs et activités\nToute réunion non autorisée explicitement par la direction est interdite. Les activités sportives, culturelles\net de loisirs organisées dans le cadre des clubs sont soumises au visa préalable de l'administration et\ns'inscrivent dans le programme d'activité du comité des élèves.",
+   "chars": 319
+  },
+  {
+   "key": "D1-011/7/Usage du numérique",
+   "level": "article",
+   "number": "7",
+   "title": "Usage du numérique",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 7 : Usage du numérique\nL'étudiant utilise de façon responsable les ressources informatiques et les plateformes pédagogiques\nmises à disposition par l'école (espace étudiant, plateformes de cours). Le partage de son compte\npersonnel est interdit. Les échanges sur la liste de diffusion des anciens respectent la charte de la mailing\nliste : tout propos insultant, diffamatoire, haineux ou contraire à la loi entraîne le blocage de la liste.",
+   "chars": 447
+  },
+  {
+   "key": "D1-011/8/Cellule d'écoute et d'accompagnement",
+   "level": "article",
+   "number": "8",
+   "title": "Cellule d'écoute et d'accompagnement",
+   "section": "",
+   "page_start": 1,
+   "page_end": 2,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 8 : Cellule d'écoute et d'accompagnement\nLa cellule d'écoute est un espace confidentiel et volontaire qui accueille, écoute, informe et oriente les\nétudiants (scolarité, stress, anxiété, mal-être). Elle reçoit aussi les réclamations sur le déroulement des\ncours, la logistique et l'environnement scolaire, et peut orienter vers un praticien si nécessaire.",
+   "chars": 363
+  },
+  {
+   "key": "D1-011/9/Sanctions disciplinaires",
+   "level": "article",
+   "number": "9",
+   "title": "Sanctions disciplinaires",
+   "section": "",
+   "page_start": 2,
+   "page_end": 2,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 9 : Sanctions disciplinaires\nUn étudiant peut être traduit devant le conseil de discipline en cas d'irrespect envers un enseignant ou un\nagent de l'administration, de fraude ou tentative de fraude, ou de plagiat. Il est convoqué par écrit, informé\ndes faits reprochés et a le droit de se défendre. Les sanctions possibles sont fixées par le règlement de\nscolarité du régime de l'étudiant : cours du jour (règlement du cours du jour, article 7-8, gestion des\nfraudes) et cours du soir (règlement du cours du soir, article 12). Alternance : le règlement de l'alternance\n(article 12, Discipline) impose le respect mutuel et interdit toute violence, sans fixer de liste de sanctions ;\nen cas de fraude, le conseil de discipline décide de la sanction, qui peut aller jusqu'à l'exclusion de l'école\n(article 11). Le non-remboursement des frais de scolarité en cas de renvoi est prévu par le règlement du\ncours du soir.",
+   "chars": 920
+  }
+ ]
+}
