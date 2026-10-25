@@ -11,17 +11,33 @@ Every academic image must show **DOCUMENT FICTIF**; no real names, logos or ID n
 
 - [ ] generated  [ ] fields visible
 
-## T4-02_convocation_blurry.png  (convocation, blurry)
+## T4-02_convocation_sharp_source.png  (convocation, sharp)
 
-**Prompt:** Same convocation layout, 'DOCUMENT FICTIF' header, for 'Module : DS15 MLOps et déploiement', 'Classe : 5DS7', 'Session : Principale', 'Date : 20/01/2027', 'Heure : 09:00 – 11:00', 'Salle : B13'. Photographed at a slight angle in dim light with motion blur, text still barely readable.
+**Prompt:** SHARP, UPRIGHT source (Fedi generates it). Same convocation layout as T4-01, 'DOCUMENT FICTIF' header, for 'Module : DS15 MLOps et déploiement', 'Classe : 5DS7', 'Session : Principale', 'Date : 20/01/2027', 'Heure : 09:00 – 11:00', 'Salle : B13', 'Étudiant : ÉTUDIANT FICTIF'. Good light, flat.
 
 **Expected fields:** `{"module": "DS15 MLOps et déploiement", "class_group": "5DS7", "session": "Principale", "date": "2027-01-20", "time": "09:00-11:00", "room": "B13"}`
 
 - [ ] generated  [ ] fields visible
 
+## T4-02_convocation_blurry.png  (convocation, blurry)
+
+**Prompt:** DERIVED by scripts/degrade_t4.py from T4-02_convocation_sharp_source.png (dim light, motion blur, slight angle). Do not generate.
+
+**Expected fields:** `{"module": "DS15 MLOps et déploiement", "class_group": "5DS7", "session": "Principale", "date": "2027-01-20", "time": "09:00-11:00", "room": "B13"}`
+
+- [ ] generated  [ ] fields visible
+
+## T4-03_timetable_upright_source.png  (timetable, sharp)
+
+**Prompt:** SHARP, UPRIGHT source (Fedi generates it). Weekly class timetable printed on paper, header 'EMPLOI DU TEMPS — 5DS6 — semaine du 11/01/2027 — DOCUMENT FICTIF', grid Monday–Friday with two entries: 'Lundi 09:00–11:00 DS14 Advanced Deep Learning, salle B12' and 'Mercredi 13:00–15:00 DS12 Big Data Analytics, salle B13'. Upright, not rotated.
+
+**Expected fields:** `{"class_group": "5DS6", "week": "2027-01-11", "entries": "Lundi 09:00 DS14 Advanced Deep Learning B12; Mercredi 13:00 DS12 Big Data Analytics B13"}`
+
+- [ ] generated  [ ] fields visible
+
 ## T4-03_timetable_rotated.png  (timetable, rotated)
 
-**Prompt:** Weekly class timetable printed on paper, header 'EMPLOI DU TEMPS — 5DS6 — semaine du 11/01/2027 — DOCUMENT FICTIF', grid Monday–Friday with two entries: 'Lundi 09:00–11:00 DS14 Advanced Deep Learning, salle B12' and 'Mercredi 13:00–15:00 DS12 Big Data Analytics, salle B13'. The photo is rotated 90 degrees clockwise.
+**Prompt:** DERIVED by scripts/degrade_t4.py from T4-03_timetable_upright_source.png (rotated 90° clockwise). Do not generate.
 
 **Expected fields:** `{"class_group": "5DS6", "week": "2027-01-11", "entries": "Lundi 09:00 DS14 Advanced Deep Learning B12; Mercredi 13:00 DS12 Big Data Analytics B13"}`
 

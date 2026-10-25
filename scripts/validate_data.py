@@ -174,14 +174,27 @@ if t1p.exists():
     check("T1: all 25 rows verified by Fedi", nver == 25, f"{nver}/25 verified", level="PENDING")
 else:
     check("T1 present", False, level="PENDING")
-for name, n in [("T2_calendar.csv", 10), ("T3_contacts_requests.csv", 10), ("T5_adversarial.csv", 6), ("T4_photos.csv", 8)]:
+    sys.path.insert(0, str(ROOT / "eval"))
+    import retrieval_metrics as rm
+    try:
+        rm.self_test(); mt = True
+    except AssertionError:
+        mt = False
+    check("eval/retrieval_metrics.py: Hit@5 / Recall@5 / MRR self-test on '|'-separated key lists", mt)
+    check("T1: multi-source rows parse into existing keys", all(all(k in KEYS for k in rm.parse_expected(r["expected_article"])) for r in t1))
+for name, n in [("T2_calendar.csv", 12), ("T3_contacts_requests.csv", 10), ("T5_adversarial.csv", 6), ("T4_photos.csv", 10)]:
     p = ROOT / "eval" / name
     check(f"{name}: {n} rows", p.exists() and len(read(p)) == n, f"{len(read(p)) if p.exists() else 0} rows", level="PENDING" if not p.exists() else "ERROR")
 p2 = ROOT / "eval/T2_calendar.csv"
 if p2.exists():
     calkeys = {(r["class_group"], r["module_name"], r["session"]) for r in cal}
     t2 = read(p2)
-    found = [r for r in t2 if r["expected_date"] != "not found"]
+    NP = "non communiqué (pas encore publié)"
+    unpublished = [r for r in t2 if r["expected_date"] == NP]
+    bad_np = [r["id"] for r in unpublished if (r["class_group"], r["module"], r["session"]) in calkeys
+              or (r["class_group"], r["module"], "Principale") not in calkeys]
+    check("T2: 'pas encore publié' rows = existing exam whose retake is not in the calendar", not bad_np, str(bad_np))
+    found = [r for r in t2 if r["expected_date"] not in ("not found", NP)]
     bad = [r["id"] for r in found if (r["class_group"], r["module"], r["session"]) not in calkeys]
     check("T2 → D2: referenced (class, module, session) exist", not bad, str(bad))
     ghost = [r["id"] for r in t2 if r["expected_date"] == "not found" and (r["class_group"], r["module"], r["session"]) in calkeys]
@@ -191,8 +204,12 @@ if p2.exists():
     check("T2: projected rows expect 'non communiqué' for room and end time", not inv, str(inv))
 p3 = ROOT / "eval/T3_contacts_requests.csv"
 if p3.exists():
-    bad = [r["id"] for r in read(p3) if r["expected_role_id"] not in roles]
+    t3 = read(p3)
+    bad = [r["id"] for r in t3 if r["expected_role_id"] not in roles]
     check("T3 → D3: expected_role_id exist", not bad, str(bad))
+    bad = [r["id"] for r in t3 if r["expected_role_id"] in roles and r.get("email_status") !=
+           ("FICTITIOUS" if roles[r["expected_role_id"]]["email"].endswith("@esprit.example") else "delivered (unverified)")]
+    check("T3: email_status matches the contact (delivered (unverified) | FICTITIOUS)", not bad, str(bad))
 p4 = ROOT / "eval/T4_photos.csv"
 if p4.exists():
     miss = [r["file"] for r in read(p4) if not (ROOT / "eval/T4_photos" / r["file"]).exists()]
