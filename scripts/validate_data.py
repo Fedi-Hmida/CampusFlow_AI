@@ -181,8 +181,14 @@ p2 = ROOT / "eval/T2_calendar.csv"
 if p2.exists():
     calkeys = {(r["class_group"], r["module_name"], r["session"]) for r in cal}
     t2 = read(p2)
-    bad = [r["id"] for r in t2 if r["class_group"] and r.get("expect_exists", "yes") == "yes" and (r["class_group"], r["module"], r["session"]) not in calkeys]
+    found = [r for r in t2 if r["expected_date"] != "not found"]
+    bad = [r["id"] for r in found if (r["class_group"], r["module"], r["session"]) not in calkeys]
     check("T2 → D2: referenced (class, module, session) exist", not bad, str(bad))
+    ghost = [r["id"] for r in t2 if r["expected_date"] == "not found" and (r["class_group"], r["module"], r["session"]) in calkeys]
+    check("T2: 'not found' rows really absent from the calendar", not ghost, str(ghost))
+    proj = {(r["class_group"], r["module_name"], r["session"]) for r in cal if r["data_status"] != "FICTITIOUS"}
+    inv = [r["id"] for r in found if (r["class_group"], r["module"], r["session"]) in proj and (r["expected_room"] != "non communiqué" or r["expected_end_time"] != "non communiqué")]
+    check("T2: projected rows expect 'non communiqué' for room and end time", not inv, str(inv))
 p3 = ROOT / "eval/T3_contacts_requests.csv"
 if p3.exists():
     bad = [r["id"] for r in read(p3) if r["expected_role_id"] not in roles]
