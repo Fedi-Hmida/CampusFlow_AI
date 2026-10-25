@@ -1,0 +1,123 @@
+{
+ "doc_id": "D1-010",
+ "file": "guide_stages_2024-2025_FICTIF.pdf",
+ "raw_file": "ESPRIT_Guide_des_stages_2024-25.pdf",
+ "title": "Guide pratique des stages (hors projet de fin d'études)",
+ "regime": "jour",
+ "doc_status": "FICTITIOUS",
+ "source": "synthetic (team)",
+ "date": "2026-10-24",
+ "language": "fr",
+ "n_pages": 2,
+ "pages": [
+  {
+   "page": 1,
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nGuide pratique des stages (hors projet de fin d'études)\nVersion d'octobre 2026\n[Tableau p.1]\nRéférence: Public concerné; ESPRIT-STG-01: Cours du jour (élèves-ingénieurs)\nRéférence: Année de référence; ESPRIT-STG-01: 2024-2025\nArticle 1 : Objet et champ\nLe guide précise l'organisation des trois stages obligatoires du cycle : stage de formation humaine et\nsociale, stage d'immersion en entreprise et stage ingénieur.\nLe projet de fin d'études relève de l'article 7-10 du règlement de scolarité du cours du jour et n'est pas\ntraité ici.\nArticle 2 : Les trois stages\nLe stage est une activité obligatoire et notée. Les stages sont :\n• Stage de formation humaine et sociale : 2 ECTS, 4 semaines minimum, durant l'été de la 1ère année\ndu tronc commun ; organismes acceptés : ONG, club, lycée, entreprise, organisme civil.\n• Stage d'immersion en entreprise : 3 ECTS, 6 semaines minimum, durant l'été de la 3ème année (1ère\nannée du cycle ingénieur) ; entreprise, bureau d'études, usine, laboratoire (expérimental ou de\nrecherche).\n• Stage ingénieur : 5 ECTS, 8 semaines minimum, durant l'été de la 4ème année (2ème année du cycle\ningénieur) ; entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche).\nArticle 3 : Livrables obligatoires\nAu terme de chaque stage, l'élève présente un journal, un rapport de stage et une attestation de stage\ndélivrée par l'organisme d'accueil.\nArticle 4 : Recherche du stage et convention\nL'étudiant trouve lui-même sa structure d'accueil. Avant le premier jour de stage, une convention de stage\ntripartite (étudiant, école, organisme d'accueil) est signée par les trois parties et déposée auprès du\nservice des stages.\nUn stage commencé sans convention signée n'est pas reconnu par l'école.\nArticle 5 : Encadrement\nChaque stage est suivi par un tuteur de l'organisme d'accueil et par un encadrant académique d'ESPRIT.\nUn point d'étape avec l'encadrant académique a lieu à mi-parcours.\nArticle 6 : Rapport de stage et honnêteté intellectuelle\nLe rapport est rédigé en français ou en anglais. Il doit respecter les règles d'honnêteté intellectuelle : toute\nréférence bibliographique est indiquée et les passages repris d'un autre texte sont placés entre guillemets.\nUn programme informatique de détection de plagiat est utilisé par les enseignants.\nPour les stages couverts par ce guide, un taux de similarité inférieur à 18 % est attendu, comme pour le\nstage de PFE."
+  },
+  {
+   "page": 2,
+   "text": "Article 7 : Dépôt et évaluation\nLe journal, le rapport signé et l'attestation de stage sont déposés auprès du service des stages au plus\ntard le 30 septembre suivant la fin du stage.\nLa note de stage est intégrée à l'unité d'enseignement correspondante et suit les règles de validation des\nUE et de rattrapage du règlement de scolarité.\nArticle 8 : Stage non validé\nPour obtenir le diplôme d'ingénieur, tous les stages requis doivent être validés. Un stage non validé doit\nêtre refait selon les modalités fixées par le service des stages."
+  }
+ ],
+ "articles": [
+  {
+   "key": "D1-010/0/Préambule",
+   "level": "preamble",
+   "number": "0",
+   "title": "Préambule",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nGuide pratique des stages (hors projet de fin d'études)\nVersion d'octobre 2026\n[Tableau p.1]\nRéférence: Public concerné; ESPRIT-STG-01: Cours du jour (élèves-ingénieurs)\nRéférence: Année de référence; ESPRIT-STG-01: 2024-2025",
+   "chars": 290
+  },
+  {
+   "key": "D1-010/1/Objet et champ",
+   "level": "article",
+   "number": "1",
+   "title": "Objet et champ",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 1 : Objet et champ\nLe guide précise l'organisation des trois stages obligatoires du cycle : stage de formation humaine et\nsociale, stage d'immersion en entreprise et stage ingénieur.\nLe projet de fin d'études relève de l'article 7-10 du règlement de scolarité du cours du jour et n'est pas\ntraité ici.",
+   "chars": 309
+  },
+  {
+   "key": "D1-010/2/Les trois stages",
+   "level": "article",
+   "number": "2",
+   "title": "Les trois stages",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 2 : Les trois stages\nLe stage est une activité obligatoire et notée. Les stages sont :\n• Stage de formation humaine et sociale : 2 ECTS, 4 semaines minimum, durant l'été de la 1ère année\ndu tronc commun ; organismes acceptés : ONG, club, lycée, entreprise, organisme civil.\n• Stage d'immersion en entreprise : 3 ECTS, 6 semaines minimum, durant l'été de la 3ème année (1ère\nannée du cycle ingénieur) ; entreprise, bureau d'études, usine, laboratoire (expérimental ou de\nrecherche).\n• Stage ingénieur : 5 ECTS, 8 semaines minimum, durant l'été de la 4ème année (2ème année du cycle\ningénieur) ; entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche).",
+   "chars": 681
+  },
+  {
+   "key": "D1-010/3/Livrables obligatoires",
+   "level": "article",
+   "number": "3",
+   "title": "Livrables obligatoires",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 3 : Livrables obligatoires\nAu terme de chaque stage, l'élève présente un journal, un rapport de stage et une attestation de stage\ndélivrée par l'organisme d'accueil.",
+   "chars": 173
+  },
+  {
+   "key": "D1-010/4/Recherche du stage et convention",
+   "level": "article",
+   "number": "4",
+   "title": "Recherche du stage et convention",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 4 : Recherche du stage et convention\nL'étudiant trouve lui-même sa structure d'accueil. Avant le premier jour de stage, une convention de stage\ntripartite (étudiant, école, organisme d'accueil) est signée par les trois parties et déposée auprès du\nservice des stages.\nUn stage commencé sans convention signée n'est pas reconnu par l'école.",
+   "chars": 347
+  },
+  {
+   "key": "D1-010/5/Encadrement",
+   "level": "article",
+   "number": "5",
+   "title": "Encadrement",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 5 : Encadrement\nChaque stage est suivi par un tuteur de l'organisme d'accueil et par un encadrant académique d'ESPRIT.\nUn point d'étape avec l'encadrant académique a lieu à mi-parcours.",
+   "chars": 193
+  },
+  {
+   "key": "D1-010/6/Rapport de stage et honnêteté intellectuelle",
+   "level": "article",
+   "number": "6",
+   "title": "Rapport de stage et honnêteté intellectuelle",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 6 : Rapport de stage et honnêteté intellectuelle\nLe rapport est rédigé en français ou en anglais. Il doit respecter les règles d'honnêteté intellectuelle : toute\nréférence bibliographique est indiquée et les passages repris d'un autre texte sont placés entre guillemets.\nUn programme informatique de détection de plagiat est utilisé par les enseignants.\nPour les stages couverts par ce guide, un taux de similarité inférieur à 18 % est attendu, comme pour le\nstage de PFE.",
+   "chars": 480
+  },
+  {
+   "key": "D1-010/7/Dépôt et évaluation",
+   "level": "article",
+   "number": "7",
+   "title": "Dépôt et évaluation",
+   "section": "",
+   "page_start": 2,
+   "page_end": 2,
+   "text": "Article 7 : Dépôt et évaluation\nLe journal, le rapport signé et l'attestation de stage sont déposés auprès du service des stages au plus\ntard le 30 septembre suivant la fin du stage.\nLa note de stage est intégrée à l'unité d'enseignement correspondante et suit les règles de validation des\nUE et de rattrapage du règlement de scolarité.",
+   "chars": 336
+  },
+  {
+   "key": "D1-010/8/Stage non validé",
+   "level": "article",
+   "number": "8",
+   "title": "Stage non validé",
+   "section": "",
+   "page_start": 2,
+   "page_end": 2,
+   "text": "Article 8 : Stage non validé\nPour obtenir le diplôme d'ingénieur, tous les stages requis doivent être validés. Un stage non validé doit\nêtre refait selon les modalités fixées par le service des stages.",
+   "chars": 201
+  }
+ ]
+}

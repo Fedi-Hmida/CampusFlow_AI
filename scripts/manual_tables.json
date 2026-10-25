@@ -1,0 +1,31 @@
+{
+  "D1-001/p11/t1": {
+    "note": "Manual serialisation (A6): pdfplumber splits wrapped cells into separate rows. Transcribed from the PDF page 11 (Article 7-9 Stage) on 25 Oct 2026, checked against the rendered page.",
+    "rows": [
+      "Stage: Stage de formation humaine et sociale; Nombre d'ECTS: 2; Durée minimale: 4 semaines; Période: durant l'été de la 1ère année du tronc commun; Domaines acceptés: organisation non gouvernementale (ONG), club, lycée, entreprise, organisme civil",
+      "Stage: Stage d'immersion en entreprise; Nombre d'ECTS: 3; Durée minimale: 6 semaines; Période: durant l'été de la 3ème année (1ère année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)",
+      "Stage: Stage ingénieur; Nombre d'ECTS: 5; Durée minimale: 8 semaines; Période: durant l'été de la 4ème année (2ème année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)"
+    ]
+  },
+  "D1-001/p12/t1": {
+    "note": "Manual serialisation (A6): transcribed from the PDF page 12 (Article 7-10 PFE) on 25 Oct 2026, checked against the rendered page.",
+    "rows": [
+      "Stage: Stage de PFE; Nombre d'ECTS: 30; Durée minimale: 26 semaines; Période: 2ème semestre de la 5ème année (3ème année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)"
+    ]
+  },
+  "D1-001/p6/t1": {
+    "note": "Manual serialisation (A6): the weighting table of Article 7-3 starts on p.6 and continues on p.7 without its header row, so pdfplumber mislabels the columns. Transcribed from the rendered PDF pages on 25 Oct 2026.",
+    "rows": [
+      "Type d'épreuves: Examen; Contrôle continu (CC): —; TP ou projet personnel ou de groupe: —; Examen: 100%"
+    ]
+  },
+  "D1-001/p7/t1": {
+    "note": "Manual serialisation (A6): the weighting table of Article 7-3 starts on p.6 and continues on p.7 without its header row, so pdfplumber mislabels the columns. Transcribed from the rendered PDF pages on 25 Oct 2026. (continuation)",
+    "rows": [
+      "Type d'épreuves: CC + Examen; Contrôle continu (CC): 40%; TP ou projet personnel ou de groupe: —; Examen: 60%",
+      "Type d'épreuves: CC + TP (ou projet) + Examen; Contrôle continu (CC): 30%; TP ou projet personnel ou de groupe: 20%; Examen: 50%",
+      "Type d'épreuves: Type 1 : TP (ou projet) + Examen; Contrôle continu (CC): —; TP ou projet personnel ou de groupe: 20%; Examen: 80%",
+      "Type d'épreuves: Type 2 : TP (ou projet) + Examen; Contrôle continu (CC): —; TP ou projet personnel ou de groupe: 50%; Examen: 50%"
+    ]
+  }
+}

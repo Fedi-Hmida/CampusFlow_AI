@@ -1,0 +1,123 @@
+{
+ "doc_id": "D1-007",
+ "file": "procedure_depot-soutenance-pfe_2024-2025_FICTIF.pdf",
+ "raw_file": "ESPRIT_Procedure_Depot_Soutenance_PFE_2024-25.pdf",
+ "title": "Procédure : dépôt du rapport et soutenance du projet de fin d'études",
+ "regime": "jour;soir",
+ "doc_status": "FICTITIOUS",
+ "source": "synthetic (team)",
+ "date": "2026-10-24",
+ "language": "fr",
+ "n_pages": 2,
+ "pages": [
+  {
+   "page": 1,
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : dépôt du rapport et soutenance du projet de fin\nd'études\nVersion d'octobre 2026\n[Tableau p.1]\nRéférence: Public concerné; ESPRIT-PFE-01: Cours du jour (principal) ; différences cours du soir et alternance signalées\nRéférence: Année de référence; ESPRIT-PFE-01: 2024-2025\nArticle 1 : Objet\nCe guide décrit les étapes du projet de fin d'études (PFE) : conditions, dépôt, soutenance et suites en cas\nd'échec.\nArticle 2 : Conditions de démarrage\nCours du jour : le stage de PFE, d'une durée minimale de 6 mois (26 semaines, 30 ECTS), démarre après\nla validation du premier semestre de la 5ème année et la validation des crédits antérieurs dépassant le\nseuil minimal autorisé par le conseil de classe.\nCours du soir : durée minimale de 5 mois, à réaliser en entreprise, en 4ème année. Alternance : le PFE\npeut démarrer en 4ème année ; seuls les élèves ayant réussi les examens de la 4ème année et validé\ntoutes les UE peuvent soutenir.\nArticle 3 : Documents à déposer\nCours du jour : l'étudiant dépose auprès du service des stages ou via la plateforme des PFE :\n• son rapport de stage signé par les encadrants professionnel et académique et portant le cachet de\nl'entreprise d'accueil ;\n• un rapport anti-plagiat avec un taux de plagiat inférieur à 18 % ;\n• une attestation de stage octroyée par l'organisme d'accueil.\nArticle 4 : Calendrier de dépôt\nLe rapport complet est déposé au plus tard 15 jours avant la date de soutenance. Le service des stages\nvérifie la complétude du dossier sous 3 jours ouvrables et en informe l'étudiant par e-mail institutionnel. Un\ndossier incomplet empêche la programmation de la soutenance.\nArticle 5 : Jury et soutenance\nCours du jour : le jury comprend trois membres, dont le président du jury, le ou les encadrants\n(académiques et professionnels) et un membre invité. Cours du soir et alternance : le jury est désigné par\nle directeur de l'école et compte au moins trois membres, dont le président, le ou les encadrants et le\nrapporteur.\nDéroulement indicatif de la soutenance : présentation de 20 minutes, questions du jury pendant 15\nminutes, délibération à huis clos.\nArticle 6 : Évaluation et diplôme\nL'évaluation du stage repose sur des évaluations périodiques, un suivi académique, professionnel et\ntechnique, l'évaluation de la soutenance finale et le jury final.\nUne note supérieure ou égale à 10/20 au projet de fin d'études est exigée pour l'obtention du diplôme."
+  },
+  {
+   "page": 2,
+   "text": "Article 7 : Prolongation et échec\nLes élèves n'ayant pas validé leur stage, n'ayant pas soutenu avec succès le PFE ou n'ayant pas obtenu\nleurs certifications linguistiques (niveau B2 en français et en anglais) peuvent bénéficier d'une\nprolongation de scolarité de 6 mois au maximum. À l'issue de la prolongation, l'élève n'ayant pas validé\nson PFE est considéré comme redoublant et doit refaire son PFE avec un sujet différent, si les conditions\nde redoublement sont satisfaites.\nArticle 8 : Après la soutenance\nLes résultats sont communiqués par la scolarité après délibération. En cas de corrections demandées par\nle jury, la version finale du rapport est déposée dans un délai de 30 jours."
+  }
+ ],
+ "articles": [
+  {
+   "key": "D1-007/0/Préambule",
+   "level": "preamble",
+   "number": "0",
+   "title": "Préambule",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : dépôt du rapport et soutenance du projet de fin\nd'études\nVersion d'octobre 2026\n[Tableau p.1]\nRéférence: Public concerné; ESPRIT-PFE-01: Cours du jour (principal) ; différences cours du soir et alternance signalées\nRéférence: Année de référence; ESPRIT-PFE-01: 2024-2025",
+   "chars": 347
+  },
+  {
+   "key": "D1-007/1/Objet",
+   "level": "article",
+   "number": "1",
+   "title": "Objet",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 1 : Objet\nCe guide décrit les étapes du projet de fin d'études (PFE) : conditions, dépôt, soutenance et suites en cas\nd'échec.",
+   "chars": 134
+  },
+  {
+   "key": "D1-007/2/Conditions de démarrage",
+   "level": "article",
+   "number": "2",
+   "title": "Conditions de démarrage",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 2 : Conditions de démarrage\nCours du jour : le stage de PFE, d'une durée minimale de 6 mois (26 semaines, 30 ECTS), démarre après\nla validation du premier semestre de la 5ème année et la validation des crédits antérieurs dépassant le\nseuil minimal autorisé par le conseil de classe.\nCours du soir : durée minimale de 5 mois, à réaliser en entreprise, en 4ème année. Alternance : le PFE\npeut démarrer en 4ème année ; seuls les élèves ayant réussi les examens de la 4ème année et validé\ntoutes les UE peuvent soutenir.",
+   "chars": 524
+  },
+  {
+   "key": "D1-007/3/Documents à déposer",
+   "level": "article",
+   "number": "3",
+   "title": "Documents à déposer",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 3 : Documents à déposer\nCours du jour : l'étudiant dépose auprès du service des stages ou via la plateforme des PFE :\n• son rapport de stage signé par les encadrants professionnel et académique et portant le cachet de\nl'entreprise d'accueil ;\n• un rapport anti-plagiat avec un taux de plagiat inférieur à 18 % ;\n• une attestation de stage octroyée par l'organisme d'accueil.",
+   "chars": 382
+  },
+  {
+   "key": "D1-007/4/Calendrier de dépôt",
+   "level": "article",
+   "number": "4",
+   "title": "Calendrier de dépôt",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 4 : Calendrier de dépôt\nLe rapport complet est déposé au plus tard 15 jours avant la date de soutenance. Le service des stages\nvérifie la complétude du dossier sous 3 jours ouvrables et en informe l'étudiant par e-mail institutionnel. Un\ndossier incomplet empêche la programmation de la soutenance.",
+   "chars": 306
+  },
+  {
+   "key": "D1-007/5/Jury et soutenance",
+   "level": "article",
+   "number": "5",
+   "title": "Jury et soutenance",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 5 : Jury et soutenance\nCours du jour : le jury comprend trois membres, dont le président du jury, le ou les encadrants\n(académiques et professionnels) et un membre invité. Cours du soir et alternance : le jury est désigné par\nle directeur de l'école et compte au moins trois membres, dont le président, le ou les encadrants et le\nrapporteur.\nDéroulement indicatif de la soutenance : présentation de 20 minutes, questions du jury pendant 15\nminutes, délibération à huis clos.",
+   "chars": 482
+  },
+  {
+   "key": "D1-007/6/Évaluation et diplôme",
+   "level": "article",
+   "number": "6",
+   "title": "Évaluation et diplôme",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "Article 6 : Évaluation et diplôme\nL'évaluation du stage repose sur des évaluations périodiques, un suivi académique, professionnel et\ntechnique, l'évaluation de la soutenance finale et le jury final.\nUne note supérieure ou égale à 10/20 au projet de fin d'études est exigée pour l'obtention du diplôme.",
+   "chars": 302
+  },
+  {
+   "key": "D1-007/7/Prolongation et échec",
+   "level": "article",
+   "number": "7",
+   "title": "Prolongation et échec",
+   "section": "",
+   "page_start": 2,
+   "page_end": 2,
+   "text": "Article 7 : Prolongation et échec\nLes élèves n'ayant pas validé leur stage, n'ayant pas soutenu avec succès le PFE ou n'ayant pas obtenu\nleurs certifications linguistiques (niveau B2 en français et en anglais) peuvent bénéficier d'une\nprolongation de scolarité de 6 mois au maximum. À l'issue de la prolongation, l'élève n'ayant pas validé\nson PFE est considéré comme redoublant et doit refaire son PFE avec un sujet différent, si les conditions\nde redoublement sont satisfaites.",
+   "chars": 479
+  },
+  {
+   "key": "D1-007/8/Après la soutenance",
+   "level": "article",
+   "number": "8",
+   "title": "Après la soutenance",
+   "section": "",
+   "page_start": 2,
+   "page_end": 2,
+   "text": "Article 8 : Après la soutenance\nLes résultats sont communiqués par la scolarité après délibération. En cas de corrections demandées par\nle jury, la version finale du rapport est déposée dans un délai de 30 jours.",
+   "chars": 212
+  }
+ ]
+}
