@@ -53,11 +53,11 @@ Expected values come from `data/tables/` (generated). Tick or fix.
   → role `SCO-GEN` (Scolarité (contact général), scolarite@esprit.tn)  
   → documents: Dossier de demande de repassage exceptionnel déposé à la scolarité ; justificatif recevable uniquement pour accident, maladie contagieuse, hospitalisation ou décès d'un parent proche (un certificat médical n'est pas un justificatif)  
   → deadline: Aucun délai fixé par le règlement ; demande traitée au cas par cas  
-  → from: REQ-08-J · D1-001/7-8/Déroulement des épreuves | D1-004/3/Dossier de demande de repassage exceptionnel  
+  → from: REQ-08-J · D1-001/7-8/Déroulement des épreuves | D1-004/3/Dossier de demande de repassage exceptionnel | D1-004/4/Instruction de la demande  
   - [ ] OK  [ ] fix: ____
 - **T3-03** (soir) Cours du soir : absent à un exam pour une mission de travail, je préviens qui et avant quand ?  
   → role `SCO-GEN` (Scolarité (contact général), scolarite@esprit.tn)  
-  → documents: Pièces justificatives de force majeure (hospitalisation, décès d'un parent, mission de travail) ; un simple certificat médical n'est pas un motif valable (cours du soir) ou peut ne pas l'être (alternance)  
+  → documents: Pièces justificatives de force majeure (hospitalisation, décès d'un parent, mission de travail) ; un simple certificat médical n'est pas un motif valable  
   → deadline: Aviser le responsable de la scolarité dans un délai ne dépassant pas 48 h à compter de la date de l'épreuve  
   → from: REQ-08-SA · D1-002/7-2/Evaluation des élèves | D1-003/8/Absences des examens | D1-004/4/Instruction de la demande  
   - [ ] OK  [ ] fix: ____
@@ -70,7 +70,7 @@ Expected values come from `data/tables/` (generated). Tick or fix.
 - **T3-05** (jour) Je veux reporter mon inscription (cours du jour) : c'est jusqu'à quand et je dépose où ?  
   → role `SCO-GEN` (Scolarité (contact général), scolarite@esprit.tn)  
   → documents: Formulaire de demande de report rempli et déposé au bureau d'ordre de l'école  
-  → deadline: Au plus tard le 30 novembre de l'année en cours (cours du jour : condition du remboursement ; cours du soir : aucune demande recevable après le 30 novembre) ; un seul report sur toute la scolarité  
+  → deadline: Au plus tard le 30 novembre de l'année en cours pour bénéficier du remboursement ; un seul report sur toute la scolarité  
   → from: REQ-06 · D1-001/3/Inscription des élèves | D1-002/3/Inscription des élèves  
   - [ ] OK  [ ] fix: ____
 - **T3-06** (jour) Qui s'occupe des conventions de stage ?  
@@ -100,7 +100,7 @@ Expected values come from `data/tables/` (generated). Tick or fix.
 - **T3-10** (soir) Cours du soir : je veux une double correction de mon examen écrit, où et avant quand ?  
   → role `EXA` (Bureau des examens, examen@esprit.tn)  
   → documents: Demande écrite sur le formulaire FORM-02 (nom, prénom, classe, numéro d'étudiant, module, date de l'épreuve, note affichée, motif) ; pièce d'identité si demandée  
-  → deadline: Cours du soir et alternance : une semaine après l'affichage de la note (demande de double correction auprès du service examen) ; cours du jour : non fixé par le règlement (FICTITIOUS : 3 jours ouvrables après la publication des résultats)  
+  → deadline: Une semaine après l'affichage de la note, auprès du service examen  
   → from: REQ-11 · D1-002/7-2/Evaluation des élèves | D1-003/7-2/Evaluation des alternant | D1-008/4/Comment déposer la demande | D1-008/5/Traitement de la demande  
   - [ ] OK  [ ] fix: ____
 

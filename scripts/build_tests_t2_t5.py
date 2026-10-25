@@ -89,12 +89,21 @@ T3_SPEC = [  # id, question, regime, request_id (or None), role_id override (SCO
     ("T3-09", "Le service élèves de 3e année ne me répond pas, à qui je peux remonter ?", "all", None, "DEP-HEAD"),
     ("T3-10", "Cours du soir : je veux une double correction de mon examen écrit, où et avant quand ?", "soir", "REQ-11", None),
 ]
+# Regime-specific expected values: when a catalogue cell covers several regimes, keep only the clause of the
+# question's regime (same rule, same source articles as the catalogue row).
+T3_REGIME_OVERRIDE = {
+    "T3-03": {"expected_documents": "Pièces justificatives de force majeure (hospitalisation, décès d'un parent, mission de travail) ; un simple certificat médical n'est pas un motif valable"},
+    "T3-05": {"expected_deadline": "Au plus tard le 30 novembre de l'année en cours pour bénéficier du remboursement ; un seul report sur toute la scolarité"},
+    "T3-10": {"expected_deadline": "Une semaine après l'affichage de la note, auprès du service examen"},
+}
 t3 = []
 for rid, q, reg, req, role in T3_SPEC:
     r = REQ.get(req)
     role_id = role or r["handler_role_id"]
+    ov = T3_REGIME_OVERRIDE.get(rid, {})
     t3.append({"id": rid, "question": q, "regime": reg, "expected_role_id": role_id,
-               "expected_documents": r["required_documents"] if r else "—", "expected_deadline": r["deadline_rule"] if r else "—",
+               "expected_documents": ov.get("expected_documents", r["required_documents"] if r else "—"),
+               "expected_deadline": ov.get("expected_deadline", r["deadline_rule"] if r else "—"),
                "email_status": "FICTITIOUS" if ROLE[role_id]["email"].endswith("@esprit.example") else "delivered (unverified)",
                "verified_by": ""})
 write(E / "T3_contacts_requests.csv", t3)

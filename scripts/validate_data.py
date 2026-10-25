@@ -145,6 +145,19 @@ bad_ref = [(r["request_id"], k) for r in rq if r["source_ref"] != NO_SRC for k i
 check("D4 → corpus: every source_ref is an existing article key", not bad_ref, str(bad_ref))
 unlabelled = [r["request_id"] for r in rq if (r["source_ref"] == NO_SRC or all(k.split("/")[0] >= "D1-004" for k in r["source_ref"].split(" | "))) and "FICTITIOUS" not in r["source"]]
 check("D4: rows without an official source are labelled FICTITIOUS", not unlabelled, str(unlabelled))
+PHRASE = re.compile(r"(\d+\s*(?:jours? ouvrables?|jours?|heures|h|semaines?|mois)\b|\d{1,2}(?:er)?\s+(?:janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)|une semaine|lendemain)", re.I)
+hnorm = lambda s: re.sub(r"(\d+)\s*h\b", r"\1 heures", re.sub(r"\s+", " ", s.replace("’", "'").lower()))
+two_versions = []
+for r in rq:
+    if r["source_ref"] == NO_SRC:
+        continue
+    cited = hnorm(" ".join(next(u["text"] for u in doc(k.split("/")[0])["articles"] if u["key"] == k) for k in r["source_ref"].split(" | ")))
+    for field in ("deadline_rule", "processing_time"):
+        for ph in PHRASE.findall(r[field]):
+            if hnorm(ph) not in cited and not ("catalogue only" in r["source"] and (field in r["source"] or "délai" in r["source"])):
+                two_versions.append((r["request_id"], field, ph))
+check("D4 → corpus: every duration/date in deadline_rule / processing_time appears in the cited articles (no second version)",
+      not two_versions, str(two_versions))
 check("D4: REQ-08 split by regime (REQ-08-J jour / REQ-08-SA soir;alternance)",
       {(r["request_id"], r["regime"]) for r in rq if r["request_id"].startswith("REQ-08")} == {("REQ-08-J", "jour"), ("REQ-08-SA", "soir;alternance")})
 
@@ -210,6 +223,10 @@ if p3.exists():
     bad = [r["id"] for r in t3 if r["expected_role_id"] in roles and r.get("email_status") !=
            ("FICTITIOUS" if roles[r["expected_role_id"]]["email"].endswith("@esprit.example") else "delivered (unverified)")]
     check("T3: email_status matches the contact (delivered (unverified) | FICTITIOUS)", not bad, str(bad))
+    NAMES = {"jour": "cours du jour", "soir": "cours du soir", "alternance": "alternance"}
+    other = [(r["id"], n) for r in t3 if r["regime"] != "all" for reg, n in NAMES.items()
+             if reg not in r["regime"].split(";") and n in (r["expected_documents"] + " " + r["expected_deadline"]).lower()]
+    check("T3: expected values mention no other regime than the question's (regime-specific)", not other, str(other))
 p4 = ROOT / "eval/T4_photos.csv"
 if p4.exists():
     miss = [r["file"] for r in read(p4) if not (ROOT / "eval/T4_photos" / r["file"]).exists()]

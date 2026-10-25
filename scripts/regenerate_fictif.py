@@ -15,7 +15,10 @@ import sys
 from pathlib import Path
 
 import pdfplumber
-from reportlab.lib.enums import TA_JUSTIFY
+from reportlab import rl_config
+
+rl_config.invariant = 1  # fixed creation date and document ID → two builds are byte-identical (reproducibility)
+from reportlab.lib.enums import TA_JUSTIFY  # noqa: E402
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import cm
