@@ -8,6 +8,7 @@ Rule: every image and model is pinned to an exact tag; no floating tags. Recorde
 | n8n | `n8nio/n8n` | `2.44.6` | `sha256:d02752c6ab446ae9db8deec2f9cc887c378f77cdcad31650814df936b7386dfb` |
 | qdrant | `qdrant/qdrant` | `v1.20.0` | `sha256:9bfc89f9914fc14876a88c05270685921a55b8877b254a98bcc1cc2f0a424cd2` |
 | ollama | `ollama/ollama` | `0.40.10` | `sha256:4c5b27871a3239a717048f9b93057680a51b60c8119a7016aebb57f938e25e35` |
+| ngrok | `ngrok/ngrok` | `3.39.13-alpine` | `sha256:a51a7637a70be573615b01852af0419c4ab9dc857601b3d61ea2a082be3ec0d3` |
 
 ## Models (Ollama)
 | Model | Tag | ID | Size | Use |
