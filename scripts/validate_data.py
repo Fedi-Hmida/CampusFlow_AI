@@ -267,7 +267,7 @@ ref = [(r["id"], m) for r in read(t5p) for m in re.findall(r"photo (T4-\d\d)", r
 check("T5 → T4: referenced photos exist in T4", not ref, str(ref))
 unticked = {n: [r.get("id") or r["file"] for r in read(ROOT / f"eval/testsets/{n}.csv") if not r["verified_by"]]
             for n in ("T2_calendar", "T3_contacts_requests", "T4_photos", "T5_adversarial") if (ROOT / f"eval/testsets/{n}.csv").exists()}
-check("T2–T5: every row ticked by Fedi", not any(unticked.values()), str({k: v for k, v in unticked.items() if v}), level="PENDING")
+check("T2–T5: every row ticked (Fedi, or delegated by Fedi)", not any(unticked.values()), str({k: v for k, v in unticked.items() if v}), level="PENDING")
 
 # ---------------------------------------------------------------- D5 candidates (CF-208b)
 stray = [p.relative_to(ROOT).as_posix() for p in list((ROOT / "eval").glob("D5*")) + list((ROOT / "eval/testsets").glob("D5*"))]
