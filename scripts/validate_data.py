@@ -233,6 +233,22 @@ if p4.exists():
     miss = [r["file"] for r in read(p4) if not (ROOT / "eval/testsets/T4_photos" / r["file"]).exists()]
     check("T4: every image file present", not miss, str(miss), level="PENDING")
 
+# ---------------------------------------------------------------- D5 candidates (CF-208b)
+stray = [p.relative_to(ROOT).as_posix() for p in list((ROOT / "eval").glob("D5*")) + list((ROOT / "eval/testsets").glob("D5*"))]
+check("D5: never stored as a test set (only under eval/candidates/)", not stray, str(stray))
+p5 = ROOT / "eval/candidates/D5_triage.csv"
+if p5.exists():
+    d5 = read(p5)
+    STATUSES = {"leak", "rule_conflict", "blocked_source", "route_only", "supported"}
+    check("D5 triage: unique D5-NNN ids", len({r["d5_id"] for r in d5}) == len(d5) and all(re.fullmatch(r"D5-\d{3}", r["d5_id"]) for r in d5))
+    check("D5 triage: every row has a status and a reason unless supported / route_only",
+          all(r["status"] in STATUSES and (r["reasons"] or r["status"] == "supported") for r in d5))
+    check("D5 triage: leaked questions are excluded from the Router dev set", all(r["router_dev"] == "no" for r in d5 if r["status"] == "leak"))
+    bad_int = [r["d5_id"] for r in d5 if not set(r["router_intents"].split(";")) <= {"regulations", "calendar", "admin", "vision", "out_of_scope"}]
+    check("D5 triage: router_intents use the Router enum", not bad_int, str(bad_int))
+else:
+    check("D5 triage present (eval/candidates/D5_triage.csv)", False)
+
 # ---------------------------------------------------------------- privacy
 texts = list(T.glob("*.csv")) + list((ROOT / "eval").rglob("*.csv")) + list((ROOT / "eval").rglob("*.md")) + list(CLEAN.glob("*.json"))
 leaks = []

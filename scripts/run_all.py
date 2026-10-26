@@ -19,6 +19,7 @@ STEPS = [
     "scripts/tables/build_org_chart.py",
     "scripts/testsets/build_t1.py",
     "scripts/testsets/build_tests_t2_t5.py",
+    "scripts/testsets/triage_d5.py",             # D5 candidates → status per row + Router dev labels (CF-208b)
 ]
 
 
