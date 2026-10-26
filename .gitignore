@@ -24,3 +24,5 @@ __pycache__/
 
 # Excluded raw documents (duplicates / personal data) — kept locally only
 data/raw/excluded/
+# cached question embeddings of the retrieval evaluation (re-creatable)
+eval/retrieval/question_vectors_*.json
