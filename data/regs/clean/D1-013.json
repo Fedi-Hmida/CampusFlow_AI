@@ -1,0 +1,124 @@
+{
+ "doc_id": "D1-013",
+ "file": "fictitious/guide_mobilite-internationale_2026-2027_FICTIF.pdf",
+ "raw_file": "authored: scripts/corpus/authored_fictif.json",
+ "title": "Guide : mobilité internationale (échange et double diplôme)",
+ "regime": "all",
+ "doc_status": "FICTITIOUS",
+ "source": "authored (project, CF-117)",
+ "source_pdf": "data/regs/fictitious/guide_mobilite-internationale_2026-2027_FICTIF.pdf",
+ "date": "2026-10-26",
+ "language": "fr",
+ "n_pages": 2,
+ "pages": [
+  {
+   "page": 1,
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nGuide : mobilité internationale (échange et double diplôme)\nVersion d'octobre 2026\nRéférence : ESPRIT-MOB-01\nPublic concerné : Étudiants du cycle ingénieur (cours du jour, cours du soir, alternance)\nAnnée de référence : 2026-2027\nArticle 1 : Objet\nCe guide présente la mobilité académique : semestre d'échange et double diplôme dans un établissement\npartenaire. Les stages effectués hors de Tunisie ne relèvent pas de ce guide : ils sont traités par le\ndépartement des stages (departement.stage@esprit.tn).\nArticle 2 : Service compétent\nLe service de la mobilité internationale informe les étudiants, publie les appels à candidatures et suit les\ndossiers.\n• Adresse : mobilite-internationale@esprit.tn\n• Bureau : Bloc F, bureau 02\n• Accueil : du lundi au vendredi, de 9h00 à 12h00 et de 14h00 à 16h00\nArticle 3 : Formes de mobilité\n• Semestre d'échange : un semestre d'études dans un établissement partenaire, en principe au cours de\nla 4e année ; les crédits obtenus sont reconnus selon le contrat d'études.\n• Double diplôme : un parcours d'au moins deux semestres dans un établissement partenaire, qui\nconduit aux deux diplômes lorsque les conditions des deux établissements sont remplies.\nLa liste des établissements partenaires et des places est publiée avec chaque appel à candidatures.\nArticle 4 : Conditions de candidature\nPeut candidater l'étudiant qui :\n• est régulièrement inscrit et a validé l'année précédente ;\n• justifie du niveau de langue demandé par l'établissement partenaire ;\n• ne fait pas l'objet d'une sanction de privation de la mobilité internationale prévue par le règlement de\nscolarité. Pour l'alternance, le départ suppose en outre l'accord écrit de l'entreprise d'accueil.\nArticle 5 : Dossier de candidature\nLe dossier est déposé auprès du service de la mobilité internationale avant la date limite fixée par l'appel à\ncandidatures de l'année. Il comprend :\n• un CV ;\n• une lettre de motivation ;\n• les relevés de notes ;\n• une copie du passeport ;\n• une attestation de niveau de langue. Un dossier incomplet ou déposé après la date limite n'est pas\nexaminé.\nArticle 6 : Sélection\nUne commission de sélection examine les dossiers selon les résultats académiques, la motivation et le\nniveau de langue ; elle peut convoquer les candidats à un entretien. La réponse est communiquée après"
+  },
+  {
+   "page": 2,
+   "text": "la réunion de la commission. L'admission définitive dépend ensuite de l'accord de l'établissement\npartenaire.\nArticle 7 : Contrat d'études et reconnaissance des crédits\nAvant le départ, l'étudiant signe un contrat d'études qui fixe les modules suivis chez le partenaire et leur\néquivalence. Toute modification est validée par le service de la mobilité internationale et le département\nconcerné. Les crédits validés chez le partenaire sont reconnus selon ce contrat.\nArticle 8 : Financement et frais\nPendant un semestre d'échange, l'étudiant reste inscrit à l'école et règle ses frais de scolarité selon le\nguide de paiement des frais. Les bourses de mobilité éventuellement disponibles sont annoncées avec\nl'appel à candidatures ; ce guide n'en fixe ni le nombre ni le montant."
+  }
+ ],
+ "articles": [
+  {
+   "key": "D1-013/0/Préambule",
+   "level": "preamble",
+   "number": "0",
+   "title": "Préambule",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nEcole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nGuide : mobilité internationale (échange et double diplôme)\nVersion d'octobre 2026\nRéférence : ESPRIT-MOB-01\nPublic concerné : Étudiants du cycle ingénieur (cours du jour, cours du soir, alternance)\nAnnée de référence : 2026-2027",
+   "chars": 294
+  },
+  {
+   "key": "D1-013/1/Objet",
+   "level": "article",
+   "number": "1",
+   "title": "Objet",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 1 : Objet\nCe guide présente la mobilité académique : semestre d'échange et double diplôme dans un établissement\npartenaire. Les stages effectués hors de Tunisie ne relèvent pas de ce guide : ils sont traités par le\ndépartement des stages (departement.stage@esprit.tn).",
+   "chars": 276
+  },
+  {
+   "key": "D1-013/2/Service compétent",
+   "level": "article",
+   "number": "2",
+   "title": "Service compétent",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 2 : Service compétent\nLe service de la mobilité internationale informe les étudiants, publie les appels à candidatures et suit les\ndossiers.\n• Adresse : mobilite-internationale@esprit.tn\n• Bureau : Bloc F, bureau 02\n• Accueil : du lundi au vendredi, de 9h00 à 12h00 et de 14h00 à 16h00",
+   "chars": 293
+  },
+  {
+   "key": "D1-013/3/Formes de mobilité",
+   "level": "article",
+   "number": "3",
+   "title": "Formes de mobilité",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 3 : Formes de mobilité\n• Semestre d'échange : un semestre d'études dans un établissement partenaire, en principe au cours de\nla 4e année ; les crédits obtenus sont reconnus selon le contrat d'études.\n• Double diplôme : un parcours d'au moins deux semestres dans un établissement partenaire, qui\nconduit aux deux diplômes lorsque les conditions des deux établissements sont remplies.\nLa liste des établissements partenaires et des places est publiée avec chaque appel à candidatures.",
+   "chars": 490
+  },
+  {
+   "key": "D1-013/4/Conditions de candidature",
+   "level": "article",
+   "number": "4",
+   "title": "Conditions de candidature",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 4 : Conditions de candidature\nPeut candidater l'étudiant qui :\n• est régulièrement inscrit et a validé l'année précédente ;\n• justifie du niveau de langue demandé par l'établissement partenaire ;\n• ne fait pas l'objet d'une sanction de privation de la mobilité internationale prévue par le règlement de\nscolarité. Pour l'alternance, le départ suppose en outre l'accord écrit de l'entreprise d'accueil.",
+   "chars": 409
+  },
+  {
+   "key": "D1-013/5/Dossier de candidature",
+   "level": "article",
+   "number": "5",
+   "title": "Dossier de candidature",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 5 : Dossier de candidature\nLe dossier est déposé auprès du service de la mobilité internationale avant la date limite fixée par l'appel à\ncandidatures de l'année. Il comprend :\n• un CV ;\n• une lettre de motivation ;\n• les relevés de notes ;\n• une copie du passeport ;\n• une attestation de niveau de langue. Un dossier incomplet ou déposé après la date limite n'est pas\nexaminé.",
+   "chars": 385
+  },
+  {
+   "key": "D1-013/6/Sélection",
+   "level": "article",
+   "number": "6",
+   "title": "Sélection",
+   "section": "",
+   "page_start": 1,
+   "page_end": 2,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 6 : Sélection\nUne commission de sélection examine les dossiers selon les résultats académiques, la motivation et le\nniveau de langue ; elle peut convoquer les candidats à un entretien. La réponse est communiquée après\nla réunion de la commission. L'admission définitive dépend ensuite de l'accord de l'établissement\npartenaire.",
+   "chars": 335
+  },
+  {
+   "key": "D1-013/7/Contrat d'études et reconnaissance des crédits",
+   "level": "article",
+   "number": "7",
+   "title": "Contrat d'études et reconnaissance des crédits",
+   "section": "",
+   "page_start": 2,
+   "page_end": 2,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 7 : Contrat d'études et reconnaissance des crédits\nAvant le départ, l'étudiant signe un contrat d'études qui fixe les modules suivis chez le partenaire et leur\néquivalence. Toute modification est validée par le service de la mobilité internationale et le département\nconcerné. Les crédits validés chez le partenaire sont reconnus selon ce contrat.",
+   "chars": 355
+  },
+  {
+   "key": "D1-013/8/Financement et frais",
+   "level": "article",
+   "number": "8",
+   "title": "Financement et frais",
+   "section": "",
+   "page_start": 2,
+   "page_end": 2,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 8 : Financement et frais\nPendant un semestre d'échange, l'étudiant reste inscrit à l'école et règle ses frais de scolarité selon le\nguide de paiement des frais. Les bourses de mobilité éventuellement disponibles sont annoncées avec\nl'appel à candidatures ; ce guide n'en fixe ni le nombre ni le montant.",
+   "chars": 311
+  }
+ ]
+}

@@ -18,6 +18,7 @@ from pypdf import PdfReader, PdfWriter
 
 ROOT = Path(__file__).resolve().parents[2]
 RAW, OUT, CLEAN = ROOT / "data/raw/regs", ROOT / "data/regs", ROOT / "data/regs/clean"
+AUTHORED = "authored: scripts/corpus/authored_fictif.json"  # raw-file field of documents written by the project
 
 DOCS = [
     # doc_id, raw file, target file, title, regime, doc_status, source, date
@@ -43,6 +44,11 @@ DOCS = [
      "Guide pratique des stages (hors projet de fin d'études)", "jour", "FICTITIOUS", "synthetic (team)", "2026-10-24"),
     ("D1-011", "ESPRIT_Reglement_interieur_vie_campus_2024-25.pdf", "reglement_interieur-vie-campus_2024-2025_FICTIF.pdf",
      "Règlement intérieur : vie sur le campus", "all", "FICTITIOUS", "synthetic (team)", "2026-10-24"),
+    # CF-117: written by the project (scripts/corpus/authored_fictif.json → author_fictif.py), no raw delivery
+    ("D1-012", AUTHORED, "guide_frais-scolarite-paiements_2026-2027_FICTIF.pdf",
+     "Guide : paiement des frais de scolarité et échéanciers", "all", "FICTITIOUS", "authored (project, CF-117)", "2026-10-26"),
+    ("D1-013", AUTHORED, "guide_mobilite-internationale_2026-2027_FICTIF.pdf",
+     "Guide : mobilité internationale (échange et double diplôme)", "all", "FICTITIOUS", "authored (project, CF-117)", "2026-10-26"),
 ]
 
 CID = re.compile(r"\(cid:\d+\)")
