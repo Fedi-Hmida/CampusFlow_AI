@@ -7,7 +7,8 @@ CampusFlow AI is a Telegram assistant for ESPRIT students, built as the final pr
 by Fedi, Doua and Ines. It answers questions about regulations (RAG over PDFs, with citations), exam dates and
 administrative contacts (exact lookup tools), and helps prepare administrative requests. An orchestrator–worker
 multi-agent system in n8n (Router → Vision / Regulations / Calendar / Admin → Composer → Critic) uses versioned prompts
-and reads photos of notices and timetables. Everything runs locally in Docker except image reading (Gemini Flash-Lite).
+and reads photos of notices and timetables. Everything runs locally in Docker except image reading and the three long-writing agents (Regulations, Admin draft,
+Composer) on Gemini Flash-Lite — per-agent hybrid, measured (ADR-010); `config/agents.json` `mode: local` switches back.
 
 ## Stack
 - Docker Compose, network `esa-net` (or `campusflow-net`): **n8n** 2.x · **Qdrant** 1.x · **Ollama** (Qwen3 8B 4-bit + bge-m3)

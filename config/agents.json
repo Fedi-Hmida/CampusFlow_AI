@@ -1,7 +1,12 @@
 {
  "_about": "CF-010 — single source of truth for every agent's provider, prompt and budget (ADR-010). WF-3 reads it; changing `mode` switches the long-writing agents between Gemini (hybrid) and the local 4B model. Measured basis: eval/latency/budget.md.",
  "mode": "hybrid",
- "_mode_note": "hybrid = Router, tools, embeddings, checks local; Regulations / Admin draft / Composer on Gemini Flash-Lite (≈ 14 s per regulation question). local = everything on qwen3 4B (≈ 114 s per regulation question). Fedi signs off (ADR-010 changes ADR-003).",
+ "_mode_note": "hybrid = Router, tools, embeddings, checks local; Regulations / Admin draft / Composer on Gemini Flash-Lite (≈ 14 s per regulation question). local = everything on qwen3 4B (≈ 114 s per regulation question). ADR-010 accepted 26 Oct (decided on Fedi's delegation); amends ADR-003 and NFR-03.",
+ "cloud_data": {
+  "sent": ["student question text", "retrieved public / FICTITIOUS regulation excerpts", "photos (vision, ADR-003)"],
+  "never_sent": ["Telegram user id", "chat id", "username or name", "logs"],
+  "guard": "the local Router classifies first; personal-data requests are out_of_scope and never reach a cloud agent"
+ },
  "latency": {
   "target_s": 90,
   "ack_message_fr": "Je cherche dans le règlement et les tables… (quelques secondes)",

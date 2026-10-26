@@ -45,8 +45,9 @@ ids, so re-indexing replaces instead of duplicating ([data/index](../data/index/
 
 ## 5. Latency budget (CF-008b — [eval/latency](../eval/latency/README.md))
 - 4B model on CPU: 30.7 tok/s prompt, 4.1 tok/s output; the full 5-call chain ≈ 415 s vs the 90 s target.
-- Proposed (ADR-010, awaiting approval): short Router output, Composer only for multi-intent questions, Critic as
-  deterministic checks + optional LLM, cached static system prompts.
+- **Accepted (ADR-010, 26 Oct, measured — [budget](../eval/latency/budget.md)):** per-agent hybrid — Router v2 (10 s, cached
+  prefix), tools, embeddings and deterministic checks local; Regulations / Admin draft / Composer on Gemini Flash-Lite;
+  regulation question 14 s (local alternative 114 s); switch `config/agents.json` `mode`.
 
 ## 6. Security
 n8n is reachable through ngrok, so every published webhook is public: test webhooks are published only for a run
