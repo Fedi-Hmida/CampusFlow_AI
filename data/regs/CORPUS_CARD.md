@@ -6,7 +6,7 @@
 | Documents | **13** (3 official regulations + 8 FICTITIOUS procedures + 2 FICTITIOUS guides written by the project, CF-117) — ADR-012, ADR-024 |
 | Pages / characters / est. tokens | 61 pages · 127 766 characters · ≈ 31 900 tokens (4 characters per token, French) |
 | Structure | 115 articles + 27 sub-sections (`7-1 … 7-10`), keyed `<doc_id>/<number>/<title>` |
-| Chunks | built by `scripts/index/build_chunks.py` (CF-016) |
+| Chunks | strategy A (2 000 chars ≈ 500 tokens, overlap 200): 77 · strategy B (article / sub-section, split > 2 000 chars at sentence ends): 168 — [data/index/README.md](../index/README.md) |
 | Format | PDF with selectable text (no OCR needed); cleaned text in `data/regs/clean/<doc_id>.json` |
 | Language | French |
 | Period | academic year 2024-2025 (official texts created Oct 2024 – May 2025) |

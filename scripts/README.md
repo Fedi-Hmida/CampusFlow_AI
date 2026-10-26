@@ -11,9 +11,11 @@ Rebuild all of it, then validate, with one command (inside the repo's `.venv`):
 |---|---|---|
 | `lib/` | `corpus_lookup.py` | shared helpers: quote lookup, article keys, review-sheet writer |
 | `corpus/` | `extract_regs.py` | `data/regs/clean/D1-*.json`, `data/regs/official/*.pdf` (author metadata removed) |
+| | `author_fictif.py` | `data/regs/fictitious/` D1-012 / D1-013 from `authored_fictif.json` (CF-117) |
 | | `regenerate_fictif.py` | `data/regs/fictitious/*_FICTIF.pdf` (label on every page, byte-reproducible) |
 | | `build_consistency_review.py` | `eval/review/sheets/consistency_review.md` |
 | | `manual_tables.json`, `fictif_corrections.json` | inputs: hand-serialised tables (A6), CF-108b corrections |
+| `index/` | `build_chunks.py` | `data/index/chunks_A.json`, `chunks_B.json`, `README.md` (CF-016) |
 | `tables/` | `transform_calendar.py` | `data/tables/exam_calendar.csv`, `module_codes.csv` |
 | | `fix_directory.py` | `data/tables/directory.csv` |
 | | `fix_requests.py` | `data/tables/request_catalogue.csv`, `eval/review/sheets/request_mapping_review.md` |
