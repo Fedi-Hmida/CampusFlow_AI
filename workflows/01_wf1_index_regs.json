@@ -1,0 +1,162 @@
+[
+ {
+  "id": "cfWF1IndexRegs01",
+  "name": "01_wf1_index_regs",
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "nodes": [
+   {
+    "id": "a1000000-0001-4c00-9000-000000000001",
+    "name": "Start (manual)",
+    "type": "n8n-nodes-base.manualTrigger",
+    "typeVersion": 1,
+    "position": [0, 300],
+    "parameters": {}
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000002",
+    "name": "Collections",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [220, 300],
+    "parameters": {
+     "jsCode": "// CF-015 / CF-017: one collection per chunking strategy (A = fixed windows, B = article units)\nreturn [{ json: { collection: 'regs_fixed', strategy: 'A' } }, { json: { collection: 'regs_structured', strategy: 'B' } }];"
+    }
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000003",
+    "name": "Drop collection",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [440, 300],
+    "parameters": {
+     "method": "DELETE",
+     "url": "=http://qdrant:6333/collections/{{ $json.collection }}",
+     "options": {"response": {"response": {"neverError": true}}}
+    }
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000004",
+    "name": "Create collection",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [660, 300],
+    "parameters": {
+     "method": "PUT",
+     "url": "=http://qdrant:6333/collections/{{ $('Collections').item.json.collection }}",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "{ \"vectors\": { \"size\": 1024, \"distance\": \"Cosine\" } }",
+     "options": {}
+    }
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000005",
+    "name": "Read chunk files",
+    "type": "n8n-nodes-base.readWriteFile",
+    "typeVersion": 1.1,
+    "position": [880, 300],
+    "executeOnce": true,
+    "parameters": {"operation": "read", "fileSelector": "/data/index/chunks_*.json", "options": {}}
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000006",
+    "name": "Parse JSON",
+    "type": "n8n-nodes-base.extractFromFile",
+    "typeVersion": 1.1,
+    "position": [1100, 300],
+    "parameters": {"operation": "fromJson", "options": {}}
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000007",
+    "name": "Batches of 16",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [1320, 300],
+    "parameters": {
+     "jsCode": "// Flatten both chunk files, then group by collection into embedding batches of 16 texts\nconst COLL = { A: 'regs_fixed', B: 'regs_structured' };\nconst chunks = $input.all().flatMap(it => Array.isArray(it.json.data) ? it.json.data : (Array.isArray(it.json) ? it.json : []));\nconst out = [];\nfor (const s of ['A', 'B']) {\n  const cs = chunks.filter(c => c.strategy === s);\n  for (let i = 0; i < cs.length; i += 16) {\n    const b = cs.slice(i, i + 16);\n    out.push({ json: {\n      collection: COLL[s],\n      ids: b.map(c => c.point_id),\n      texts: b.map(c => c.text),\n      payloads: b.map(c => ({ chunk_id: c.chunk_id, strategy: c.strategy, doc_id: c.doc_id, doc_title: c.doc_title,\n        doc_status: c.doc_status, regime: c.regime, regimes: c.regimes, article_keys: c.article_keys,\n        page_start: c.page_start, page_end: c.page_end, text: c.text })),\n    } });\n  }\n}\nif (!out.length) throw new Error('no chunks read from /data/index/chunks_*.json');\nreturn out;"
+    }
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000008",
+    "name": "Embed (bge-m3)",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [1540, 300],
+    "parameters": {
+     "method": "POST",
+     "url": "http://ollama:11434/api/embed",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify({ model: 'bge-m3:567m', input: $json.texts }) }}",
+     "options": {"timeout": 600000}
+    }
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000009",
+    "name": "Points per collection",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [1760, 300],
+    "parameters": {
+     "jsCode": "// Pair each batch with its embeddings (same item index), then one upsert body per collection\nconst batches = $('Batches of 16').all();\nconst by = {};\n$input.all().forEach((it, i) => {\n  const b = batches[i].json, vecs = it.json.embeddings;\n  if (!vecs || vecs.length !== b.ids.length) throw new Error(`batch ${i}: ${vecs ? vecs.length : 0} vectors for ${b.ids.length} texts`);\n  by[b.collection] = by[b.collection] || [];\n  b.ids.forEach((id, k) => by[b.collection].push({ id, vector: vecs[k], payload: b.payloads[k] }));\n});\nreturn Object.entries(by).map(([collection, points]) => ({ json: { collection, points, n: points.length, dims: points[0].vector.length } }));"
+    }
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000010",
+    "name": "Upsert",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [1980, 300],
+    "parameters": {
+     "method": "PUT",
+     "url": "=http://qdrant:6333/collections/{{ $json.collection }}/points?wait=true",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify({ points: $json.points }) }}",
+     "options": {"timeout": 300000}
+    }
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000011",
+    "name": "Count",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [2200, 300],
+    "parameters": {
+     "method": "POST",
+     "url": "=http://qdrant:6333/collections/{{ $('Points per collection').item.json.collection }}/points/count",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "{ \"exact\": true }",
+     "options": {}
+    }
+   },
+   {
+    "id": "a1000000-0001-4c00-9000-000000000012",
+    "name": "Ingestion log",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [2420, 300],
+    "parameters": {
+     "jsCode": "// One log line per collection: chunks sent, points counted in Qdrant, vector size\nconst sent = $('Points per collection').all();\nreturn $input.all().map((it, i) => ({ json: { collection: sent[i].json.collection, chunks_sent: sent[i].json.n,\n  points_in_qdrant: it.json.result.count, dims: sent[i].json.dims, ok: it.json.result.count === sent[i].json.n,\n  finished_at: new Date().toISOString() } }));"
+    }
+   }
+  ],
+  "connections": {
+   "Start (manual)": {"main": [[{"node": "Collections", "type": "main", "index": 0}]]},
+   "Collections": {"main": [[{"node": "Drop collection", "type": "main", "index": 0}]]},
+   "Drop collection": {"main": [[{"node": "Create collection", "type": "main", "index": 0}]]},
+   "Create collection": {"main": [[{"node": "Read chunk files", "type": "main", "index": 0}]]},
+   "Read chunk files": {"main": [[{"node": "Parse JSON", "type": "main", "index": 0}]]},
+   "Parse JSON": {"main": [[{"node": "Batches of 16", "type": "main", "index": 0}]]},
+   "Batches of 16": {"main": [[{"node": "Embed (bge-m3)", "type": "main", "index": 0}]]},
+   "Embed (bge-m3)": {"main": [[{"node": "Points per collection", "type": "main", "index": 0}]]},
+   "Points per collection": {"main": [[{"node": "Upsert", "type": "main", "index": 0}]]},
+   "Upsert": {"main": [[{"node": "Count", "type": "main", "index": 0}]]},
+   "Count": {"main": [[{"node": "Ingestion log", "type": "main", "index": 0}]]}
+  },
+  "pinData": {},
+  "tags": []
+ }
+]
