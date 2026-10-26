@@ -103,7 +103,7 @@ def main() -> None:
     corr = json.loads((ROOT / "scripts/corpus/fictif_corrections.json").read_text(encoding="utf-8"))
     applied, ok = [], True
     for doc_id, raw, target, title, regime, status, *_ in ex.DOCS:
-        if status != "FICTITIOUS":
+        if status != "FICTITIOUS" or raw == ex.AUTHORED:   # authored documents: scripts/corpus/author_fictif.py
             continue
         with pdfplumber.open(str(ex.RAW / raw)) as pdf:
             toc = {}

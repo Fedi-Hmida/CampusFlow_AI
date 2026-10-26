@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 STEPS = [
     "scripts/corpus/extract_regs.py",            # raw regulations → cleaned JSON + official PDFs (no author metadata)
     "scripts/corpus/regenerate_fictif.py",       # FICTIF PDFs (labelled, CF-108b corrections, byte-reproducible)
+    "scripts/corpus/author_fictif.py",           # project-authored FICTIF PDFs D1-012/013 (CF-117)
     "scripts/corpus/extract_regs.py",            # re-extract the FICTITIOUS documents from their regenerated PDFs
     "scripts/corpus/build_consistency_review.py",
     "scripts/tables/transform_calendar.py",

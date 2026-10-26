@@ -21,6 +21,7 @@ sys.path[:0] = [str(Path(__file__).resolve().parents[1] / "lib"), str(Path(__fil
 from corpus_lookup import all_doc_ids, canon, doc, find_quote, longest_shared_run, write_review  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
+N_DOCS = len(all_doc_ids())   # corpus size used in the « not found » answers (13 since CF-117)
 VERIFIED = ROOT / "eval/review/verified/T1_verified.json"   # {"T1-01": "Fedi", ...}
 PREVIOUS = ROOT / ".superpowers/T1_review_v1.md"   # the sheet Fedi reviewed (for the changed-rows report)
 OFFICIAL = ["D1-001", "D1-002", "D1-003"]
@@ -145,13 +146,13 @@ ROWS = [
         C("Les règlements officiels ne fixent pas ce délai.", ("absent", OFFICIAL, ["jours avant la date de soutenance", "jours avant la soutenance", "avant la soutenance"])),
         NOTE_FICTIF]),
     ("T1-23", "C'est combien exactement les frais de scolarité en 4ème année cours du jour ?", "jour", "registration", "", [
-        C("Information non trouvée dans les 11 documents.", ("absent", None, ["dinars", "montant des frais", "tnd"])),
+        C(f"Information non trouvée dans les {N_DOCS} documents.", ("absent", None, ["dinars", "montant des frais", "tnd"])),
         C("Orienter vers le service financier (FIN).", ("table", "directory", "FIN", "handles", "Frais de scolarité"))]),
     ("T1-24", "La bibliothèque est ouverte jusqu'à quelle heure le samedi ?", "all", "campus life", "", [
-        C("Information non trouvée dans les 11 documents.", ("absent", None, ["horaire de la bibliothèque", "bibliothèque est ouverte", "horaires d'ouverture"])),
+        C(f"Information non trouvée dans les {N_DOCS} documents.", ("absent", None, ["horaire de la bibliothèque", "bibliothèque est ouverte", "horaires d'ouverture"])),
         C("Orienter vers la scolarité, contact général (SCO-GEN).", ("table", "directory", "SCO-GEN", "handles", "Questions générales de scolarité"))]),
     ("T1-25", "Je peux faire mon stage ingénieur à l'étranger ? il y a des démarches spéciales ?", "jour", "internships", "", [
-        C("Information non trouvée dans les 11 documents.", ("absent", None, ["étranger", "stage à l'international"])),
+        C(f"Information non trouvée dans les {N_DOCS} documents.", ("absent", None, ["étranger", "stage à l'international"])),
         C("Orienter vers le département des stages (STAGE) et la mobilité internationale (MOB).",
           ("table", "directory", "STAGE", "handles", "suivi des stages"), ("table", "directory", "MOB", "handles", "Échanges internationaux"))]),
 ]
@@ -168,7 +169,7 @@ def check_evidence(ev) -> tuple[bool, str, str | None, str | None]:
     if kind == "absent":
         ids = ev[1] or all_doc_ids()
         hits = {t: sum(canon(" ".join(p["text"] for p in doc(i)["pages"])).count(canon(t)) for i in ids) for t in ev[2]}
-        scope = "official regulations D1-001…003" if ev[1] else "the 11 documents"
+        scope = "official regulations D1-001…003" if ev[1] else f"the {N_DOCS} documents"
         return not any(hits.values()), f"absence check in {scope}: {hits}", None, None
     if kind == "table":
         _, f, rid, field, text = ev

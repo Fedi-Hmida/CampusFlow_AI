@@ -1,0 +1,124 @@
+{
+ "doc_id": "D1-012",
+ "file": "fictitious/guide_frais-scolarite-paiements_2026-2027_FICTIF.pdf",
+ "raw_file": "authored: scripts/corpus/authored_fictif.json",
+ "title": "Guide : paiement des frais de scolarité et échéanciers",
+ "regime": "all",
+ "doc_status": "FICTITIOUS",
+ "source": "authored (project, CF-117)",
+ "source_pdf": "data/regs/fictitious/guide_frais-scolarite-paiements_2026-2027_FICTIF.pdf",
+ "date": "2026-10-26",
+ "language": "fr",
+ "n_pages": 2,
+ "pages": [
+  {
+   "page": 1,
+   "text": "Ecole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nGuide : paiement des frais de scolarité et échéanciers\nVersion d'octobre 2026\nRéférence : ESPRIT-FIN-01\nPublic concerné : Tous les étudiants (cours du jour, cours du soir, alternance)\nAnnée de référence : 2026-2027\nArticle 1 : Objet\nCe guide explique comment régler les frais de scolarité, demander un échéancier et obtenir un reçu de\npaiement. Il ne fixe pas le barème annuel : celui-ci est communiqué par le service financier lors de\nl'inscription. Les règles de report, d'annulation et de remboursement figurent dans le règlement de\nscolarité et dans la procédure de report et d'annulation d'inscription.\nArticle 2 : Service compétent\nLe service financier traite les paiements, les échéanciers, les reçus et les remboursements.\n• Adresse : finance@esprit.tn\n• Bureau : Bloc B, bureau 03\n• Accueil : du lundi au vendredi, de 8h30 à 12h30 et de 13h30 à 15h30 Les demandes envoyées par\ne-mail indiquent le nom, la classe et l'objet de la demande.\nArticle 3 : Modes de paiement\nLes frais de scolarité peuvent être réglés :\n• par paiement en ligne depuis l'espace étudiant ;\n• par virement ou versement bancaire, en indiquant le nom de l'étudiant et sa classe comme référence ;\n• par chèque déposé au service financier. Les paiements en espèces ne sont pas acceptés au bureau du\nservice financier.\nArticle 4 : Paiement en plusieurs tranches\nLes frais de scolarité sont réglés selon l'échéancier remis à l'inscription, en une ou plusieurs tranches. La\npremière tranche est réglée au moment de l'inscription ; les tranches suivantes avant les dates d'échéance\nindiquées sur l'échéancier.\nArticle 5 : Demande d'échéancier personnalisé\nUn étudiant en difficulté financière peut demander un échéancier personnalisé. La demande est déposée\navant la date d'échéance fixée par le service financier et comprend :\n• une demande écrite motivée ;\n• les justificatifs de la situation financière ;\n• la carte étudiant. Le service financier répond dans un délai de 5 jours ouvrables. Un échéancier\naccordé est signé par l'étudiant ; il ne modifie pas les règles de remboursement du règlement de\nscolarité.\nArticle 6 : Reçus et attestations de paiement\nChaque paiement donne lieu à un reçu, disponible dans l'espace étudiant ou au service financier. Une\nattestation de paiement peut être demandée par e-mail au service financier ; elle est délivrée dans un\ndélai de 3 jours ouvrables.\nArticle 7 : Retard de paiement"
+  },
+  {
+   "page": 2,
+   "text": "En cas de retard, le service financier envoie un rappel par e-mail. Tant que la situation n'est pas\nrégularisée, l'étudiant reste redevable des frais ; conformément au règlement de scolarité, le paiement\nintégral des frais de scolarité est une condition de délivrance du diplôme. L'étudiant qui rencontre une\ndifficulté contacte le service financier avant l'échéance pour demander un échéancier (article 5).\nArticle 8 : Bourses et aides\nLes éventuelles aides financières et réductions sont annoncées chaque année par le service financier ; ce\nguide n'en fixe ni les conditions ni les taux. Les bourses de mobilité relèvent du guide de la mobilité\ninternationale."
+  }
+ ],
+ "articles": [
+  {
+   "key": "D1-012/0/Préambule",
+   "level": "preamble",
+   "number": "0",
+   "title": "Préambule",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nEcole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nGuide : paiement des frais de scolarité et échéanciers\nVersion d'octobre 2026\nRéférence : ESPRIT-FIN-01\nPublic concerné : Tous les étudiants (cours du jour, cours du soir, alternance)\nAnnée de référence : 2026-2027",
+   "chars": 279
+  },
+  {
+   "key": "D1-012/1/Objet",
+   "level": "article",
+   "number": "1",
+   "title": "Objet",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 1 : Objet\nCe guide explique comment régler les frais de scolarité, demander un échéancier et obtenir un reçu de\npaiement. Il ne fixe pas le barème annuel : celui-ci est communiqué par le service financier lors de\nl'inscription. Les règles de report, d'annulation et de remboursement figurent dans le règlement de\nscolarité et dans la procédure de report et d'annulation d'inscription.",
+   "chars": 392
+  },
+  {
+   "key": "D1-012/2/Service compétent",
+   "level": "article",
+   "number": "2",
+   "title": "Service compétent",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 2 : Service compétent\nLe service financier traite les paiements, les échéanciers, les reçus et les remboursements.\n• Adresse : finance@esprit.tn\n• Bureau : Bloc B, bureau 03\n• Accueil : du lundi au vendredi, de 8h30 à 12h30 et de 13h30 à 15h30 Les demandes envoyées par\ne-mail indiquent le nom, la classe et l'objet de la demande.",
+   "chars": 338
+  },
+  {
+   "key": "D1-012/3/Modes de paiement",
+   "level": "article",
+   "number": "3",
+   "title": "Modes de paiement",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 3 : Modes de paiement\nLes frais de scolarité peuvent être réglés :\n• par paiement en ligne depuis l'espace étudiant ;\n• par virement ou versement bancaire, en indiquant le nom de l'étudiant et sa classe comme référence ;\n• par chèque déposé au service financier. Les paiements en espèces ne sont pas acceptés au bureau du\nservice financier.",
+   "chars": 348
+  },
+  {
+   "key": "D1-012/4/Paiement en plusieurs tranches",
+   "level": "article",
+   "number": "4",
+   "title": "Paiement en plusieurs tranches",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 4 : Paiement en plusieurs tranches\nLes frais de scolarité sont réglés selon l'échéancier remis à l'inscription, en une ou plusieurs tranches. La\npremière tranche est réglée au moment de l'inscription ; les tranches suivantes avant les dates d'échéance\nindiquées sur l'échéancier.",
+   "chars": 287
+  },
+  {
+   "key": "D1-012/5/Demande d'échéancier personnalisé",
+   "level": "article",
+   "number": "5",
+   "title": "Demande d'échéancier personnalisé",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 5 : Demande d'échéancier personnalisé\nUn étudiant en difficulté financière peut demander un échéancier personnalisé. La demande est déposée\navant la date d'échéance fixée par le service financier et comprend :\n• une demande écrite motivée ;\n• les justificatifs de la situation financière ;\n• la carte étudiant. Le service financier répond dans un délai de 5 jours ouvrables. Un échéancier\naccordé est signé par l'étudiant ; il ne modifie pas les règles de remboursement du règlement de\nscolarité.",
+   "chars": 504
+  },
+  {
+   "key": "D1-012/6/Reçus et attestations de paiement",
+   "level": "article",
+   "number": "6",
+   "title": "Reçus et attestations de paiement",
+   "section": "",
+   "page_start": 1,
+   "page_end": 1,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 6 : Reçus et attestations de paiement\nChaque paiement donne lieu à un reçu, disponible dans l'espace étudiant ou au service financier. Une\nattestation de paiement peut être demandée par e-mail au service financier ; elle est délivrée dans un\ndélai de 3 jours ouvrables.",
+   "chars": 277
+  },
+  {
+   "key": "D1-012/7/Retard de paiement",
+   "level": "article",
+   "number": "7",
+   "title": "Retard de paiement",
+   "section": "",
+   "page_start": 1,
+   "page_end": 2,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 7 : Retard de paiement\nEn cas de retard, le service financier envoie un rappel par e-mail. Tant que la situation n'est pas\nrégularisée, l'étudiant reste redevable des frais ; conformément au règlement de scolarité, le paiement\nintégral des frais de scolarité est une condition de délivrance du diplôme. L'étudiant qui rencontre une\ndifficulté contacte le service financier avant l'échéance pour demander un échéancier (article 5).",
+   "chars": 438
+  },
+  {
+   "key": "D1-012/8/Bourses et aides",
+   "level": "article",
+   "number": "8",
+   "title": "Bourses et aides",
+   "section": "",
+   "page_start": 2,
+   "page_end": 2,
+   "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nArticle 8 : Bourses et aides\nLes éventuelles aides financières et réductions sont annoncées chaque année par le service financier ; ce\nguide n'en fixe ni les conditions ni les taux. Les bourses de mobilité relèvent du guide de la mobilité\ninternationale.",
+   "chars": 254
+  }
+ ]
+}

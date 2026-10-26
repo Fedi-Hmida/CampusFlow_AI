@@ -278,8 +278,8 @@ page), an absence check or a table cell — all checked automatically by `script
 ### T1-23 — registration · regime `jour`
 - **Question**: C'est combien exactement les frais de scolarité en 4ème année cours du jour ?
 - **expected_article**: `—`
-  - **Claim**: Information non trouvée dans les 11 documents.
-    - ✔ absence check in the 11 documents: {'dinars': 0, 'montant des frais': 0, 'tnd': 0}
+  - **Claim**: Information non trouvée dans les 13 documents.
+    - ✔ absence check in the 13 documents: {'dinars': 0, 'montant des frais': 0, 'tnd': 0}
   - **Claim**: Orienter vers le service financier (FIN).
     - ✔ data/tables/directory.csv · FIN.handles: « Frais de scolarité, paiements, échéanciers, remboursements, reçus de paiement »
 - Max consecutive words shared with the sources: 0
@@ -288,8 +288,8 @@ page), an absence check or a table cell — all checked automatically by `script
 ### T1-24 — campus life · regime `all`
 - **Question**: La bibliothèque est ouverte jusqu'à quelle heure le samedi ?
 - **expected_article**: `—`
-  - **Claim**: Information non trouvée dans les 11 documents.
-    - ✔ absence check in the 11 documents: {'horaire de la bibliothèque': 0, 'bibliothèque est ouverte': 0, "horaires d'ouverture": 0}
+  - **Claim**: Information non trouvée dans les 13 documents.
+    - ✔ absence check in the 13 documents: {'horaire de la bibliothèque': 0, 'bibliothèque est ouverte': 0, "horaires d'ouverture": 0}
   - **Claim**: Orienter vers la scolarité, contact général (SCO-GEN).
     - ✔ data/tables/directory.csv · SCO-GEN.handles: « Questions générales de scolarité, dossiers des étudiants, justificatifs d'absence »
 - Max consecutive words shared with the sources: 0
@@ -298,8 +298,8 @@ page), an absence check or a table cell — all checked automatically by `script
 ### T1-25 — internships · regime `jour`
 - **Question**: Je peux faire mon stage ingénieur à l'étranger ? il y a des démarches spéciales ?
 - **expected_article**: `—`
-  - **Claim**: Information non trouvée dans les 11 documents.
-    - ✔ absence check in the 11 documents: {'étranger': 0, "stage à l'international": 0}
+  - **Claim**: Information non trouvée dans les 13 documents.
+    - ✔ absence check in the 13 documents: {'étranger': 0, "stage à l'international": 0}
   - **Claim**: Orienter vers le département des stages (STAGE) et la mobilité internationale (MOB).
     - ✔ data/tables/directory.csv · STAGE.handles: « Conventions de stage, attestations de stage, affectation et suivi des stages (PFE inclus) »
     - ✔ data/tables/directory.csv · MOB.handles: « Échanges internationaux, double diplôme, bourses de mobilité, démarches de départ »

@@ -3,16 +3,16 @@
 | Field | Value |
 |---|---|
 | Purpose | Knowledge base for the Regulations agent (RAG): exams, retakes, absences, grading, internships, discipline, registration |
-| Documents | **11** (3 official regulations + 8 FICTITIOUS procedures) — decision ADR-012 |
-| Pages / characters / est. tokens | 57 pages · 121 206 characters · ≈ 30 300 tokens (4 characters per token, French) |
-| Structure | 99 articles + 27 sub-sections (`7-1 … 7-10`), keyed `<doc_id>/<number>/<title>` |
-| Est. chunks | strategy A (500 tokens, 50 overlap): ≈ 66 · strategy B (article / sub-section, split > 2 000 chars): ≈ 152 |
+| Documents | **13** (3 official regulations + 8 FICTITIOUS procedures + 2 FICTITIOUS guides written by the project, CF-117) — ADR-012, ADR-024 |
+| Pages / characters / est. tokens | 61 pages · 127 766 characters · ≈ 31 900 tokens (4 characters per token, French) |
+| Structure | 115 articles + 27 sub-sections (`7-1 … 7-10`), keyed `<doc_id>/<number>/<title>` |
+| Chunks | built by `scripts/index/build_chunks.py` (CF-016) |
 | Format | PDF with selectable text (no OCR needed); cleaned text in `data/regs/clean/<doc_id>.json` |
 | Language | French |
 | Period | academic year 2024-2025 (official texts created Oct 2024 – May 2025) |
-| Source | official: ESPRIT regulations delivered by the team (raw copies in `data/raw/regs/`, SHA-256 in `data/raw/MANIFEST.md`); FICTITIOUS: written by the team on 24 Oct 2026, corrected (CF-108b) and regenerated with a "DOCUMENT FICTIF" label (CF-104) |
+| Source | official: ESPRIT regulations delivered by the team (raw copies in `data/raw/regs/`, SHA-256 in `data/raw/MANIFEST.md`); FICTITIOUS: written by the team on 24 Oct 2026, corrected (CF-108b) and regenerated with a "DOCUMENT FICTIF" label (CF-104); D1-012/013 written by the project on 26 Oct 2026 (`scripts/corpus/authored_fictif.json`, CF-117) |
 | Privacy | author metadata stripped from the official PDFs; no personal names, e-mails or phone numbers in the cleaned text (validator) |
-| Built by | `scripts/corpus/extract_regs.py`, `scripts/corpus/regenerate_fictif.py` (25 Oct 2026) |
+| Built by | `scripts/corpus/extract_regs.py`, `scripts/corpus/regenerate_fictif.py` (25 Oct 2026), `scripts/corpus/author_fictif.py` (26 Oct 2026) |
 
 ## Documents
 
@@ -29,6 +29,8 @@
 | D1-009 | procedure_report-annulation-inscription_2024-2025_FICTIF.pdf | Procédure : report et annulation d'inscription | jour;soir | FICTITIOUS | 1 | 2 566 | 6 | 2026-10-24 | Registration postponement / cancellation and refunds |
 | D1-010 | guide_stages_2024-2025_FICTIF.pdf | Guide pratique des stages (hors PFE) | jour | FICTITIOUS | 2 | 2 979 | 8 | 2026-10-24 | Internship agreement, supervision and deposit |
 | D1-011 | reglement_interieur-vie-campus_2024-2025_FICTIF.pdf | Règlement intérieur : vie sur le campus | all | FICTITIOUS | 2 | 3 885 | 9 | 2026-10-24 | Campus life, support unit (cellule d'écoute), discipline overview |
+| D1-012 | guide_frais-scolarite-paiements_2026-2027_FICTIF.pdf | Guide : paiement des frais de scolarité et échéanciers | all | FICTITIOUS | 2 | 3 124 | 8 | 2026-10-26 | Payment methods, instalments, payment-plan request (REQ-19), receipts, late payment — **no amounts** |
+| D1-013 | guide_mobilite-internationale_2026-2027_FICTIF.pdf | Guide : mobilité internationale (échange et double diplôme) | all | FICTITIOUS | 2 | 3 155 | 8 | 2026-10-26 | Exchange semester, double degree, application file (REQ-17), selection, learning agreement — internships abroad excluded |
 
 ## Why this corpus fits
 - It contains **all three official regulations** (one per regime: jour, soir, alternance). The rules really differ by regime
@@ -41,8 +43,10 @@
   official ESPRIT rule — every FICTITIOUS chunk starts with `[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]`.
 
 ## Limits
-- 11 documents is below the course's 20–60 guideline; it is the complete set of public regulations we could obtain.
-- FICTITIOUS share: 8 of 11 documents but only 22 % of the characters (26 297 of 121 206).
+- 13 documents is below the course's 20–60 guideline: the 3 public regulations we could obtain + 10 FICTITIOUS procedures.
+  The promised second delivery (finance, mobility) never arrived; D1-012/013 replace it and are written to stay
+  consistent with the official texts and the tables (FIN, MOB, REQ-17, REQ-19).
+- FICTITIOUS share: 10 of 13 documents but only 26 % of the characters (32 857 of 127 766).
 - Rules are those of 2024-2025; the calendar is projected to 2026-2027 (`data/tables/exam_calendar.csv`, `data_status`).
 - Four tables of D1-001 were serialised by hand because automatic extraction mixed their cells (`scripts/corpus/manual_tables.json`).
 - Excluded: a duplicate day regulation, the exam charter (contained in D1-001) and a 2011-2012 PFE procedure with personal

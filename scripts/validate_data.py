@@ -41,7 +41,7 @@ def regime_ok(v: str) -> bool:
 
 # ---------------------------------------------------------------- corpus
 ids = all_doc_ids()
-check("corpus: 11 cleaned documents D1-001…D1-011", ids == [f"D1-{i:03d}" for i in range(1, 12)], str(ids))
+check("corpus: 13 cleaned documents D1-001…D1-013 (D1-012/013 authored, CF-117)", ids == [f"D1-{i:03d}" for i in range(1, 14)], str(ids))
 for i in ids:
     d = doc(i)
     full = "\n".join(p["text"] for p in d["pages"])
