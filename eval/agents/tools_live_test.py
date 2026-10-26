@@ -11,7 +11,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-URL = "http://localhost:5678/webhook/tools-test"
+URL = "http://127.0.0.1:5678/webhook/tools-test"
 TOOLS = {"exam": ("cfToolExam000001", "lookupExam(CAL, q)"), "contact": ("cfToolContact001", "lookupContact(DIR, q)"),
          "request": ("cfToolRequest001", "lookupRequest(REQ, DIR, q)")}
 CASES = [

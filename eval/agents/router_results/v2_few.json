@@ -1,0 +1,458 @@
+{
+ "D5-001": {
+  "raw": "{\"entities\": {\"topic\": \"validation semestre\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 49.0,
+  "prompt_tokens": 1249,
+  "prompt_s": 35.1,
+  "output_tokens": 32,
+  "output_s": 6.8
+ },
+ "D5-002": {
+  "raw": "{\"entities\": {\"module\": \"unité d'apprentissage\", \"topic\": \"moyenne\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 15.3,
+  "prompt_tokens": 1262,
+  "prompt_s": 3.2,
+  "output_tokens": 45,
+  "output_s": 10.0
+ },
+ "D5-003": {
+  "raw": "{\"entities\": {\"module\": \"UA\", \"topic\": \"validation\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 15.5,
+  "prompt_tokens": 1265,
+  "prompt_s": 4.5,
+  "output_tokens": 38,
+  "output_s": 9.0
+ },
+ "D5-004": {
+  "raw": "{\"entities\": {\"topic\": \"calcul note matière\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.6,
+  "prompt_tokens": 1247,
+  "prompt_s": 1.2,
+  "output_tokens": 32,
+  "output_s": 6.4
+ },
+ "D5-005": {
+  "raw": "{\"entities\": {\"topic\": \"moyenne générale semestre\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.8,
+  "prompt_tokens": 1250,
+  "prompt_s": 1.1,
+  "output_tokens": 36,
+  "output_s": 6.7
+ },
+ "D5-006": {
+  "raw": "{\"entities\": {\"module\": \"rattrapage\", \"topic\": \"validation rattrapage\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 14.9,
+  "prompt_tokens": 1271,
+  "prompt_s": 3.1,
+  "output_tokens": 46,
+  "output_s": 9.7
+ },
+ "D5-007": {
+  "raw": "{\"entities\": {\"topic\": \"rattrapage\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 11.0,
+  "prompt_tokens": 1263,
+  "prompt_s": 2.5,
+  "output_tokens": 33,
+  "output_s": 6.4
+ },
+ "D5-008": {
+  "raw": "{\"entities\": {\"topic\": \"inscription rattrapage\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 10.3,
+  "prompt_tokens": 1256,
+  "prompt_s": 1.6,
+  "output_tokens": 36,
+  "output_s": 6.6
+ },
+ "D5-009": {
+  "raw": "{\"entities\": {\"topic\": \"convocations rattrapage\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 10.1,
+  "prompt_tokens": 1251,
+  "prompt_s": 1.4,
+  "output_tokens": 36,
+  "output_s": 6.6
+ },
+ "D5-010": {
+  "raw": "{\"entities\": {\"topic\": \"publication résultats rattrapage\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 12.3,
+  "prompt_tokens": 1253,
+  "prompt_s": 1.5,
+  "output_tokens": 37,
+  "output_s": 8.7
+ },
+ "D5-011": {
+  "raw": "{\"entities\": {\"topic\": \"redoublement\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 11.3,
+  "prompt_tokens": 1248,
+  "prompt_s": 1.9,
+  "output_tokens": 34,
+  "output_s": 7.4
+ },
+ "D5-012": {
+  "raw": "{\"entities\": {\"topic\": \"durée maximale scolarité\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 11.4,
+  "prompt_tokens": 1249,
+  "prompt_s": 2.2,
+  "output_tokens": 36,
+  "output_s": 7.1
+ },
+ "D5-013": {
+  "raw": "{\"entities\": {\"topic\": \"absence DS\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\", \"module\"]}",
+  "seconds": 11.7,
+  "prompt_tokens": 1258,
+  "prompt_s": 2.0,
+  "output_tokens": 37,
+  "output_s": 7.6
+ },
+ "D5-014": {
+  "raw": "{\"entities\": {\"topic\": \"motifs absence\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 10.8,
+  "prompt_tokens": 1249,
+  "prompt_s": 1.6,
+  "output_tokens": 32,
+  "output_s": 7.1
+ },
+ "D5-015": {
+  "raw": "{\"entities\": {\"topic\": \"justification absence\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 12.6,
+  "prompt_tokens": 1251,
+  "prompt_s": 2.4,
+  "output_tokens": 32,
+  "output_s": 8.1
+ },
+ "D5-016": {
+  "raw": "{\"entities\": {\"topic\": \"justification absence examen\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 12.8,
+  "prompt_tokens": 1252,
+  "prompt_s": 2.5,
+  "output_tokens": 34,
+  "output_s": 8.2
+ },
+ "D5-017": {
+  "raw": "{\"entities\": {\"topic\": \"certificat médical\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 10.4,
+  "prompt_tokens": 1252,
+  "prompt_s": 1.9,
+  "output_tokens": 34,
+  "output_s": 6.5
+ },
+ "D5-018": {
+  "raw": "{\"entities\": {\"topic\": \"absences non justifiées\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 12.8,
+  "prompt_tokens": 1254,
+  "prompt_s": 2.9,
+  "output_tokens": 35,
+  "output_s": 7.8
+ },
+ "D5-019": {
+  "raw": "{\"entities\": {\"topic\": \"faux certificat médical\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 11.0,
+  "prompt_tokens": 1251,
+  "prompt_s": 1.8,
+  "output_tokens": 36,
+  "output_s": 7.1
+ },
+ "D5-020": {
+  "raw": "{\"entities\": {\"topic\": \"recours absence\"}, \"intents\": [\"regulations\", \"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 11.2,
+  "prompt_tokens": 1255,
+  "prompt_s": 2.0,
+  "output_tokens": 35,
+  "output_s": 7.2
+ },
+ "D5-021": {
+  "raw": "{\"entities\": {\"topic\": \"absence exam\"}, \"intents\": [\"regulations\"], \"language\": \"en\", \"missing_fields\": []}",
+  "seconds": 10.1,
+  "prompt_tokens": 1249,
+  "prompt_s": 1.7,
+  "output_tokens": 32,
+  "output_s": 6.3
+ },
+ "D5-022": {
+  "raw": "{\"entities\": {\"topic\": \"moyenne pour réussite\"}, \"intents\": [\"regulations\"], \"language\": \"en\", \"missing_fields\": []}",
+  "seconds": 10.7,
+  "prompt_tokens": 1247,
+  "prompt_s": 1.5,
+  "output_tokens": 35,
+  "output_s": 7.1
+ },
+ "D5-023": {
+  "raw": "{\"entities\": {\"session\": \"Rattrapage\", \"topic\": \"inscription\"}, \"intents\": [\"regulations\"], \"language\": \"en\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 12.6,
+  "prompt_tokens": 1250,
+  "prompt_s": 1.6,
+  "output_tokens": 41,
+  "output_s": 9.0
+ },
+ "D5-024": {
+  "raw": "{\"entities\": {\"class_group\": \"1A12\", \"module\": \"Algorithmique et programmation 1\", \"request\": \"DS\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 16.4,
+  "prompt_tokens": 1261,
+  "prompt_s": 2.3,
+  "output_tokens": 51,
+  "output_s": 12.1
+ },
+ "D5-025": {
+  "raw": "{\"entities\": {\"class_group\": \"2A5\", \"module\": \"Probabilités\", \"session\": \"Principale\", \"topic\": \"examen\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 15.7,
+  "prompt_tokens": 1261,
+  "prompt_s": 2.8,
+  "output_tokens": 55,
+  "output_s": 10.8
+ },
+ "D5-026": {
+  "raw": "{\"entities\": {\"module\": \"Anglais 3\", \"regime\": \"jour\", \"topic\": \"rattrapage\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 13.9,
+  "prompt_tokens": 1260,
+  "prompt_s": 2.4,
+  "output_tokens": 49,
+  "output_s": 9.5
+ },
+ "D5-027": {
+  "raw": "{\"entities\": {\"class_group\": \"3B7\", \"module\": \"Apprentissage automatique\", \"session\": \"Rattrapage\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 14.5,
+  "prompt_tokens": 1258,
+  "prompt_s": 2.0,
+  "output_tokens": 52,
+  "output_s": 10.4
+ },
+ "D5-028": {
+  "raw": "{\"entities\": {\"class_group\": \"4DS3\", \"module\": \"Deep learning\", \"session\": \"Principale\", \"topic\": \"examen\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 15.8,
+  "prompt_tokens": 1258,
+  "prompt_s": 3.1,
+  "output_tokens": 54,
+  "output_s": 10.6
+ },
+ "D5-029": {
+  "raw": "{\"entities\": {\"class_group\": \"5DS1\", \"module\": \"Management de l'innovation\", \"session\": \"Rattrapage\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 14.9,
+  "prompt_tokens": 1260,
+  "prompt_s": 2.1,
+  "output_tokens": 52,
+  "output_s": 10.7
+ },
+ "D5-030": {
+  "raw": "{\"entities\": {\"class_group\": \"5ACT1\", \"module\": \"Assurance vie avancée\", \"session\": \"Principale\", \"topic\": \"examen\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 14.9,
+  "prompt_tokens": 1261,
+  "prompt_s": 1.8,
+  "output_tokens": 58,
+  "output_s": 11.0
+ },
+ "D5-031": {
+  "raw": "{\"entities\": {\"topic\": \"commencement semestre\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 13.3,
+  "prompt_tokens": 1246,
+  "prompt_s": 1.2,
+  "output_tokens": 33,
+  "output_s": 10.0
+ },
+ "D5-032": {
+  "raw": "{\"entities\": {\"topic\": \"vacances d'hiver\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 11.0,
+  "prompt_tokens": 1247,
+  "prompt_s": 1.2,
+  "output_tokens": 33,
+  "output_s": 7.7
+ },
+ "D5-033": {
+  "raw": "{\"entities\": {\"session\": \"Rattrapage\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 10.2,
+  "prompt_tokens": 1249,
+  "prompt_s": 1.4,
+  "output_tokens": 35,
+  "output_s": 6.8
+ },
+ "D5-034": {
+  "raw": "{\"entities\": {\"class_group\": \"3A\"}, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.5,
+  "prompt_tokens": 1256,
+  "prompt_s": 1.6,
+  "output_tokens": 31,
+  "output_s": 5.8
+ },
+ "D5-035": {
+  "raw": "{\"entities\": {\"class_group\": \"5ème année\"}, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.3,
+  "prompt_tokens": 1254,
+  "prompt_s": 1.4,
+  "output_tokens": 32,
+  "output_s": 5.9
+ },
+ "D5-036": {
+  "raw": "{\"entities\": {\"request\": \"duplicata carte étudiant\"}, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.8,
+  "prompt_tokens": 1252,
+  "prompt_s": 1.6,
+  "output_tokens": 34,
+  "output_s": 6.2
+ },
+ "D5-037": {
+  "raw": "{\"entities\": {\"topic\": \"justification d'absence\"}, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.7,
+  "prompt_tokens": 1250,
+  "prompt_s": 1.4,
+  "output_tokens": 34,
+  "output_s": 6.2
+ },
+ "D5-038": {
+  "raw": "{\"entities\": {\"topic\": \"convention de stage\"}, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.4,
+  "prompt_tokens": 1253,
+  "prompt_s": 1.7,
+  "output_tokens": 32,
+  "output_s": 5.6
+ },
+ "D5-041": {
+  "raw": "{\"entities\": {\"session\": \"Rattrapage\"}, \"intents\": [\"regulations\", \"admin\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 11.2,
+  "prompt_tokens": 1261,
+  "prompt_s": 2.2,
+  "output_tokens": 38,
+  "output_s": 6.9
+ },
+ "D5-042": {
+  "raw": "{\"entities\": {\"topic\": \"service élèves\"}, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.5,
+  "prompt_tokens": 1258,
+  "prompt_s": 1.9,
+  "output_tokens": 30,
+  "output_s": 5.5
+ },
+ "D5-044": {
+  "raw": "{\"entities\": {\"topic\": \"relire CV\"}, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.1,
+  "prompt_tokens": 1251,
+  "prompt_s": 1.5,
+  "output_tokens": 31,
+  "output_s": 5.5
+ },
+ "D5-045": {
+  "raw": "{\"entities\": {\"topic\": \"absence DS\"}, \"intents\": [\"regulations\", \"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 11.4,
+  "prompt_tokens": 1267,
+  "prompt_s": 2.8,
+  "output_tokens": 35,
+  "output_s": 6.6
+ },
+ "D5-046": {
+  "raw": "{\"entities\": {\"module\": \"UA\", \"topic\": \"rattrapage\"}, \"intents\": [\"regulations\", \"calendar\", \"admin\"], \"language\": \"fr\", \"missing_fields\": [\"regime\", \"class_group\"]}",
+  "seconds": 15.6,
+  "prompt_tokens": 1270,
+  "prompt_s": 2.8,
+  "output_tokens": 52,
+  "output_s": 10.7
+ },
+ "D5-047": {
+  "raw": "{\"entities\": {\"topic\": \"notes\"}, \"intents\": [\"out_of_scope\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 8.8,
+  "prompt_tokens": 1247,
+  "prompt_s": 1.1,
+  "output_tokens": 31,
+  "output_s": 5.6
+ },
+ "D5-048": {
+  "raw": "{\"entities\": {\"topic\": \"absences\"}, \"intents\": [\"out_of_scope\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 10.3,
+  "prompt_tokens": 1249,
+  "prompt_s": 1.4,
+  "output_tokens": 32,
+  "output_s": 6.8
+ },
+ "D5-049": {
+  "raw": "{\"entities\": {\"request\": \"email justificatif absence\"}, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\"]}",
+  "seconds": 10.1,
+  "prompt_tokens": 1255,
+  "prompt_s": 1.6,
+  "output_tokens": 35,
+  "output_s": 6.4
+ },
+ "D5-050": {
+  "raw": "{\"entities\": {\"topic\": \"recette\"}, \"intents\": [\"out_of_scope\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.2,
+  "prompt_tokens": 1249,
+  "prompt_s": 1.3,
+  "output_tokens": 32,
+  "output_s": 5.7
+ },
+ "D5-051": {
+  "raw": "{\"entities\": {\"topic\": \"coût duplicata carte étudiant\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 10.6,
+  "prompt_tokens": 1251,
+  "prompt_s": 2.0,
+  "output_tokens": 36,
+  "output_s": 6.6
+ },
+ "D5-052": {
+  "raw": "{\"entities\": {\"topic\": \"soutenance PFE\"}, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\", \"module\"]}",
+  "seconds": 11.8,
+  "prompt_tokens": 1250,
+  "prompt_s": 1.7,
+  "output_tokens": 38,
+  "output_s": 8.0
+ },
+ "D5-053": {
+  "raw": "{\"entities\": {}, \"intents\": [\"out_of_scope\"], \"language\": \"fr\", \"missing_fields\": [], \"injection_suspected\": true}",
+  "seconds": 11.3,
+  "prompt_tokens": 1249,
+  "prompt_s": 1.7,
+  "output_tokens": 37,
+  "output_s": 7.5
+ },
+ "D5-055": {
+  "raw": "{\"entities\": {\"topic\": \"frais de scolarité\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 10.3,
+  "prompt_tokens": 1255,
+  "prompt_s": 1.8,
+  "output_tokens": 35,
+  "output_s": 6.5
+ },
+ "D5-056": {
+  "raw": "{\"entities\": {\"topic\": \"paiement frais scolarité\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 11.5,
+  "prompt_tokens": 1253,
+  "prompt_s": 1.6,
+  "output_tokens": 35,
+  "output_s": 7.8
+ },
+ "D5-057": {
+  "raw": "{\"entities\": {\"topic\": \"réduction frères et sœurs\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 10.5,
+  "prompt_tokens": 1253,
+  "prompt_s": 1.7,
+  "output_tokens": 37,
+  "output_s": 6.7
+ },
+ "D5-058": {
+  "raw": "{\"entities\": {\"topic\": \"réduction\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.7,
+  "prompt_tokens": 1258,
+  "prompt_s": 1.9,
+  "output_tokens": 31,
+  "output_s": 5.7
+ },
+ "D5-059": {
+  "raw": "{\"entities\": {\"topic\": \"échange, double diplôme\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 10.9,
+  "prompt_tokens": 1255,
+  "prompt_s": 1.9,
+  "output_tokens": 35,
+  "output_s": 6.9
+ },
+ "D5-060": {
+  "raw": "{\"entities\": {\"topic\": \"double diplôme\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 9.2,
+  "prompt_tokens": 1249,
+  "prompt_s": 1.4,
+  "output_tokens": 32,
+  "output_s": 5.7
+ },
+ "D5-061": {
+  "raw": "{\"entities\": {\"topic\": \"bourses études France\"}, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 10.0,
+  "prompt_tokens": 1252,
+  "prompt_s": 1.6,
+  "output_tokens": 34,
+  "output_s": 6.3
+ }
+}
