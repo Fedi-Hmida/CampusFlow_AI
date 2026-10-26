@@ -2,7 +2,8 @@
 
 Telegram assistant for ESPRIT students: regulation questions (RAG with citations), exam dates, administrative contacts
 and request drafts, plus photo understanding (convocations, notices, timetables). Multi-agent workflows in n8n, local
-models in Ollama, vectors in Qdrant — all in Docker; only image reading uses Gemini Flash-Lite.
+models in Ollama, vectors in Qdrant — all in Docker; image reading and the long-writing agents use Gemini Flash-Lite
+(per-agent hybrid for the 90 s latency target — ADR-010, switch in `config/agents.json`).
 
 Final project — Advanced DL (DS14), ESPRIT 2026–2027 · Team: Fedi, Doua, Ines · Exact versions: [VERSIONS.md](VERSIONS.md)
 
