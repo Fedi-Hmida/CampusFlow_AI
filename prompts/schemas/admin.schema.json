@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusflow/prompts/schemas/admin.schema.json",
+  "title": "Admin agent output (P-ADMIN-001 v2)",
+  "description": "Office, documents and delays copied from data/tables/directory.csv and request_catalogue.csv; a draft message is never sent.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "request_id", "request_type", "handler_role_id", "role_title", "email", "office", "required_documents",
+               "deadline_rule", "processing_time", "source_ref", "is_fictitious", "escalation_path", "draft_message",
+               "missing_information"],
+  "properties": {
+    "status": {"enum": ["found", "needs_input", "not_found"]},
+    "request_id": {"type": ["string", "null"], "pattern": "^REQ-\\d{2}(-[A-Z]+)?$"},
+    "request_type": {"type": ["string", "null"]},
+    "handler_role_id": {"type": ["string", "null"], "description": "Resolved role (SCO-LEVEL becomes SCO-<n>A from the class level)."},
+    "role_title": {"type": ["string", "null"]},
+    "email": {"type": ["string", "null"]},
+    "office": {"type": ["string", "null"]},
+    "required_documents": {"type": "array", "items": {"type": "string"}},
+    "deadline_rule": {"type": ["string", "null"]},
+    "processing_time": {"type": ["string", "null"]},
+    "source_ref": {"type": ["string", "null"]},
+    "is_fictitious": {"type": "boolean", "description": "True when the catalogue row's source is FICTITIOUS."},
+    "escalation_path": {"type": "array", "items": {"type": "string"}, "description": "role_ids following reports_to in directory.csv."},
+    "draft_message": {"type": ["string", "null"]},
+    "missing_information": {"type": "array", "items": {"enum": ["regime", "level", "request_type"]}}
+  }
+}

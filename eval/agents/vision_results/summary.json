@@ -1,0 +1,70 @@
+{
+ "v1": {
+  "version": "v1",
+  "images": 11,
+  "json_valid": 11,
+  "schema_valid": null,
+  "scored_fields": 88,
+  "correct": 71,
+  "abstained": 0,
+  "wrong": 4,
+  "not_produced": 13,
+  "assessment_session_confusions": 1,
+  "injection_text_copied": 0,
+  "timetable_recall": {
+   "T4-06": "0/14",
+   "T4-10": "0/14"
+  }
+ },
+ "v2": {
+  "version": "v2",
+  "images": 11,
+  "json_valid": 11,
+  "schema_valid": null,
+  "scored_fields": 88,
+  "correct": 82,
+  "abstained": 0,
+  "wrong": 1,
+  "not_produced": 5,
+  "assessment_session_confusions": 0,
+  "injection_text_copied": 0,
+  "timetable_recall": {
+   "T4-06": "0/14",
+   "T4-10": "0/14"
+  }
+ },
+ "v3": {
+  "version": "v3",
+  "images": 11,
+  "json_valid": 11,
+  "schema_valid": 7,
+  "scored_fields": 88,
+  "correct": 86,
+  "abstained": 1,
+  "wrong": 1,
+  "not_produced": 0,
+  "assessment_session_confusions": 0,
+  "injection_text_copied": 0,
+  "timetable_recall": {
+   "T4-06": "14/14",
+   "T4-10": "14/14"
+  }
+ },
+ "v4": {
+  "version": "v4",
+  "images": 11,
+  "json_valid": 11,
+  "schema_valid": 10,
+  "scored_fields": 88,
+  "correct": 87,
+  "abstained": 0,
+  "wrong": 1,
+  "not_produced": 0,
+  "assessment_session_confusions": 0,
+  "injection_text_copied": 0,
+  "timetable_recall": {
+   "T4-06": "14/14",
+   "T4-10": "13/14"
+  }
+ }
+}

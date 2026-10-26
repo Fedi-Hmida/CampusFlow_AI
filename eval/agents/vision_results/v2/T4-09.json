@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"type_document\": \"Convocation\",\n  \"module\": \"Advanced Deep Learning (DS14)\",\n  \"classe\": \"5DS6\",\n  \"regime\": null,\n  \"type_evaluation\": \"Devoir surveillé\",\n  \"session\": \"Session principale (session 1)\",\n  \"date\": \"Vendredi 15/01/2027\",\n  \"heure\": \"09h00 - 11h00\",\n  \"salle\": \"B12\",\n  \"extrait_utile\": \"Convocation Devoir surveillé – Session principale (session 1)\",\n  \"incertitudes\": [\n    \"regime non explicitement indiqué\"\n  ]\n}",
+ "seconds": 27.4
+}

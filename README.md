@@ -17,8 +17,8 @@ Final project — Advanced DL (DS14), ESPRIT 2026–2027 · Team: Fedi, Doua, In
 | `data/regs/` | `official/` (3 regulations) · `fictitious/` (8 labelled `*_FICTIF.pdf`) · `clean/` (text + article index) · `CORPUS_CARD.md` |
 | `data/tables/` | exam calendar, module codes, directory, request catalogue (CSV) |
 | `scripts/` | `run_all.py` rebuilds every data output and validates it; `lib/` · `corpus/` · `tables/` · `testsets/` (see `scripts/README.md`) |
-| `eval/` | `testsets/` (T1–T5, `T4_photos/`) · `review/` (`sheets/`, `ticks/`, `verified/`) · `retrieval/` (metrics + notebook) · `agents/` · `latency/` · `baselines/` |
-| `prompts/` · `diagrams/` · `report/` | prompt library · architecture diagrams and org chart · technical report |
+| `eval/` | `testsets/` (T1–T5, `T4_photos/`) · `review/` (`sheets/`, `ticks/`, `verified/`) · `retrieval/` (metrics + notebook) · `agents/` (tool test, Vision prompt eval) · `latency/` · `baselines/` · `candidates/` (D5 — **not** a test set) |
+| `prompts/` · `diagrams/` · `report/` | prompt library (`P-<AGENT>-001.md`, `schemas/`, `examples/`, `archive/`) · architecture diagrams and org chart · technical report |
 
 ## 1. Prerequisites
 - Windows 10/11 with **Docker Desktop (WSL2 backend)**, or Linux with Docker Engine; **Git**.

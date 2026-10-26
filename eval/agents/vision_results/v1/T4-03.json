@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"convocation\",\n  \"module_code\": \"Bases de données (INF201)\",\n  \"class_group\": \"2A12\",\n  \"regime\": null,\n  \"session\": \"DS (devoir surveillé)\",\n  \"date\": \"04/11/2026\",\n  \"time\": \"11h00 - 12h30\",\n  \"room\": null,\n  \"visible_excerpt\": \"Se présenter muni de la carte d'étudiant.\",\n  \"uncertain_fields\": [\n    \"room\"\n  ],\n  \"image_readable\": true\n}",
+ "seconds": 22.5
+}

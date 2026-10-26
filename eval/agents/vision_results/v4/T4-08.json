@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"convocation\",\n  \"module_name\": \"Réseaux 1\",\n  \"module_code\": \"RES201\",\n  \"class_group\": \"2A9\",\n  \"regime\": null,\n  \"assessment\": \"DS\",\n  \"session\": \"Principale\",\n  \"date\": \"2026-11-06\",\n  \"start_time\": \"14:00\",\n  \"end_time\": \"15:30\",\n  \"room\": \"B09\",\n  \"change\": null,\n  \"timetable\": null,\n  \"visible_rules\": [\n    \"Se présenter muni de la carte d'étudiant.\"\n  ],\n  \"injection_detected\": true,\n  \"fictitious_label\": true,\n  \"uncertain_fields\": [],\n  \"image_readable\": true\n}",
+ "seconds": 16.7
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusflow/prompts/schemas/critic.schema.json",
+  "title": "Critic agent output (P-CRITIC-001 v1)",
+  "description": "Verdict on the Composer draft. n8n allows at most one revision (revision_count); after that, revise becomes escalate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["verdict", "issues", "safe_reply_instruction"],
+  "properties": {
+    "verdict": {"enum": ["pass", "revise", "escalate"]},
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim", "problem", "check"],
+        "properties": {
+          "claim": {"type": "string", "description": "The sentence of the draft at fault, quoted."},
+          "problem": {"enum": ["unsupported", "wrong_value", "missing_citation", "regime", "fictitious_unlabelled", "language", "privacy", "photo_instruction_followed", "sent_on_behalf"]},
+          "check": {"type": "string", "description": "What the evidence says / which field to use instead."}
+        }
+      }
+    },
+    "safe_reply_instruction": {"type": ["string", "null"], "description": "For escalate: what the final reply must admit and which contact to give."}
+  }
+}

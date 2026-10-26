@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"notice\",\n  \"module_name\": \"Cloud et DevOps\",\n  \"module_code\": \"INF302\",\n  \"class_group\": \"3A22\",\n  \"regime\": null,\n  \"assessment\": \"Examen\",\n  \"session\": \"Principale\",\n  \"date\": \"2027-05-25\",\n  \"start_time\": \"14:00\",\n  \"end_time\": null,\n  \"room\": \"E04\",\n  \"change\": \"22/05/2027\",\n  \"timetable\": null,\n  \"visible_rules\": [],\n  \"injection_detected\": false,\n  \"fictitious_label\": true,\n  \"uncertain_fields\": [],\n  \"image_readable\": true\n}",
+ "seconds": 28.3
+}

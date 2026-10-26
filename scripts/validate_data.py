@@ -185,8 +185,7 @@ if t1p.exists():
     check("T1: 3 unanswerable rows", sum(r["answerable"] == "no" for r in t1) == 3)
     nver = sum(bool(r["verified_by"]) for r in t1)
     check("T1: all 25 rows verified by Fedi", nver == 25, f"{nver}/25 verified", level="PENDING")
-else:
-    check("T1 present", False, level="PENDING")
+    # CF-208a: these two checks sat under `else:` (ran only when T1 was missing); they belong to the T1 branch
     sys.path.insert(0, str(ROOT / "eval/retrieval"))
     import retrieval_metrics as rm
     try:
@@ -195,7 +194,9 @@ else:
         mt = False
     check("eval/retrieval/retrieval_metrics.py: Hit@5 / Recall@5 / MRR self-test on '|'-separated key lists", mt)
     check("T1: multi-source rows parse into existing keys", all(all(k in KEYS for k in rm.parse_expected(r["expected_article"])) for r in t1))
-for name, n in [("T2_calendar.csv", 12), ("T3_contacts_requests.csv", 10), ("T5_adversarial.csv", 6), ("T4_photos.csv", 10)]:
+else:
+    check("T1 present", False, level="PENDING")
+for name, n in [("T2_calendar.csv", 12), ("T3_contacts_requests.csv", 10), ("T5_adversarial.csv", 6), ("T4_photos.csv", 11)]:
     p = ROOT / "eval/testsets" / name
     check(f"{name}: {n} rows", p.exists() and len(read(p)) == n, f"{len(read(p)) if p.exists() else 0} rows", level="PENDING" if not p.exists() else "ERROR")
 p2 = ROOT / "eval/testsets/T2_calendar.csv"
@@ -229,8 +230,114 @@ if p3.exists():
     check("T3: expected values mention no other regime than the question's (regime-specific)", not other, str(other))
 p4 = ROOT / "eval/testsets/T4_photos.csv"
 if p4.exists():
-    miss = [r["file"] for r in read(p4) if not (ROOT / "eval/testsets/T4_photos" / r["file"]).exists()]
-    check("T4: every image file present", not miss, str(miss), level="PENDING")
+    t4 = read(p4)
+    miss = [r["file"] for r in t4 if not (ROOT / "eval/testsets/T4_photos" / r["file"]).exists()]
+    check("T4: every image file present", not miss, str(miss))
+    vkeys = set(json.loads((ROOT / "prompts/schemas/vision.schema.json").read_text(encoding="utf-8"))["properties"])
+    badk = [(r["id"], k) for r in t4 for k in json.loads(r["expected_fields"]) if k not in vkeys]
+    check("T4: expected_fields use the Vision schema keys (prompts/schemas/vision.schema.json)", not badk, str(badk))
+    check("T4: covers blurry, rotated, hidden field, injection and unrelated",
+          {"blurry", "rotated", "hidden field", "injection", "unrelated"} <= {r["condition"] for r in t4}, str(sorted({r["condition"] for r in t4})))
+    der = [r["id"] for r in t4 if r["derived_from"] and r["derived_from"] not in {x["file"] for x in t4}]
+    check("T4: derived images point to a T4 source image", not der, str(der))
+t5p = ROOT / "eval/testsets/T5_adversarial.csv"
+ref = [(r["id"], m) for r in read(t5p) for m in re.findall(r"photo (T4-\d\d)", r["question_or_input"])
+       if not any(x["id"] == m for x in (read(p4) if p4.exists() else []))]
+check("T5 → T4: referenced photos exist in T4", not ref, str(ref))
+unticked = {n: [r.get("id") or r["file"] for r in read(ROOT / f"eval/testsets/{n}.csv") if not r["verified_by"]]
+            for n in ("T2_calendar", "T3_contacts_requests", "T4_photos", "T5_adversarial") if (ROOT / f"eval/testsets/{n}.csv").exists()}
+check("T2–T5: every row ticked by Fedi", not any(unticked.values()), str({k: v for k, v in unticked.items() if v}), level="PENDING")
+
+# ---------------------------------------------------------------- D5 candidates (CF-208b)
+stray = [p.relative_to(ROOT).as_posix() for p in list((ROOT / "eval").glob("D5*")) + list((ROOT / "eval/testsets").glob("D5*"))]
+check("D5: never stored as a test set (only under eval/candidates/)", not stray, str(stray))
+p5 = ROOT / "eval/candidates/D5_triage.csv"
+if p5.exists():
+    d5 = read(p5)
+    STATUSES = {"leak", "rule_conflict", "blocked_source", "route_only", "supported"}
+    check("D5 triage: unique D5-NNN ids", len({r["d5_id"] for r in d5}) == len(d5) and all(re.fullmatch(r"D5-\d{3}", r["d5_id"]) for r in d5))
+    check("D5 triage: every row has a status and a reason unless supported / route_only",
+          all(r["status"] in STATUSES and (r["reasons"] or r["status"] == "supported") for r in d5))
+    check("D5 triage: leaked questions are excluded from the Router dev set", all(r["router_dev"] == "no" for r in d5 if r["status"] == "leak"))
+    bad_int = [r["d5_id"] for r in d5 if not set(r["router_intents"].split(";")) <= {"regulations", "calendar", "admin", "vision", "out_of_scope"}]
+    check("D5 triage: router_intents use the Router enum", not bad_int, str(bad_int))
+    doc_counts = dict(re.findall(r"^\| `(\w+)` \|.*\| (\d+) \|$", (ROOT / "eval/candidates/README.md").read_text(encoding="utf-8"), re.M))
+    real = {s: str(sum(r["status"] == s for r in d5)) for s in STATUSES}
+    check("D5 triage: eval/candidates/README.md counts match D5_triage.csv", doc_counts == real, f"README {doc_counts} vs {real}")
+else:
+    check("D5 triage present (eval/candidates/D5_triage.csv)", False)
+
+# ---------------------------------------------------------------- prompt library (CF-208c)
+PR = ROOT / "prompts"
+AGENTS = ["ROUTER", "VISION", "REGULATIONS", "CALENDAR", "ADMIN", "COMPOSER", "CRITIC"]
+FIELDS = ["**ID**", "**Version**", "**Agent**", "**Role**", "**Technique**", "**Template**", "**Output**",
+          "**Failure observed (input)**", "**Fix**", "**Result**"]
+lib = {a: PR / f"P-{a}-001.md" for a in AGENTS}
+check("prompts: one library file per agent (P-<AGENT>-001.md)", all(p.exists() for p in lib.values()),
+      str([p.name for p in lib.values() if not p.exists()]))
+nofmt = [(a, f) for a, p in lib.items() if p.exists() for f in FIELDS if f not in p.read_text(encoding="utf-8")]
+check("prompts: every entry has the 10 library-format fields", not nofmt, str(nofmt[:6]))
+FRENCH_KEYS = {"classe", "salle", "heure", "extrait_utile", "incertitudes", "type_document", "type_evaluation", "module"}
+schemas = {p.stem.split(".")[0]: p for p in (PR / "schemas").glob("*.schema.json")} if (PR / "schemas").exists() else {}
+
+
+def schema_keys(node) -> set[str]:
+    """Every property name declared anywhere in a JSON Schema."""
+    out = set()
+    if isinstance(node, dict):
+        out |= set(node.get("properties", {}))
+        for v in node.values():
+            out |= schema_keys(v)
+    elif isinstance(node, list):
+        for v in node:
+            out |= schema_keys(v)
+    return out
+
+
+bad_schema, fr = [], []
+for name, p in schemas.items():
+    try:
+        keys = schema_keys(json.loads(p.read_text(encoding="utf-8")))
+    except json.JSONDecodeError as e:
+        bad_schema.append(f"{name}: {e}")
+        continue
+    fr += [f"{name}.{k}" for k in keys if k in FRENCH_KEYS or not re.fullmatch(r"[a-z][a-z0-9_]*", k)]
+check("prompts: a JSON schema per JSON agent (Composer outputs text)",
+      set(schemas) == {a.lower() for a in AGENTS} - {"composer"}, str(sorted(schemas)))
+check("prompts: schemas parse", not bad_schema, str(bad_schema))
+check("prompts: schema keys are English snake_case (no v2 French keys)", not fr, str(fr))
+
+
+def fence_error(text: str) -> bool:
+    """True if a code block opens inside another (```lang while open) or is never closed."""
+    inside = False
+    for ln in text.splitlines():
+        m = re.match(r"\s*```(\S*)", ln)
+        if m:
+            if inside and m.group(1):
+                return True
+            inside = not inside
+    return inside
+
+
+fences = [p.relative_to(ROOT).as_posix() for p in PR.rglob("*.md") if fence_error(p.read_text(encoding="utf-8"))]
+check("prompts: Markdown code fences balanced, none nested", not fences, str(fences))
+named = [p.name for p in PR.rglob("*") if re.search(r"ines|doua|fedi", p.name, re.I)]
+check("prompts: no person names in file names", not named, str(named))
+rex = PR / "examples/router_examples.md"
+if rex.exists():
+    rows = [ln.split("|") for ln in rex.read_text(encoding="utf-8").splitlines() if re.match(r"\| R\d\d ", ln)]
+    offi = [(r["id"], r.get("question") or r["question_or_input"]) for n in ("T1_regulations", "T2_calendar", "T3_contacts_requests", "T5_adversarial")
+            for r in read(ROOT / f"eval/testsets/{n}.csv")]
+    lk = [(r[1].strip(), oid) for r in rows for oid, oq in offi if longest_shared_run(r[2], oq) >= 6]
+    check("prompts: router examples share < 6 consecutive words with T1–T5", not lk, str(lk))
+    cal_mods, cal_cls = {r["module_code"] for r in cal}, {r["class_group"] for r in cal}
+    ghost = [(r[1].strip(), m) for r in rows for m in re.findall(r"module_code=([\w-]+)", r[6]) if m not in cal_mods | {"missing"}]
+    ghost += [(r[1].strip(), c) for r in rows for c in re.findall(r"class_group=([\w-]+)", r[6]) if c not in cal_cls | {"missing"}]
+    check("prompts: router example module codes and classes exist in data/tables", not ghost, str(ghost))
+    check("prompts: 30 router examples", len(rows) == 30, str(len(rows)))
+else:
+    check("prompts: router examples present (prompts/examples/router_examples.md)", False)
 
 # ---------------------------------------------------------------- privacy
 texts = list(T.glob("*.csv")) + list((ROOT / "eval").rglob("*.csv")) + list((ROOT / "eval").rglob("*.md")) + list(CLEAN.glob("*.json"))
@@ -243,6 +350,17 @@ for p in texts:
     if re.search(r"(?:\+216[\s.]?)?\b[2-9]\d[\s.]?\d{3}[\s.]?\d{3}\b", s):
         leaks.append((p.name, "phone-like number"))
 check("privacy: no personal e-mails / phone numbers in data, clean corpus and eval files", not leaks, str(leaks[:5]))
+
+# ---------------------------------------------------------------- links (CF-208a)
+mds = [ROOT / "README.md"] + [p for d in ("report", "prompts", "eval", "data", "scripts") for p in (ROOT / d).rglob("*.md")]
+dead = []
+for p in mds:
+    for target in re.findall(r"\]\(([^)\s]+)\)", p.read_text(encoding="utf-8")):
+        if re.match(r"(https?:|mailto:|#)", target):
+            continue
+        if not (p.parent / target.split("#")[0]).resolve().exists():
+            dead.append(f"{p.relative_to(ROOT).as_posix()} → {target}")
+check("links: every relative Markdown link resolves (README, report, prompts, eval, data, scripts)", not dead, str(dead))
 
 # ---------------------------------------------------------------- report
 for lvl, name, det in results:

@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"autre\",\n  \"module_code\": null,\n  \"class_group\": null,\n  \"regime\": null,\n  \"session\": null,\n  \"date\": null,\n  \"time\": null,\n  \"room\": null,\n  \"visible_excerpt\": \"MENU DU JOUR\\nCouscous aux legumes\\nSalade mechouia\\nLablabi\\nYaourt ou fruit\\nThe a la menthe\",\n  \"uncertain_fields\": [\n    \"document_type\",\n    \"module_code\",\n    \"class_group\",\n    \"regime\",\n    \"session\",\n    \"date\",\n    \"time\",\n    \"room\"\n  ],\n  \"image_readable\": true\n}",
+ "seconds": 18.2
+}

@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"avis\",\n  \"module_code\": \"INF301\",\n  \"class_group\": \"3A14\",\n  \"regime\": null,\n  \"session\": null,\n  \"date\": \"05/11/2026\",\n  \"time\": \"09h00\",\n  \"room\": \"F03\",\n  \"visible_excerpt\": \"Le devoir surveillé de Architecture des systèmes d'information (INF301) de la classe 3A14, prévu le Jeudi 05/11/2026 à 09h00, est déplacé de la salle A14 vers la salle F03.\",\n  \"uncertain_fields\": [\n    \"regime\",\n    \"session\"\n  ],\n  \"image_readable\": true\n}",
+ "seconds": 26.5
+}

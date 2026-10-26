@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"type_document\": \"menu\",\n  \"module\": null,\n  \"classe\": null,\n  \"regime\": null,\n  \"type_evaluation\": null,\n  \"session\": null,\n  \"date\": null,\n  \"heure\": null,\n  \"salle\": null,\n  \"extrait_utile\": \"MENU DU JOUR - Couscous aux legumes - Salade mechouia - Lablabi - Yaourt ou fruit - The a la menthe\",\n  \"incertitudes\": [\n    \"Le document n'est pas un document académique d'évaluation mais un menu de cafétéria.\"\n  ]\n}",
+ "seconds": 9.2
+}

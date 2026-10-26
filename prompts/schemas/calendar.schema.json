@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusflow/prompts/schemas/calendar.schema.json",
+  "title": "Calendar agent output (P-CALENDAR-001 v2)",
+  "description": "Rows returned by the exam lookup tool, copied with the column names of data/tables/exam_calendar.csv. Empty cells stay null (shown as 'non communiqué').",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "matches", "missing_fields"],
+  "properties": {
+    "status": {"enum": ["found", "ambiguous", "not_found", "needs_input"]},
+    "matches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["exam_id", "module_code", "module_name", "class_group", "session", "assessment", "date", "start_time",
+                     "end_time", "room", "last_updated", "data_status"],
+        "properties": {
+          "exam_id": {"type": "string"},
+          "module_code": {"type": "string"},
+          "module_name": {"type": "string"},
+          "class_group": {"type": "string"},
+          "session": {"enum": ["Principale", "Rattrapage"]},
+          "assessment": {"enum": ["DS", "Examen"]},
+          "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+          "start_time": {"type": "string", "pattern": "^\\d{2}:\\d{2}$"},
+          "end_time": {"type": ["string", "null"]},
+          "room": {"type": ["string", "null"]},
+          "last_updated": {"type": "string"},
+          "data_status": {"type": "string", "description": "e.g. 'projected from 2025-2026' or 'FICTITIOUS' — always shown to the student."}
+        }
+      }
+    },
+    "missing_fields": {"type": "array", "items": {"enum": ["module", "class_group", "session"]}}
+  }
+}
