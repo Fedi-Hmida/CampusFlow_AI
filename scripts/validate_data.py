@@ -71,6 +71,27 @@ for i in ids:
             check(f"{i}: no /Author metadata", "/Author" not in (PdfReader(str(pdf)).metadata or {}))
 KEYS = article_keys()
 
+# ---------------------------------------------------------------- chunks A / B (CF-016)
+FICTIF_IDS = {i for i in ids if doc(i)["doc_status"] == "FICTITIOUS"}
+for strat, limit in (("A", 2000), ("B", 2000)):
+    pc = ROOT / f"data/index/chunks_{strat}.json"
+    if not pc.exists():
+        check(f"chunks {strat}: data/index/chunks_{strat}.json present", False)
+        continue
+    ch = json.loads(pc.read_text(encoding="utf-8"))
+    check(f"chunks {strat}: chunk_id and point_id unique", len({c["chunk_id"] for c in ch}) == len(ch) == len({c["point_id"] for c in ch}))
+    nokey = [c["chunk_id"] for c in ch if not c["article_keys"] or not set(c["article_keys"]) <= KEYS]
+    check(f"chunks {strat}: every chunk has existing article keys", not nokey, str(nokey[:5]))
+    nolab = [c["chunk_id"] for c in ch if c["doc_id"] in FICTIF_IDS and "[DOCUMENT FICTIF" not in c["text"][:80]]
+    check(f"chunks {strat}: every FICTITIOUS chunk starts with the label (A2)", not nolab, str(nolab[:5]))
+    check(f"chunks {strat}: regimes = expanded regime of the document",
+          all(c["regimes"] == (["jour", "soir", "alternance"] if c["regime"] == "all" else c["regime"].split(";")) and c["regime"] == doc(c["doc_id"])["regime"] for c in ch))
+    long_ = [c["chunk_id"] for c in ch if len(c["body"]) > limit]
+    check(f"chunks {strat}: body <= {limit} characters", not long_, str(long_[:5]))
+    covered = {k for c in ch for k in c["article_keys"]}
+    big_units = {u["key"] for i in ids for u in doc(i)["articles"] if u["chars"] >= 100}
+    check(f"chunks {strat}: every unit of >= 100 characters is covered", big_units <= covered, str(sorted(big_units - covered)[:5]))
+
 # ---------------------------------------------------------------- D2 calendar
 cal = read(T / "exam_calendar.csv")
 mods = read(T / "module_codes.csv")

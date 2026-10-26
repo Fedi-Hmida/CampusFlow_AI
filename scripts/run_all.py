@@ -14,6 +14,7 @@ STEPS = [
     "scripts/corpus/author_fictif.py",           # project-authored FICTIF PDFs D1-012/013 (CF-117)
     "scripts/corpus/extract_regs.py",            # re-extract the FICTITIOUS documents from their regenerated PDFs
     "scripts/corpus/build_consistency_review.py",
+    "scripts/index/build_chunks.py",             # chunks A / B for WF-1 (CF-016)
     "scripts/tables/transform_calendar.py",
     "scripts/tables/fix_directory.py",
     "scripts/tables/fix_requests.py",
