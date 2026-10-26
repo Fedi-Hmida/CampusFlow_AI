@@ -1,0 +1,4 @@
+{"model": "qwen3:4b-instruct-2507-q4_K_M", "run": 1, "prompt_tokens": 2136, "prompt_s": 66.7, "prompt_tps": 32.0, "output_tokens": 250, "output_s": 58.1, "output_tps": 4.3, "load_s": 0.0, "total_s": 126.9}
+{"model": "qwen3:4b-instruct-2507-q4_K_M", "run": 2, "prompt_tokens": 2137, "prompt_s": 72.6, "prompt_tps": 29.4, "output_tokens": 250, "output_s": 59.3, "output_tps": 4.22, "load_s": 0.0, "total_s": 134.3}
+{"model": "qwen3:4b-instruct-2507-q4_K_M", "run": 3, "prompt_tokens": 2138, "prompt_s": 69.4, "prompt_tps": 30.8, "output_tokens": 250, "output_s": 64.4, "output_tps": 3.88, "load_s": 0.0, "total_s": 136.3}
+{"model": "qwen3:4b-instruct-2507-q4_K_M", "avg_prompt_tps": 30.7, "avg_output_tps": 4.13, "pipeline": [["Router", 600, 80, 38.9], ["Regulations", 2500, 250, 141.8], ["Calendar/Admin", 800, 150, 62.3], ["Composer", 1200, 250, 99.5], ["Critic", 1500, 100, 73.0]], "estimated_question_s": 415.5}
