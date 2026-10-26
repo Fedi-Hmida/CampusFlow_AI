@@ -1,0 +1,67 @@
+[
+ {
+  "id": "cfToolsTest00001",
+  "name": "03t_tools_test",
+  "active": false,
+  "settings": {
+   "executionOrder": "v1",
+   "callerPolicy": "workflowsFromSameOwner"
+  },
+  "nodes": [
+   {
+    "id": "705b370d-47da-5290-b25d-1bbc9f22e5bd",
+    "name": "Webhook",
+    "type": "n8n-nodes-base.webhook",
+    "typeVersion": 2.1,
+    "position": [
+     0,
+     300
+    ],
+    "parameters": {
+     "httpMethod": "POST",
+     "path": "tools-test",
+     "responseMode": "lastNode",
+     "options": {}
+    },
+    "webhookId": "b9d0a409-a44e-5b1e-8100-3d8b3eb4e8a4"
+   },
+   {
+    "id": "13044f25-62b4-5b2a-87fe-c0829d9ad374",
+    "name": "Call tool",
+    "type": "n8n-nodes-base.executeWorkflow",
+    "typeVersion": 1.2,
+    "position": [
+     260,
+     300
+    ],
+    "parameters": {
+     "source": "database",
+     "workflowId": {
+      "__rl": true,
+      "mode": "id",
+      "value": "={{ $json.body.workflow_id }}"
+     },
+     "mode": "once",
+     "options": {
+      "waitForSubWorkflow": true
+     }
+    }
+   }
+  ],
+  "connections": {
+   "Webhook": {
+    "main": [
+     [
+      {
+       "node": "Call tool",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   }
+  },
+  "pinData": {},
+  "tags": []
+ }
+]

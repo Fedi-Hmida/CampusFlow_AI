@@ -3,6 +3,7 @@
 Run: .venv/Scripts/python scripts/run_all.py            (add --no-validate to skip the final check)
 Each step is a separate script (see scripts/README.md); the run stops at the first failing step.
 """
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -23,6 +24,7 @@ STEPS = [
     "scripts/testsets/build_tests_t2_t5.py",
     "scripts/testsets/build_t4.py",              # T4 ground truth for the photos (CF-208d)
     "scripts/testsets/triage_d5.py",             # D5 candidates → status per row + Router dev labels (CF-208b)
+    "scripts/workflows/build_tools.py",          # n8n tool workflows generated from workflows/lib/lookup.js (CF-019)
 ]
 
 
@@ -34,6 +36,13 @@ def main() -> None:
             sys.exit(f"step failed: {step}")
     if (ROOT / "eval/testsets/T4_photos/T4-01_convocation_ds14_5ds6.png").exists():
         subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/testsets/degrade_t4.py")], cwd=ROOT, check=True)
+    # CF-019: lookup tools (same code as the n8n tool workflows) tested against the rebuilt tables
+    if shutil.which("node"):
+        print("\n=== node --test workflows/lib/lookup.test.js", flush=True)
+        if subprocess.run(["node", "--test", "workflows/lib/lookup.test.js"], cwd=ROOT).returncode:
+            sys.exit("step failed: node --test workflows/lib/lookup.test.js")
+    else:
+        print("\n(node not found: lookup-tool tests skipped)")
     if "--no-validate" not in sys.argv:
         print("\n=== scripts/validate_data.py", flush=True)
         sys.exit(subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/validate_data.py")], cwd=ROOT).returncode)

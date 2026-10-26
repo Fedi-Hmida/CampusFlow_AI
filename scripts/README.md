@@ -25,6 +25,7 @@ Rebuild all of it, then validate, with one command (inside the repo's `.venv`):
 | | `build_t4.py` | `eval/testsets/T4_photos.csv` (ground truth of the photos, Vision schema keys), `eval/review/sheets/T4_review.md` |
 | | `degrade_t4.py` | `T4-09` blurry, `T4-10` rotated (from Ines's sharp photos), `T4-11` drawn unrelated image |
 | | `triage_d5.py` | `eval/candidates/D5_triage.csv` — status per D5 candidate row + Router dev labels (not a test set) |
+| `workflows/` | `build_tools.py` | `workflows/10–12_tool_lookup_*.json`, `02_wf2_tables_check.json`, `03t_tools_test.json` from `workflows/lib/lookup.js` (CF-018/019) |
 | (root) | `validate_data.py` | console report: schemas, cross-file links, labelling, prompt library, Markdown links, privacy (exit 1 on error) |
 | (root) | `run_all.py` | runs all of the above in order |
 
