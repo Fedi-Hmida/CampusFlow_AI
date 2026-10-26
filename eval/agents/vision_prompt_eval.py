@@ -11,7 +11,12 @@ before scoring (dates → ISO, « 09h00 – 11h00 » → start/end, « Session d
 
 Per scored field: correct · abstained (null where a value was expected — acceptable on a degraded image) ·
 wrong (a value that differs from the ground truth, incl. any value where the truth is null = invented) · not produced.
-Usage:  python -X utf8 eval/agents/vision_prompt_eval.py [--versions v1 v2 v3] [--ids T4-01 ...] [--score-only]
+Usage:  python -X utf8 eval/agents/vision_prompt_eval.py [--versions v1 v2 v3 v4] [--ids T4-01 ...] [--score-only]
+
+SECURITY: n8n is reachable from the internet through ngrok, so a published webhook is public and spends the Gemini
+quota. Publish only for the run, then unpublish and restart n8n:
+  docker compose exec n8n n8n publish:workflow --id=cfVisionEval0001     (then restart n8n)
+  docker compose exec n8n n8n unpublish:workflow --id=cfVisionEval0001   (then restart n8n)
 """
 import argparse
 import base64
