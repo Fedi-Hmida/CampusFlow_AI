@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "eval/retrieval"))
 import retrieval_metrics as rm  # noqa: E402
 
-OLLAMA, QDRANT = "http://localhost:11434", "http://localhost:6333"
+OLLAMA, QDRANT = "http://127.0.0.1:11434", "http://127.0.0.1:6333"
 COLL = {"A": "regs_fixed", "B": "regs_structured"}
 OUT = ROOT / "eval/retrieval"
 
