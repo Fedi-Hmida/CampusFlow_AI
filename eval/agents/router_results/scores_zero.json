@@ -1,0 +1,1018 @@
+[
+ {
+  "id": "D5-001",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-002",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-003",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-004",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-005",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-006",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-007",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-008",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-009",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-010",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-011",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-012",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-013",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": true,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-014",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-015",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-016",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-017",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-018",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-019",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": true,
+  "predicted": [
+   "out_of_scope"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-020",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "admin"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-021",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-022",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-023",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-024",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": true,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-025",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": true,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-026",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": true,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-027",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": true,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-028",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": true,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-029",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": true,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-030",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": true,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-031",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-032",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-033",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-034",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "admin"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-035",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "admin"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-036",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "admin"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-037",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "admin"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-038",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-041",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-042",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "admin"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-044",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": true,
+  "predicted": [
+   "out_of_scope"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-045",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.5,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": true,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "admin",
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-046",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.6666666666666666,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "calendar",
+   "regulations"
+  ],
+  "expected": [
+   "admin",
+   "calendar",
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-047",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": true,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "out_of_scope"
+  ]
+ },
+ {
+  "id": "D5-048",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": true,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "out_of_scope"
+  ]
+ },
+ {
+  "id": "D5-049",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": true,
+  "oos_predicted": false,
+  "predicted": [
+   "admin"
+  ],
+  "expected": [
+   "out_of_scope"
+  ]
+ },
+ {
+  "id": "D5-050",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": true,
+  "oos_predicted": true,
+  "predicted": [
+   "out_of_scope"
+  ],
+  "expected": [
+   "out_of_scope"
+  ]
+ },
+ {
+  "id": "D5-051",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "admin"
+  ]
+ },
+ {
+  "id": "D5-052",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": false,
+  "intents_jaccard": 0.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "calendar"
+  ]
+ },
+ {
+  "id": "D5-053",
+  "valid_json": false
+ },
+ {
+  "id": "D5-055",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-056",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-057",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-058",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-059",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-060",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ },
+ {
+  "id": "D5-061",
+  "valid_json": true,
+  "schema_errors": [],
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
+  "language_ok": true,
+  "regime_invented": false,
+  "regime_missed": false,
+  "oos_expected": false,
+  "oos_predicted": false,
+  "predicted": [
+   "regulations"
+  ],
+  "expected": [
+   "regulations"
+  ]
+ }
+]

@@ -1,0 +1,230 @@
+{
+ "D5-001": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"validation_semestre\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 195.5
+ },
+ "D5-002": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"moyenne_UE\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 53.6
+ },
+ "D5-003": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"validation_UE\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 53.9
+ },
+ "D5-004": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"calcul_note_matiere\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 47.3
+ },
+ "D5-005": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"moyenne_generale_semestre\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 47.3
+ },
+ "D5-006": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": \"rattrapage_validation\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\", \"class_group\"]}",
+  "seconds": 59.3
+ },
+ "D5-007": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": \"remplacement_note\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 53.9
+ },
+ "D5-008": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\", \"class_group\"]}",
+  "seconds": 51.1
+ },
+ "D5-009": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 48.6
+ },
+ "D5-010": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": \"publication_resultats\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 49.5
+ },
+ "D5-011": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"redoublement\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 47.5
+ },
+ "D5-012": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"duree_scolarite\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 48.7
+ },
+ "D5-013": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"absence_malade\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 51.1
+ },
+ "D5-014": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"motifs_absence\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 50.2
+ },
+ "D5-015": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"justification_absence\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 48.0
+ },
+ "D5-016": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"délai_absence\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 50.3
+ },
+ "D5-017": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"justification_absence\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 48.7
+ },
+ "D5-018": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"absence_sanction\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 49.1
+ },
+ "D5-019": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"faux_certificat_medicale\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 49.6
+ },
+ "D5-020": {
+  "raw": "{\"agents\": [\"regulations\", \"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"recours_absence\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\", \"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 51.0
+ },
+ "D5-021": {
+  "raw": "{\"agents\": [\"regulations\", \"admin\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"absence_sick\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\", \"admin\"], \"language\": \"en\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 52.3
+ },
+ "D5-022": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"moyenne_semestre\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"en\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 46.4
+ },
+ "D5-023": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": \"inscription_retake\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"en\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 49.6
+ },
+ "D5-024": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": \"1A12\", \"module_code\": \"M007\", \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 52.4
+ },
+ "D5-025": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": \"2A5\", \"module_code\": \"M023\", \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Principale\", \"topic\": \"date_salle_examen\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 55.9
+ },
+ "D5-026": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": \"2A30\", \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": \"Anglais 3\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 56.6
+ },
+ "D5-027": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": \"3B7\", \"module_code\": \"M067\", \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 50.4
+ },
+ "D5-028": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": \"4DS3\", \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Principale\", \"topic\": \"deep_learning\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 52.5
+ },
+ "D5-029": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": \"5DS1\", \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 50.6
+ },
+ "D5-030": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": \"5ACT1\", \"module_code\": \"M089\", \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Principale\", \"topic\": \"assurance_vie_avancee\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 58.5
+ },
+ "D5-031": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Principale\", \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 45.9
+ },
+ "D5-032": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 44.0
+ },
+ "D5-033": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\", \"module\"]}",
+  "seconds": 48.4
+ },
+ "D5-034": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": \"3A\", \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"scolarite\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 49.8
+ },
+ "D5-035": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"releve_notes\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\"]}",
+  "seconds": 48.1
+ },
+ "D5-036": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"perte_carte_etudiant\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 47.3
+ },
+ "D5-037": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"justification_absence\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\", \"regime\"]}",
+  "seconds": 49.7
+ },
+ "D5-038": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"convention_stage\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 49.4
+ },
+ "D5-041": {
+  "raw": "{\"agents\": [\"admin\", \"regulations\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": \"rattrapage\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\", \"admin\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\", \"module\"]}",
+  "seconds": 57.9
+ },
+ "D5-042": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"service_élèves\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\"]}",
+  "seconds": 50.3
+ },
+ "D5-044": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"relire_cv\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 46.0
+ },
+ "D5-045": {
+  "raw": "{\"agents\": [\"regulations\", \"admin\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"absence_maladie\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\", \"admin\"], \"language\": \"fr\", \"missing_fields\": [\"regime\", \"class_group\"]}",
+  "seconds": 58.7
+ },
+ "D5-046": {
+  "raw": "{\"agents\": [\"regulations\", \"calendar\", \"admin\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": \"Rattrapage\", \"topic\": \"moyenne_UA\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\", \"calendar\", \"admin\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\", \"module\"]}",
+  "seconds": 63.1
+ },
+ "D5-047": {
+  "raw": "{\"agents\": [\"regulations\"], \"entities\": {\"assessment\": \"Examen\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"note_module\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\", \"module\"]}",
+  "seconds": 48.3
+ },
+ "D5-048": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"out_of_scope\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\"]}",
+  "seconds": 45.4
+ },
+ "D5-049": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": \"email_scolarite\", \"session\": null, \"topic\": \"justification_absence\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\", \"regime\"]}",
+  "seconds": 51.5
+ },
+ "D5-050": {
+  "raw": "{\"agents\": [\"regulations\", \"calendar\", \"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"out_of_scope\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 47.7
+ },
+ "D5-051": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"duplicata_carte\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 46.2
+ },
+ "D5-052": {
+  "raw": "{\"agents\": [\"calendar\"], \"entities\": {\"assessment\": \"DS\", \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"soutenance_PFE\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"calendar\"], \"language\": \"fr\", \"missing_fields\": [\"class_group\"]}",
+  "seconds": 48.4
+ },
+ "D5-053": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": null}, \"has_photo\": false, \"injection_suspected\": true, \"intents\": [\"out_of_scope\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 47.4
+ },
+ "D5-055": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"frais_scolarite\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 49.3
+ },
+ "D5-056": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"paiement_scolarite\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 48.0
+ },
+ "D5-057": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"reduction_freres_soeurs\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 49.2
+ },
+ "D5-058": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": null}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": [\"regime\"]}",
+  "seconds": 47.3
+ },
+ "D5-059": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"echange_double_diplome\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 48.5
+ },
+ "D5-060": {
+  "raw": "{\"agents\": [], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"double_diplome_actuariat\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"regulations\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 46.9
+ },
+ "D5-061": {
+  "raw": "{\"agents\": [\"admin\"], \"entities\": {\"assessment\": null, \"class_group\": null, \"module_code\": null, \"module_name\": null, \"regime\": null, \"request_type\": null, \"session\": null, \"topic\": \"bourses_etudes_france\"}, \"has_photo\": false, \"injection_suspected\": false, \"intents\": [\"admin\"], \"language\": \"fr\", \"missing_fields\": []}",
+  "seconds": 47.6
+ }
+}

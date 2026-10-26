@@ -1,0 +1,28 @@
+{
+ "zero": {
+  "rows": 57,
+  "valid_json": 56,
+  "schema_valid": 56,
+  "intents_exact": 42,
+  "intents_jaccard_mean": 0.771,
+  "language_ok": 56,
+  "regime_invented": 7,
+  "regime_missed": 2,
+  "oos_precision": 0.333,
+  "oos_recall": 0.25,
+  "seconds_mean": 25.0
+ },
+ "few": {
+  "rows": 57,
+  "valid_json": 57,
+  "schema_valid": 57,
+  "intents_exact": 46,
+  "intents_jaccard_mean": 0.833,
+  "language_ok": 57,
+  "regime_invented": 0,
+  "regime_missed": 2,
+  "oos_precision": 1.0,
+  "oos_recall": 0.6,
+  "seconds_mean": 52.8
+ }
+}

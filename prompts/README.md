@@ -6,7 +6,7 @@ language); JSON keys are English and fixed by `schemas/`.
 
 | ID | Agent | Current | Output | Status |
 |---|---|---|---|---|
-| [P-ROUTER-001](P-ROUTER-001.md) | Router | v1 | JSON — [schema](schemas/router.schema.json) | not yet run in WF-3; dev set ready (D5 triage, 57 rows) |
+| [P-ROUTER-001](P-ROUTER-001.md) | Router | v1 | JSON — [schema](schemas/router.schema.json) | measured on 57 D5 dev rows: few-shot 46/57 exact, 0 invented regimes, 52.8 s/call ([results](../eval/agents/router_v1.md)) |
 | [P-VISION-001](P-VISION-001.md) | Vision (Gemini) | v4 | JSON — [schema](schemas/vision.schema.json) | v1–v4 measured on T4: 71 → 82 → 86 → 87 / 88 fields correct, schema-valid 10/11 ([results](../eval/agents/vision_v1_to_v4.md)) |
 | [P-REGULATIONS-001](P-REGULATIONS-001.md) | Regulations | v1 | JSON — [schema](schemas/regulations.schema.json) | waits for index A/B (Phase 2–3) |
 | [P-CALENDAR-001](P-CALENDAR-001.md) | Calendar | v2 | JSON — [schema](schemas/calendar.schema.json) | waits for the lookup tool (CF-018/019) |
