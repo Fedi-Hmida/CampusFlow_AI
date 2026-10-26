@@ -38,6 +38,6 @@ Le corpus est limité à 11 documents, en deçà de la recommandation de 20 à 6
 ## Références du projet
 
 - [Fiche du corpus](../data/regs/CORPUS_CARD.md)
-- [Jeu de test T1](../eval/T1_regulations.csv)
-- [Définitions et auto-test des métriques](../eval/retrieval_metrics.py)
-- [Réponses de référence sans RAG](../eval/baseline_no_rag.md)
+- [Jeu de test T1](../eval/testsets/T1_regulations.csv)
+- [Définitions et auto-test des métriques](../eval/retrieval/retrieval_metrics.py)
+- [Réponses de référence sans RAG](../eval/baselines/baseline_no_rag.md)

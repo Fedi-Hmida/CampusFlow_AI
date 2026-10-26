@@ -185,8 +185,7 @@ if t1p.exists():
     check("T1: 3 unanswerable rows", sum(r["answerable"] == "no" for r in t1) == 3)
     nver = sum(bool(r["verified_by"]) for r in t1)
     check("T1: all 25 rows verified by Fedi", nver == 25, f"{nver}/25 verified", level="PENDING")
-else:
-    check("T1 present", False, level="PENDING")
+    # CF-208a: these two checks sat under `else:` (ran only when T1 was missing); they belong to the T1 branch
     sys.path.insert(0, str(ROOT / "eval/retrieval"))
     import retrieval_metrics as rm
     try:
@@ -195,6 +194,8 @@ else:
         mt = False
     check("eval/retrieval/retrieval_metrics.py: Hit@5 / Recall@5 / MRR self-test on '|'-separated key lists", mt)
     check("T1: multi-source rows parse into existing keys", all(all(k in KEYS for k in rm.parse_expected(r["expected_article"])) for r in t1))
+else:
+    check("T1 present", False, level="PENDING")
 for name, n in [("T2_calendar.csv", 12), ("T3_contacts_requests.csv", 10), ("T5_adversarial.csv", 6), ("T4_photos.csv", 10)]:
     p = ROOT / "eval/testsets" / name
     check(f"{name}: {n} rows", p.exists() and len(read(p)) == n, f"{len(read(p)) if p.exists() else 0} rows", level="PENDING" if not p.exists() else "ERROR")
@@ -243,6 +244,17 @@ for p in texts:
     if re.search(r"(?:\+216[\s.]?)?\b[2-9]\d[\s.]?\d{3}[\s.]?\d{3}\b", s):
         leaks.append((p.name, "phone-like number"))
 check("privacy: no personal e-mails / phone numbers in data, clean corpus and eval files", not leaks, str(leaks[:5]))
+
+# ---------------------------------------------------------------- links (CF-208a)
+mds = [ROOT / "README.md"] + [p for d in ("report", "prompts", "eval", "data", "scripts") for p in (ROOT / d).rglob("*.md")]
+dead = []
+for p in mds:
+    for target in re.findall(r"\]\(([^)\s]+)\)", p.read_text(encoding="utf-8")):
+        if re.match(r"(https?:|mailto:|#)", target):
+            continue
+        if not (p.parent / target.split("#")[0]).resolve().exists():
+            dead.append(f"{p.relative_to(ROOT).as_posix()} → {target}")
+check("links: every relative Markdown link resolves (README, report, prompts, eval, data, scripts)", not dead, str(dead))
 
 # ---------------------------------------------------------------- report
 for lvl, name, det in results:
