@@ -33,7 +33,7 @@ The schema is attached by the n8n Structured Output Parser (same mechanism that 
 ## Version log
 | Version | **Failure observed (input)** | **Fix** | **Result** |
 |---|---|---|---|
-| v1 (Ines, 25 Oct) | Phase 0 (CF-008c, `eval/agents/agent_tool_test.py`): zero-shot the 4B model chose the right tool 8/10 times; the exact failing inputs were not logged. | Strict JSON schema + few-shot examples; entities never inferred; regime listed in `missing_fields` when absent. | Not yet measured with this prompt. Planned: the 58 `router_dev = yes` rows of [D5 triage](../eval/candidates/D5_triage.csv) (intent accuracy, missing-regime detection) — development only; the final score uses T1–T5. |
+| v1 (Ines, 25 Oct) | Phase 0 (CF-008c, `eval/agents/agent_tool_test.py`): zero-shot the 4B model chose the right tool 8/10 times; the exact failing inputs were not logged. | Strict JSON schema + few-shot examples; entities never inferred; regime listed in `missing_fields` when absent. | Not yet measured with this prompt. Planned: the 57 `router_dev = yes` rows of [D5 triage](../eval/candidates/D5_triage.csv) (intent accuracy, missing-regime detection) — development only; the final score uses T1–T5. |
 
 ## Notes
 - Example vocabulary follows the approved data: module codes from `data/tables/module_codes.csv`, « UE », « session de rattrapage » (Ines's v2 examples used codes of the unimported second dataset; [archive](archive/router_examples_v2_2026-10-25.md)).

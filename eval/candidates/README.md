@@ -6,15 +6,15 @@ evaluation results, and never copy their questions into prompts.
 | File | What it is | Use |
 |---|---|---|
 | `D5_original_2026-10-25.csv` | Doua's synthetic question set (CF-205), kept verbatim (61 rows, UTF-8 with BOM). | Source only. |
-| `D5_triage.csv` | Built by `scripts/testsets/triage_d5.py`: a new `D5-NNN` id per row, the regime named in the question, the Router intents, a status and the reasons. | `router_dev = yes` rows → **Router development set** (intent + language + missing regime). |
+| `D5_triage.csv` | Built by `scripts/testsets/triage_d5.py`: a new `D5-NNN` id per row, the regime named in the question, the Router intents, a status and the reasons. | `router_dev = yes` rows (57) → **Router development set** (intent + language + missing regime). |
 
 ## Status meaning (current counts in the script output)
 | Status | Meaning | Count |
 |---|---|---|
 | `blocked_source` | The expected answer cites a source that is absent from `data/regs/clean` / `data/tables`, or the cited article says something else. Most rows come from the second dataset (new D1-002/D1-003 PDFs, finance and mobility guides, calendar with rooms) that was never imported — see [data/INTAKE.md](../../data/INTAKE.md). | 44 |
 | `rule_conflict` | The answer contradicts approved data (regime-blind medical-certificate rule vs D1-001/7-8 for *cours du jour*; old 3-day REQ-08 delay). | 4 |
-| `leak` | ≥ 6 consecutive words shared with an official T1–T5 question → excluded from every dev use. | 3 |
-| `route_only` | Refusal / injection / out-of-scope: no source fact to check; routing label is valid. | 7 |
+| `leak` | ≥ 6 consecutive words shared with an official T1–T5 question → excluded from every dev use. | 4 |
+| `route_only` | Refusal / injection / out-of-scope: no source fact to check; routing label is valid. | 6 |
 | `supported` | Every number and ≥ 60 % of the content words appear in the cited approved sources (checked by hand too). | 3 |
 
 ## How a row becomes a test row

@@ -196,7 +196,7 @@ if t1p.exists():
     check("T1: multi-source rows parse into existing keys", all(all(k in KEYS for k in rm.parse_expected(r["expected_article"])) for r in t1))
 else:
     check("T1 present", False, level="PENDING")
-for name, n in [("T2_calendar.csv", 12), ("T3_contacts_requests.csv", 10), ("T5_adversarial.csv", 6), ("T4_photos.csv", 10)]:
+for name, n in [("T2_calendar.csv", 12), ("T3_contacts_requests.csv", 10), ("T5_adversarial.csv", 6), ("T4_photos.csv", 11)]:
     p = ROOT / "eval/testsets" / name
     check(f"{name}: {n} rows", p.exists() and len(read(p)) == n, f"{len(read(p)) if p.exists() else 0} rows", level="PENDING" if not p.exists() else "ERROR")
 p2 = ROOT / "eval/testsets/T2_calendar.csv"
@@ -230,8 +230,23 @@ if p3.exists():
     check("T3: expected values mention no other regime than the question's (regime-specific)", not other, str(other))
 p4 = ROOT / "eval/testsets/T4_photos.csv"
 if p4.exists():
-    miss = [r["file"] for r in read(p4) if not (ROOT / "eval/testsets/T4_photos" / r["file"]).exists()]
-    check("T4: every image file present", not miss, str(miss), level="PENDING")
+    t4 = read(p4)
+    miss = [r["file"] for r in t4 if not (ROOT / "eval/testsets/T4_photos" / r["file"]).exists()]
+    check("T4: every image file present", not miss, str(miss))
+    vkeys = set(json.loads((ROOT / "prompts/schemas/vision.schema.json").read_text(encoding="utf-8"))["properties"])
+    badk = [(r["id"], k) for r in t4 for k in json.loads(r["expected_fields"]) if k not in vkeys]
+    check("T4: expected_fields use the Vision schema keys (prompts/schemas/vision.schema.json)", not badk, str(badk))
+    check("T4: covers blurry, rotated, hidden field, injection and unrelated",
+          {"blurry", "rotated", "hidden field", "injection", "unrelated"} <= {r["condition"] for r in t4}, str(sorted({r["condition"] for r in t4})))
+    der = [r["id"] for r in t4 if r["derived_from"] and r["derived_from"] not in {x["file"] for x in t4}]
+    check("T4: derived images point to a T4 source image", not der, str(der))
+t5p = ROOT / "eval/testsets/T5_adversarial.csv"
+ref = [(r["id"], m) for r in read(t5p) for m in re.findall(r"photo (T4-\d\d)", r["question_or_input"])
+       if not any(x["id"] == m for x in (read(p4) if p4.exists() else []))]
+check("T5 → T4: referenced photos exist in T4", not ref, str(ref))
+unticked = {n: [r.get("id") or r["file"] for r in read(ROOT / f"eval/testsets/{n}.csv") if not r["verified_by"]]
+            for n in ("T2_calendar", "T3_contacts_requests", "T4_photos", "T5_adversarial") if (ROOT / f"eval/testsets/{n}.csv").exists()}
+check("T2–T5: every row ticked by Fedi", not any(unticked.values()), str({k: v for k, v in unticked.items() if v}), level="PENDING")
 
 # ---------------------------------------------------------------- D5 candidates (CF-208b)
 stray = [p.relative_to(ROOT).as_posix() for p in list((ROOT / "eval").glob("D5*")) + list((ROOT / "eval/testsets").glob("D5*"))]
@@ -246,6 +261,9 @@ if p5.exists():
     check("D5 triage: leaked questions are excluded from the Router dev set", all(r["router_dev"] == "no" for r in d5 if r["status"] == "leak"))
     bad_int = [r["d5_id"] for r in d5 if not set(r["router_intents"].split(";")) <= {"regulations", "calendar", "admin", "vision", "out_of_scope"}]
     check("D5 triage: router_intents use the Router enum", not bad_int, str(bad_int))
+    doc_counts = dict(re.findall(r"^\| `(\w+)` \|.*\| (\d+) \|$", (ROOT / "eval/candidates/README.md").read_text(encoding="utf-8"), re.M))
+    real = {s: str(sum(r["status"] == s for r in d5)) for s in STATUSES}
+    check("D5 triage: eval/candidates/README.md counts match D5_triage.csv", doc_counts == real, f"README {doc_counts} vs {real}")
 else:
     check("D5 triage present (eval/candidates/D5_triage.csv)", False)
 

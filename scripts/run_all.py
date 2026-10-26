@@ -19,6 +19,7 @@ STEPS = [
     "scripts/tables/build_org_chart.py",
     "scripts/testsets/build_t1.py",
     "scripts/testsets/build_tests_t2_t5.py",
+    "scripts/testsets/build_t4.py",              # T4 ground truth for the photos (CF-208d)
     "scripts/testsets/triage_d5.py",             # D5 candidates → status per row + Router dev labels (CF-208b)
 ]
 
@@ -29,8 +30,8 @@ def main() -> None:
         r = subprocess.run([sys.executable, "-X", "utf8", str(ROOT / step)], cwd=ROOT)
         if r.returncode:
             sys.exit(f"step failed: {step}")
-    if (ROOT / "eval/testsets/T4_photos/T4-02_convocation_sharp_source.png").exists():
-        subprocess.run([sys.executable, str(ROOT / "scripts/testsets/degrade_t4.py")], cwd=ROOT, check=True)
+    if (ROOT / "eval/testsets/T4_photos/T4-01_convocation_ds14_5ds6.png").exists():
+        subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/testsets/degrade_t4.py")], cwd=ROOT, check=True)
     if "--no-validate" not in sys.argv:
         print("\n=== scripts/validate_data.py", flush=True)
         sys.exit(subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/validate_data.py")], cwd=ROOT).returncode)

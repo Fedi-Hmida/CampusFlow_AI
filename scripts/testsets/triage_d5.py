@@ -71,13 +71,13 @@ def evidence(src: str, contact: str, answer: str, roles: dict, reqs: dict) -> tu
     pool, reasons = [], []
     words = content_words(answer)
     for d, art in re.findall(r"(D1-\d{3}) art\.(\d+)", src):
-        keys = [k for k in article_keys(d) if k.split("/")[1] == art]
+        keys = sorted(k for k in article_keys(d) if k.split("/")[1] == art)   # sorted: D1-003 has two articles 12
         if not keys:
             reasons.append(f"{d} has no article {art} in data/regs/clean")
             continue
         text = " ".join(u["text"] for u in doc(d)["articles"] if u["key"] in keys)
         if words and len(words & content_words(text)) / len(words) < 0.3:
-            reasons.append(f"{d} art.{art} is '{keys[0].split('/')[2]}' in the approved corpus — off-topic for this answer")
+            reasons.append(f"{d} art.{art} is {' / '.join(repr(k.split('/')[2]) for k in keys)} in the approved corpus — off-topic for this answer")
         pool.append(text)
     for d in re.findall(r"(D1-\d{3}) p\.\d+", src):
         reasons.append(f"{d} cited by page only: the approved {d} is '{doc(d)['title']}' — different document (second dataset)")
