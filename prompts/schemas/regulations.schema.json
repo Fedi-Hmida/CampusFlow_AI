@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusflow/prompts/schemas/regulations.schema.json",
+  "title": "Regulations agent output (P-REGULATIONS-001 v1)",
+  "description": "Answer grounded only in the retrieved chunks; every claim cites the chunk's article key.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "answer", "citations", "regime", "missing_information", "conflicts"],
+  "properties": {
+    "status": {"enum": ["supported", "needs_regime", "not_found", "conflict"]},
+    "answer": {"type": ["string", "null"]},
+    "citations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["doc_id", "article_key", "page", "doc_status"],
+        "properties": {
+          "doc_id": {"type": "string", "pattern": "^D1-\\d{3}$"},
+          "article_key": {"type": "string", "description": "<doc_id>/<number>/<title>, copied from the chunk payload."},
+          "page": {"type": ["integer", "null"]},
+          "doc_status": {"enum": ["official", "FICTITIOUS"]}
+        }
+      }
+    },
+    "regime": {"enum": ["jour", "soir", "alternance", "all", null]},
+    "missing_information": {"type": "array", "items": {"type": "string"}},
+    "conflicts": {"type": "array", "items": {"type": "string"}}
+  }
+}

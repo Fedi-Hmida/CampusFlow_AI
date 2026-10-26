@@ -249,6 +249,78 @@ if p5.exists():
 else:
     check("D5 triage present (eval/candidates/D5_triage.csv)", False)
 
+# ---------------------------------------------------------------- prompt library (CF-208c)
+PR = ROOT / "prompts"
+AGENTS = ["ROUTER", "VISION", "REGULATIONS", "CALENDAR", "ADMIN", "COMPOSER", "CRITIC"]
+FIELDS = ["**ID**", "**Version**", "**Agent**", "**Role**", "**Technique**", "**Template**", "**Output**",
+          "**Failure observed (input)**", "**Fix**", "**Result**"]
+lib = {a: PR / f"P-{a}-001.md" for a in AGENTS}
+check("prompts: one library file per agent (P-<AGENT>-001.md)", all(p.exists() for p in lib.values()),
+      str([p.name for p in lib.values() if not p.exists()]))
+nofmt = [(a, f) for a, p in lib.items() if p.exists() for f in FIELDS if f not in p.read_text(encoding="utf-8")]
+check("prompts: every entry has the 10 library-format fields", not nofmt, str(nofmt[:6]))
+FRENCH_KEYS = {"classe", "salle", "heure", "extrait_utile", "incertitudes", "type_document", "type_evaluation", "module"}
+schemas = {p.stem.split(".")[0]: p for p in (PR / "schemas").glob("*.schema.json")} if (PR / "schemas").exists() else {}
+
+
+def schema_keys(node) -> set[str]:
+    """Every property name declared anywhere in a JSON Schema."""
+    out = set()
+    if isinstance(node, dict):
+        out |= set(node.get("properties", {}))
+        for v in node.values():
+            out |= schema_keys(v)
+    elif isinstance(node, list):
+        for v in node:
+            out |= schema_keys(v)
+    return out
+
+
+bad_schema, fr = [], []
+for name, p in schemas.items():
+    try:
+        keys = schema_keys(json.loads(p.read_text(encoding="utf-8")))
+    except json.JSONDecodeError as e:
+        bad_schema.append(f"{name}: {e}")
+        continue
+    fr += [f"{name}.{k}" for k in keys if k in FRENCH_KEYS or not re.fullmatch(r"[a-z][a-z0-9_]*", k)]
+check("prompts: a JSON schema per JSON agent (Composer outputs text)",
+      set(schemas) == {a.lower() for a in AGENTS} - {"composer"}, str(sorted(schemas)))
+check("prompts: schemas parse", not bad_schema, str(bad_schema))
+check("prompts: schema keys are English snake_case (no v2 French keys)", not fr, str(fr))
+
+
+def fence_error(text: str) -> bool:
+    """True if a code block opens inside another (```lang while open) or is never closed."""
+    inside = False
+    for ln in text.splitlines():
+        m = re.match(r"\s*```(\S*)", ln)
+        if m:
+            if inside and m.group(1):
+                return True
+            inside = not inside
+    return inside
+
+
+fences = [p.relative_to(ROOT).as_posix() for p in PR.rglob("*.md") if fence_error(p.read_text(encoding="utf-8"))]
+check("prompts: Markdown code fences balanced, none nested", not fences, str(fences))
+named = [p.name for p in PR.rglob("*") if re.search(r"ines|doua|fedi", p.name, re.I)]
+check("prompts: no person names in file names", not named, str(named))
+rex = PR / "examples/router_examples.md"
+if rex.exists():
+    rows = [ln.split("|") for ln in rex.read_text(encoding="utf-8").splitlines() if re.match(r"\| R\d\d ", ln)]
+    offi = [(r["id"], r.get("question") or r["question_or_input"]) for n in ("T1_regulations", "T2_calendar", "T3_contacts_requests", "T5_adversarial")
+            for r in read(ROOT / f"eval/testsets/{n}.csv")]
+    lk = [(r[1].strip(), oid) for r in rows for oid, oq in offi if longest_shared_run(r[2], oq) >= 6]
+    check("prompts: router examples share < 6 consecutive words with T1–T5", not lk, str(lk))
+    cal_mods, cal_cls = {r["module_code"] for r in cal}, {r["class_group"] for r in cal}
+    ghost = [(r[1].strip(), m) for r in rows for m in re.findall(r"module_code=([\w-]+)", r[6]) if m not in cal_mods | {"missing"}]
+    ghost += [(r[1].strip(), c) for r in rows for c in re.findall(r"class_group=([\w-]+)", r[6]) if c not in cal_cls | {"missing"}]
+    check("prompts: router example module codes and classes exist in data/tables", not ghost, str(ghost))
+    check("prompts: 30 router examples", len(rows) == 30, str(len(rows)))
+else:
+    check("prompts: router examples present (prompts/examples/router_examples.md)", False)
+
 # ---------------------------------------------------------------- privacy
 texts = list(T.glob("*.csv")) + list((ROOT / "eval").rglob("*.csv")) + list((ROOT / "eval").rglob("*.md")) + list(CLEAN.glob("*.json"))
 leaks = []
