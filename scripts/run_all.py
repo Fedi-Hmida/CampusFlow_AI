@@ -36,13 +36,16 @@ def main() -> None:
             sys.exit(f"step failed: {step}")
     if (ROOT / "eval/testsets/T4_photos/T4-01_convocation_ds14_5ds6.png").exists():
         subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/testsets/degrade_t4.py")], cwd=ROOT, check=True)
-    # CF-019: lookup tools (same code as the n8n tool workflows) tested against the rebuilt tables
+    # CF-019 / CF-010: lookup tools and Critic checks (same code as in n8n), tested against the rebuilt tables
+    tests = ["workflows/lib/lookup.test.js", "workflows/lib/checks.test.js"]
     if shutil.which("node"):
-        print("\n=== node --test workflows/lib/lookup.test.js", flush=True)
-        if subprocess.run(["node", "--test", "workflows/lib/lookup.test.js"], cwd=ROOT).returncode:
-            sys.exit("step failed: node --test workflows/lib/lookup.test.js")
+        print("\n=== node --test " + " ".join(tests), flush=True)
+        if subprocess.run(["node", "--test", *tests], cwd=ROOT).returncode:
+            sys.exit("step failed: node --test " + " ".join(tests))
     else:
-        print("\n(node not found: lookup-tool tests skipped)")
+        print("\n(node not found: workflows/lib tests skipped)")
+    if subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "eval/latency/budget_test.py")], cwd=ROOT).returncode:
+        sys.exit("step failed: eval/latency/budget_test.py")
     if "--no-validate" not in sys.argv:
         print("\n=== scripts/validate_data.py", flush=True)
         sys.exit(subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/validate_data.py")], cwd=ROOT).returncode)

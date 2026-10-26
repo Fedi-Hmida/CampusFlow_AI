@@ -4,7 +4,7 @@ Sends 10 French questions to the n8n workflow 00b_agent_tool_test (AI Agent + Ol
 Structured Output Parser) and checks, per run, which tool the agent called, whether the final output matches the
 JSON schema, and how long it took.
 
-Usage:  python eval/agents/agent_tool_test.py <model> <zero|fewshot> [--url http://localhost:5678/webhook/agent-tool-test]
+Usage:  python eval/agents/agent_tool_test.py <model> <zero|fewshot> [--url http://127.0.0.1:5678/webhook/agent-tool-test]
 Prints one JSON line per run, then a summary line.
 """
 import argparse
@@ -79,7 +79,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("model")
     ap.add_argument("prompt", choices=["zero", "fewshot"])
-    ap.add_argument("--url", default="http://localhost:5678/webhook/agent-tool-test")
+    ap.add_argument("--url", default="http://127.0.0.1:5678/webhook/agent-tool-test")
     a = ap.parse_args()
     system = ZERO_SHOT if a.prompt == "zero" else FEW_SHOT
     ok_tool = ok_json = 0

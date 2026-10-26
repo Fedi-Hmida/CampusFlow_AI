@@ -1,32 +1,28 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "campusflow/prompts/schemas/router.schema.json",
-  "title": "Router agent output (P-ROUTER-001 v1)",
-  "description": "Intents, language and explicit entities. No tool, no answer. Missing entities stay null and are listed in missing_fields.",
+  "title": "Router agent output (P-ROUTER-001 v2 — compact)",
+  "description": "Short output for CPU latency (ADR-010): entities only when present in the message. n8n derives the agents (intents + vision when a photo is attached). v1 schema: archive/router.v1.schema.json.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["language", "intents", "agents", "entities", "has_photo", "missing_fields", "injection_suspected"],
+  "required": ["language", "intents", "entities", "missing_fields"],
   "properties": {
     "language": {"enum": ["fr", "en", "other"]},
     "intents": {"type": "array", "minItems": 1, "items": {"enum": ["regulations", "calendar", "admin", "out_of_scope"]}},
-    "agents": {"type": "array", "items": {"enum": ["vision", "regulations", "calendar", "admin"]}, "description": "Specialists to call; vision whenever has_photo."},
     "entities": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["module_code", "module_name", "class_group", "session", "assessment", "regime", "request_type", "topic"],
       "properties": {
-        "module_code": {"type": ["string", "null"]},
-        "module_name": {"type": ["string", "null"]},
-        "class_group": {"type": ["string", "null"]},
-        "session": {"enum": ["Principale", "Rattrapage", null]},
-        "assessment": {"enum": ["DS", "Examen", null]},
-        "regime": {"enum": ["jour", "soir", "alternance", null], "description": "Only if the student states it; never inferred from the class."},
-        "request_type": {"type": ["string", "null"]},
-        "topic": {"type": ["string", "null"]}
+        "module": {"type": "string", "description": "module code or name as written"},
+        "class_group": {"type": "string"},
+        "session": {"enum": ["Principale", "Rattrapage"]},
+        "assessment": {"enum": ["DS", "Examen"]},
+        "regime": {"enum": ["jour", "soir", "alternance"], "description": "only if the student states it"},
+        "request": {"type": "string", "description": "administrative request, e.g. attestation, convention de stage"},
+        "topic": {"type": "string"}
       }
     },
-    "has_photo": {"type": "boolean"},
-    "missing_fields": {"type": "array", "items": {"enum": ["module", "class_group", "session", "regime", "level"]}},
+    "missing_fields": {"type": "array", "items": {"enum": ["module", "class_group", "session", "regime"]}},
     "injection_suspected": {"type": "boolean"}
   }
 }

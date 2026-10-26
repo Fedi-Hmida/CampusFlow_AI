@@ -11,7 +11,7 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-QDRANT = "http://localhost:6333"
+QDRANT = "http://127.0.0.1:6333"
 COLL = {"A": "regs_fixed", "B": "regs_structured"}
 FIELDS = {"chunk_id", "strategy", "doc_id", "doc_title", "doc_status", "regime", "regimes", "article_keys", "page_start", "page_end", "text"}
 

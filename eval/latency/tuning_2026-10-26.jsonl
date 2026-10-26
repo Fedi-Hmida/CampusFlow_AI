@@ -1,0 +1,16 @@
+{"test": "threads", "num_thread": 4, "run": 1, "prompt_tokens": 1264, "prompt_s": 31.7, "output_tokens": 6, "output_s": 1.0, "load_s": 0.0, "wall_s": 34.8, "prompt_tps": 39.9, "output_tps": 6.0}
+{"test": "threads", "num_thread": 4, "run": 2, "prompt_tokens": 1266, "prompt_s": 35.4, "output_tokens": 6, "output_s": 0.8, "load_s": 0.0, "wall_s": 38.5, "prompt_tps": 35.8, "output_tps": 7.5}
+{"test": "threads", "num_thread": 8, "run": 1, "prompt_tokens": 1268, "prompt_s": 34.4, "output_tokens": 6, "output_s": 2.1, "load_s": 0.0, "wall_s": 38.6, "prompt_tps": 36.9, "output_tps": 2.86}
+{"test": "threads", "num_thread": 8, "run": 2, "prompt_tokens": 1265, "prompt_s": 35.5, "output_tokens": 6, "output_s": 1.7, "load_s": 0.0, "wall_s": 39.4, "prompt_tps": 35.6, "output_tps": 3.53}
+{"test": "cache", "call": 1, "prompt_tokens": 1236, "prompt_s": 37.4, "output_tokens": 6, "output_s": 0.9, "load_s": 6.0, "wall_s": 46.4, "prompt_tps": 33.0, "output_tps": 6.67}
+{"test": "cache", "call": 2, "prompt_tokens": 1234, "prompt_s": 0.9, "output_tokens": 6, "output_s": 1.5, "load_s": 0.0, "wall_s": 4.5, "prompt_tps": 1371.1, "output_tps": 4.0}
+{"test": "cache", "call": 3, "prompt_tokens": 1239, "prompt_s": 1.2, "output_tokens": 6, "output_s": 0.9, "load_s": 0.0, "wall_s": 4.2, "prompt_tps": 1032.5, "output_tps": 6.67}
+{"test": "alternate", "step": 1, "agent": "router", "prompt_tokens": 1178, "prompt_s": 40.8, "output_tokens": 16, "output_s": 3.0, "load_s": 13.9, "wall_s": 59.8, "prompt_tps": 28.9, "output_tps": 5.33}
+{"test": "alternate", "step": 2, "agent": "router", "prompt_tokens": 1171, "prompt_s": 1.1, "output_tokens": 16, "output_s": 3.2, "load_s": 0.0, "wall_s": 6.4, "prompt_tps": 1064.5, "output_tps": 5.0}
+{"test": "alternate", "step": 3, "agent": "regulations", "prompt_tokens": 1236, "prompt_s": 39.3, "output_tokens": 6, "output_s": 1.1, "load_s": 0.0, "wall_s": 42.6, "prompt_tps": 31.5, "output_tps": 5.45}
+{"test": "alternate", "step": 4, "agent": "router", "prompt_tokens": 1169, "prompt_s": 1.0, "output_tokens": 16, "output_s": 3.1, "load_s": 0.0, "wall_s": 6.4, "prompt_tps": 1169.0, "output_tps": 5.16}
+{"test": "retrieval", "embed_s": 0.12, "wall_s": 0.13}
+{"test": "retrieval", "embed_s": 0.07, "wall_s": 0.09}
+{"test": "retrieval", "embed_s": 0.07, "wall_s": 0.09}
+{"test": "retrieval", "embed_s": 0.06, "wall_s": 0.08}
+{"test": "retrieval", "embed_s": 0.07, "wall_s": 0.08}

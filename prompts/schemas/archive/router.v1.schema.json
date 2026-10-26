@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusflow/prompts/schemas/router.schema.json",
+  "title": "Router agent output (P-ROUTER-001 v1)",
+  "description": "Intents, language and explicit entities. No tool, no answer. Missing entities stay null and are listed in missing_fields.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["language", "intents", "agents", "entities", "has_photo", "missing_fields", "injection_suspected"],
+  "properties": {
+    "language": {"enum": ["fr", "en", "other"]},
+    "intents": {"type": "array", "minItems": 1, "items": {"enum": ["regulations", "calendar", "admin", "out_of_scope"]}},
+    "agents": {"type": "array", "items": {"enum": ["vision", "regulations", "calendar", "admin"]}, "description": "Specialists to call; vision whenever has_photo."},
+    "entities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["module_code", "module_name", "class_group", "session", "assessment", "regime", "request_type", "topic"],
+      "properties": {
+        "module_code": {"type": ["string", "null"]},
+        "module_name": {"type": ["string", "null"]},
+        "class_group": {"type": ["string", "null"]},
+        "session": {"enum": ["Principale", "Rattrapage", null]},
+        "assessment": {"enum": ["DS", "Examen", null]},
+        "regime": {"enum": ["jour", "soir", "alternance", null], "description": "Only if the student states it; never inferred from the class."},
+        "request_type": {"type": ["string", "null"]},
+        "topic": {"type": ["string", "null"]}
+      }
+    },
+    "has_photo": {"type": "boolean"},
+    "missing_fields": {"type": "array", "items": {"enum": ["module", "class_group", "session", "regime", "level"]}},
+    "injection_suspected": {"type": "boolean"}
+  }
+}

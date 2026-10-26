@@ -10,7 +10,11 @@
   "regime_missed": 2,
   "oos_precision": 0.333,
   "oos_recall": 0.25,
-  "seconds_mean": 25.0
+  "seconds_mean": 25.0,
+  "prompt_tokens_mean": null,
+  "output_tokens_mean": null,
+  "prompt_s_mean": null,
+  "output_s_mean": null
  },
  "few": {
   "rows": 57,
@@ -23,6 +27,27 @@
   "regime_missed": 2,
   "oos_precision": 1.0,
   "oos_recall": 0.6,
-  "seconds_mean": 52.8
+  "seconds_mean": 52.8,
+  "prompt_tokens_mean": null,
+  "output_tokens_mean": null,
+  "prompt_s_mean": null,
+  "output_s_mean": null
+ },
+ "v2_few": {
+  "rows": 57,
+  "valid_json": 57,
+  "schema_valid": 57,
+  "intents_exact": 51,
+  "intents_jaccard_mean": 0.912,
+  "language_ok": 57,
+  "regime_invented": 1,
+  "regime_missed": 2,
+  "oos_precision": 1.0,
+  "oos_recall": 0.8,
+  "seconds_mean": 12.2,
+  "prompt_tokens_mean": 1254.2,
+  "output_tokens_mean": 37.3,
+  "prompt_s_mean": 2.5,
+  "output_s_mean": 7.5
  }
 }

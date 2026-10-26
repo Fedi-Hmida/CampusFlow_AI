@@ -1,0 +1,35 @@
+{
+ "_about": "CF-010 — single source of truth for every agent's provider, prompt and budget (ADR-010). WF-3 reads it; changing `mode` switches the long-writing agents between Gemini (hybrid) and the local 4B model. Measured basis: eval/latency/budget.md.",
+ "mode": "hybrid",
+ "_mode_note": "hybrid = Router, tools, embeddings, checks local; Regulations / Admin draft / Composer on Gemini Flash-Lite (≈ 14 s per regulation question). local = everything on qwen3 4B (≈ 114 s per regulation question). Fedi signs off (ADR-010 changes ADR-003).",
+ "latency": {
+  "target_s": 90,
+  "ack_message_fr": "Je cherche dans le règlement et les tables… (quelques secondes)",
+  "ack_message_fr_local": "Je cherche dans le règlement… (jusqu'à 2 minutes en mode local)"
+ },
+ "providers": {
+  "local": {"type": "ollama", "url": "http://ollama:11434", "model": "qwen3:4b-instruct-2507-q4_K_M", "keep_alive": "30m",
+            "num_thread": null, "_num_thread_note": "default (4 physical cores) — 8 threads gave no gain (eval/latency/tuning_2026-10-26.jsonl)"},
+  "gemini": {"type": "gemini", "model": "gemini-3.5-flash-lite", "n8n_credential": "cfGeminiApi00001"},
+  "embeddings": {"type": "ollama", "url": "http://ollama:11434", "model": "bge-m3:567m", "dims": 1024}
+ },
+ "agents": {
+  "router": {"provider": {"hybrid": "local", "local": "local"}, "prompt": "P-ROUTER-001@v2",
+             "schema": "prompts/schemas/router.schema.json", "examples": "prompts/examples/router_examples_v2.json",
+             "temperature": 0, "num_predict": 120, "_note": "static system prompt + examples first → Ollama prefix cache (≈ 1 s prompt after the first call)"},
+  "vision": {"provider": {"hybrid": "gemini", "local": "gemini"}, "prompt": "P-VISION-001@v4",
+             "schema": "prompts/schemas/vision.schema.json", "temperature": 0},
+  "regulations": {"provider": {"hybrid": "gemini", "local": "local"}, "prompt": "P-REGULATIONS-001@v2", "output": "text",
+                  "temperature": 0.1, "num_predict": 160,
+                  "retrieval": {"collection": "regs_structured", "regime_filter": true, "official": 3, "fictitious": 2}},
+  "calendar": {"provider": {"hybrid": "none", "local": "none"}, "tool": "cfToolExam000001",
+               "_note": "no LLM: Router entities → lookup → template reply"},
+  "admin": {"provider": {"hybrid": "gemini", "local": "local"}, "prompt": "P-ADMIN-001@v2", "tools": ["cfToolRequest001", "cfToolContact001"],
+            "llm_only_for": "draft_message", "temperature": 0.1, "num_predict": 120},
+  "composer": {"provider": {"hybrid": "gemini", "local": "local"}, "prompt": "P-COMPOSER-001@v2", "only_when": "multi_intent",
+               "temperature": 0.3, "num_predict": 160},
+  "critic": {"provider": {"hybrid": "none", "local": "none"}, "checks": "workflows/lib/checks.js", "allowed_facts": "data/tables/directory.csv emails",
+             "on_fail": "one revision, then safe fallback (« non trouvé » + contact)",
+             "_note": "deterministic checks miss semantic inventions (T1-25): Phase 6 adds a grounding rule to Regulations v3"}
+ }
+}

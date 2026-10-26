@@ -1,12 +1,15 @@
-"""CF-022 — measure Router v1 (prompts/P-ROUTER-001.md) on the D5 Router development set, zero-shot vs few-shot.
+"""CF-022 / CF-010 — measure the Router (prompts/P-ROUTER-001.md) on the D5 Router development set.
 
+Variants: zero = v1 zero-shot · few = v1 + the 30 examples of router_examples.md · v2_few = v2 (compact schema,
+11 targeted examples of router_examples_v2.json, CF-010).
 Dev set: eval/candidates/D5_triage.csv rows with router_dev = yes (57; never T1–T5). Model: qwen3 4B (Ollama),
-temperature 0, structured output with prompts/schemas/router.schema.json. Few-shot = the 30 examples of
-prompts/examples/router_examples.md given as user / assistant turns (same system prompt, so Ollama reuses its prompt cache).
+temperature 0, the version's JSON schema as structured output. Few-shot = examples as user / assistant turns.
 Metrics: valid JSON, schema-valid, intents exact match and Jaccard, language, regime invented (none in the question but
-filled), regime missed (stated but null), out-of-scope precision / recall, seconds per call.
-Raw outputs: eval/agents/router_results/<variant>.json (re-score with --score-only). Summary: router_results/summary.json
-Run: .venv/Scripts/python -X utf8 eval/agents/router_eval.py [--variants zero few] [--limit N] [--score-only]
+filled), regime missed (stated but null), out-of-scope precision / recall, seconds per call (+ Ollama token counters
+for the variants run since CF-010).
+Raw outputs: eval/agents/router_results/<variant>.json · scores_<variant>.json · summary.json
+Run: .venv/Scripts/python -X utf8 eval/agents/router_eval.py --run v2_few
+     (calls the model for the variants in --run; the others are re-scored from their saved outputs) [--limit N]
 """
 import argparse
 import csv
@@ -22,16 +25,19 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "eval/agents"))
 from vision_prompt_eval import schema_errors  # noqa: E402  (same JSON-Schema subset checker)
 
-OLLAMA = "http://localhost:11434/api/chat"
+OLLAMA = "http://127.0.0.1:11434/api/chat"
 MODEL = "qwen3:4b-instruct-2507-q4_K_M"
 OUT = ROOT / "eval/agents/router_results"
-SCHEMA = json.loads((ROOT / "prompts/schemas/router.schema.json").read_text(encoding="utf-8"))
-SYSTEM = re.search(r"<!-- template:v1 -->\s*```text\n(.*?)\n```", (ROOT / "prompts/P-ROUTER-001.md").read_text(encoding="utf-8"), re.S).group(1)
+SCHEMAS = {"v1": json.loads((ROOT / "prompts/schemas/archive/router.v1.schema.json").read_text(encoding="utf-8")),
+           "v2": json.loads((ROOT / "prompts/schemas/router.schema.json").read_text(encoding="utf-8"))}
+LIB = (ROOT / "prompts/P-ROUTER-001.md").read_text(encoding="utf-8")
+SYSTEMS = {v: re.search(r"<!-- template:" + v + r" -->\s*```text\n(.*?)\n```", LIB, re.S).group(1) for v in ("v1", "v2")}
+VARIANTS = {"zero": ("v1", False), "few": ("v1", True), "v2_few": ("v2", True)}   # name → (prompt version, few-shot)
 ENT = ["module_code", "module_name", "class_group", "session", "assessment", "regime", "request_type", "topic"]
 
 
-def examples() -> list[dict]:
-    """The 30 Router examples as chat turns: user message → assistant JSON in the schema."""
+def examples_v1() -> list[dict]:
+    """The 30 v1 Router examples as chat turns: user message → assistant JSON in the v1 schema."""
     turns = []
     for ln in (ROOT / "prompts/examples/router_examples.md").read_text(encoding="utf-8").splitlines():
         if not re.match(r"\| R\d\d ", ln):
@@ -54,24 +60,34 @@ def examples() -> list[dict]:
     return turns
 
 
-def call(messages: list[dict]) -> tuple[str, float]:
-    body = {"model": MODEL, "messages": messages, "stream": False, "format": SCHEMA,
+def examples_v2() -> list[dict]:
+    turns = []
+    for e in json.loads((ROOT / "prompts/examples/router_examples_v2.json").read_text(encoding="utf-8"))["examples"]:
+        turns += [{"role": "user", "content": json.dumps({"message": e["message"], "has_photo": e["has_photo"]}, ensure_ascii=False)},
+                  {"role": "assistant", "content": json.dumps(e["output"], ensure_ascii=False)}]
+    return turns
+
+
+def call(messages: list[dict], schema: dict) -> dict:
+    body = {"model": MODEL, "messages": messages, "stream": False, "format": schema,
             "options": {"temperature": 0, "num_predict": 200}, "keep_alive": "30m"}
     t0 = time.time()
     req = urllib.request.Request(OLLAMA, data=json.dumps(body).encode(), headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=600) as r:
         out = json.loads(r.read().decode())
-    return out["message"]["content"], time.time() - t0
+    return {"raw": out["message"]["content"], "seconds": round(time.time() - t0, 1),
+            "prompt_tokens": out.get("prompt_eval_count"), "prompt_s": round(out.get("prompt_eval_duration", 0) / 1e9, 1),
+            "output_tokens": out.get("eval_count"), "output_s": round(out.get("eval_duration", 0) / 1e9, 1)}
 
 
-def score(row: dict, raw: str) -> dict:
+def score(row: dict, raw: str, schema: dict) -> dict:
     res = {"id": row["d5_id"], "valid_json": False}
     try:
         o = json.loads(raw)
     except json.JSONDecodeError:
         return res
     res["valid_json"] = True
-    res["schema_errors"] = schema_errors(o, SCHEMA)
+    res["schema_errors"] = schema_errors(o, schema)
     want = set(row["router_intents"].split(";")) - {"vision"}       # vision is an agent, not an intent (schema)
     got = set(o.get("intents") or [])
     res["intents_exact"] = got == want
@@ -85,43 +101,45 @@ def score(row: dict, raw: str) -> dict:
     return res
 
 
-def summarise(scores: list[dict], secs: list[float]) -> dict:
+def summarise(scores: list[dict], calls: list[dict]) -> dict:
     v = [s for s in scores if s["valid_json"]]
     tp = sum(s["oos_expected"] and s["oos_predicted"] for s in v)
+    mean = lambda k: round(statistics.mean(c[k] for c in calls), 1) if calls and all(c.get(k) is not None for c in calls) else None  # noqa: E731
     return {"rows": len(scores), "valid_json": len(v), "schema_valid": sum(not s["schema_errors"] for s in v),
             "intents_exact": sum(s["intents_exact"] for s in v), "intents_jaccard_mean": round(statistics.mean(s["intents_jaccard"] for s in v), 3),
             "language_ok": sum(s["language_ok"] for s in v), "regime_invented": sum(s["regime_invented"] for s in v),
             "regime_missed": sum(s["regime_missed"] for s in v),
             "oos_precision": round(tp / max(1, sum(s["oos_predicted"] for s in v)), 3),
             "oos_recall": round(tp / max(1, sum(s["oos_expected"] for s in v)), 3),
-            "seconds_mean": round(statistics.mean(secs), 1) if secs else None}
+            "seconds_mean": mean("seconds"), "prompt_tokens_mean": mean("prompt_tokens"), "output_tokens_mean": mean("output_tokens"),
+            "prompt_s_mean": mean("prompt_s"), "output_s_mean": mean("output_s")}
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--variants", nargs="+", default=["zero", "few"])
+    ap.add_argument("--variants", nargs="+", default=list(VARIANTS))
+    ap.add_argument("--run", nargs="*", default=[])
     ap.add_argument("--limit", type=int)
-    ap.add_argument("--score-only", action="store_true")
     a = ap.parse_args()
     rows = [r for r in csv.DictReader(open(ROOT / "eval/candidates/D5_triage.csv", encoding="utf-8")) if r["router_dev"] == "yes"][: a.limit]
     OUT.mkdir(parents=True, exist_ok=True)
-    shots = examples()
     summary = {}
     for v in a.variants:
+        version, few = VARIANTS[v]
         path = OUT / f"{v}.json"
-        if not a.score_only:
+        if v in a.run:
+            shots = (examples_v1() if version == "v1" else examples_v2()) if few else []
             raws = {}
             for r in rows:
                 msg = {"role": "user", "content": json.dumps({"message": r["question"], "has_photo": r["has_photo"] == "yes"}, ensure_ascii=False)}
-                raw, secs = call([{"role": "system", "content": SYSTEM}] + (shots if v == "few" else []) + [msg])
-                raws[r["d5_id"]] = {"raw": raw, "seconds": round(secs, 1)}
-                print(f"{v} {r['d5_id']} {secs:.1f}s", flush=True)
+                raws[r["d5_id"]] = call([{"role": "system", "content": SYSTEMS[version]}] + shots + [msg], SCHEMAS[version])
+                print(f"{v} {r['d5_id']} {raws[r['d5_id']]['seconds']}s", flush=True)
             path.write_text(json.dumps(raws, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         raws = json.loads(path.read_text(encoding="utf-8"))
-        scores = [score(r, raws[r["d5_id"]]["raw"]) for r in rows if r["d5_id"] in raws]
+        scores = [score(r, raws[r["d5_id"]]["raw"], SCHEMAS[version]) for r in rows if r["d5_id"] in raws]
         (OUT / f"scores_{v}.json").write_text(json.dumps(scores, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-        summary[v] = summarise(scores, [raws[r["d5_id"]]["seconds"] for r in rows if r["d5_id"] in raws])
-    if not a.limit:
+        summary[v] = summarise(scores, [raws[r["d5_id"]] for r in rows if r["d5_id"] in raws])
+    if not a.limit and a.variants == list(VARIANTS):
         (OUT / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=1))
 

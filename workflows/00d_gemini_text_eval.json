@@ -1,0 +1,40 @@
+[
+ {
+  "id": "cfGeminiTextEv01",
+  "name": "00d_gemini_text_eval",
+  "active": false,
+  "settings": {"executionOrder": "v1"},
+  "nodes": [
+   {
+    "id": "b4000000-0004-4c00-9000-000000000001",
+    "name": "Webhook",
+    "type": "n8n-nodes-base.webhook",
+    "typeVersion": 2.1,
+    "position": [0, 300],
+    "webhookId": "b4000000-0004-4c00-9000-0000000000aa",
+    "parameters": {"httpMethod": "POST", "path": "gemini-text-eval", "responseMode": "lastNode", "options": {}}
+   },
+   {
+    "id": "b4000000-0004-4c00-9000-000000000002",
+    "name": "Gemini text",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [260, 300],
+    "parameters": {
+     "method": "POST",
+     "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent",
+     "authentication": "predefinedCredentialType",
+     "nodeCredentialType": "googlePalmApi",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify({ systemInstruction: { parts: [{ text: $json.body.system }] }, contents: [{ role: 'user', parts: [{ text: $json.body.user }] }], generationConfig: { temperature: 0.1, maxOutputTokens: $json.body.max_tokens || 200 } }) }}",
+     "options": {"timeout": 120000}
+    },
+    "credentials": {"googlePalmApi": {"id": "cfGeminiApi00001", "name": "Google Gemini API"}}
+   }
+  ],
+  "connections": {"Webhook": {"main": [[{"node": "Gemini text", "type": "main", "index": 0}]]}},
+  "pinData": {},
+  "tags": []
+ }
+]

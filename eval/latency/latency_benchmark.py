@@ -15,7 +15,7 @@ import time
 import urllib.request
 import uuid
 
-OLLAMA = "http://localhost:11434"
+OLLAMA = "http://127.0.0.1:11434"
 
 SYSTEM = (
     "Tu es l'agent « Règlements » de CampusFlow AI, l'assistant administratif des étudiants d'ESPRIT. "

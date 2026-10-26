@@ -30,7 +30,7 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-URL = "http://localhost:5678/webhook/vision-eval"
+URL = "http://127.0.0.1:5678/webhook/vision-eval"
 OUT = ROOT / "eval/agents/vision_results"
 SCHEMA = json.loads((ROOT / "prompts/schemas/vision.schema.json").read_text(encoding="utf-8"))
 SCORED = ["document_type", "module_code", "class_group", "regime", "assessment", "session", "date", "start_time",

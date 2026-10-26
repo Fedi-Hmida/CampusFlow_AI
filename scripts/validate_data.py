@@ -298,7 +298,7 @@ check("prompts: one library file per agent (P-<AGENT>-001.md)", all(p.exists() f
       str([p.name for p in lib.values() if not p.exists()]))
 nofmt = [(a, f) for a, p in lib.items() if p.exists() for f in FIELDS if f not in p.read_text(encoding="utf-8")]
 check("prompts: every entry has the 10 library-format fields", not nofmt, str(nofmt[:6]))
-FRENCH_KEYS = {"classe", "salle", "heure", "extrait_utile", "incertitudes", "type_document", "type_evaluation", "module"}
+FRENCH_KEYS = {"classe", "salle", "heure", "extrait_utile", "incertitudes", "type_document", "type_evaluation"}  # "module" is English (Router v2)
 schemas = {p.stem.split(".")[0]: p for p in (PR / "schemas").glob("*.schema.json")} if (PR / "schemas").exists() else {}
 
 
@@ -359,6 +359,37 @@ if rex.exists():
     check("prompts: 30 router examples", len(rows) == 30, str(len(rows)))
 else:
     check("prompts: router examples present (prompts/examples/router_examples.md)", False)
+rex2 = PR / "examples/router_examples_v2.json"
+if rex2.exists():
+    msgs = [e["message"] for e in json.loads(rex2.read_text(encoding="utf-8"))["examples"]]
+    offi = [(r["id"], r.get("question") or r["question_or_input"]) for n in ("T1_regulations", "T2_calendar", "T3_contacts_requests", "T5_adversarial")
+            for r in read(ROOT / f"eval/testsets/{n}.csv")]
+    dev = [(r["d5_id"], r["question"]) for r in read(ROOT / "eval/candidates/D5_triage.csv") if r["router_dev"] == "yes"]
+    lk2 = [(m[:30], oid) for m in msgs for oid, oq in offi + dev if longest_shared_run(m, oq) >= 6]
+    check("prompts: Router v2 examples share < 6 consecutive words with T1–T5 and the D5 dev rows", not lk2, str(lk2))
+
+# ---------------------------------------------------------------- agent configuration (CF-010, ADR-010)
+cfg_p = ROOT / "config/agents.json"
+if cfg_p.exists():
+    cfg = json.loads(cfg_p.read_text(encoding="utf-8"))
+    check("config: mode is hybrid or local", cfg.get("mode") in ("hybrid", "local"), str(cfg.get("mode")))
+    wf_raw = [json.loads(p.read_text(encoding="utf-8")) for p in (ROOT / "workflows").glob("*.json")]
+    wf_ids = {w["id"] for x in wf_raw for w in (x if isinstance(x, list) else [x])}   # exports are a list or one object
+    bad = []
+    for name, a in cfg["agents"].items():
+        for mode in ("hybrid", "local"):
+            if a["provider"].get(mode) not in set(cfg["providers"]) | {"none"}:
+                bad.append(f"{name}: provider[{mode}]")
+        if "prompt" in a:
+            pid, ver = a["prompt"].split("@")
+            pf = PR / f"{pid}.md"
+            if not pf.exists() or f"<!-- template:{ver} -->" not in pf.read_text(encoding="utf-8"):
+                bad.append(f"{name}: {a['prompt']} not in the library")
+        bad += [f"{name}: {a[k]} missing" for k in ("schema", "examples", "checks") if k in a and not (ROOT / a[k]).exists()]
+        bad += [f"{name}: tool {t} not in workflows/" for t in ([a["tool"]] if "tool" in a else []) + a.get("tools", []) if t not in wf_ids]
+    check("config: every agent points to an existing prompt version, file, tool and provider", not bad, str(bad))
+else:
+    check("config: config/agents.json present", False)
 
 # ---------------------------------------------------------------- privacy
 texts = list(T.glob("*.csv")) + list((ROOT / "eval").rglob("*.csv")) + list((ROOT / "eval").rglob("*.md")) + list(CLEAN.glob("*.json"))
