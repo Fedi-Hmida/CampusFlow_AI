@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"emploi du temps\",\n  \"module_code\": null,\n  \"class_group\": \"Classe 2A7\",\n  \"regime\": null,\n  \"session\": null,\n  \"date\": \"18/01/2027 au 23/01/2027\",\n  \"time\": null,\n  \"room\": null,\n  \"visible_excerpt\": \"EMPLOI DU TEMPS - Classe 2A7 - semaine du 18/01/2027 au 23/01/2027\",\n  \"uncertain_fields\": [\n    \"module_code\",\n    \"regime\",\n    \"session\",\n    \"time\",\n    \"room\"\n  ],\n  \"image_readable\": true\n}",
+ "seconds": 21.3
+}

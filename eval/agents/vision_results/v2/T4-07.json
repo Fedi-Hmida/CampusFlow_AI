@@ -1,0 +1,4 @@
+{
+ "raw": "{\"type_document\": \"Avis aux étudiants\", \"module\": null, \"classe\": null, \"regime\": null, \"type_evaluation\": null, \"session\": \"session de rattrapage\", \"date\": null, \"heure\": null, \"salle\": null, \"extrait_utile\": \"Les étudiants dont la moyenne dans une unité d'apprentissage est inférieure à 8/20 sont inscrits d'office à la session de contrôle.\", \"incertitudes\": [\"module absent\", \"classe absente\", \"regime absent\", \"type_evaluation absent\", \"date absente\", \"heure absente\", \"salle absente\"]}",
+ "seconds": 10.0
+}

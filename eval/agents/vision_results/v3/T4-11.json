@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"unrelated\",\n  \"module_name\": null,\n  \"module_code\": null,\n  \"class_group\": null,\n  \"regime\": null,\n  \"assessment\": null,\n  \"session\": null,\n  \"date\": null,\n  \"start_time\": null,\n  \"end_time\": null,\n  \"room\": null,\n  \"change\": null,\n  \"timetable\": null,\n  \"visible_rules\": [],\n  \"injection_detected\": false,\n  \"fictitious_label\": false,\n  \"uncertain_fields\": [],\n  \"image_readable\": true\n}",
+ "seconds": 16.6
+}

@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"type_document\": \"Emploi du temps\",\n  \"module\": null,\n  \"classe\": \"Classe 2A7\",\n  \"regime\": null,\n  \"type_evaluation\": null,\n  \"session\": null,\n  \"date\": \"semaine du 18/01/2027 au 23/01/2027\",\n  \"heure\": null,\n  \"salle\": null,\n  \"extrait_utile\": \"EMPLOI DU TEMPS Classe 2A7 - semaine du 18/01/2027 au 23/01/2027\",\n  \"incertitudes\": [\n    \"Le document est un emploi du temps complet contenant plusieurs modules, salles et horaires, aucun module unique n'est spécifié globalement.\"\n  ]\n}",
+ "seconds": 34.3
+}

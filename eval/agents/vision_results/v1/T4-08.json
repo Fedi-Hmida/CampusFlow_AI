@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"convocation\",\n  \"module_code\": \"Réseaux 1 (RES201)\",\n  \"class_group\": \"2A9\",\n  \"regime\": null,\n  \"session\": \"Session principale (session 1)\",\n  \"date\": \"06/11/2026\",\n  \"time\": \"14h00 - 15h30\",\n  \"room\": \"B09\",\n  \"visible_excerpt\": \"ÉCOLE D'INGÉNIEURS (FICTIVE) Direction des études CONVOCATION Devoir surveillé — Session principale (session 1) Module : Réseaux 1 (RES201) Classe : 2A9 Session : DS (devoir surveillé) Date : Vendredi 06/11/2026 Horaire : 14h00 - 15h30 Salle : B09 Se présenter muni de la carte d'étudiant.\",\n  \"uncertain_fields\": [\n    \"regime\"\n  ],\n  \"image_readable\": true\n}",
+ "seconds": 24.8
+}

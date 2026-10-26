@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"type_document\": \"Convocation\",\n  \"module\": \"Probabilités (MATH201)\",\n  \"classe\": \"2A7\",\n  \"regime\": null,\n  \"type_evaluation\": null,\n  \"session\": \"Session de rattrapage\",\n  \"date\": \"Mercredi 16/06/2027\",\n  \"heure\": \"14h00 - 16h00\",\n  \"salle\": \"C21\",\n  \"extrait_utile\": \"Convocation Session de contrôle (rattrapage) - Probabilités (MATH201) - 2A7 - Session de rattrapage - Mercredi 16/06/2027 - 14h00 - 16h00 - Salle : C21\",\n  \"incertitudes\": [\n    \"regime non indiqué, valeur fixée à null\",\n    \"type_evaluation non explicitement mentionné comme devoir surveillé, examen ou contrôle continu, valeur fixée à null selon la règle de rattrapage\"\n  ]\n}",
+ "seconds": 18.2
+}
