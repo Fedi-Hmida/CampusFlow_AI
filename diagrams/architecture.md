@@ -1,7 +1,8 @@
 # CampusFlow AI — architecture (CF-014)
 
-State on 26 Oct 2026. Solid boxes exist and are tested; dashed boxes are planned (Phase 4–7). The conditional Composer
-and the deterministic Critic follow the latency budget proposed in ADR-010 (CPU: 30.7 tok/s prefill, 4.1 tok/s output).
+State on 26 Oct 2026. Solid boxes exist and are tested; dashed boxes are planned (Phase 4–7). Providers follow ADR-010
+(accepted, measured): per-agent hybrid — local Router, tools, embeddings and checks; Gemini Flash-Lite for Vision and the
+long-writing agents; `config/agents.json` `mode: local` puts everything on the laptop.
 
 ```mermaid
 flowchart LR
@@ -10,13 +11,13 @@ flowchart LR
 
   subgraph wf3 [WF-3 assistant · n8n — planned]
     direction LR
-    router[Router\nqwen3 4B · JSON]:::planned
+    router[Router v2\nqwen3 4B local · 10 s]:::planned
     vision[Vision\nGemini Flash-Lite · JSON\nprompt v4]:::planned
-    regs[Regulations\nqwen3 4B · RAG]:::planned
+    regs[Regulations v2\nGemini · RAG · ~7 s]:::planned
     cal[Calendar]:::planned
     adm[Admin]:::planned
-    comp[Composer\nmulti-intent only]:::planned
-    critic[Critic\nchecks + optional LLM]:::planned
+    comp[Composer\nGemini · multi-intent only]:::planned
+    critic[Critic\nchecks.js · deterministic]:::planned
     router -->|photo| vision
     router --> regs & cal & adm
     vision --> regs & cal
@@ -52,4 +53,4 @@ flowchart LR
 | Vision | Gemini Flash-Lite, prompt v4 | measured 87/88 fields on T4 | `eval/agents/vision_v1_to_v4.md` |
 | Regulations KB | 13 docs → chunks A/B → bge-m3 → Qdrant | indexed (WF-1) | `eval/retrieval/ingestion_log.md` |
 | Tables | 3 CSV + tools 10–12 + WF-2 | tested (30 node tests + live run) | `eval/agents/tools_test.md` |
-| Latency | CPU only | measured, budget proposed | `eval/latency/README.md`, ADR-010 |
+| Latency | per-agent hybrid (ADR-010, accepted) | regulation question ≈ 14 s (local mode ≈ 114 s) | `eval/latency/budget.md` |
