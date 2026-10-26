@@ -53,6 +53,9 @@ $b = New-Object byte[] 32; [Security.Cryptography.RandomNumberGenerator]::Create
 docker compose up -d
 docker compose ps        # n8n, qdrant, ollama, ngrok: Up
 ```
+Python tools (scripts/, eval/): `python -m venv .venv` then `.venv\Scripts\python -m pip install -r requirements.txt`,
+then `.venv\Scripts\python scriptsun_all.py` (rebuilds and validates everything; must end with 0 error).
+
 Check: n8n http://localhost:5678 · Qdrant http://localhost:6333/dashboard · Ollama http://localhost:11434/api/version.
 Ports are bound to `127.0.0.1` (not reachable from the LAN).
 

@@ -1,0 +1,11 @@
+# CampusFlow AI — Python packages for scripts/ and eval/ (Python 3.12). Pinned: the outputs of run_all.py were produced
+# with exactly these versions (pdfplumber / pypdf changes can alter the extracted text).
+# Setup:  python -m venv .venv  then  .venv\Scripts\python -m pip install -r requirements.txt
+# (use « python -m pip »: the pip.exe launcher can silently do nothing in some shells — seen on 26 Oct)
+# Checked 26 Oct 2026: a fresh venv from this file rebuilds every output of run_all.py identically (251/251).
+# Note: scripts/corpus/regenerate_fictif.py and author_fictif.py use the Windows Arial fonts (C:/Windows/Fonts).
+pdfplumber==0.11.10
+pypdf==6.21.2
+reportlab==5.1.0
+pillow==13.0.0
+openpyxl==3.1.5
