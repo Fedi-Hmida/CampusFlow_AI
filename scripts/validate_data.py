@@ -373,7 +373,7 @@ for p in texts:
 check("privacy: no personal e-mails / phone numbers in data, clean corpus and eval files", not leaks, str(leaks[:5]))
 
 # ---------------------------------------------------------------- links (CF-208a)
-mds = [ROOT / "README.md"] + [p for d in ("report", "prompts", "eval", "data", "scripts") for p in (ROOT / d).rglob("*.md")]
+mds = [ROOT / "README.md"] + [p for d in ("report", "prompts", "eval", "data", "scripts", "diagrams") for p in (ROOT / d).rglob("*.md")]
 dead = []
 for p in mds:
     for target in re.findall(r"\]\(([^)\s]+)\)", p.read_text(encoding="utf-8")):
@@ -381,7 +381,7 @@ for p in mds:
             continue
         if not (p.parent / target.split("#")[0]).resolve().exists():
             dead.append(f"{p.relative_to(ROOT).as_posix()} → {target}")
-check("links: every relative Markdown link resolves (README, report, prompts, eval, data, scripts)", not dead, str(dead))
+check("links: every relative Markdown link resolves (README, report, prompts, eval, data, scripts, diagrams)", not dead, str(dead))
 
 # ---------------------------------------------------------------- report
 for lvl, name, det in results:
