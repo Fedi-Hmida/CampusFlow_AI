@@ -1,0 +1,106 @@
+[
+ {
+  "id": "cfWF2TablesChk1",
+  "name": "02_wf2_tables_check",
+  "active": false,
+  "settings": {
+   "executionOrder": "v1",
+   "callerPolicy": "workflowsFromSameOwner"
+  },
+  "nodes": [
+   {
+    "id": "86a18402-2ea6-5dc6-84da-bfa38510ba0e",
+    "name": "Start (manual)",
+    "type": "n8n-nodes-base.manualTrigger",
+    "typeVersion": 1,
+    "position": [
+     0,
+     300
+    ],
+    "parameters": {}
+   },
+   {
+    "id": "9cf4a2f8-8888-549a-b33e-2b4405617361",
+    "name": "Read tables",
+    "type": "n8n-nodes-base.readWriteFile",
+    "typeVersion": 1.1,
+    "position": [
+     220,
+     300
+    ],
+    "parameters": {
+     "operation": "read",
+     "fileSelector": "/data/tables/{exam_calendar,directory,request_catalogue}.csv",
+     "options": {}
+    },
+    "executeOnce": true
+   },
+   {
+    "id": "1a57d664-17c8-5c6a-a2be-22b234b3dc9f",
+    "name": "Parse CSV",
+    "type": "n8n-nodes-base.extractFromFile",
+    "typeVersion": 1.1,
+    "position": [
+     440,
+     300
+    ],
+    "parameters": {
+     "operation": "csv",
+     "options": {
+      "includeEmptyCells": true
+     }
+    }
+   },
+   {
+    "id": "4232605a-e586-5963-b305-c00344f6199d",
+    "name": "Report",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     660,
+     300
+    ],
+    "parameters": {
+     "jsCode": "// WF-2: the tools read these CSVs at every call; this report says whether they are usable right now\nconst rows = $input.all().map(i => i.json);\nconst spec = {\n  exam_calendar: { id: 'exam_id', cols: ['exam_id','module_code','module_name','class_group','session','assessment','date','start_time','end_time','room','last_updated','data_status'], min: 30 },\n  directory: { id: 'role_id', cols: ['role_id','role_title','email','office','reports_to'], min: 12 },\n  request_catalogue: { id: 'request_id', cols: ['request_id','request_type','handler_role_id','required_documents','deadline_rule','regime','source'], min: 6 },\n};\nconst report = [];\nfor (const [table, s] of Object.entries(spec)) {\n  const t = rows.filter(r => r[s.id] !== undefined);\n  const missingCols = t.length ? s.cols.filter(c => !(c in t[0])) : s.cols;\n  const ids = t.map(r => r[s.id]);\n  const dup = ids.filter((x, i) => ids.indexOf(x) !== i);\n  const emptyId = t.filter(r => !r[s.id]).length;\n  const badDate = table === 'exam_calendar' ? t.filter(r => !/^\\d{4}-\\d{2}-\\d{2}$/.test(r.date)).map(r => r.exam_id) : [];\n  report.push({ table, rows: t.length, ok: !missingCols.length && !dup.length && !emptyId && !badDate.length && t.length >= s.min,\n                missing_columns: missingCols, duplicate_ids: [...new Set(dup)], empty_ids: emptyId, invalid_dates: badDate.slice(0, 5),\n                checked_at: new Date().toISOString() });\n}\nreturn report.map(r => ({ json: r }));"
+    }
+   }
+  ],
+  "connections": {
+   "Start (manual)": {
+    "main": [
+     [
+      {
+       "node": "Read tables",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Read tables": {
+    "main": [
+     [
+      {
+       "node": "Parse CSV",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Parse CSV": {
+    "main": [
+     [
+      {
+       "node": "Report",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   }
+  },
+  "pinData": {},
+  "tags": []
+ }
+]
