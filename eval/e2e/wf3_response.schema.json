@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "campusflow/eval/e2e/wf3_response.schema.json",
+  "title": "WF-3 test endpoint response (CONTRACT.md, frozen 26 Oct 2026)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["test_id", "reply", "route", "citations", "retrieved", "checks", "revised", "fallback", "timings_s", "mode", "config"],
+  "properties": {
+    "test_id": {"type": "string"},
+    "reply": {"type": "string", "description": "exact text the student would receive on Telegram"},
+    "route": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["intents", "agents", "missing_fields"],
+      "properties": {
+        "intents": {"type": "array", "items": {"enum": ["regulations", "calendar", "admin", "out_of_scope"]}},
+        "agents": {"type": "array", "items": {"enum": ["vision", "regulations", "calendar", "admin", "composer"]}},
+        "missing_fields": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "citations": {
+      "type": "array",
+      "items": {"type": "object", "additionalProperties": false, "required": ["doc_id", "article"],
+                "properties": {"doc_id": {"type": "string", "pattern": "^D1-\\d{3}$"}, "article": {"type": "string"}, "page": {"type": ["integer", "null"]}}}
+    },
+    "retrieved": {
+      "type": "array",
+      "items": {"type": "object", "additionalProperties": false, "required": ["article_keys", "doc_status"],
+                "properties": {"article_keys": {"type": "array", "items": {"type": "string"}}, "doc_status": {"enum": ["official", "FICTITIOUS"]}}}
+    },
+    "tool_rows": {"type": "array", "description": "rows returned by the lookup tools (calendar / contact / request), as the tools return them"},
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pass", "failures"],
+      "properties": {"pass": {"type": "boolean"}, "failures": {"type": "array", "items": {"type": "string"}}}
+    },
+    "revised": {"type": "boolean", "description": "true if the reply was regenerated once after failed checks"},
+    "fallback": {"type": "boolean", "description": "true if the safe fallback (« non trouvé » + contact) was sent"},
+    "timings_s": {
+      "type": "object",
+      "required": ["total"],
+      "properties": {"total": {"type": "number"}, "router": {"type": "number"}, "retrieval": {"type": "number"}, "vision": {"type": "number"},
+                     "regulations": {"type": "number"}, "tools": {"type": "number"}, "admin": {"type": "number"}, "composer": {"type": "number"}}
+    },
+    "mode": {"enum": ["hybrid", "local"]},
+    "config": {"type": "string", "description": "short id of config/agents.json + prompt versions used, e.g. 'router v2 · regulations v2'"}
+  }
+}

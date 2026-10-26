@@ -44,8 +44,9 @@ def main() -> None:
             sys.exit("step failed: node --test " + " ".join(tests))
     else:
         print("\n(node not found: workflows/lib tests skipped)")
-    if subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "eval/latency/budget_test.py")], cwd=ROOT).returncode:
-        sys.exit("step failed: eval/latency/budget_test.py")
+    for t in ("eval/latency/budget_test.py", "eval/agents/gemini_client_test.py"):   # no network: urlopen is mocked
+        if subprocess.run([sys.executable, "-X", "utf8", str(ROOT / t)], cwd=ROOT).returncode:
+            sys.exit(f"step failed: {t}")
     if "--no-validate" not in sys.argv:
         print("\n=== scripts/validate_data.py", flush=True)
         sys.exit(subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/validate_data.py")], cwd=ROOT).returncode)

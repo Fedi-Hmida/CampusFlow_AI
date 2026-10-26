@@ -11,7 +11,7 @@ before scoring (dates → ISO, « 09h00 – 11h00 » → start/end, « Session d
 
 Per scored field: correct · abstained (null where a value was expected — acceptable on a degraded image) ·
 wrong (a value that differs from the ground truth, incl. any value where the truth is null = invented) · not produced.
-Usage:  python -X utf8 eval/agents/vision_prompt_eval.py [--versions v1 v2 v3 v4] [--ids T4-01 ...] [--score-only]
+Usage:  python -X utf8 eval/agents/vision_prompt_eval.py [--versions v1 v2 v3 v4] [--ids T4-01 ...] [--score-only] [--via n8n|direct]
 
 SECURITY: n8n is reachable from the internet through ngrok, so a published webhook is public and spends the Gemini
 quota. Publish only for the run, then unpublish and restart n8n:
@@ -27,9 +27,12 @@ import time
 import unicodedata
 import urllib.error
 import urllib.request
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / "eval/agents"))
+import gemini_client as gc  # noqa: E402  (--via direct)
 URL = "http://127.0.0.1:5678/webhook/vision-eval"
 OUT = ROOT / "eval/agents/vision_results"
 SCHEMA = json.loads((ROOT / "prompts/schemas/vision.schema.json").read_text(encoding="utf-8"))
@@ -235,6 +238,8 @@ def main() -> None:
     ap.add_argument("--ids", nargs="+")
     ap.add_argument("--score-only", action="store_true")
     ap.add_argument("--pause", type=float, default=4.0, help="seconds between calls (free-tier rate limit)")
+    ap.add_argument("--via", choices=["n8n", "direct"], default="n8n",
+                    help="direct = your own key in GEMINI_API_KEY (eval/agents/gemini_client.py), same settings: temperature 0, JSON mode")
     a = ap.parse_args()
     t4 = [r for r in csv.DictReader(open(ROOT / "eval/testsets/T4_photos.csv", encoding="utf-8")) if not a.ids or r["id"] in a.ids]
     tpl = templates()
@@ -245,7 +250,12 @@ def main() -> None:
         for r in t4:
             path = OUT / v / f"{r['id']}.json"
             if not a.score_only:
-                raw, secs = call(tpl[v], ROOT / "eval/testsets/T4_photos" / r["file"])
+                image = ROOT / "eval/testsets/T4_photos" / r["file"]
+                if a.via == "direct":
+                    out = gc.generate(None, tpl[v], max_tokens=2048, temperature=0, via="direct", image=image, json_mode=True)
+                    raw, secs = out["text"], out["seconds"]
+                else:
+                    raw, secs = call(tpl[v], image)
                 path.write_text(json.dumps({"raw": raw, "seconds": round(secs, 1)}, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
                 print(f"{v} {r['id']}: {secs:.1f} s")
                 time.sleep(a.pause)
@@ -253,8 +263,10 @@ def main() -> None:
             scored.append(score_row(v, r, saved["raw"]))
         (OUT / f"scores_{v}.json").write_text(json.dumps(scored, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
         summary[v] = summarise(v, scored)
-    if a.versions == ["v1", "v2", "v3", "v4"] and not a.ids:
-        (OUT / "summary.json").write_text(json.dumps(summary, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    if not a.ids:   # merge: a new version (e.g. v5) is added next to the earlier ones
+        sp = OUT / "summary.json"
+        merged = {**(json.loads(sp.read_text(encoding="utf-8")) if sp.exists() else {}), **summary}
+        sp.write_text(json.dumps(merged, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(json.dumps(summary, ensure_ascii=False, indent=1))
 
 
