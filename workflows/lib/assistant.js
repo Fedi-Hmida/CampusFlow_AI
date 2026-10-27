@@ -28,6 +28,14 @@ function regimeFromText(text) {
   return null;
 }
 
+// Same rule for the exam session (CF-409): the local Router invented « Rattrapage » on 4 of 12 T2 questions.
+function sessionFromText(text) {
+  const t = String(text || '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  if (/rattrapage|session de controle|\bcontrole\b|session 2|retake|resit/.test(t)) return 'Rattrapage';
+  if (/principale|session 1|session normale/.test(t)) return 'Principale';
+  return null;
+}
+
 function parseRouter(text) {
   try {
     const o = JSON.parse(text);
@@ -247,5 +255,5 @@ function hashChat(id) {
   return 'c' + h.toString(16);
 }
 
-if (typeof module !== 'undefined') module.exports = { normalizeInput, regimeFromText, parseRouter, decidePaths, photoOnlyReply, ref, regulationsUser,
+if (typeof module !== 'undefined') module.exports = { normalizeInput, regimeFromText, sessionFromText, parseRouter, decidePaths, photoOnlyReply, ref, regulationsUser,
   citations, normalizeCitations, calendarReply, contactReply, refusalReply, isPersonal, smallTalk, smallTalkReply, toTelegramHtml, regimeRecall, fallbackReply, mergeSections, contractResponse, hashChat, frDate, regimeNote, photoFacts };

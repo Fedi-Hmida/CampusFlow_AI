@@ -169,3 +169,15 @@ test('normalizeCitations: one reference per bracket; the demo label follows exac
   const plain = 'Zéro [D1-001, art. 7-8, p. 9]. Information non trouvée dans le règlement.';
   assert.equal(A.normalizeCitations(plain, F, 'fr'), plain);
 });
+
+// CF-409 — found by Doua's e2e run (T2-08/09/10/11): the local Router invented session « Rattrapage » on questions that
+// never mention a retake → « pas encore publiée » for exams that are in the calendar. Like the regime: stated only.
+test('sessionFromText: a session only when the student writes it', () => {
+  assert.equal(A.sessionFromText("c'est quand le rattrapage de deep learning pour la 5DS6 ?"), 'Rattrapage');
+  assert.equal(A.sessionFromText('Rattrapage de Big Data Analytics pour 5DS7 : date et salle stp'), 'Rattrapage');
+  assert.equal(A.sessionFromText('la session de contrôle de MLOps'), 'Rattrapage');
+  assert.equal(A.sessionFromText('Big data analytics en 5SIM1, session principale, ça commence quand ?'), 'Principale');
+  for (const q of ["C'est quand l'examen de Algorithmic 2 pour la 1A1 ?", 'Le DS de framework PHP en 4SE1, il finit à quelle heure ?', '']) {
+    assert.equal(A.sessionFromText(q), null, q);
+  }
+});
