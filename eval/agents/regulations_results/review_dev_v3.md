@@ -1,5 +1,8 @@
 # Manual review — Regulations dev_v3
 
+**Reviewed 27 Oct (integration review, CF-807), each claim checked against the article text:** 25 grounded · 4 with an invented or unsupported part · 3 « non trouvée » à tort.
+
+
 For each reply: does **every sentence** follow from the excerpts? Tick `[x] grounded` or write the invented part.
 For each « non trouvée »: do the excerpts actually answer it (possibly per regime)? A « non trouvée » always passes
 the automatic checks, so this box is the only way to see an over-cautious prompt.
@@ -15,7 +18,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-013/3/Formes de mobilité · D1-007/7/Prolongation et échec · D1-001/7-5/Conditions de passage en année supérieure · D1-003/7-6/Conditions de passage en année supérieure · D1-002/7-5/Conditions de passage en année supérieure
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [ ] invented: ____  [x] « non trouvée » à tort (the excerpts answer it): the passage conditions (D1-001/002/003 7-5, 7-6) were retrieved and answer part of it
 
 ## D5-002 (all) — checks: PASS
 
@@ -27,7 +30,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-003/7-3/Calcul de la Moyenne D’une UE · D1-003/7-4/Validation des Modules · D1-001/7-7/Redoublement · D1-008/7/Effet sur la moyenne et la validation · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [x] invented: cites the Redoublement article (D1-001 7-7) for a validation rule; the rule is in 7-4 (not retrieved)  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-003 (all) — checks: PASS
 
@@ -39,7 +42,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-001/7-4/Validation des UE · D1-002/7-4/Validation des UE · D1-003/7-5/Validation des UE · D1-008/7/Effet sur la moyenne et la validation · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-004 (all) — checks: PASS
 
@@ -51,7 +54,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-008/6/Note retenue · D1-001/7-3/Calcul de la moyenne d'un module · D1-002/7-3/Calcul de la moyenne d'un module · D1-002/7-2/Evaluation des élèves · D1-008/7/Effet sur la moyenne et la validation
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-005 (all) — checks: PASS
 
@@ -63,7 +66,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-002/7-3/Calcul de la moyenne d'un module · D1-001/7-3/Calcul de la moyenne d'un module · D1-003/7-4/Validation des Modules · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-008/7/Effet sur la moyenne et la validation
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-006 (all) — checks: PASS
 
@@ -75,7 +78,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-003/7-5/Validation des UE · D1-001/7-6/Session de rattrapage · D1-002/7-7/Session de rattrapage · D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-007 (all) — checks: PASS
 
@@ -87,7 +90,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-003/7-4/Validation des Modules · D1-001/7-6/Session de rattrapage · D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance · D1-002/7-7/Session de rattrapage
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [x] invented: labels the OFFICIAL D1-003 « procédure de démonstration » (now repaired in code: normalizeCitations; check official_labelled_fictif)  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-008 (all) — checks: PASS
 
@@ -99,7 +102,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance · D1-002/7-7/Session de rattrapage · D1-001/7-6/Session de rattrapage · D1-002/3/Inscription des élèves
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-009 (all) — checks: PASS
 
@@ -111,7 +114,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-002/7-7/Session de rattrapage · D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-001/7-6/Session de rattrapage · D1-003/7-4/Validation des Modules
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-010 (all) — checks: PASS
 
@@ -123,7 +126,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/8/Préparer son rattrapage (conseils pratiques) · D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance · D1-002/7-7/Session de rattrapage · D1-001/7-6/Session de rattrapage · D1-003/7-4/Validation des Modules
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-011 (all) — checks: PASS
 
@@ -135,7 +138,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-002/7-8/Redoublement · D1-003/7-7/Redoublement · D1-001/7-7/Redoublement · D1-008/2/Principe de la double correction · D1-007/7/Prolongation et échec
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-012 (all) — checks: PASS
 
@@ -147,7 +150,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-002/7-8/Redoublement · D1-007/7/Prolongation et échec · D1-002/7-9/Projet de Fin d’Etudes (PFE) · D1-003/5/Organisation des études · D1-005/5/Décision et validité
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [x] invented: « ou les stages » — D1-002 art. 7-9 says PFE and/or language certifications  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-013 (jour) — checks: PASS
 
@@ -159,7 +162,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/2/Absence à un examen final ou à un devoir surveillé (DS) · D1-001/7-8/Déroulement des épreuves · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-001/7-7/Redoublement · D1-001/7-5/Conditions de passage en année supérieure
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-014 (all) — checks: PASS
 
@@ -171,7 +174,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/5/Absence à une évaluation intermédiaire et assiduité · D1-005/7/Distinction avec un justificatif d'absence · D1-003/8/Absences des examens · D1-003/10/Assiduité · D1-002/9/Assiduité
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-015 (all) — checks: PASS
 
@@ -183,7 +186,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-005/7/Distinction avec un justificatif d'absence · D1-004/5/Absence à une évaluation intermédiaire et assiduité · D1-003/8/Absences des examens · D1-001/7-8/Déroulement des épreuves · D1-003/10/Assiduité
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-016 (all) — checks: PASS
 
@@ -195,7 +198,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/2/Absence à un examen final ou à un devoir surveillé (DS) · D1-003/8/Absences des examens · D1-004/5/Absence à une évaluation intermédiaire et assiduité · D1-001/7-8/Déroulement des épreuves · D1-001/7-8/Déroulement des épreuves
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-017 (all) — checks: PASS
 
@@ -207,7 +210,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-006/2/Documents concernés · D1-005/7/Distinction avec un justificatif d'absence · D1-001/7-8/Déroulement des épreuves · D1-003/9/Conditions d’obtention du diplôme · D1-002/8/Conditions d’obtention du diplôme
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-018 (all) — checks: PASS
 
@@ -219,7 +222,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/5/Absence à une évaluation intermédiaire et assiduité · D1-003/10/Assiduité · D1-003/8/Absences des examens · D1-002/9/Assiduité · D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-019 (all) — checks: PASS
 
@@ -231,7 +234,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/2/Absence à un examen final ou à un devoir surveillé (DS) · D1-003/11/GESTION DES FRAUDES · D1-001/7-8/Déroulement des épreuves · D1-002/10/Honnêteté intellectuelle · D1-005/7/Distinction avec un justificatif d'absence
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-020 (all) — checks: PASS
 
@@ -243,7 +246,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/5/Absence à une évaluation intermédiaire et assiduité · D1-005/7/Distinction avec un justificatif d'absence · D1-003/8/Absences des examens · D1-003/10/Assiduité · D1-001/7-8/Déroulement des épreuves
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [ ] invented: ____  [x] « non trouvée » à tort (the excerpts answer it): D1-003 art. 8: a commission studies the case and may grant or refuse the retake
 
 ## D5-021 (all) — checks: PASS
 
@@ -255,7 +258,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-003/8/Absences des examens · D1-004/2/Absence à un examen final ou à un devoir surveillé (DS) · D1-001/7-8/Déroulement des épreuves · D1-005/7/Distinction avec un justificatif d'absence · D1-003/10/Assiduité
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-022 (all) — checks: PASS
 
@@ -267,7 +270,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-003/7-6/Conditions de passage en année supérieure · D1-001/7-5/Conditions de passage en année supérieure · D1-002/7-5/Conditions de passage en année supérieure · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-007/6/Évaluation et diplôme
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [x] invented: « 10/20 is required » without the 60 / 40 / 45 ECTS and deficit conditions of the same articles — misleading  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-023 (all) — checks: PASS
 
@@ -279,7 +282,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-009/4/Délai de remboursement · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-002/3/Inscription des élèves · D1-002/7-7/Session de rattrapage · D1-001/3/Inscription des élèves
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-045 (jour) — checks: PASS
 
@@ -291,7 +294,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/2/Absence à un examen final ou à un devoir surveillé (DS) · D1-005/5/Décision et validité · D1-001/7-8/Déroulement des épreuves · D1-001/12/Charte de l’étudiante et de l’étudiant Espritiens · D1-001/7-8/Déroulement des épreuves
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-046 (all) — checks: PASS
 
@@ -303,7 +306,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-002/7-7/Session de rattrapage · D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-001/7-7/Redoublement · D1-001/7-6/Session de rattrapage
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [ ] invented: ____  [x] « non trouvée » à tort (the excerpts answer it): UE < 8 not validated, retake modules < 10/20 (D1-001 7-6) were retrieved
 
 ## D5-055 (all) — checks: PASS
 
@@ -315,7 +318,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-012/4/Paiement en plusieurs tranches · D1-012/3/Modes de paiement · D1-002/3/Inscription des élèves · D1-001/5/Programme des études · D1-001/3/Inscription des élèves
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-056 (all) — checks: PASS
 
@@ -327,7 +330,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-012/3/Modes de paiement · D1-012/4/Paiement en plusieurs tranches · D1-002/3/Inscription des élèves · D1-001/3/Inscription des élèves · D1-001/12/Charte de l’étudiante et de l’étudiant Espritiens
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-057 (all) — checks: PASS
 
@@ -339,7 +342,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-012/8/Bourses et aides · D1-013/8/Financement et frais · D1-002/7-8/Redoublement · D1-001/7-7/Redoublement · D1-002/7-5/Conditions de passage en année supérieure
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-058 (all) — checks: PASS
 
@@ -351,7 +354,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-002/7-6/Classement par unité d'enseignement · D1-001/7-7/Redoublement · D1-002/3/Inscription des élèves · D1-004/6/Fonctionnement de la session de rattrapage - cours du jour · D1-008/7/Effet sur la moyenne et la validation
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-059 (all) — checks: PASS
 
@@ -363,7 +366,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-013/3/Formes de mobilité · D1-013/1/Objet · D1-003/9/Conditions d’obtention du diplôme · D1-003/7-2/Evaluation des alternant · D1-001/4/Organisation des études
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-060 (all) — checks: PASS
 
@@ -375,7 +378,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-013/3/Formes de mobilité · D1-003/9/Conditions d’obtention du diplôme · D1-008/3/Épreuves concernées · D1-003/7-2/Evaluation des alternant · D1-002/6/Régime des études
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-061 (all) — checks: PASS
 
@@ -387,5 +390,5 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-012/8/Bourses et aides · D1-013/8/Financement et frais · D1-002/7-7/Session de rattrapage · D1-002/7-9/Projet de Fin d’Etudes (PFE) · D1-002/5/Programme des études
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [x] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
 

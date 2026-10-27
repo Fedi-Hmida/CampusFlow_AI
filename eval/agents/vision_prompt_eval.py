@@ -134,7 +134,7 @@ def room(v):
 
 def normalise(version: str, out: dict) -> dict:
     """Map one model output onto the v3 keys (missing key = not produced by this version)."""
-    if version in ("v3", "v4","v5"):
+    if version in ("v3", "v4", "v5"):
         n = dict(out)
         n["module_code"] = code(out.get("module_code"))
         n["room"] = room(out.get("room"))
@@ -160,7 +160,8 @@ def schema_errors(v, s, path="$") -> list[str]:
     if types:
         types = [types] if isinstance(types, str) else types
         ok = {"string": isinstance(v, str), "null": v is None, "boolean": isinstance(v, bool), "array": isinstance(v, list),
-              "object": isinstance(v, dict), "integer": isinstance(v, int) and not isinstance(v, bool)}
+              "object": isinstance(v, dict), "integer": isinstance(v, int) and not isinstance(v, bool),
+              "number": isinstance(v, (int, float)) and not isinstance(v, bool)}
         if not any(ok[t] for t in types):
             return [f"{path}: type {type(v).__name__} not in {types}"]
     if isinstance(v, str) and "pattern" in s and not re.search(s["pattern"], v):
@@ -195,7 +196,7 @@ def score_row(version: str, row: dict, raw: str) -> dict:
         return res
     if not res["json_valid"]:
         return res
-    if version in ("v3", "v4","v5"):
+    if version in ("v3", "v4", "v5"):
         res["schema_errors"] = schema_errors(out, SCHEMA)
     n = normalise(version, out)
     for f in SCORED:

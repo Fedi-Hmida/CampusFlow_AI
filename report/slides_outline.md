@@ -12,15 +12,15 @@
 - Preuve : [router_v2.md](../eval/agents/router_v2.md).
 
 ## Slide 3 — Regulations v2 → v3
-- Contrôles automatiques : **32/32** dans les deux versions.
-- Abstentions sur développement : **22 → 11**.
-- T1 : **20/22** citations attendues ; **3/3** abstentions justifiées.
-- Limites : revue humaine factuelle encore nécessaire.
+- Abstentions sur développement : **22 → 11** ; contrôles automatiques **32/32**.
+- T1 (exécuté une fois) : **20/22** citations attendues ; **3/3** abstentions justifiées.
+- Revue manuelle : 25 réponses fondées, 4 erronées malgré les contrôles → les formats sont réparés en code.
+- v4 et v5 mesurées et rejetées (langue, longueur) : un prompt se change une variable à la fois.
 - Preuve : [summary.md](../eval/agents/regulations_results/summary.md).
 
 ## Slide 4 — Vision v1 → v5
 - Champs corrects : **71/88 → 88/88**.
-- Schémas valides : **0/11 → 11/11**.
+- Sorties conformes au schéma : **10/11 (v4) → 11/11 (v5)** ; cases vides sur T4-10 : **10 → 0**.
 - Limite résiduelle : emploi du temps T4-10, **13/14** entrées.
 - Preuves : [scores_v1.json](../eval/agents/vision_results/scores_v1.json), [scores_v5.json](../eval/agents/vision_results/scores_v5.json).
 

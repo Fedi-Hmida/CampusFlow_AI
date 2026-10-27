@@ -72,3 +72,10 @@ test('checkReply still works when embedded together with assistant.js', () => {
   const reply = "Les certificats médicaux ne sont pas un justificatif [D1-001, art. 7-8, p. 9].";
   assert.deepEqual(embedded(reply, { retrieved: RETRIEVED }).failures, []);
 });
+
+// CF-807 — Regulations v3 review (D5-007): an OFFICIAL regulation was labelled « procédure de démonstration »
+test('an official source labelled as a demonstration procedure fails; a FICTITIOUS one labelled passes', () => {
+  assert.ok(fails('Note retenue : la meilleure moyenne [D1-001, art. 7-8, p. 9] (procédure de démonstration).').includes('official_labelled_fictif'));
+  assert.ok(fails('Note retenue : la meilleure moyenne [D1-001, art. 7-8, p. 9 (procédure de démonstration)].').includes('official_labelled_fictif'));
+  assert.equal(ok('Dossier sous 48 h à scolarite@esprit.tn [D1-004, art. 2] (procédure de démonstration).').pass, true);
+});

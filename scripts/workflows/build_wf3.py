@@ -277,7 +277,8 @@ return [{ json: { state, llm: state.llm } }];
 """
 CHECK1 = r"""
 const state = $('Regulations request').first().json.state;
-const reply = $input.first().json.text;
+const fictif = new Set(state.retrieved.filter(r => r.doc_status === 'FICTITIOUS').flatMap(r => r.article_keys.map(k => k.split('/')[0])));
+const reply = normalizeCitations($input.first().json.text, fictif, state.lang);   // format repaired in code (CF-807)
 const c = checkReply(reply, { retrieved: state.retrieved, allowed: EMAILS });
 state.draft = reply;
 state.checks = { pass: c.pass, failures: c.failures.map(f => f.check) };
@@ -293,7 +294,8 @@ return [{ json: { state, llm: state.llm } }];
 """
 CHECK2 = r"""
 const state = $('Revision request').first().json.state;
-const reply = $input.first().json.text;
+const fictif = new Set(state.retrieved.filter(r => r.doc_status === 'FICTITIOUS').flatMap(r => r.article_keys.map(k => k.split('/')[0])));
+const reply = normalizeCitations($input.first().json.text, fictif, state.lang);   // format repaired in code (CF-807)
 const c = checkReply(reply, { retrieved: state.retrieved, allowed: EMAILS });
 state.checks = { pass: c.pass, failures: c.failures.map(f => f.check) };
 if (c.pass) state.draft = reply; else { state.draft = fallbackReply(state.lang); state.fallback = true; }
@@ -418,7 +420,7 @@ def wf3_workflow():
         http(wf, "Qdrant fictitious", [3960, 320], "http://qdrant:6333/collections/regs_structured/points/query", q_fic, 30000),
         code(wf, "Regulations request", [4180, 320], REG_REQ, [CONSTS, REG_CONSTS, ASSISTANT]),
         call_wf(wf, "Regulations", [4400, 320], LLM_ID),
-        code(wf, "Checks", [4620, 320], CHECK1, [EMAIL_CONSTS, CHECKS]),
+        code(wf, "Checks", [4620, 320], CHECK1, [EMAIL_CONSTS, CHECKS, ASSISTANT]),
         iff(wf, "Checks failed?", [4840, 320], "!$json.state.checks.pass"),
         code(wf, "Revision request", [5060, 240], REVISE),
         call_wf(wf, "Revision", [5280, 240], LLM_ID),

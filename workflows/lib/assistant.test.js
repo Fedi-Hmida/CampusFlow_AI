@@ -154,3 +154,18 @@ test('regimeRecall: says which remembered regime was used', () => {
   assert.match(t, /cours du soir/); assert.match(t, /\/reset/);
   assert.equal(A.regimeRecall(null, 'fr'), '');
 });
+
+// CF-807 — the model's citation format, repaired in code (a 4B/Flash-Lite prompt rule was ignored on 2–3 of 32 dev replies)
+test('normalizeCitations: one reference per bracket; the demo label follows exactly the FICTITIOUS references', () => {
+  const F = new Set(['D1-004']);
+  assert.equal(A.normalizeCitations('Règle [D1-002, art. 7-7, p. 7, D1-004, art. 7, p. 2 (procédure de démonstration)].', F, 'fr'),
+    'Règle [D1-002, art. 7-7, p. 7] [D1-004, art. 7, p. 2] (procédure de démonstration).');
+  assert.equal(A.normalizeCitations('Validée [D1-001, art. 7-4, p. 7; D1-002, art. 7-4, p. 6].', F, 'fr'),
+    'Validée [D1-001, art. 7-4, p. 7] [D1-002, art. 7-4, p. 6].');
+  assert.equal(A.normalizeCitations('Commission [D1-003, art. 8, p. 7] (procédure de démonstration) [D1-004, art. 5, p. 1].', F, 'fr'),
+    'Commission [D1-003, art. 8, p. 7] [D1-004, art. 5, p. 1] (procédure de démonstration).');
+  assert.equal(A.normalizeCitations('Motifs [D1-004, art. 5, p. 1].', F, 'fr'), 'Motifs [D1-004, art. 5, p. 1] (procédure de démonstration).');
+  assert.equal(A.normalizeCitations('Rule [D1-004, art. 5, p. 1].', F, 'en'), 'Rule [D1-004, art. 5, p. 1] (demonstration procedure).');
+  const plain = 'Zéro [D1-001, art. 7-8, p. 9]. Information non trouvée dans le règlement.';
+  assert.equal(A.normalizeCitations(plain, F, 'fr'), plain);
+});

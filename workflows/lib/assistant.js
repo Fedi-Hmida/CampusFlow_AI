@@ -58,6 +58,17 @@ function regulationsUser(question, regime, chunks) {
   return head + chunks.map(c => `${ref(c)} (${c.doc_status === 'official' ? 'officiel' : 'FICTIF'})\n${c.text}`).join('\n\n');
 }
 
+// The model's citation format, repaired in code (CF-807): one reference per bracket, and the demonstration label
+// right after each FICTITIOUS reference — removed from official ones. fictifDocs: doc ids retrieved as FICTITIOUS.
+const DEMO_LABEL = /\s*\((?:procédure de démonstration|demonstration procedure)\)/gi;
+function normalizeCitations(text, fictifDocs, lang) {
+  const label = lang === 'en' ? '(demonstration procedure)' : '(procédure de démonstration)';
+  const split = String(text ?? '').replace(/\[([^\]]*D1-\d{3}[^\]]*)\]/g, (_, inner) =>
+    inner.replace(DEMO_LABEL, '').split(/\s*[;,]\s*(?=D1-\d{3})/).map(p => `[${p.trim()}]`).join(' '));
+  return split.replace(DEMO_LABEL, '')
+    .replace(/\[(D1-\d{3})[^\]]*\]/g, (m, doc) => (fictifDocs && fictifDocs.has(doc) ? `${m} ${label}` : m));
+}
+
 function citations(reply) {
   return [...String(reply).matchAll(/\[(D1-\d{3})([^\]]*)\]/g)].map(m => {
     const a = m[2].match(/art(?:icle)?\.?\s*([\w-]+)/i);
@@ -237,4 +248,4 @@ function hashChat(id) {
 }
 
 if (typeof module !== 'undefined') module.exports = { normalizeInput, regimeFromText, parseRouter, decidePaths, photoOnlyReply, ref, regulationsUser,
-  citations, calendarReply, contactReply, refusalReply, isPersonal, smallTalk, smallTalkReply, toTelegramHtml, regimeRecall, fallbackReply, mergeSections, contractResponse, hashChat, frDate, regimeNote, photoFacts };
+  citations, normalizeCitations, calendarReply, contactReply, refusalReply, isPersonal, smallTalk, smallTalkReply, toTelegramHtml, regimeRecall, fallbackReply, mergeSections, contractResponse, hashChat, frDate, regimeNote, photoFacts };
