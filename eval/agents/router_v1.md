@@ -10,13 +10,15 @@ as user / assistant turns. Script and raw outputs: [router_eval.py](router_eval.
 | Metric | Zero-shot | Few-shot (30 examples) |
 |---|---:|---:|
 | Valid JSON / schema-valid | 56 / 56 | **57 / 57** |
-| Intents exactly right | 42 / 57 (74 %) | **46 / 57 (81 %)** |
-| Intent overlap (mean Jaccard) | 0.77 | **0.83** |
+| Intents exactly right | 43 / 57 (75 %) | **47 / 57 (82 %)** |
+| Intent overlap (mean Jaccard) | 0.79 | **0.85** |
 | Language right | 56 / 57 | **57 / 57** |
 | Regime **invented** (not stated by the student) | 7 | **0** |
 | Regime missed (stated, left null) | 2 | 2 |
-| Out-of-scope precision / recall | 0.33 / 0.25 | **1.00 / 0.60** |
+| Out-of-scope precision / recall | 0.33 / 0.33 | **1.00 / 0.75** |
 | Seconds per call (CPU) | **25.0** | 52.8 |
+
+> **Relabelled 27 Oct (CF-412, Doua's label review):** D5-049 « envoie un email … de ma part » is `admin` (the bot drafts, never sends), not `out_of_scope`. Scores re-computed from the saved model outputs, no new call.
 
 ## What the examples fixed
 - **Invented regime:** zero-shot filled `regime = jour` on 7 calendar questions (D5-024…030, e.g. « Je suis en 1A12 »),

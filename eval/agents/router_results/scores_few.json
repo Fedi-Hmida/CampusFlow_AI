@@ -822,18 +822,18 @@
   "id": "D5-049",
   "valid_json": true,
   "schema_errors": [],
-  "intents_exact": false,
-  "intents_jaccard": 0.0,
+  "intents_exact": true,
+  "intents_jaccard": 1.0,
   "language_ok": true,
   "regime_invented": false,
   "regime_missed": false,
-  "oos_expected": true,
+  "oos_expected": false,
   "oos_predicted": false,
   "predicted": [
    "admin"
   ],
   "expected": [
-   "out_of_scope"
+   "admin"
   ]
  },
  {

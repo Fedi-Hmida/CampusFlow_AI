@@ -207,6 +207,7 @@ const route = parseRouter(out.text);
 state.route = route;
 state.lang = route.language === 'en' ? 'en' : 'fr';
 if (!state.input.regime && route.entities.regime) state.input.regime = route.entities.regime;
+route.entities.session = sessionFromText(state.input.question);   // stated only, never the Router's guess (CF-409); a photo may fill it
 state.paths = decidePaths(route, !!state.image, state.input.question);
 state.timings.router = (Date.now() - state.tr) / 1000;
 return [{ json: { state } }];

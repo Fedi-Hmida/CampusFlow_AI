@@ -1,0 +1,596 @@
+{
+  "set": "T3",
+  "mode": "stub",
+  "endpoint": "http://127.0.0.1:5678/webhook/wf3-test",
+  "models": {
+    "router": "qwen3:4b-instruct-2507-q4_K_M",
+    "regulations": "qwen3:4b-instruct-2507-q4_K_M",
+    "embeddings": "bge-m3:567m"
+  },
+  "n_questions": 10,
+  "n_runs": 1,
+  "summary": {
+    "score_mean": 1.0,
+    "score_total": 10.0,
+    "schema_valid_count": 10,
+    "schema_valid_rate": 1.0,
+    "checks_passed_count": 10,
+    "checks_passed_rate": 1.0,
+    "latency_p50": 9.2,
+    "latency_p90": 9.2,
+    "revised_count": 0,
+    "fallback_count": 0
+  },
+  "details": [
+    {
+      "id": "T3-01",
+      "question": "Qui contacter pour une attestation de scolarité ? Je suis en 4e année.",
+      "reply": "Vous devez contacter le service correspondant (SCO-4A, e-mail: service.eleves4eme@esprit.tn). Pièces requises : Formulaire FORM-03 ; pièce d'identité (CIN, passeport ou carte d'étudiant). Délai : Aucun délai fixé.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "SCO-4A",
+          "email": "service.eleves4eme@esprit.tn",
+          "documents": "Formulaire FORM-03 ; pièce d'identité (CIN, passeport ou carte d'étudiant)",
+          "deadline": "Aucun délai fixé"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-01",
+        "question": "Qui contacter pour une attestation de scolarité ? Je suis en 4e année.",
+        "regime": "all",
+        "expected_role_id": "SCO-4A",
+        "expected_documents": "Formulaire FORM-03 ; pièce d'identité (CIN, passeport ou carte d'étudiant)",
+        "expected_deadline": "Aucun délai fixé",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-02",
+      "question": "Cours du jour : j'ai raté un examen car j'étais hospitalisé, je m'adresse à qui et je fournis quoi ?",
+      "reply": "Vous devez contacter le service correspondant (SCO-GEN, e-mail: service.scolarite@esprit.tn). Pièces requises : Dossier de demande de repassage exceptionnel déposé à la scolarité ; justificatif recevable uniquement pour accident, maladie contagieuse, hospitalisation ou décès d'un parent proche (un certificat médical n'est pas un justificatif). Délai : Aucun délai fixé par le règlement ; demande traitée au cas par cas.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "SCO-GEN",
+          "email": "service.scolarite@esprit.tn",
+          "documents": "Dossier de demande de repassage exceptionnel déposé à la scolarité ; justificatif recevable uniquement pour accident, maladie contagieuse, hospitalisation ou décès d'un parent proche (un certificat médical n'est pas un justificatif)",
+          "deadline": "Aucun délai fixé par le règlement ; demande traitée au cas par cas"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-02",
+        "question": "Cours du jour : j'ai raté un examen car j'étais hospitalisé, je m'adresse à qui et je fournis quoi ?",
+        "regime": "jour",
+        "expected_role_id": "SCO-GEN",
+        "expected_documents": "Dossier de demande de repassage exceptionnel déposé à la scolarité ; justificatif recevable uniquement pour accident, maladie contagieuse, hospitalisation ou décès d'un parent proche (un certificat médical n'est pas un justificatif)",
+        "expected_deadline": "Aucun délai fixé par le règlement ; demande traitée au cas par cas",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-03",
+      "question": "Cours du soir : absent à un exam pour une mission de travail, je préviens qui et avant quand ?",
+      "reply": "Vous devez contacter le service correspondant (SCO-GEN, e-mail: service.scolarite@esprit.tn). Pièces requises : Pièces justificatives de force majeure (hospitalisation, décès d'un parent, mission de travail) ; un simple certificat médical n'est pas un motif valable. Délai : Aviser le responsable de la scolarité dans un délai ne dépassant pas 48 h à compter de la date de l'épreuve.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "SCO-GEN",
+          "email": "service.scolarite@esprit.tn",
+          "documents": "Pièces justificatives de force majeure (hospitalisation, décès d'un parent, mission de travail) ; un simple certificat médical n'est pas un motif valable",
+          "deadline": "Aviser le responsable de la scolarité dans un délai ne dépassant pas 48 h à compter de la date de l'épreuve"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-03",
+        "question": "Cours du soir : absent à un exam pour une mission de travail, je préviens qui et avant quand ?",
+        "regime": "soir",
+        "expected_role_id": "SCO-GEN",
+        "expected_documents": "Pièces justificatives de force majeure (hospitalisation, décès d'un parent, mission de travail) ; un simple certificat médical n'est pas un motif valable",
+        "expected_deadline": "Aviser le responsable de la scolarité dans un délai ne dépassant pas 48 h à compter de la date de l'épreuve",
+        "email_status": "delivered (unverified)",
+        "verified_by": "delegated by Fedi (26 Oct)"
+      }
+    },
+    {
+      "id": "T3-04",
+      "question": "Je suis en alternance, j'ai manqué 2 jours de cours (malade) : j'envoie le justificatif à qui et quand ?",
+      "reply": "Vous devez contacter le service correspondant (SCO-GEN, e-mail: service.scolarite@esprit.tn). Pièces requises : Certificat médical ou justificatif adressé au service de scolarité. Délai : Au plus tard le lendemain du début de l'empêchement ; au-delà de trois absences non justifiées à un module : avertissement.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "SCO-GEN",
+          "email": "service.scolarite@esprit.tn",
+          "documents": "Certificat médical ou justificatif adressé au service de scolarité",
+          "deadline": "Au plus tard le lendemain du début de l'empêchement ; au-delà de trois absences non justifiées à un module : avertissement"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-04",
+        "question": "Je suis en alternance, j'ai manqué 2 jours de cours (malade) : j'envoie le justificatif à qui et quand ?",
+        "regime": "alternance",
+        "expected_role_id": "SCO-GEN",
+        "expected_documents": "Certificat médical ou justificatif adressé au service de scolarité",
+        "expected_deadline": "Au plus tard le lendemain du début de l'empêchement ; au-delà de trois absences non justifiées à un module : avertissement",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-05",
+      "question": "Je veux reporter mon inscription (cours du jour) : c'est jusqu'à quand et je dépose où ?",
+      "reply": "Vous devez contacter le service correspondant (SCO-GEN, e-mail: service.scolarite@esprit.tn). Pièces requises : Formulaire de demande de report rempli et déposé au bureau d'ordre de l'école. Délai : Au plus tard le 30 novembre de l'année en cours pour bénéficier du remboursement ; un seul report sur toute la scolarité.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "SCO-GEN",
+          "email": "service.scolarite@esprit.tn",
+          "documents": "Formulaire de demande de report rempli et déposé au bureau d'ordre de l'école",
+          "deadline": "Au plus tard le 30 novembre de l'année en cours pour bénéficier du remboursement ; un seul report sur toute la scolarité"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-05",
+        "question": "Je veux reporter mon inscription (cours du jour) : c'est jusqu'à quand et je dépose où ?",
+        "regime": "jour",
+        "expected_role_id": "SCO-GEN",
+        "expected_documents": "Formulaire de demande de report rempli et déposé au bureau d'ordre de l'école",
+        "expected_deadline": "Au plus tard le 30 novembre de l'année en cours pour bénéficier du remboursement ; un seul report sur toute la scolarité",
+        "email_status": "delivered (unverified)",
+        "verified_by": "delegated by Fedi (26 Oct)"
+      }
+    },
+    {
+      "id": "T3-06",
+      "question": "Qui s'occupe des conventions de stage ?",
+      "reply": "Vous devez contacter le service correspondant (STAGE, e-mail: stages@esprit.tn). Pièces requises : Formulaire de convention (3 exemplaires) ; Lettre d'acceptation ou offre de stage de l'entreprise ; Attestation d'assurance ; Carte étudiant. Délai : Convention tripartite signée par les trois parties avant le premier jour de stage et déposée au service des stages.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "STAGE",
+          "email": "stages@esprit.tn",
+          "documents": "Formulaire de convention (3 exemplaires) ; Lettre d'acceptation ou offre de stage de l'entreprise ; Attestation d'assurance ; Carte étudiant",
+          "deadline": "Convention tripartite signée par les trois parties avant le premier jour de stage et déposée au service des stages"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-06",
+        "question": "Qui s'occupe des conventions de stage ?",
+        "regime": "jour",
+        "expected_role_id": "STAGE",
+        "expected_documents": "Formulaire de convention (3 exemplaires) ; Lettre d'acceptation ou offre de stage de l'entreprise ; Attestation d'assurance ; Carte étudiant",
+        "expected_deadline": "Convention tripartite signée par les trois parties avant le premier jour de stage et déposée au service des stages",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-07",
+      "question": "Je voudrais partir en échange à l'étranger, je contacte qui ?",
+      "reply": "Vous devez contacter le service correspondant (MOB, e-mail: mobilite-internationale@esprit.tn). Pièces requises : CV ; Lettre de motivation ; Relevés de notes ; Copie du passeport ; Attestation de niveau de langue. Délai : Selon l'appel à candidatures de l'année.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "MOB",
+          "email": "mobilite-internationale@esprit.tn",
+          "documents": "CV ; Lettre de motivation ; Relevés de notes ; Copie du passeport ; Attestation de niveau de langue",
+          "deadline": "Selon l'appel à candidatures de l'année"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-07",
+        "question": "Je voudrais partir en échange à l'étranger, je contacte qui ?",
+        "regime": "all",
+        "expected_role_id": "MOB",
+        "expected_documents": "CV ; Lettre de motivation ; Relevés de notes ; Copie du passeport ; Attestation de niveau de langue",
+        "expected_deadline": "Selon l'appel à candidatures de l'année",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-08",
+      "question": "Je veux payer mes frais de scolarité en plusieurs fois, à qui je demande ?",
+      "reply": "Vous devez contacter le service correspondant (FIN, e-mail: finance@esprit.tn). Pièces requises : Demande écrite motivée ; Justificatifs de la situation financière ; Carte étudiant. Délai : Avant la date d'échéance fixée par le service financier.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "FIN",
+          "email": "finance@esprit.tn",
+          "documents": "Demande écrite motivée ; Justificatifs de la situation financière ; Carte étudiant",
+          "deadline": "Avant la date d'échéance fixée par le service financier"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-08",
+        "question": "Je veux payer mes frais de scolarité en plusieurs fois, à qui je demande ?",
+        "regime": "all",
+        "expected_role_id": "FIN",
+        "expected_documents": "Demande écrite motivée ; Justificatifs de la situation financière ; Carte étudiant",
+        "expected_deadline": "Avant la date d'échéance fixée par le service financier",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-09",
+      "question": "Le service élèves de 3e année ne me répond pas, à qui je peux remonter ?",
+      "reply": "Vous devez contacter le service correspondant (DEP-HEAD, e-mail: chef.departement@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "DEP-HEAD",
+          "email": "chef.departement@esprit.tn",
+          "documents": "—",
+          "deadline": "—"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-09",
+        "question": "Le service élèves de 3e année ne me répond pas, à qui je peux remonter ?",
+        "regime": "all",
+        "expected_role_id": "DEP-HEAD",
+        "expected_documents": "—",
+        "expected_deadline": "—",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-10",
+      "question": "Cours du soir : je veux une double correction de mon examen écrit, où et avant quand ?",
+      "reply": "Vous devez contacter le service correspondant (EXA, e-mail: examen@esprit.tn). Pièces requises : Demande écrite sur le formulaire FORM-02 (nom, prénom, classe, numéro d'étudiant, module, date de l'épreuve, note affichée, motif) ; pièce d'identité si demandée. Délai : Une semaine après l'affichage de la note, auprès du service examen.",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "EXA",
+          "email": "examen@esprit.tn",
+          "documents": "Demande écrite sur le formulaire FORM-02 (nom, prénom, classe, numéro d'étudiant, module, date de l'épreuve, note affichée, motif) ; pièce d'identité si demandée",
+          "deadline": "Une semaine après l'affichage de la note, auprès du service examen"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 9.2,
+        "router": 1.1,
+        "tools": 0.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-10",
+        "question": "Cours du soir : je veux une double correction de mon examen écrit, où et avant quand ?",
+        "regime": "soir",
+        "expected_role_id": "EXA",
+        "expected_documents": "Demande écrite sur le formulaire FORM-02 (nom, prénom, classe, numéro d'étudiant, module, date de l'épreuve, note affichée, motif) ; pièce d'identité si demandée",
+        "expected_deadline": "Une semaine après l'affichage de la note, auprès du service examen",
+        "email_status": "delivered (unverified)",
+        "verified_by": "delegated by Fedi (26 Oct)"
+      }
+    }
+  ]
+}

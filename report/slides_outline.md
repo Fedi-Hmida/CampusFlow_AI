@@ -5,10 +5,10 @@
 - Méthode : prompts versionnés, jeux de tests, sorties enregistrées et comparaisons avant/après.
 
 ## Slide 2 — Router v1 → v2
-- Intentions exactes : **46/57 → 51/57**.
-- Jaccard : **0,83 → 0,91**.
+- Intentions exactes : **47/57 → 52/57** (étiquettes D5 relues).
+- Jaccard : **0,85 → 0,93** ; rappel hors périmètre **0,75 → 1,00**.
 - Sortie compacte et 11 exemples ciblés au lieu de 30.
-- Limites : étiquettes D5 non validées ; temps mesurés différemment.
+- Limites : jeu synthétique de 57 questions ; temps mesurés différemment.
 - Preuve : [router_v2.md](../eval/agents/router_v2.md).
 
 ## Slide 3 — Regulations v2 → v3

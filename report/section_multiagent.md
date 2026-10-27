@@ -15,7 +15,7 @@ Le principe directeur est de mettre **un workflow là où les étapes sont fixes
 
 | Agent | Rôle | Moteur | Sortie | Évidence |
 |---|---|---|---|---|
-| **Router** | Intentions (règlement, calendrier, administratif, hors périmètre), entités (module, classe, session, régime), injection | Qwen3 4B local, 11 exemples, schéma JSON | JSON | 51/57 intentions exactes, 57/57 JSON valides, 10 s par appel |
+| **Router** | Intentions (règlement, calendrier, administratif, hors périmètre), entités (module, classe, session, régime), injection | Qwen3 4B local, 11 exemples, schéma JSON | JSON | 52/57 intentions exactes, 57/57 JSON valides, 10 s par appel |
 | **Vision** | Lit une convocation, un emploi du temps ou une affiche | Gemini Flash-Lite, prompt v4 | JSON | 87/88 champs corrects sur 11 photos (T4) |
 | **Regulations** | Répond à partir de 5 articles (3 officiels + 2 fictifs, filtrés par régime) avec citation | Gemini Flash-Lite, prompt v2 | Texte cité | Hit@5 = 1,00 sur T1 (§ RAG) |
 | **Calendar** | Date, heure et salle exactes | Outil `10_tool_lookup_exam`, sans LLM | Ligne de table | 12/12 lignes T2 identiques |

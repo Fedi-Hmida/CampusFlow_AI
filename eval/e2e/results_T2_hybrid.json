@@ -1,0 +1,868 @@
+{
+  "set": "T2",
+  "mode": "hybrid",
+  "endpoint": "http://127.0.0.1:5678/webhook/wf3-test",
+  "models": {
+    "router": "qwen3:4b-instruct-2507-q4_K_M",
+    "regulations": "gemini-3.5-flash-lite",
+    "embeddings": "bge-m3:567m"
+  },
+  "n_questions": 12,
+  "n_runs": 1,
+  "summary": {
+    "score_mean": 1.0,
+    "score_total": 12.0,
+    "schema_valid_count": 12,
+    "schema_valid_rate": 1.0,
+    "checks_passed_count": 12,
+    "checks_passed_rate": 1.0,
+    "latency_p50": 12.46,
+    "latency_p90": 14.49,
+    "revised_count": 0,
+    "fallback_count": 0
+  },
+  "details": [
+    {
+      "id": "T2-01",
+      "question": "Quand est mon examen de DS14 ? Je suis en 5DS6.",
+      "reply": "• Advanced Deep Learning (5DS6) — Examen, session Principale : vendredi 15/01/2027, 09:00 – 11:00, salle B12.\n• Advanced Deep Learning (5DS6) — Examen, session Rattrapage : lundi 15/02/2027, 09:00 – 11:00, salle A21.\nSource : calendrier des examens, mis à jour le 2026-10-25 — donnée de démonstration (fictive).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "exam_id": "FX001",
+          "module_code": "DS14",
+          "module_name": "Advanced Deep Learning",
+          "module_name_norm": "advanced deep learning",
+          "class_group": "5DS6",
+          "semester": "S1",
+          "session": "Principale",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-01-15",
+          "start_time": "09:00",
+          "end_time": "11:00",
+          "room": "B12",
+          "last_updated": "2026-10-25",
+          "data_status": "FICTITIOUS"
+        },
+        {
+          "exam_id": "FX010",
+          "module_code": "DS14",
+          "module_name": "Advanced Deep Learning",
+          "module_name_norm": "advanced deep learning",
+          "class_group": "5DS6",
+          "semester": "S1",
+          "session": "Rattrapage",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-02-15",
+          "start_time": "09:00",
+          "end_time": "11:00",
+          "room": "A21",
+          "last_updated": "2026-10-25",
+          "data_status": "FICTITIOUS"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 13.95,
+        "tools": 0.96,
+        "total": 15.19
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-01",
+        "question": "Quand est mon examen de DS14 ? Je suis en 5DS6.",
+        "class_group": "5DS6",
+        "module": "Advanced Deep Learning",
+        "session": "Principale",
+        "expected_date": "2027-01-15",
+        "expected_start_time": "09:00",
+        "expected_end_time": "11:00",
+        "expected_room": "B12",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-02",
+      "question": "c'est quand le rattrapage de deep learning pour la 5DS6 ?",
+      "reply": "• Advanced Deep Learning (5DS6) — Examen, session Rattrapage : lundi 15/02/2027, 09:00 – 11:00, salle A21.\nSource : calendrier des examens, mis à jour le 2026-10-25 — donnée de démonstration (fictive).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": [
+          "regime"
+        ]
+      },
+      "tool_rows": [
+        {
+          "exam_id": "FX010",
+          "module_code": "DS14",
+          "module_name": "Advanced Deep Learning",
+          "module_name_norm": "advanced deep learning",
+          "class_group": "5DS6",
+          "semester": "S1",
+          "session": "Rattrapage",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-02-15",
+          "start_time": "09:00",
+          "end_time": "11:00",
+          "room": "A21",
+          "last_updated": "2026-10-25",
+          "data_status": "FICTITIOUS"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 13.49,
+        "tools": 0.59,
+        "total": 14.21
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-02",
+        "question": "c'est quand le rattrapage de deep learning pour la 5DS6 ?",
+        "class_group": "5DS6",
+        "module": "Advanced Deep Learning",
+        "session": "Rattrapage",
+        "expected_date": "2027-02-15",
+        "expected_start_time": "09:00",
+        "expected_end_time": "11:00",
+        "expected_room": "A21",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-03",
+      "question": "5DS7 : l'exam de MLOps il est dans quelle salle ?",
+      "reply": "• MLOps et déploiement (5DS7) — Examen, session Principale : mercredi 20/01/2027, 09:00 – 11:00, salle B13.\n• MLOps et déploiement (5DS7) — Examen, session Rattrapage : mercredi 17/02/2027, 09:00 – 11:00, salle A21.\nSource : calendrier des examens, mis à jour le 2026-10-25 — donnée de démonstration (fictive).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "exam_id": "FX008",
+          "module_code": "DS15",
+          "module_name": "MLOps et déploiement",
+          "module_name_norm": "mlops et deploiement",
+          "class_group": "5DS7",
+          "semester": "S1",
+          "session": "Principale",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-01-20",
+          "start_time": "09:00",
+          "end_time": "11:00",
+          "room": "B13",
+          "last_updated": "2026-10-25",
+          "data_status": "FICTITIOUS"
+        },
+        {
+          "exam_id": "FX017",
+          "module_code": "DS15",
+          "module_name": "MLOps et déploiement",
+          "module_name_norm": "mlops et deploiement",
+          "class_group": "5DS7",
+          "semester": "S1",
+          "session": "Rattrapage",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-02-17",
+          "start_time": "09:00",
+          "end_time": "11:00",
+          "room": "A21",
+          "last_updated": "2026-10-25",
+          "data_status": "FICTITIOUS"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 12.24,
+        "tools": 0.38,
+        "total": 12.7
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-03",
+        "question": "5DS7 : l'exam de MLOps il est dans quelle salle ?",
+        "class_group": "5DS7",
+        "module": "MLOps et déploiement",
+        "session": "Principale",
+        "expected_date": "2027-01-20",
+        "expected_start_time": "09:00",
+        "expected_end_time": "11:00",
+        "expected_room": "B13",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-04",
+      "question": "Big data analytics en 5SIM1, session principale, ça commence à quelle heure et ça finit quand ?",
+      "reply": "• Big Data Analytics (5SIM1) — Examen, session Principale : lundi 18/01/2027, 13:00 – 15:00, salle C04.\nSource : calendrier des examens, mis à jour le 2026-10-25 — donnée de démonstration (fictive).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "exam_id": "FX006",
+          "module_code": "DS12",
+          "module_name": "Big Data Analytics",
+          "module_name_norm": "big data analytics",
+          "class_group": "5SIM1",
+          "semester": "S1",
+          "session": "Principale",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-01-18",
+          "start_time": "13:00",
+          "end_time": "15:00",
+          "room": "C04",
+          "last_updated": "2026-10-25",
+          "data_status": "FICTITIOUS"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 14.06,
+        "tools": 0.36,
+        "total": 14.52
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-04",
+        "question": "Big data analytics en 5SIM1, session principale, ça commence à quelle heure et ça finit quand ?",
+        "class_group": "5SIM1",
+        "module": "Big Data Analytics",
+        "session": "Principale",
+        "expected_date": "2027-01-18",
+        "expected_start_time": "13:00",
+        "expected_end_time": "15:00",
+        "expected_room": "C04",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-05",
+      "question": "Le rattrapage MLOps de la 5SIM1 c'est quel jour ?",
+      "reply": "• MLOps et déploiement (5SIM1) — Examen, session Rattrapage : mercredi 17/02/2027, 09:00 – 11:00, salle A21.\nSource : calendrier des examens, mis à jour le 2026-10-25 — donnée de démonstration (fictive).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "exam_id": "FX018",
+          "module_code": "DS15",
+          "module_name": "MLOps et déploiement",
+          "module_name_norm": "mlops et deploiement",
+          "class_group": "5SIM1",
+          "semester": "S1",
+          "session": "Rattrapage",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-02-17",
+          "start_time": "09:00",
+          "end_time": "11:00",
+          "room": "A21",
+          "last_updated": "2026-10-25",
+          "data_status": "FICTITIOUS"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 11.4,
+        "tools": 0.28,
+        "total": 11.78
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-05",
+        "question": "Le rattrapage MLOps de la 5SIM1 c'est quel jour ?",
+        "class_group": "5SIM1",
+        "module": "MLOps et déploiement",
+        "session": "Rattrapage",
+        "expected_date": "2027-02-17",
+        "expected_start_time": "09:00",
+        "expected_end_time": "11:00",
+        "expected_room": "A21",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-06",
+      "question": "Rattrapage de Big Data Analytics pour 5DS7 : date et salle stp",
+      "reply": "• Big Data Analytics (5DS7) — Examen, session Rattrapage : mardi 16/02/2027, 09:00 – 11:00, salle A21.\nSource : calendrier des examens, mis à jour le 2026-10-25 — donnée de démonstration (fictive).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": [
+          "regime"
+        ]
+      },
+      "tool_rows": [
+        {
+          "exam_id": "FX014",
+          "module_code": "DS12",
+          "module_name": "Big Data Analytics",
+          "module_name_norm": "big data analytics",
+          "class_group": "5DS7",
+          "semester": "S1",
+          "session": "Rattrapage",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-02-16",
+          "start_time": "09:00",
+          "end_time": "11:00",
+          "room": "A21",
+          "last_updated": "2026-10-25",
+          "data_status": "FICTITIOUS"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 11.75,
+        "tools": 0.39,
+        "total": 12.22
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-06",
+        "question": "Rattrapage de Big Data Analytics pour 5DS7 : date et salle stp",
+        "class_group": "5DS7",
+        "module": "Big Data Analytics",
+        "session": "Rattrapage",
+        "expected_date": "2027-02-16",
+        "expected_start_time": "09:00",
+        "expected_end_time": "11:00",
+        "expected_room": "A21",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-07",
+      "question": "Dans quelle salle est mon examen de Financial Analysis en 3A1 ?",
+      "reply": "• Financial Analysis (3A1) — Examen, session Principale : mardi 27/10/2026, 09:00 (fin non communiquée), salle non communiquée.\nSource : calendrier des examens, mis à jour le 2026-10-25 — date prévisionnelle (calendrier projeté).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "exam_id": "EX0001",
+          "module_code": "M046",
+          "module_name": "Financial Analysis",
+          "module_name_norm": "financial analysis",
+          "class_group": "3A1",
+          "semester": "S1",
+          "session": "Principale",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2026-10-27",
+          "start_time": "09:00",
+          "end_time": null,
+          "room": null,
+          "last_updated": "2026-10-25",
+          "data_status": "projected from 2025-2026"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 11.06,
+        "tools": 0.35,
+        "total": 11.47
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-07",
+        "question": "Dans quelle salle est mon examen de Financial Analysis en 3A1 ?",
+        "class_group": "3A1",
+        "module": "Financial Analysis",
+        "session": "Principale",
+        "expected_date": "2026-10-27",
+        "expected_start_time": "09:00",
+        "expected_end_time": "non communiqué",
+        "expected_room": "non communiqué",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-08",
+      "question": "Le DS de framework PHP en 4SE1, il finit à quelle heure ?",
+      "reply": "• framework PHP (4SE1) — DS, session Principale : mardi 27/10/2026, 11:00 (fin non communiquée), salle non communiquée.\nSource : calendrier des examens, mis à jour le 2026-10-25 — date prévisionnelle (calendrier projeté).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "exam_id": "EX0062",
+          "module_code": "M049",
+          "module_name": "framework PHP",
+          "module_name_norm": "framework php",
+          "class_group": "4SE1",
+          "semester": "S1",
+          "session": "Principale",
+          "exam_type": "Written",
+          "assessment": "DS",
+          "date": "2026-10-27",
+          "start_time": "11:00",
+          "end_time": null,
+          "room": null,
+          "last_updated": "2026-10-25",
+          "data_status": "projected from 2025-2026"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 11,
+        "tools": 0.38,
+        "total": 11.45
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-08",
+        "question": "Le DS de framework PHP en 4SE1, il finit à quelle heure ?",
+        "class_group": "4SE1",
+        "module": "framework PHP",
+        "session": "Principale",
+        "expected_date": "2026-10-27",
+        "expected_start_time": "11:00",
+        "expected_end_time": "non communiqué",
+        "expected_room": "non communiqué",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-09",
+      "question": "C'est quand l'examen de Algorithmic 2 pour la 1A1 ?",
+      "reply": "• Algorithmic 2 (1A1) — Examen, session Principale : jeudi 11/03/2027, 10:30 (fin non communiquée), salle non communiquée.\nSource : calendrier des examens, mis à jour le 2026-10-25 — date prévisionnelle (calendrier projeté).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "exam_id": "EX1265",
+          "module_code": "M005",
+          "module_name": "Algorithmic 2",
+          "module_name_norm": "algorithmic 2",
+          "class_group": "1A1",
+          "semester": "S2",
+          "session": "Principale",
+          "exam_type": "Written",
+          "assessment": "Examen",
+          "date": "2027-03-11",
+          "start_time": "10:30",
+          "end_time": null,
+          "room": null,
+          "last_updated": "2026-10-25",
+          "data_status": "projected from 2025-2026"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 11.58,
+        "tools": 0.42,
+        "total": 12.09
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-09",
+        "question": "C'est quand l'examen de Algorithmic 2 pour la 1A1 ?",
+        "class_group": "1A1",
+        "module": "Algorithmic 2",
+        "session": "Principale",
+        "expected_date": "2027-03-11",
+        "expected_start_time": "10:30",
+        "expected_end_time": "non communiqué",
+        "expected_room": "non communiqué",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-10",
+      "question": "Quand est l'examen de Quantum Computing pour la 5DS6 ?",
+      "reply": "Je ne trouve pas cette épreuve dans le calendrier des examens. Vérifie le module et la classe, ou contacte le bureau des examens (examen@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 11.57,
+        "tools": 0.36,
+        "total": 12
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-10",
+        "question": "Quand est l'examen de Quantum Computing pour la 5DS6 ?",
+        "class_group": "5DS6",
+        "module": "Quantum Computing",
+        "session": "Principale",
+        "expected_date": "not found",
+        "expected_start_time": "not found",
+        "expected_end_time": "not found",
+        "expected_room": "not found",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-11",
+      "question": "c'est quand mon DS de Microcontroller Architecture en 2A1 ?",
+      "reply": "• Microcontroller Architecture (2A1) — DS, session Principale : mercredi 28/10/2026, 09:00 (fin non communiquée), salle non communiquée.\nSource : calendrier des examens, mis à jour le 2026-10-25 — date prévisionnelle (calendrier projeté).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "exam_id": "EX0185",
+          "module_code": "M073",
+          "module_name": "Microcontroller Architecture",
+          "module_name_norm": "microcontroller architecture",
+          "class_group": "2A1",
+          "semester": "S1",
+          "session": "Principale",
+          "exam_type": "Written",
+          "assessment": "DS",
+          "date": "2026-10-28",
+          "start_time": "09:00",
+          "end_time": null,
+          "room": null,
+          "last_updated": "2026-10-25",
+          "data_status": "projected from 2025-2026"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 12.31,
+        "tools": 0.37,
+        "total": 12.76
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-11",
+        "question": "c'est quand mon DS de Microcontroller Architecture en 2A1 ?",
+        "class_group": "2A1",
+        "module": "Microcontroller Architecture",
+        "session": "Principale",
+        "expected_date": "2026-10-28",
+        "expected_start_time": "09:00",
+        "expected_end_time": "non communiqué",
+        "expected_room": "non communiqué",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T2-12",
+      "question": "Et le rattrapage de Financial Analysis pour la 3A1, c'est quand ?",
+      "reply": "La date de cette session n'est pas encore publiée dans le calendrier. Renseigne-toi auprès du bureau des examens (examen@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 12.76,
+        "tools": 0.43,
+        "total": 13.25
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "date_ok": true,
+        "start_ok": true,
+        "end_ok": true,
+        "room_ok": true,
+        "checks_pass": true,
+        "reason": "all 4 fields match"
+      },
+      "row": {
+        "id": "T2-12",
+        "question": "Et le rattrapage de Financial Analysis pour la 3A1, c'est quand ?",
+        "class_group": "3A1",
+        "module": "Financial Analysis",
+        "session": "Rattrapage",
+        "expected_date": "non communiqué (pas encore publié)",
+        "expected_start_time": "non communiqué (pas encore publié)",
+        "expected_end_time": "non communiqué (pas encore publié)",
+        "expected_room": "non communiqué (pas encore publié)",
+        "verified_by": "Fedi"
+      }
+    }
+  ]
+}
