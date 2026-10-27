@@ -24,7 +24,8 @@ Le principe directeur est de mettre **un workflow là où les étapes sont fixes
 | **Critic** | Contrôles : citation présente et réellement récupérée ; dates, heures, salles, mails et délais présents dans les sources ; fictif annoncé ; jamais « j’ai envoyé » | Code déterministe (`checks.js`) | pass / échecs | 12 tests, moins de 50 ms ; révision réussie observée en production |
 
 Le parcours d’une question suit ces règles :
-- Une question **hors périmètre** s’arrête au Router (refus poli + contact).
+- Une **salutation ou une commande** (« Bonjour », `/aide`, `/reset`) reçoit une réponse immédiate (0,3 s), sans LLM.
+- Une question **hors périmètre** s’arrête au Router : refus poli, avec un renvoi vers la scolarité seulement pour une demande sur le dossier personnel.
 - Une **photo** passe d’abord par Vision : ses faits enrichissent la recherche. Si le calendrier ne connaît pas l’épreuve, les faits lus sur la photo sont montrés, annoncés comme tels.
 - Une **photo sans texte** n’est jamais refusée : le bot dit ce qu’il y a lu et demande ce que l’étudiant veut savoir.
 - Une question **multi-sujets** (« double correction : quelle règle et à qui j’écris ? ») active Regulations **et** Admin, puis la fusion produit une réponse en deux sections.

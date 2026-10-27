@@ -167,8 +167,10 @@ if (inp.source === 'telegram') {
   mem.regimes = mem.regimes || {};
   const key = hashChat(inp.chat);
   const said = regimeFromText(inp.question);
-  if (said) mem.regimes[key] = said;
+  if (smallTalk(inp.question) === 'reset') delete mem.regimes[key];
+  else if (said) mem.regimes[key] = said;
   inp.regime = said || mem.regimes[key] || null;
+  inp.regime_from = said ? 'message' : inp.regime ? 'memory' : null;
   if (raw.binary && Object.keys(raw.binary).length) {
     const k = Object.keys(raw.binary)[0];
     const buf = await this.helpers.getBinaryDataBuffer(0, k);
@@ -177,6 +179,7 @@ if (inp.source === 'telegram') {
 } else if (!inp.regime) {
   inp.regime = regimeFromText(inp.question);
 }
+state.small = inp.photo ? null : smallTalk(inp.question);   // greeting / command: answered without the Router (CF-406)
 state.ack = inp.mode === 'local' ? CFG.ack_local : CFG.ack;
 return [{ json: { state } }];
 """
@@ -208,9 +211,18 @@ state.paths = decidePaths(route, !!state.image, state.input.question);
 state.timings.router = (Date.now() - state.tr) / 1000;
 return [{ json: { state } }];
 """
+SMALL = r"""
+const state = $json.state;
+state.route = { language: 'fr', intents: [], entities: {}, missing_fields: [], injection_suspected: false };
+state.lang = 'fr';
+state.paths = [];
+state.sections.push({ title: 'Réponse', text: smallTalkReply(state.small, state.lang) });
+return [{ json: { state } }];
+"""
 REFUSAL = r"""
 const state = $json.state;
-state.sections.push({ title: 'Réponse', text: refusalReply(state.lang, !!state.route.injection_suspected) });
+state.sections.push({ title: 'Réponse', text: refusalReply(state.lang, !!state.route.injection_suspected,
+  isPersonal(state.input.question) || /personn/i.test(state.route.entities.topic || '')) });
 return [{ json: { state } }];
 """
 VISION_REQ = r"""
@@ -293,7 +305,9 @@ delete state.llm; delete state.check_detail;
 state.timings.regulations = (Date.now() - state.tg) / 1000;
 state.citations = citations(state.draft);
 const note = regimeNote(state.input.regime, state.fallback, state.lang);   // also after « non trouvée »: the regime often decides
-state.sections.push({ title: 'Règle', text: note ? state.draft + '\n' + note : state.draft });
+const recall = state.input.regime_from === 'memory' && !state.fallback ? regimeRecall(state.input.regime, state.lang) : '';
+const body = note ? state.draft + '\n' + note : state.draft;
+state.sections.push({ title: 'Règle', text: recall ? recall + '\n' + body : body });
 delete state.chunks;
 return [{ json: { state } }];
 """
@@ -365,7 +379,7 @@ const reply = mergeSections(state.sections) || fallbackReply(state.lang);
 const response = contractResponse({ test_id: state.input.test_id, reply, route: state.route || { intents: [], missing_fields: [] },
   paths: state.paths || [], citations: state.citations, retrieved: state.retrieved, tool_rows: state.tool_rows, checks: state.checks,
   revised: state.revised, fallback: state.fallback, timings: state.timings, mode: state.input.mode, config: CFG.config });
-return [{ json: { response, reply, source: state.input.source, chat: state.input.chat } }];
+return [{ json: { response, reply, reply_tg: toTelegramHtml(reply), source: state.input.source, chat: state.input.chat } }];
 """
 
 ROUTER_CONSTS = ("const PROMPT_ROUTER = " + J(PROMPTS["router"]) + ";\nconst SHOTS = " + J(SHOTS) + ";\nconst ROUTER_SCHEMA = " + J(ROUTER_SCHEMA) + ";\n")
@@ -382,6 +396,8 @@ def wf3_workflow():
     n = [
         node(wf, "When called", "n8n-nodes-base.executeWorkflowTrigger", 1.1, [0, 300], {"inputSource": "passthrough"}),
         code(wf, "Input", [220, 300], INPUT, [CONSTS, ASSISTANT]),
+        iff(wf, "Small talk?", [440, 300], "!!$json.state.small"),
+        code(wf, "Small talk reply", [660, 160], SMALL, [ASSISTANT]),
         iff(wf, "Test photo?", [660, 420], "!!($json.state.input.photo && $json.state.input.photo.file)"),
         node(wf, "Read test photo", "n8n-nodes-base.readWriteFile", 1.1, [880, 360],
              {"operation": "read", "fileSelector": "=/t4/{{ $json.state.input.photo.file }}", "options": {}}),
@@ -424,7 +440,8 @@ def wf3_workflow():
         code(wf, "Admin section", [8800, 320], ADMIN_SECTION, [ASSISTANT]),
         code(wf, "Output", [9020, 400], OUTPUT, [CONSTS, ASSISTANT]),
     ]
-    links = [("When called", "Input"), ("Input", "Test photo?"),
+    links = [("When called", "Input"), ("Input", "Small talk?"), ("Small talk?", "Small talk reply", 0),
+             ("Small talk?", "Test photo?", 1), ("Small talk reply", "Output"),
              ("Test photo?", "Read test photo", 0), ("Test photo?", "Router request", 1), ("Read test photo", "Test photo"),
              ("Test photo", "Router request"), ("Router request", "Router"), ("Router", "Route"), ("Route", "Out of scope?"),
              ("Out of scope?", "Refusal", 0), ("Out of scope?", "Vision?", 1), ("Refusal", "Output"),
@@ -458,6 +475,14 @@ def connections(links: list[tuple]) -> dict:
 
 
 # --------------------------------------------------------------------------------------------- entries + WF-4
+# HTML, not n8n's default Markdown: Markdown ate the brackets of « [D1-…] » and breaks on a lone « _ » (CF-406)
+TG_FIELDS = {"appendAttribution": False, "parse_mode": "HTML"}
+NEEDS_ACK = r"""
+// « je cherche… » only when there is something to search: not for a greeting or a command (CF-406)
+const m = $json.message || {};
+const photo = Array.isArray(m.photo) && m.photo.length > 0;
+return [{ json: { ...$json, ack: photo || !smallTalk(m.text || m.caption || '') } }];
+"""
 FRIENDLY = "Désolé, je n'ai pas pu traiter ta question à cause d'un problème technique. Réessaie dans un instant, ou contacte la scolarité (scolarite@esprit.tn)."
 RUN_ROW = r"""
 // One log row per run (ESA-403): what ran and how long — never the question text, the chat id or a name (NFR-03)
@@ -500,19 +525,22 @@ def telegram_entry():
     wf = "wf3tg"
     n = [node(wf, "Telegram", "n8n-nodes-base.telegramTrigger", 1.2, [0, 300], {"updates": ["message"], "additionalFields": {"download": True}},
               webhookId=nid(wf, "tg-hook"), credentials=TG),
-         node(wf, "Acknowledge", "n8n-nodes-base.telegram", 1.2, [220, 300],
-              {"chatId": "={{ $json.message.chat.id }}", "text": CFG["latency"]["ack_message_fr"], "additionalFields": {"appendAttribution": False}},
+         code(wf, "Needs ack?", [220, 300], NEEDS_ACK, [ASSISTANT]),
+         iff(wf, "Ack?", [440, 300], "$json.ack"),
+         node(wf, "Acknowledge", "n8n-nodes-base.telegram", 1.2, [660, 200],
+              {"chatId": "={{ $json.message.chat.id }}", "text": CFG["latency"]["ack_message_fr"], "additionalFields": TG_FIELDS},
               credentials=TG),
-         code(wf, "Original update", [440, 300], "return [$('Telegram').first()];   // the assistant needs the update, not the ack result"),
-         assistant_call(wf, 660, 300),
-         node(wf, "Send reply", "n8n-nodes-base.telegram", 1.2, [880, 200],
-              {"chatId": "={{ $json.chat }}", "text": "={{ $json.reply }}", "additionalFields": {"appendAttribution": False}}, credentials=TG),
-         node(wf, "Friendly error", "n8n-nodes-base.telegram", 1.2, [880, 420],
-              {"chatId": "={{ $('Telegram').first().json.message.chat.id }}", "text": FRIENDLY, "additionalFields": {"appendAttribution": False}},
+         code(wf, "Original update", [880, 300], "return [$('Telegram').first()];   // the assistant needs the update, not the ack result"),
+         assistant_call(wf, 1100, 300),
+         node(wf, "Send reply", "n8n-nodes-base.telegram", 1.2, [1320, 200],
+              {"chatId": "={{ $json.chat }}", "text": "={{ $json.reply_tg }}", "additionalFields": TG_FIELDS}, credentials=TG),
+         node(wf, "Friendly error", "n8n-nodes-base.telegram", 1.2, [1320, 420],
+              {"chatId": "={{ $('Telegram').first().json.message.chat.id }}", "text": FRIENDLY, "additionalFields": TG_FIELDS},
               credentials=TG)]
-    n += log_nodes(wf, "Run", RUN_ROW, "/logs/runs.jsonl", 1100, 200, "telegram")
-    n += log_nodes(wf, "Error", ERR_ROW, "/logs/errors.jsonl", 1100, 420, "telegram")
-    links = [("Telegram", "Acknowledge"), ("Acknowledge", "Original update"), ("Original update", "Assistant"),
+    n += log_nodes(wf, "Run", RUN_ROW, "/logs/runs.jsonl", 1540, 200, "telegram")
+    n += log_nodes(wf, "Error", ERR_ROW, "/logs/errors.jsonl", 1540, 420, "telegram")
+    links = [("Telegram", "Needs ack?"), ("Needs ack?", "Ack?"), ("Ack?", "Acknowledge", 0), ("Ack?", "Original update", 1),
+             ("Acknowledge", "Original update"), ("Original update", "Assistant"),
              ("Assistant", "Send reply", 0), ("Assistant", "Friendly error", 1),
              ("Send reply", "Run row"), ("Run row", "Run to file"), ("Run to file", "Run append"),
              ("Friendly error", "Error row"), ("Error row", "Error to file"), ("Error to file", "Error append")]

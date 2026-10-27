@@ -14,7 +14,7 @@ Tout tourne en local dans Docker (réseau `campusflow-net`), avec des versions f
 |---|---|
 | `03a_wf3_telegram` | Entrée Telegram : accusé de réception immédiat, appel de l’assistant, réponse, journal |
 | `03b_wf3_test` | Entrée de test (POST JSON) pour l’évaluation, publiée seulement pendant une campagne |
-| `03_wf3_assistant` | Le cœur (42 nœuds) : Router → Vision / Regulations / Calendar / Admin → réponse fusionnée |
+| `03_wf3_assistant` | Le cœur (44 nœuds) : salutations et commandes, puis Router → Vision / Regulations / Calendar / Admin → réponse fusionnée |
 | `20_llm_call` | Tout appel de modèle : Gemini ou Ollama selon la configuration |
 | `10`–`12` | Outils de recherche exacte : calendrier, annuaire, catalogue des démarches |
 | `04_wf4_errors` | Workflow d’erreur : toute panne est journalisée |

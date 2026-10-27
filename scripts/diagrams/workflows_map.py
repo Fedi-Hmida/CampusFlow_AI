@@ -36,7 +36,7 @@ PANELS = [
     ("02_wf2_tables_check", "manual", "Table check (run once): reads the CSV tables and reports row counts"),
 ]
 # the assistant is 9 000 units wide: wrap it into three lines at its natural stages
-WRAP = {"03_wf3_assistant": [(0, 2900, "1 · Input, photo, Router, out-of-scope, Vision"),
+WRAP = {"03_wf3_assistant": [(0, 2900, "1 · Input, greetings / commands, photo, Router, out-of-scope, Vision"),
                              (3000, 5800, "2 · Regulations agent (RAG over Qdrant + checks + one revision)"),
                              (5900, 9100, "3 · Calendar and Admin agents (exact tools) → Output")]}
 STATUS = {"pub": ("Published", "#2e9e5b"), "test": ("Test only · off", "#c98a12"), "manual": ("Manual run", "#7d8794")}
@@ -158,7 +158,7 @@ def system_map():
         "harness": (10, 190, 130, "Eval harness", "Doua · T1–T5", "#c98a12"),
         "03a": (230, 70, 190, "03a_wf3_telegram", "entrance (bot)", "#2e9e5b"),
         "03b": (230, 190, 190, "03b_wf3_test", "entrance (tests)", "#c98a12"),
-        "03": (490, 120, 210, "03_wf3_assistant", "orchestrator · 42 nodes", "#13998f"),
+        "03": (490, 120, 210, "03_wf3_assistant", "orchestrator · 44 nodes", "#13998f"),
         "20": (790, 20, 170, "20_llm_call", "every model call", "#3b7dd8"),
         "tools": (790, 135, 170, "10 · 11 · 12", "lookup tools", "#e8833a"),
         "qdrant": (790, 250, 170, "Qdrant + bge-m3", "regs_structured · 168", "#7b5cd6"),

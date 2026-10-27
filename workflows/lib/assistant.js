@@ -120,11 +120,59 @@ function contactReply(res, draft, lang) {
   return out.join('\n');
 }
 
-function refusalReply(lang, injection) {
+// The student's own records (grades, absences, file) — the only out-of-scope case that names the registrar
+function isPersonal(question) {
+  const t = String(question ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  return /\b(ma|mes|mon)\s+(notes?|moyennes?|absences?|dossier|resultats?|bulletin|releve|classement)\b/.test(t);
+}
+
+function refusalReply(lang, injection, personal = false) {
   if (lang === 'en') return injection ? 'I cannot change my instructions. I can help with regulations, exam dates and administrative contacts.'
     : 'That is outside what I can help with. I answer questions on school regulations, exam dates and administrative contacts.';
-  return injection ? 'Je ne peux pas modifier mes consignes. Je peux t\'aider sur le règlement, les dates d\'examen et les contacts administratifs.'
-    : `Cette demande est hors de mon périmètre (je n'ai pas accès aux dossiers personnels). Je peux t'aider sur le règlement, les dates d'examen et les contacts administratifs ; pour ton dossier, contacte la scolarité (${CONTACT_DEFAULT}).`;
+  if (injection) return 'Je ne peux pas modifier mes consignes. Je peux t\'aider sur le règlement, les dates d\'examen et les contacts administratifs.';
+  return personal
+    ? `Cette demande est hors de mon périmètre (je n'ai pas accès aux dossiers personnels). Je peux t'aider sur le règlement, les dates d'examen et les contacts administratifs ; pour ton dossier, contacte la scolarité (${CONTACT_DEFAULT}).`
+    : "Cette demande est hors de mon périmètre. Je réponds sur le règlement de scolarité, les dates d'examen, les bureaux et démarches administratives, et je lis les photos de convocations ou d'emplois du temps. Écris /aide pour des exemples.";
+}
+
+// Greetings and commands are answered at once, without the Router (CF-406). A greeting followed by a question is a question.
+function smallTalk(text) {
+  const t = String(text ?? '').trim().toLowerCase();
+  if (!t) return null;
+  if (/^\/(reset|nouveau)\b/.test(t)) return 'reset';
+  if (t.startsWith('/')) return 'start';
+  if (/^(merci|thanks|thank you)(\s+(beaucoup|bien|a toi|à toi))?\s*[!.]*$/.test(t)) return 'thanks';
+  if (/^(bonjour|bonsoir|salut|hello|hi|hey|coucou|salam)(\s+\S{1,12})?\s*[!.]*$/.test(t)) return 'start';
+  return null;
+}
+
+function smallTalkReply(kind, lang) {
+  if (kind === 'reset') return "C'est reparti à zéro : j'ai oublié ton régime. Pose ta question (et précise cours du jour, du soir ou alternance si la règle en dépend).";
+  if (kind === 'thanks') return 'Avec plaisir ! Une autre question sur le règlement, un examen ou une démarche ?';
+  return [
+    "👋 Bonjour ! Je suis CampusFlow AI, l'assistant des étudiants d'ESPRIT (projet de cours ; certaines données sont des exemples fictifs, toujours signalés).",
+    'Je peux :',
+    '• répondre sur le règlement de scolarité, avec la source (document, article, page) ;',
+    "• donner la date, l'heure et la salle d'un examen ;",
+    "• te dire à quel bureau t'adresser et préparer un brouillon de demande ;",
+    "• lire la photo d'une convocation ou d'un emploi du temps.",
+    'Exemples :',
+    "– « C'est quand l'épreuve d'Advanced Deep Learning pour la classe 5DS6 ? »",
+    '– « Cours du jour : si on me surprend en train de tricher pendant un examen, je risque quoi ? »',
+    '– « À qui je demande une attestation de scolarité ? Je suis en 4SE1. »',
+    'Précise ton régime (cours du jour, du soir ou alternance) : les règles en dépendent. /reset pour repartir à zéro.',
+  ].join('\n');
+}
+
+// Telegram is sent as HTML: escaping makes it show exactly what we wrote (Markdown ate « [D1-…] »).
+function toTelegramHtml(text) {
+  return String(text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// A regime remembered from earlier messages is said, never applied silently.
+function regimeRecall(regime, lang) {
+  if (!regime || !REGIME_FR[regime]) return '';
+  return `ℹ️ Réponse pour le ${REGIME_FR[regime].replace(/^alternance$/, "régime de l'alternance")} (régime retenu de tes messages précédents ; écris /reset pour l'oublier).`;
 }
 
 function fallbackReply(lang) {
@@ -189,4 +237,4 @@ function hashChat(id) {
 }
 
 if (typeof module !== 'undefined') module.exports = { normalizeInput, regimeFromText, parseRouter, decidePaths, photoOnlyReply, ref, regulationsUser,
-  citations, calendarReply, contactReply, refusalReply, fallbackReply, mergeSections, contractResponse, hashChat, frDate, regimeNote, photoFacts };
+  citations, calendarReply, contactReply, refusalReply, isPersonal, smallTalk, smallTalkReply, toTelegramHtml, regimeRecall, fallbackReply, mergeSections, contractResponse, hashChat, frDate, regimeNote, photoFacts };

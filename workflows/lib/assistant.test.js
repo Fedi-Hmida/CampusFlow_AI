@@ -120,3 +120,37 @@ test('photoOnlyReply: what was read (labelled) + what do you want to know; unrel
   assert.match(A.photoOnlyReply({ document_type: 'unrelated' }, 'fr'), /ne ressemble pas/);
   assert.match(A.photoOnlyReply({ image_readable: false }, 'fr'), /n'arrive pas à lire/);
 });
+
+// CF-406 — Telegram UX found live on 27 Oct: « Bonjour » refused, citations' brackets eaten by Markdown,
+// remembered regime applied silently.
+test('smallTalk: greetings and commands are recognised; a greeting followed by a question is not', () => {
+  for (const t of ['/start', 'Bonjour', 'Salut !', 'bonsoir', 'Hello', '/aide', '/help', '/foo']) assert.equal(A.smallTalk(t), 'start', t);
+  for (const t of ['Merci', 'merci beaucoup !', 'Thanks']) assert.equal(A.smallTalk(t), 'thanks', t);
+  assert.equal(A.smallTalk('/reset'), 'reset');
+  for (const t of ["Bonjour, c'est quand l'examen de DS14 ?", 'Je suis en cours du soir', '', null]) assert.equal(A.smallTalk(t), null, String(t));
+});
+
+test('smallTalkReply: welcome with examples and /reset; reset and thanks answers', () => {
+  const w = A.smallTalkReply('start', 'fr');
+  assert.match(w, /Exemples/); assert.match(w, /\/reset/); assert.match(w, /régime/);
+  assert.match(A.smallTalkReply('reset', 'fr'), /zéro/);
+  assert.match(A.smallTalkReply('thanks', 'fr'), /plaisir/);
+});
+
+test('refusalReply: personal-data wording only for personal questions', () => {
+  assert.match(A.refusalReply('fr', false, true), /dossiers personnels/);
+  const g = A.refusalReply('fr', false, false);
+  assert.match(g, /hors de mon périmètre/); assert.doesNotMatch(g, /dossiers personnels/);
+  assert.equal(A.isPersonal('Quelle est ma note en Probabilités ?'), true);
+  assert.equal(A.isPersonal('Quel temps fera-t-il demain ?'), false);
+});
+
+test('toTelegramHtml: text shown exactly as written (brackets kept, HTML escaped)', () => {
+  assert.equal(A.toTelegramHtml('a < b & c > d [D1-001, art. 7-8, p. 9] *x_y*'), 'a &lt; b &amp; c &gt; d [D1-001, art. 7-8, p. 9] *x_y*');
+});
+
+test('regimeRecall: says which remembered regime was used', () => {
+  const t = A.regimeRecall('soir', 'fr');
+  assert.match(t, /cours du soir/); assert.match(t, /\/reset/);
+  assert.equal(A.regimeRecall(null, 'fr'), '');
+});
