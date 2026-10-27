@@ -90,7 +90,24 @@ Open http://localhost:5678, create the owner account (skip the n8n Assistant), t
 
 Use **service names** (`ollama`, `qdrant`), not `localhost`: inside the n8n container, `localhost` is n8n itself.
 
-## 8. Import and test the smoke-test workflow
+## 8. Run the assistant (WF-3)
+The assistant is generated, not edited by hand: `scripts/workflows/build_wf3.py` builds it from the tested code in
+`workflows/lib/` (assistant.js, checks.js, lookup.js), the prompt versions and providers in `config/agents.json`.
+| Workflow | Role | Published? |
+|---|---|---|
+| `03a_wf3_telegram` | Telegram entry: acknowledgement → assistant → reply; friendly message on error; run log | **always** (only owner of the bot) |
+| `03_wf3_assistant` | the assistant: Router → vision / regulations / calendar / admin → merged reply | yes (sub-workflow, no URL) |
+| `20_llm_call` | one LLM call, Gemini or local Ollama | yes (sub-workflow, no URL) |
+| `10…12_tool_lookup_*` | exact lookups (exam, contact, request) | yes (sub-workflows, no URL) |
+| `04_wf4_errors` | logs unhandled errors to `logs/errors.jsonl` | yes (error trigger, no URL) |
+| `03b_wf3_test` | test entrance `POST /webhook/wf3-test` ([eval/e2e/CONTRACT.md](eval/e2e/CONTRACT.md)) | **only during a test run** |
+
+- Smoke test of the 8 cases (publishes the test entrance for the run, always unpublishes it):
+  `.venv\Scripts\python -X utf8 scripts\workflows\smoke_wf3.py [--mode hybrid|local]` → `eval/agents/wf3_smoke.md`.
+- Switch providers: `config/agents.json` `"mode": "hybrid"` (default) or `"local"`, then rebuild and re-import.
+- Run log: `logs/runs.jsonl` (one row per question: route, timings, checks, mode — no question text, no chat id).
+
+## 8b. Import and test the smoke-test workflow (Phase 0, retired since WF-3 owns the bot)
 1. n8n → **Create workflow → ⋯ → Import from File** → `workflows/00_smoke_test.json`.
 2. Open each node with a credential (Telegram Trigger, Gemini vision, Reply on Telegram) and select yours.
 3. Click **Publish** (top right). Do **not** click *Execute* while it is published (see troubleshooting).

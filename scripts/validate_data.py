@@ -391,6 +391,16 @@ if cfg_p.exists():
 else:
     check("config: config/agents.json present", False)
 
+# ---------------------------------------------------------------- workflows (ESA-401..403)
+wf_files = sorted((ROOT / "workflows").glob("*.json"))
+secret_hits = [p.name for p in wf_files if re.search(r"AIza[0-9A-Za-z_-]{20,}|\b\d{8,10}:AA[A-Za-z0-9_-]{30,}|ngrok[A-Za-z0-9_]{20,}", p.read_text(encoding="utf-8"))]
+check("workflows: no secret in any export (credentials referenced by id only)", not secret_hits, str(secret_hits))
+need = ["20_llm_call", "03_wf3_assistant", "03a_wf3_telegram", "03b_wf3_test", "04_wf4_errors"]
+check("workflows: assistant workflows present (WF-3 core, entries, LLM sub-workflow, WF-4)",
+      all((ROOT / f"workflows/{n}.json").exists() for n in need), str([n for n in need if not (ROOT / f"workflows/{n}.json").exists()]))
+act = [p.name for p in wf_files for w in (lambda x: x if isinstance(x, list) else [x])(json.loads(p.read_text(encoding="utf-8"))) if w.get("active")]
+check("workflows: none stored as active (publication is explicit, test entrances only during runs)", not act, str(act))
+
 # ---------------------------------------------------------------- privacy
 texts = list(T.glob("*.csv")) + list((ROOT / "eval").rglob("*.csv")) + list((ROOT / "eval").rglob("*.md")) + list(CLEAN.glob("*.json"))
 leaks = []

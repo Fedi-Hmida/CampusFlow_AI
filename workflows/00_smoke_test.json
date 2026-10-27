@@ -5,7 +5,7 @@
     "id": "cfSmokeTest00001",
     "name": "00_smoke_test",
     "description": null,
-    "active": true,
+    "active": false,
     "isArchived": false,
     "nodes": [
       {

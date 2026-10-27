@@ -26,3 +26,5 @@ __pycache__/
 data/raw/excluded/
 # cached question embeddings of the retrieval evaluation (re-creatable)
 eval/retrieval/question_vectors_*.json
+# WF-4 run log (local only)
+logs/

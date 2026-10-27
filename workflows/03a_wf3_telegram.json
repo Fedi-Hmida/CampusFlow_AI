@@ -1,0 +1,360 @@
+[
+ {
+  "id": "cfWF3Telegram001",
+  "name": "03a_wf3_telegram",
+  "active": false,
+  "settings": {
+   "executionOrder": "v1",
+   "errorWorkflow": "cfWF4Errors00001"
+  },
+  "nodes": [
+   {
+    "id": "48146b4e-3001-5bb2-8538-d155d4e635b2",
+    "name": "Telegram",
+    "type": "n8n-nodes-base.telegramTrigger",
+    "typeVersion": 1.2,
+    "position": [
+     0,
+     300
+    ],
+    "parameters": {
+     "updates": [
+      "message"
+     ],
+     "additionalFields": {
+      "download": true
+     }
+    },
+    "webhookId": "9e51ddec-9b7b-5e3e-9b70-3d9453ee117e",
+    "credentials": {
+     "telegramApi": {
+      "id": "cfTelegramBot001",
+      "name": "Telegram CampusFlowAI_bot"
+     }
+    }
+   },
+   {
+    "id": "5d316978-db55-51fd-8945-40a0e7fe738f",
+    "name": "Acknowledge",
+    "type": "n8n-nodes-base.telegram",
+    "typeVersion": 1.2,
+    "position": [
+     220,
+     300
+    ],
+    "parameters": {
+     "chatId": "={{ $json.message.chat.id }}",
+     "text": "Je cherche dans le règlement et les tables… (quelques secondes)",
+     "additionalFields": {
+      "appendAttribution": false
+     }
+    },
+    "credentials": {
+     "telegramApi": {
+      "id": "cfTelegramBot001",
+      "name": "Telegram CampusFlowAI_bot"
+     }
+    }
+   },
+   {
+    "id": "0e873477-81ab-5d18-a9ea-93393230db32",
+    "name": "Original update",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     440,
+     300
+    ],
+    "parameters": {
+     "jsCode": "return [$('Telegram').first()];   // the assistant needs the update, not the ack result"
+    }
+   },
+   {
+    "id": "ae3db65f-2721-506c-9597-fbb4a61dea57",
+    "name": "Assistant",
+    "type": "n8n-nodes-base.executeWorkflow",
+    "typeVersion": 1.2,
+    "position": [
+     660,
+     300
+    ],
+    "parameters": {
+     "source": "database",
+     "workflowId": {
+      "__rl": true,
+      "mode": "id",
+      "value": "cfWF3Assistant01"
+     },
+     "mode": "once",
+     "options": {
+      "waitForSubWorkflow": true
+     }
+    },
+    "onError": "continueErrorOutput"
+   },
+   {
+    "id": "ceff97f9-01aa-5664-85af-431e432c6952",
+    "name": "Send reply",
+    "type": "n8n-nodes-base.telegram",
+    "typeVersion": 1.2,
+    "position": [
+     880,
+     200
+    ],
+    "parameters": {
+     "chatId": "={{ $json.chat }}",
+     "text": "={{ $json.reply }}",
+     "additionalFields": {
+      "appendAttribution": false
+     }
+    },
+    "credentials": {
+     "telegramApi": {
+      "id": "cfTelegramBot001",
+      "name": "Telegram CampusFlowAI_bot"
+     }
+    }
+   },
+   {
+    "id": "ef2b8a3b-73b4-576c-885f-c2792f1c5dfa",
+    "name": "Friendly error",
+    "type": "n8n-nodes-base.telegram",
+    "typeVersion": 1.2,
+    "position": [
+     880,
+     420
+    ],
+    "parameters": {
+     "chatId": "={{ $('Telegram').first().json.message.chat.id }}",
+     "text": "Désolé, je n'ai pas pu traiter ta question à cause d'un problème technique. Réessaie dans un instant, ou contacte la scolarité (scolarite@esprit.tn).",
+     "additionalFields": {
+      "appendAttribution": false
+     }
+    },
+    "credentials": {
+     "telegramApi": {
+      "id": "cfTelegramBot001",
+      "name": "Telegram CampusFlowAI_bot"
+     }
+    }
+   },
+   {
+    "id": "758940c3-e86c-58fc-87f9-f9575e2c3a55",
+    "name": "Run row",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     1100,
+     200
+    ],
+    "parameters": {
+     "jsCode": "const SOURCE = \"telegram\";\n\n// One log row per run (ESA-403): what ran and how long — never the question text, the chat id or a name (NFR-03)\nconst r = $('Assistant').first().json.response;\nconst row = { ts: new Date().toISOString(), source: SOURCE, intents: r.route.intents, agents: r.route.agents, checks_pass: r.checks.pass,\n              failures: r.checks.failures, revised: r.revised, fallback: r.fallback, timings_s: r.timings_s, mode: r.mode, config: r.config };\nreturn [{ json: { line: JSON.stringify(row) + '\\n' } }];\n"
+    }
+   },
+   {
+    "id": "bce3fbe4-e094-50ae-bfd7-140e86c3abf6",
+    "name": "Run to file",
+    "type": "n8n-nodes-base.convertToFile",
+    "typeVersion": 1.1,
+    "position": [
+     1320,
+     200
+    ],
+    "parameters": {
+     "operation": "toText",
+     "sourceProperty": "line",
+     "options": {
+      "fileName": "runs.jsonl"
+     }
+    }
+   },
+   {
+    "id": "6932434e-ade4-5b9d-8767-23daa19f90e6",
+    "name": "Run append",
+    "type": "n8n-nodes-base.readWriteFile",
+    "typeVersion": 1.1,
+    "position": [
+     1540,
+     200
+    ],
+    "parameters": {
+     "operation": "write",
+     "fileName": "/logs/runs.jsonl",
+     "dataPropertyName": "data",
+     "options": {
+      "append": true
+     }
+    }
+   },
+   {
+    "id": "e3e95f92-86bb-5404-a055-f82118c05ad2",
+    "name": "Error row",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     1100,
+     420
+    ],
+    "parameters": {
+     "jsCode": "const SOURCE = \"telegram\";\n\nconst e = $('Assistant').first().json;\nconst row = { ts: new Date().toISOString(), source: SOURCE, error: String((e.error && (e.error.message || e.error)) || 'unknown').slice(0, 200) };\nreturn [{ json: { line: JSON.stringify(row) + '\\n' } }];\n"
+    }
+   },
+   {
+    "id": "eaad6732-832e-5deb-9a7a-9962e985e159",
+    "name": "Error to file",
+    "type": "n8n-nodes-base.convertToFile",
+    "typeVersion": 1.1,
+    "position": [
+     1320,
+     420
+    ],
+    "parameters": {
+     "operation": "toText",
+     "sourceProperty": "line",
+     "options": {
+      "fileName": "errors.jsonl"
+     }
+    }
+   },
+   {
+    "id": "707c7f09-710c-5ad9-b209-c9d993abb909",
+    "name": "Error append",
+    "type": "n8n-nodes-base.readWriteFile",
+    "typeVersion": 1.1,
+    "position": [
+     1540,
+     420
+    ],
+    "parameters": {
+     "operation": "write",
+     "fileName": "/logs/errors.jsonl",
+     "dataPropertyName": "data",
+     "options": {
+      "append": true
+     }
+    }
+   }
+  ],
+  "connections": {
+   "Telegram": {
+    "main": [
+     [
+      {
+       "node": "Acknowledge",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Acknowledge": {
+    "main": [
+     [
+      {
+       "node": "Original update",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Original update": {
+    "main": [
+     [
+      {
+       "node": "Assistant",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Assistant": {
+    "main": [
+     [
+      {
+       "node": "Send reply",
+       "type": "main",
+       "index": 0
+      }
+     ],
+     [
+      {
+       "node": "Friendly error",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Send reply": {
+    "main": [
+     [
+      {
+       "node": "Run row",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Run row": {
+    "main": [
+     [
+      {
+       "node": "Run to file",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Run to file": {
+    "main": [
+     [
+      {
+       "node": "Run append",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Friendly error": {
+    "main": [
+     [
+      {
+       "node": "Error row",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Error row": {
+    "main": [
+     [
+      {
+       "node": "Error to file",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Error to file": {
+    "main": [
+     [
+      {
+       "node": "Error append",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   }
+  },
+  "pinData": {},
+  "tags": []
+ }
+]

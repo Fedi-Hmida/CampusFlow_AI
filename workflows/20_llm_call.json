@@ -1,0 +1,206 @@
+[
+ {
+  "id": "cfLLMCall0000001",
+  "name": "20_llm_call",
+  "active": false,
+  "settings": {
+   "executionOrder": "v1",
+   "callerPolicy": "workflowsFromSameOwner"
+  },
+  "nodes": [
+   {
+    "id": "4e25ad36-5793-5727-804f-3ffdc73aac3a",
+    "name": "When called",
+    "type": "n8n-nodes-base.executeWorkflowTrigger",
+    "typeVersion": 1.1,
+    "position": [
+     0,
+     300
+    ],
+    "parameters": {
+     "inputSource": "passthrough"
+    }
+   },
+   {
+    "id": "adff8e32-c646-5495-8ef1-72b0cfca39b1",
+    "name": "Prepare",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     220,
+     300
+    ],
+    "parameters": {
+     "jsCode": "const CFG = {\"mode\": \"hybrid\", \"ack\": \"Je cherche dans le règlement et les tables… (quelques secondes)\", \"ack_local\": \"Je cherche dans le règlement… (jusqu'à 2 minutes en mode local)\", \"local_model\": \"qwen3:4b-instruct-2507-q4_K_M\", \"keep_alive\": \"30m\", \"config\": \"router v2 · regulations v2 · vision v4\", \"retrieval\": {\"collection\": \"regs_structured\", \"regime_filter\": true, \"official\": 3, \"fictitious\": 2}};\n\n\n// One LLM call. Input: item.json.llm = {provider, system, user, messages?, schema?, json?, max_tokens, temperature, image_b64?, image_mime?}\nconst L = $input.first().json.llm;\nif (!L) throw new Error('20_llm_call: missing llm parameters');\nconst t0 = Date.now();\nif (L.provider === 'gemini') {\n  const parts = [{ text: L.user }];\n  if (L.image_b64) parts.push({ inline_data: { mime_type: L.image_mime || 'image/jpeg', data: L.image_b64 } });\n  const cfg = { temperature: L.temperature ?? 0.1, maxOutputTokens: L.max_tokens ?? 200 };\n  if (L.json) cfg.responseMimeType = 'application/json';\n  const body = { contents: [{ role: 'user', parts }], generationConfig: cfg };\n  if (L.system) body.systemInstruction = { parts: [{ text: L.system }] };\n  return [{ json: { provider: 'gemini', body, t0 } }];\n}\nconst msgs = L.messages || [...(L.system ? [{ role: 'system', content: L.system }] : []), { role: 'user', content: L.user }];\nif (L.image_b64) msgs[msgs.length - 1].images = [L.image_b64];\nconst body = { model: CFG.local_model, messages: msgs, stream: false, keep_alive: CFG.keep_alive,\n               options: { temperature: L.temperature ?? 0, num_predict: L.max_tokens ?? 200 } };\nif (L.schema) body.format = L.schema; else if (L.json) body.format = 'json';\nreturn [{ json: { provider: 'ollama', body, t0 } }];\n"
+    }
+   },
+   {
+    "id": "2a271b60-e36b-59fa-8493-1f61891f4583",
+    "name": "Gemini?",
+    "type": "n8n-nodes-base.if",
+    "typeVersion": 2.2,
+    "position": [
+     440,
+     300
+    ],
+    "parameters": {
+     "conditions": {
+      "options": {
+       "caseSensitive": true,
+       "leftValue": "",
+       "typeValidation": "loose",
+       "version": 2
+      },
+      "conditions": [
+       {
+        "id": "4485c8f7-9570-55ef-97d6-299b06ba74e8",
+        "leftValue": "={{ $json.provider === 'gemini' }}",
+        "rightValue": "",
+        "operator": {
+         "type": "boolean",
+         "operation": "true",
+         "singleValue": true
+        }
+       }
+      ],
+      "combinator": "and"
+     },
+     "options": {}
+    }
+   },
+   {
+    "id": "39f4772f-ead4-5462-bdf4-c741cd74af26",
+    "name": "Gemini",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     660,
+     200
+    ],
+    "parameters": {
+     "method": "POST",
+     "url": "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify($json.body) }}",
+     "options": {
+      "timeout": 60000
+     },
+     "authentication": "predefinedCredentialType",
+     "nodeCredentialType": "googlePalmApi"
+    },
+    "retryOnFail": true,
+    "maxTries": 3,
+    "waitBetweenTries": 5000,
+    "credentials": {
+     "googlePalmApi": {
+      "id": "cfGeminiApi00001",
+      "name": "Google Gemini API"
+     }
+    }
+   },
+   {
+    "id": "d3b7a902-3177-57ff-ac3e-8668857f72a3",
+    "name": "Ollama",
+    "type": "n8n-nodes-base.httpRequest",
+    "typeVersion": 4.2,
+    "position": [
+     660,
+     420
+    ],
+    "parameters": {
+     "method": "POST",
+     "url": "http://ollama:11434/api/chat",
+     "sendBody": true,
+     "specifyBody": "json",
+     "jsonBody": "={{ JSON.stringify($json.body) }}",
+     "options": {
+      "timeout": 600000
+     }
+    },
+    "retryOnFail": true,
+    "maxTries": 3,
+    "waitBetweenTries": 5000
+   },
+   {
+    "id": "d0fcf3fd-690a-5627-8310-2bfddcf9e3ca",
+    "name": "Result",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     880,
+     300
+    ],
+    "parameters": {
+     "jsCode": "\nconst prep = $('Prepare').first().json;\nconst r = $input.first().json;\nlet text = '', pt = null, ot = null;\nif (prep.provider === 'gemini') {\n  text = (((r.candidates || [])[0] || {}).content || { parts: [{ text: '' }] }).parts.map(p => p.text || '').join('');\n  pt = (r.usageMetadata || {}).promptTokenCount ?? null; ot = (r.usageMetadata || {}).candidatesTokenCount ?? null;\n} else {\n  text = (r.message || {}).content || ''; pt = r.prompt_eval_count ?? null; ot = r.eval_count ?? null;\n}\nreturn [{ json: { text: text.trim(), provider: prep.provider, seconds: (Date.now() - prep.t0) / 1000, prompt_tokens: pt, output_tokens: ot } }];\n"
+    }
+   }
+  ],
+  "connections": {
+   "When called": {
+    "main": [
+     [
+      {
+       "node": "Prepare",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Prepare": {
+    "main": [
+     [
+      {
+       "node": "Gemini?",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Gemini?": {
+    "main": [
+     [
+      {
+       "node": "Gemini",
+       "type": "main",
+       "index": 0
+      }
+     ],
+     [
+      {
+       "node": "Ollama",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Gemini": {
+    "main": [
+     [
+      {
+       "node": "Result",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Ollama": {
+    "main": [
+     [
+      {
+       "node": "Result",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   }
+  },
+  "pinData": {},
+  "tags": []
+ }
+]

@@ -124,6 +124,15 @@ test('request: REQ-14 is for cours du jour only → not_applicable for soir', ()
   assert.equal(L.lookupRequest(REQ, DIR, { request_id: 'REQ-14', regime: 'soir' }).status, 'not_applicable');
 });
 
+test('request: student wording is mapped to catalogue wording (synonyms)', () => {
+  const ids = q => L.lookupRequest(REQ, DIR, { topic: q, regime: 'soir', class_group: '3A1' }).request?.request_id;
+  assert.equal(ids('je veux une double correction de mon examen'), 'REQ-11');
+  assert.equal(ids('contester ma note'), 'REQ-11');
+  assert.equal(ids("j'ai perdu ma convocation"), 'REQ-12');
+  assert.equal(ids('payer mes frais en plusieurs fois'), 'REQ-19');
+  assert.equal(ids('un certificat de scolarité'), 'REQ-01');
+});
+
 test('request: unknown id → not_found', () => {
   assert.equal(L.lookupRequest(REQ, DIR, { request_id: 'REQ-99' }).status, 'not_found');
 });

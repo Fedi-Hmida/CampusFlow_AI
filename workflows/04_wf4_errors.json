@@ -1,0 +1,108 @@
+[
+ {
+  "id": "cfWF4Errors00001",
+  "name": "04_wf4_errors",
+  "active": false,
+  "settings": {
+   "executionOrder": "v1"
+  },
+  "nodes": [
+   {
+    "id": "fbefa81f-603d-54a1-8ef8-7212f2fffaed",
+    "name": "On error",
+    "type": "n8n-nodes-base.errorTrigger",
+    "typeVersion": 1,
+    "position": [
+     0,
+     300
+    ],
+    "parameters": {}
+   },
+   {
+    "id": "e7f5c4c0-15c3-52bc-be8d-f2ae826125f0",
+    "name": "Error row",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     220,
+     300
+    ],
+    "parameters": {
+     "jsCode": "\n// ESA-403: any unhandled error of WF-3 (or its entries) → one row in /logs/errors.jsonl (no student data)\nconst x = $input.first().json;\nconst row = { ts: new Date().toISOString(), source: 'error-workflow', workflow: (x.workflow || {}).name || '',\n              node: (x.execution || {}).lastNodeExecuted || '', error: String(((x.execution || {}).error || {}).message || '').slice(0, 200) };\nreturn [{ json: { line: JSON.stringify(row) + '\\n' } }];\n"
+    }
+   },
+   {
+    "id": "dbe93993-69fa-5a0f-b30b-5bf0075923a4",
+    "name": "Error to file",
+    "type": "n8n-nodes-base.convertToFile",
+    "typeVersion": 1.1,
+    "position": [
+     440,
+     300
+    ],
+    "parameters": {
+     "operation": "toText",
+     "sourceProperty": "line",
+     "options": {
+      "fileName": "errors.jsonl"
+     }
+    }
+   },
+   {
+    "id": "d7197f15-01b8-5e0b-b6f5-02df666d7939",
+    "name": "Error append",
+    "type": "n8n-nodes-base.readWriteFile",
+    "typeVersion": 1.1,
+    "position": [
+     660,
+     300
+    ],
+    "parameters": {
+     "operation": "write",
+     "fileName": "/logs/errors.jsonl",
+     "dataPropertyName": "data",
+     "options": {
+      "append": true
+     }
+    }
+   }
+  ],
+  "connections": {
+   "On error": {
+    "main": [
+     [
+      {
+       "node": "Error row",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Error row": {
+    "main": [
+     [
+      {
+       "node": "Error to file",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Error to file": {
+    "main": [
+     [
+      {
+       "node": "Error append",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   }
+  },
+  "pinData": {},
+  "tags": []
+ }
+]
