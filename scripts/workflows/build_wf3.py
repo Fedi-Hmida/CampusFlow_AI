@@ -204,7 +204,7 @@ const route = parseRouter(out.text);
 state.route = route;
 state.lang = route.language === 'en' ? 'en' : 'fr';
 if (!state.input.regime && route.entities.regime) state.input.regime = route.entities.regime;
-state.paths = decidePaths(route, !!state.image);
+state.paths = decidePaths(route, !!state.image, state.input.question);
 state.timings.router = (Date.now() - state.tr) / 1000;
 return [{ json: { state } }];
 """
@@ -232,10 +232,11 @@ if (!ent.module && (v.module_code || v.module_name)) ent.module = v.module_code 
 if (!state.input.class_group && v.class_group) state.input.class_group = v.class_group;
 if (!ent.session && v.session) ent.session = v.session;
 if (!state.input.regime && v.regime) state.input.regime = v.regime;
+const bare = !state.input.question;   // photo without a caption (CF-405): say what was read and ask what they want
 // a convocation without any other intent → look the exam up in the calendar
-if (v.document_type === 'convocation' && !state.paths.includes('calendar') && (ent.module && state.input.class_group)) state.paths.push('calendar');
-const facts = [];
-if (v.document_type === 'unrelated') facts.push("Cette image ne ressemble pas à un document de l'école.");
+if (!bare && v.document_type === 'convocation' && !state.paths.includes('calendar') && (ent.module && state.input.class_group)) state.paths.push('calendar');
+const facts = bare ? [photoOnlyReply(v, state.lang)] : [];
+if (!bare && v.document_type === 'unrelated') facts.push("Cette image ne ressemble pas à un document de l'école.");
 if (v.injection_detected) facts.push("La photo contient un texte qui ressemble à une consigne adressée à un assistant : je l'ignore.");
 if (facts.length) state.sections.push({ title: 'Photo', text: facts.join(' ') });
 state.timings.vision = (Date.now() - state.tv) / 1000;
@@ -393,7 +394,7 @@ def wf3_workflow():
         iff(wf, "Vision?", [2200, 400], "$json.state.paths.includes('vision')"),
         code(wf, "Vision request", [2420, 320], VISION_REQ, [VIS_CONSTS]),
         call_wf(wf, "Vision", [2640, 320], LLM_ID),
-        code(wf, "Vision facts", [2860, 320], VISION_USE),
+        code(wf, "Vision facts", [2860, 320], VISION_USE, [ASSISTANT]),
         iff(wf, "Regulations?", [3080, 400], "$json.state.paths.includes('regulations')"),
         code(wf, "Retrieval start", [3300, 320], RETR_START),
         http(wf, "Embed question", [3520, 320], "http://ollama:11434/api/embed", EMBED_BODY, 60000),
