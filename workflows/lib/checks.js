@@ -63,6 +63,12 @@ function checkReply(reply, { retrieved = [], allowed = [] } = {}) {
   if (cites.some(c => fictifDocs.has(c.doc)) && !/fictif|fictive|demonstration|fictitious/.test(fold(text))) {
     add('fictif_labelled', 'cites a FICTITIOUS document without saying so');
   }
+  // The reverse mistake (CF-807): a demonstration label right after, or inside, an official reference
+  const labelled = /\[(d1-\d{3})(?:[^\]]*\]\s*\(?\s*|[^\]]*)(procedure de demonstration|fictif)/g;
+  for (const m of fold(text).matchAll(labelled)) {
+    const doc = m[1].toUpperCase();
+    if (!fictifDocs.has(doc)) add('official_labelled_fictif', `${doc} is official but labelled as a demonstration procedure`);
+  }
 
   if (/(j'ai|je l'ai|nous avons|a ete|ont ete)\s+(envoy|transmi)/.test(fold(text))) add('not_sent', 'claims something was sent');
 

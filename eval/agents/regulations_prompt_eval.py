@@ -38,18 +38,28 @@ def template(version: str) -> str:
     return m.group(1)
 
 
-def checks(rows: list[dict]) -> list[dict]:
-    """Run checks.js once for all replies (node)."""
-    js = ("const {checkReply}=require('./workflows/lib/checks.js');const x=JSON.parse(require('fs').readFileSync(0,'utf8'));"
-          "console.log(JSON.stringify(x.rows.map(r=>checkReply(r.reply,{retrieved:r.retrieved,allowed:x.allowed}))));")
-    payload = {"rows": [{"reply": r["reply"], "retrieved": r["retrieved"]} for r in rows], "allowed": EMAILS}
+# From v4 on, the bot repairs the citation format in code before its checks (assistant.js normalizeCitations,
+# CF-807): score exactly what the student sees. v1–v3 runs keep their original scoring.
+REPAIRED = lambda version: version not in ("v1", "v2", "v3")  # noqa: E731
+
+
+def checks(rows: list[dict], repair: bool = False) -> list[dict]:
+    """Run checks.js once for all replies (node); with repair, on the reply as the bot shows it."""
+    js = ("const {checkReply}=require('./workflows/lib/checks.js');const {normalizeCitations}=require('./workflows/lib/assistant.js');"
+          "const x=JSON.parse(require('fs').readFileSync(0,'utf8'));"
+          "console.log(JSON.stringify(x.rows.map(r=>{const f=new Set(r.retrieved.filter(c=>c.doc_status==='FICTITIOUS')"
+          ".flatMap(c=>c.article_keys.map(k=>k.split('/')[0])));const shown=x.repair?normalizeCitations(r.reply,f,/^(what|how|when|which|where|why|do|does|can|is|are)\b/i.test(r.q)?'en':'fr'):r.reply;"
+          "return {shown,...checkReply(shown,{retrieved:r.retrieved,allowed:x.allowed})};})));")
+    payload = {"rows": [{"reply": r["reply"], "retrieved": r["retrieved"], "q": r["question"]} for r in rows], "allowed": EMAILS, "repair": repair}
     return json.loads(subprocess.run(["node", "-e", js], cwd=ROOT, input=json.dumps(payload), capture_output=True,
                                      text=True, encoding="utf-8", check=True).stdout)
 
 
-def score(rows: list[dict]) -> dict:
-    for r, c in zip(rows, checks(rows)):
+def score(rows: list[dict], repair: bool = False) -> dict:
+    for r, c in zip(rows, checks(rows, repair)):
         r["checks_pass"], r["check_failures"] = c["pass"], [f["check"] for f in c["failures"]]
+        if repair:
+            r["shown"] = c["shown"]
         r["said_not_found"] = "non trouvée" in r["reply"].lower() or "not found" in r["reply"].lower()
         exp = [k for k in r["expected_article"].split("|") if k]
         cited = {f"{d}/{a}" for d, a in re.findall(r"\[(D1-\d{3}), art\. ([\w-]+)", r["reply"])}
@@ -57,7 +67,8 @@ def score(rows: list[dict]) -> dict:
     t1 = [r for r in rows if r["answerable"]]
     s = {"n": len(rows), "checks_pass": sum(r["checks_pass"] for r in rows),
          "failures": {f: sum(f in r["check_failures"] for r in rows) for f in sorted({f for r in rows for f in r["check_failures"]})},
-         "said_not_found": sum(r["said_not_found"] for r in rows), "seconds_mean": round(statistics.mean(r["seconds"] for r in rows), 2)}
+         "said_not_found": sum(r["said_not_found"] for r in rows), "seconds_mean": round(statistics.mean(r["seconds"] for r in rows), 2),
+         "tokens_max": max(r.get("output_tokens") or 0 for r in rows), "over_160_tokens": sum((r.get("output_tokens") or 0) > 160 for r in rows)}
     if t1:
         ans = [r for r in t1 if r["answerable"] == "yes"]
         una = [r for r in t1 if r["answerable"] == "no"]
@@ -75,7 +86,7 @@ def review_sheet(rows: list[dict], name: str) -> None:
          "The automatic checks (citations, numbers, dates, contacts, FICTIF label) are already in the header line.", ""]
     for r in rows:
         L += [f"## {r['id']} ({r['regime']}) — checks: {'PASS' if r['checks_pass'] else ', '.join(r['check_failures'])}", "",
-              f"**Question:** {r['question']}", "", "**Reply:**", "", "> " + r["reply"].replace("\n", "\n> "), "",
+              f"**Question:** {r['question']}", "", "**Reply:**", "", "> " + r.get("shown", r["reply"]).replace("\n", "\n> "), "",
               "**Excerpts used:** " + " · ".join(k for c in r["retrieved"] for k in c["article_keys"]), "",
               "- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____", ""]
     (OUT / f"review_{name}.md").write_text("\n".join(L) + "\n", encoding="utf-8")
@@ -120,7 +131,7 @@ def main() -> None:
                          "reply": out["text"].strip(), "seconds": out["seconds"], "output_tokens": out["output_tokens"]})
             print(f"{c['id']} {out['seconds']} s", flush=True)
             time.sleep(a.pause)
-    s = score(rows)
+    s = score(rows, REPAIRED(a.version))
     path.write_text(json.dumps({"version": a.version, "set": a.set, "via": a.via, "summary": s, "rows": rows}, ensure_ascii=False, indent=1) + "\n",
                     encoding="utf-8")
     review_sheet(rows, name)

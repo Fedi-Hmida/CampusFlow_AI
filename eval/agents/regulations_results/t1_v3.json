@@ -1,0 +1,1293 @@
+{
+ "version": "v3",
+ "set": "t1",
+ "via": "direct",
+ "summary": {
+  "n": 25,
+  "checks_pass": 25,
+  "failures": {},
+  "said_not_found": 3,
+  "seconds_mean": 1.76,
+  "expected_cited": "20/22",
+  "not_found_right": "3/3",
+  "not_found_wrong": 0
+ },
+ "rows": [
+  {
+   "id": "T1-01",
+   "regime": "jour",
+   "answerable": "yes",
+   "question": "Jsuis tombé malade le jour de mon exam final (grosse migraine), j'ai un certif du médecin : ça suffit pour le repasser ?",
+   "expected_article": "D1-001/7-8/Déroulement des épreuves",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 2 : Absence à un examen final ou à un devoir surveillé (DS)\nToute absence à une épreuve (examen, épreuve pratique ou devoir surveillé) entraîne la note zéro, sauf\njustificatif recevable.\nCours du jour : seuls les cas d'accident, de maladie contagieuse, d'hospitalisation ou de décès d'un parent\nproche sont considérés comme justificatifs pour une épreuve finale. Un certificat médical simple ne\nconstitue pas un justificatif.\nCours du soir et alternance : en cas de force majeure (hospitalisation, décès d'un parent ou mission de\ntravail), l'étudiant avise le responsable de la scolarité dans un délai ne dépassant pas 48 heures à compter\nde la date de l'épreuve, avec remise des pièces justificatives. Cours du soir : un simple certificat médical\nn'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être\nconsidéré comme un motif valable."
+    },
+    {
+     "article_keys": [
+      "D1-005/7/Distinction avec un justificatif d'absence"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : aménagements particuliers pour les examens\nArticle 7 : Distinction avec un justificatif d'absence\nUn aménagement est demandé avant l'épreuve pour pouvoir la passer. Un justificatif d'absence concerne\nune épreuve manquée et suit la procédure des absences. Un certificat médical simple ne constitue pas, en\ncours du jour, un justificatif d'absence à une épreuve finale."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-8/Déroulement des épreuves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-8 Déroulement des épreuves (suite)\n• Toute absence à une épreuve : examen, épreuve pratique ou devoir surveillé entraînera un\nzéro.\n• A la fin de l’épreuve, chaque étudiant doit remettre la copie d’examen.\nAbsence à un examen final ou à un DS :\nToute absence non justifiée à un examen entraînera un zéro. L’étudiant peut se présenter à la session\nde rattrapage si l’unité d’enseignement incluant le module n’est pas validée à la session principale.\nJustificatifs d’absence :\nSeuls les cas d’accidents, de maladies contagieuses, d’hospitalisations où de décès d’un parent proche\nsont considérés comme justificatif d’absence à une épreuve finale. Les certificats médicaux ne\nconstituent pas un justificatif d’absence. Toutefois, les demandes de repassage exceptionnelles sont\ntraitées au cas par cas et se font suite à un dépôt de dossier auprès de la scolarité qui prendra la charge\nde vérifier le justificatif et d’informer les parties concernées après concertation avec les chefs de\ndépartement respectifs de l’élève ingénieur.\nAbsence à une évaluation intermédiaire (suivi de TP, CC, test, etc..) :\nL’élève ingénieur est tenu de présenter un justificatif d’absence (hospitalisation, certificat médical,\netc.) à la scolarité qui informera les parties concernées après vérification du justificatif d’absence.\nGestion des fraudes\nToute fraude ou tentative de fraude lors d’un devoir surveillé ou d’un examen peut conduire son auteur\ndevant le conseil de discipline qui l’expose à des sanctions disciplinaires administratives et\npédagogiques.\nLes sanctions peuvent être sous forme d’avertissement, de blâme, d'interdiction de participation à une\nou deux des sessions d'examen, de privation du rachat, de privation de la mobilité internationale,\nd’exclusion de l'école pour une période d'une année universitaire au maximum, d'interdiction\nprovisoire d’inscription à l'établissement pour une période de deux années universitaires au maximum\nou de l'exclusion définitive de l'école."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-6/Session de rattrapage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-6 Session de rattrapage\nL’élève ingénieur, qui n’a pas été déclaré admis à la session principale, est autorisé à passer en\nsession de rattrapage l’épreuve de l’examen final.\nDeux configurations peuvent se présenter :\n▪ Moyenne générale en session principale est inférieure à 10/20 : l’étudiant a le droit de repasser\ntous les modules dont la moyenne est inférieure à 10/20.\n▪ Moyenne générale en session principale est supérieure ou égale à 10/20 : l’étudiant a le droit\nde repasser les modules dont la moyenne est inférieure à 10/20 des UE non validées (dont la\nmoyenne est inférieure à 8) relatives à l’année en cours ou aux années précédentes.\nValidation des Projets intégrés\nLes projets intégrés ne sont pas rattrapables et sont considérés comme crédits à valider lors d’une\nsession exceptionnelle de validation de projets. Ceci est valable pour les étudiants ayant réussi\nl’année en cours. Les étudiants redoublants doivent assister de nouveau aux séances\nd’encadrement pour valider les projets intégrés.\nRepassage d’un examen\nEn cas de repassage d’un examen pendant la session de rattrapage, la note obtenue remplace\nl’une des notes (contrôle continu ou examen de la session principale) avec la pondération\ncorrespondante. La note retenue est celle qui donne la meilleure moyenne du module. Trois cas\nde figures sont possibles :\n▪ Si la note obtenue à la session de rattrapage, considérée dans le calcul de la nouvelle moyenne\nen tant que note d’examen, donne la meilleure moyenne, elle sera retenue (itération 1).\n▪ Si la note obtenue à la session de rattrapage, considérée dans le calcul de la nouvelle moyenne\nen tant que note de contrôle continu, donne la meilleure moyenne, elle sera retenue (itération2).\n▪ Si la note obtenue à la session principale est supérieure à la note obtenue dans les deux\nitérations précédentes, elle sera celle retenue."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-7/Redoublement"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-7 Redoublement\nLe redoublement n'est toléré qu'une seule fois par cycle de formation. En un tel cas, deux cas de\nfigure se présentent :\n▪ Si l’UE a été validée l’année précédente avec une moyenne supérieure ou égale à 10/20 :\nL’élève peut passer tout module associé à cette UE dans le but d’améliorer sa moyenne\ngénérale. La nouvelle moyenne du module est calculée selon le mode d’évaluation décrit dans\nla fiche module de l’année en cours. Elle sera retenue si elle est supérieure à l'ancienne\nmoyenne.\n▪ Si l’UE n’a pas été validée l’année précédente (moyenne UE inférieure à 10/20) : l'élève doit\nobligatoirement repasser tous les modules dont la moyenne est inférieure à 10/20 de cette UE.\nIl est à préciser que leurs moyennes sont remises à zéro et que l’élève est tenu d’assister à\ntoutes les séances et de passer toutes les épreuves d’évaluation. Il est possible d’assister et de\nrepasser également les modules dont la moyenne est supérieure à 10/20 en vue d’une\namélioration de la moyenne générale.\nPar ailleurs, l'élève doit assister à tout nouveau module introduit dans le plan d’études et doit s’informer\nauprès du Chef de département par rapport aux modifications apportées à l'UE (ajout / suppression de\nmodules ou modification des coefficients des modules)."
+    }
+   ],
+   "reply": "Un simple certificat médical ne constitue pas un justificatif d'absence à une épreuve finale en cours du jour [D1-001, art. 7-8, p. 9]. Toutefois, les demandes de repassage exceptionnelles sont traitées au cas par cas après dépôt d'un dossier auprès de la scolarité [D1-001, art. 7-8, p. 9].",
+   "seconds": 6.13,
+   "output_tokens": 91,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-02",
+   "regime": "soir",
+   "answerable": "yes",
+   "question": "Cours du soir : j'ai loupé l'examen à cause d'une migraine et j'ai seulement un certificat médical, est-ce que ça marche ?",
+   "expected_article": "D1-002/7-2/Evaluation des élèves",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 2 : Absence à un examen final ou à un devoir surveillé (DS)\nToute absence à une épreuve (examen, épreuve pratique ou devoir surveillé) entraîne la note zéro, sauf\njustificatif recevable.\nCours du jour : seuls les cas d'accident, de maladie contagieuse, d'hospitalisation ou de décès d'un parent\nproche sont considérés comme justificatifs pour une épreuve finale. Un certificat médical simple ne\nconstitue pas un justificatif.\nCours du soir et alternance : en cas de force majeure (hospitalisation, décès d'un parent ou mission de\ntravail), l'étudiant avise le responsable de la scolarité dans un délai ne dépassant pas 48 heures à compter\nde la date de l'épreuve, avec remise des pièces justificatives. Cours du soir : un simple certificat médical\nn'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être\nconsidéré comme un motif valable."
+    },
+    {
+     "article_keys": [
+      "D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 7 : Fonctionnement de la session de rattrapage - cours du soir et alternance\nCours du soir : la session de rattrapage est planifiée par unité d'enseignement, de façon semestrielle.\nL'étudiant a le droit de s'inscrire au repassage de tous les examens des modules dont la moyenne est\ninférieure à 10/20. Si l'UE est validée en rattrapage, la note de l'examen de rattrapage est écrêtée à 10/20\n(classe ECTS E).\nAlternance : l'élève peut passer en rattrapage l'examen de tous les modules dont la moyenne est\ninférieure à 10/20. Les UE organisées exclusivement sous forme de TP ou de travaux personnalisés n'ont\npas d'examen final et ne sont pas rattrapables. Un projet (autre que le PFE) peut être validé, refusé ou\nfaire l'objet d'un rattrapage avec un complément de travaux.\nCours du soir : les UE de projets d'intégration ne sont pas rattrapables, comme en cours du jour."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-7/Session de rattrapage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-7 Session de rattrapage\nEn Cours du Soir, La session de rattrapage est planifiée par Unité d’Enseignement (UE) de façon\nsemestrielle.\nUne session de rattrapage est planifiée pour tous les modules. Si un étudiant valide une UE avec une\nmoyenne supérieure ou égale à 10/20, il cumule les ECTS affectés à l’UE, par conséquent, il n’est pas\nobligé de repasser toutes les épreuves des modules constituants l’UE. L’étudiant a le droit de s’inscrire\npour le repassage de tous les examens des modules dont la moyenne est inférieure à 10/20.\nA la fin de l'année universitaire, un Conseil de classe Annuel est planifié pour la session principale.\nToutes les UEs de l’année universitaire dont la moyenne est supérieure ou égale à 8/20 sont validées\npour un étudiant ayant une moyenne générale supérieure ou égale à 10/20.\nLes UEs qui sont organisées exclusivement sous forme de travaux pratiques, de travaux\npersonnalisés ou de projet n’ont pas d’examen final et ne peuvent pas faire l’objet de\nrattrapage.\nLes UEs concernant les projets d’intégration ne sont pas rattrapables."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-2/Evaluation des élèves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-2 Evaluation des élèves\nL’évaluation a pour objet de vérifier que l’élève a acquis les connaissances et compétences\ncorrespondant aux objectifs pédagogiques de l’enseignement dispensé et à juger de l’aptitude de l'élève\nà valider chaque UE.\nLes modalités d’évaluation, quelle que soit leurs formes, doivent garantir une totale équité entre les\nélèves.\nLe calendrier des examens est porté préalablement à la connaissance des élèves et des enseignants. Il\ndoit être respecté. L’absence à une épreuve entraîne la note zéro. Toutefois, et en cas d’empêchement\ndû à une force majeure (hospitalisation, décès d’un parent ou mission de travail), l’élève doit aviser le\nresponsable de la scolarité dans un délai ne dépassant pas 48h à compter de la date de l’épreuve avec\nremise des pièces justificatives. Une commission désignée par la direction de l’école étudie les différents\ncas et peut accorder ou refuser le repassage de l’examen. Il est à noter qu’un simple certificat médical\nn'est pas considéré comme un motif valable.\nL’étudiant peut déposer une demande de double correction d’une épreuve écrite auprès de service\nexamen dans un délai d’une semaine après l’affichage de la note de cette épreuve.\nL’évaluation du travail de l’élève est basée sur un système de contrôle continu et un examen final. Les\népreuves peuvent être écrites, orales ou pratiques. L’examen final est organisé en deux sessions :\n Une session principale\n Une session de rattrapage.\nLe contrôle continu comprend, selon la forme des enseignements propres à chaque module, des tests\nécrits et/ou oraux, des tests pratiques, des travaux personnalisés réalisés individuellement ou en groupe\net donnant lieu à un rapport écrit et/ou à une soutenance orale, et devoir surveillé, etc."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-9/Projet de Fin d’Etudes (PFE)"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-9 Projet de Fin d’Etudes (PFE)\nLe projet de fin d'études (PFE), d'une durée minimale de 5 mois, peut démarrer pour un étudiant inscrit\nen quatrième année Cours du Soir et a pour objectif la mise en pratique des connaissances acquises\ndurant le cursus. Il est à réaliser dans une entreprise.\nLe projet de fin d'études donne lieu à la rédaction d'un rapport et est couronné par une soutenance\ndevant un jury désigné par le directeur de l’école sur proposition du chef de la spécialité concernée. Ce\njury est composé au moins de trois membres dont le président du jury, le ou les encadrants et le\nrapporteur. Le directeur de l’École peut inviter, en outre, toute personne dont la compétence est\nreconnue dans le domaine pour faire partie du jury.\nNe sont autorisés à soutenir le projet de fin d’études que les élèves ayant réussi les examens de la\nquatrième année et ayant obtenu la validation de toutes les UE.\nLes élèves n’ayant pas obtenu la validation de leur stage et/ou n’ayant pas soutenu avec succès le projet\nde fin d’études et/ou n’ayant pas obtenu leurs certifications linguistiques, peuvent bénéficier d’une\nprolongation de scolarité d'une durée maximale de 6 mois.\nA l’issue de la prolongation, l’élève n’ayant pas validé son PFE, est considéré comme redoublant et doit\nrefaire son PFE avec un sujet différent si les conditions de redoublement sont satisfaites."
+    }
+   ],
+   "reply": "Non, un simple certificat médical pour une migraine n'est pas considéré comme un motif valable en cours du soir [D1-004, art. 2, p. 1 (procédure de démonstration), D1-002, art. 7-2, p. 5].",
+   "seconds": 0.94,
+   "output_tokens": 66,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": false
+  },
+  {
+   "id": "T1-03",
+   "regime": "alternance",
+   "answerable": "yes",
+   "question": "Je suis en alternance et j'étais malade le jour d'un examen, j'ai qu'un certificat du médecin. Je fais comment ?",
+   "expected_article": "D1-003/8/Absences des examens",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-003/8/Absences des examens"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 8 : Absences des examens\nLe calendrier des examens est porté préalablement à la connaissance des alternants et des enseignants. Il doit être\nrespecté. L’absence à une épreuve entraîne la note zéro. Toutefois, et en cas d’empêchement dû à une force\nmajeure (hospitalisation, décès d’un parent ou mission de travail), l’alternant doit aviser le responsable de la\nscolarité dans un délai ne dépassant pas 48h à compter de la date de l’épreuve avec remise des pièces justificatives.\nUne commission désignée par la direction de l’école étudie les différents cas et peut accorder ou refuser le\nrepassage de l’examen. Il est à noter qu’un simple certificat médical peut ne pas être considéré comme un motif\nvalable."
+    },
+    {
+     "article_keys": [
+      "D1-005/7/Distinction avec un justificatif d'absence"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : aménagements particuliers pour les examens\nArticle 7 : Distinction avec un justificatif d'absence\nUn aménagement est demandé avant l'épreuve pour pouvoir la passer. Un justificatif d'absence concerne\nune épreuve manquée et suit la procédure des absences. Un certificat médical simple ne constitue pas, en\ncours du jour, un justificatif d'absence à une épreuve finale."
+    },
+    {
+     "article_keys": [
+      "D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 2 : Absence à un examen final ou à un devoir surveillé (DS)\nToute absence à une épreuve (examen, épreuve pratique ou devoir surveillé) entraîne la note zéro, sauf\njustificatif recevable.\nCours du jour : seuls les cas d'accident, de maladie contagieuse, d'hospitalisation ou de décès d'un parent\nproche sont considérés comme justificatifs pour une épreuve finale. Un certificat médical simple ne\nconstitue pas un justificatif.\nCours du soir et alternance : en cas de force majeure (hospitalisation, décès d'un parent ou mission de\ntravail), l'étudiant avise le responsable de la scolarité dans un délai ne dépassant pas 48 heures à compter\nde la date de l'épreuve, avec remise des pièces justificatives. Cours du soir : un simple certificat médical\nn'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être\nconsidéré comme un motif valable."
+    },
+    {
+     "article_keys": [
+      "D1-003/3/Inscription"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 3 : Inscription :\nAfin de pouvoir suivre une formation à l’École, les alternants doivent être obligatoirement inscrits. Les modalités\nd’inscription sont définies dans la convention ESPRIT- ENTREPRISE qui cadre le partenariat de la formation par\napprentissage. Pour ce faire, ils doivent déposer un dossier d’inscription (les diplômes, les relevés de notes, le\ndossier médical et les attestations de stage)."
+    },
+    {
+     "article_keys": [
+      "D1-003/2/Statut Alternant"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 2 : Statut Alternant\nL’inscrit dans ce parcours de formation par apprentissage sera qualifié en tant qu’alternant. Il s’engage à\nparticiper à l’ensemble des activités pédagogiques (cours, séances pédagogiques à l’extérieur et séminaires\néventuels, …) organisées par ESPRIT et à se présenter aux épreuves du diplôme. L’alternant doit se mobiliser sur\nles missions et sur les objectifs qui lui sont confiés et répondre aux niveaux d'exigences du cahier des charges de\nla formation. Chaque alternant est responsable de la tenue de son journal de bord dans lequel sont consignées\ntoutes ses évaluations."
+    }
+   ],
+   "reply": "En cas d'empêchement, vous devez aviser le responsable de la scolarité dans un délai ne dépassant pas 48h avec les pièces justificatives [D1-003, art. 8, p. 7], sachant qu'un simple certificat médical peut ne pas être considéré comme un motif valable. Une commission étudiera votre cas pour décider du repassage [D1-003, art. 8, p. 7].",
+   "seconds": 3.45,
+   "output_tokens": 101,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-04",
+   "regime": "jour",
+   "answerable": "yes",
+   "question": "En cours du jour, il me faut combien de crédits pour être admis en année supérieure dès la session principale ?",
+   "expected_article": "D1-001/7-5/Conditions de passage en année supérieure",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-001/7-5/Conditions de passage en année supérieure"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-5 Conditions de passage en année supérieure\nL’admission à la session principale exige les conditions suivantes :\n▪ La moyenne générale doit être supérieure ou égale à 10/20.\n▪ Le nombre d’ECTS acquis pour l’année en cours doit être égal à 60 ECTS.\n▪ Le nombre d’ECTS antérieurs cumulés non validés doit être nul.\nL’admission à la session de contrôle exige les conditions suivantes :\n▪ La moyenne générale doit être supérieure ou égale à 10/20.\n▪ Le nombre d’ECTS antérieurs cumulés non validés doit être inférieur ou égal à 15.\nLes élèves, n’ayant pas satisfait les conditions d’admission en année supérieure précitées seront\ndéclarés redoublants."
+    },
+    {
+     "article_keys": [
+      "D1-004/6/Fonctionnement de la session de rattrapage - cours du jour"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 6 : Fonctionnement de la session de rattrapage - cours du jour\nL'élève non déclaré admis à la session principale est autorisé à passer l'épreuve d'examen final en\nsession de rattrapage.\nSi la moyenne générale de la session principale est inférieure à 10/20, l'étudiant peut repasser tous les\nmodules dont la moyenne est inférieure à 10/20.\nSi la moyenne générale est supérieure ou égale à 10/20, l'étudiant peut repasser les modules dont la\nmoyenne est inférieure à 10/20 appartenant à des UE non validées (moyenne inférieure à 8/20), de\nl'année en cours ou des années précédentes. Les projets intégrés ne sont pas rattrapables ; ils sont à\nvalider lors d'une session exceptionnelle de validation de projets.\nEn cas de repassage, la note obtenue remplace l'une des notes (contrôle continu ou examen de la session\nprincipale) avec la pondération correspondante, et la note retenue est celle qui donne la meilleure\nmoyenne du module."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-6/Session de rattrapage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-6 Session de rattrapage\nL’élève ingénieur, qui n’a pas été déclaré admis à la session principale, est autorisé à passer en\nsession de rattrapage l’épreuve de l’examen final.\nDeux configurations peuvent se présenter :\n▪ Moyenne générale en session principale est inférieure à 10/20 : l’étudiant a le droit de repasser\ntous les modules dont la moyenne est inférieure à 10/20.\n▪ Moyenne générale en session principale est supérieure ou égale à 10/20 : l’étudiant a le droit\nde repasser les modules dont la moyenne est inférieure à 10/20 des UE non validées (dont la\nmoyenne est inférieure à 8) relatives à l’année en cours ou aux années précédentes.\nValidation des Projets intégrés\nLes projets intégrés ne sont pas rattrapables et sont considérés comme crédits à valider lors d’une\nsession exceptionnelle de validation de projets. Ceci est valable pour les étudiants ayant réussi\nl’année en cours. Les étudiants redoublants doivent assister de nouveau aux séances\nd’encadrement pour valider les projets intégrés.\nRepassage d’un examen\nEn cas de repassage d’un examen pendant la session de rattrapage, la note obtenue remplace\nl’une des notes (contrôle continu ou examen de la session principale) avec la pondération\ncorrespondante. La note retenue est celle qui donne la meilleure moyenne du module. Trois cas\nde figures sont possibles :\n▪ Si la note obtenue à la session de rattrapage, considérée dans le calcul de la nouvelle moyenne\nen tant que note d’examen, donne la meilleure moyenne, elle sera retenue (itération 1).\n▪ Si la note obtenue à la session de rattrapage, considérée dans le calcul de la nouvelle moyenne\nen tant que note de contrôle continu, donne la meilleure moyenne, elle sera retenue (itération2).\n▪ Si la note obtenue à la session principale est supérieure à la note obtenue dans les deux\nitérations précédentes, elle sera celle retenue."
+    },
+    {
+     "article_keys": [
+      "D1-001/7/Régime des examens",
+      "D1-001/7-1/Le système ECTS"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 7 : Régime des examens\n7-1 Le système ECTS\nLe système ECTS est un système de transfert et d’accumulation de crédits (European Credit Transfert\nSystem). Il repose sur la transparence des résultats et le processus d’apprentissage. Il vise à faciliter\nla planification, la délivrance, l’évaluation, la reconnaissance et la validation des unités\nd’enseignement. Dans le système ECTS, la formulation des résultats d’apprentissage constitue la base\nde l’évaluation de la charge de travail, et par conséquent de l’adéquation des crédits. Les crédits ECTS\nsont attribués à des programmes d’études ainsi qu’à leurs différentes composantes pédagogiques\ndésignées par les UE (par exemple cours, mémoires, stages, travaux en laboratoire, etc.).\n60 crédits ECTS correspondent à la charge de travail d’une année à plein temps dans le cadre d’un\nprogramme d’enseignement. A chaque Unité d’Enseignement est affecté un nombre de crédits ECTS\nqui correspond également au coefficient utilisé pour le calcul de la moyenne générale."
+    },
+    {
+     "article_keys": [
+      "D1-007/2/Conditions de démarrage"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : dépôt du rapport et soutenance du projet de fin d'études\nArticle 2 : Conditions de démarrage\nCours du jour : le stage de PFE, d'une durée minimale de 6 mois (26 semaines, 30 ECTS), démarre après\nla validation du premier semestre de la 5ème année et la validation des crédits antérieurs dépassant le\nseuil minimal autorisé par le conseil de classe.\nCours du soir : durée minimale de 5 mois, à réaliser en entreprise, en 4ème année. Alternance : le PFE\npeut démarrer en 4ème année ; seuls les élèves ayant réussi les examens de la 4ème année et validé\ntoutes les UE peuvent soutenir."
+    }
+   ],
+   "reply": "En cours du jour, l'admission dès la session principale exige un total de 60 ECTS acquis pour l'année en cours [D1-001, art. 7-5, p. 7]. De plus, il faut obtenir une moyenne générale supérieure ou égale à 10/20 et avoir un nombre d'ECTS antérieurs cumulés non validés nul [D1-001, art. 7-5, p. 7].",
+   "seconds": 1.06,
+   "output_tokens": 102,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-05",
+   "regime": "soir",
+   "answerable": "yes",
+   "question": "cours du soir : aprés le rattrapage, je peux passer en année sup avec combien d'ECTS de retard au maximum ?",
+   "expected_article": "D1-002/7-5/Conditions de passage en année supérieure",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-002/7-7/Session de rattrapage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-7 Session de rattrapage\nEn Cours du Soir, La session de rattrapage est planifiée par Unité d’Enseignement (UE) de façon\nsemestrielle.\nUne session de rattrapage est planifiée pour tous les modules. Si un étudiant valide une UE avec une\nmoyenne supérieure ou égale à 10/20, il cumule les ECTS affectés à l’UE, par conséquent, il n’est pas\nobligé de repasser toutes les épreuves des modules constituants l’UE. L’étudiant a le droit de s’inscrire\npour le repassage de tous les examens des modules dont la moyenne est inférieure à 10/20.\nA la fin de l'année universitaire, un Conseil de classe Annuel est planifié pour la session principale.\nToutes les UEs de l’année universitaire dont la moyenne est supérieure ou égale à 8/20 sont validées\npour un étudiant ayant une moyenne générale supérieure ou égale à 10/20.\nLes UEs qui sont organisées exclusivement sous forme de travaux pratiques, de travaux\npersonnalisés ou de projet n’ont pas d’examen final et ne peuvent pas faire l’objet de\nrattrapage.\nLes UEs concernant les projets d’intégration ne sont pas rattrapables."
+    },
+    {
+     "article_keys": [
+      "D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 7 : Fonctionnement de la session de rattrapage - cours du soir et alternance\nCours du soir : la session de rattrapage est planifiée par unité d'enseignement, de façon semestrielle.\nL'étudiant a le droit de s'inscrire au repassage de tous les examens des modules dont la moyenne est\ninférieure à 10/20. Si l'UE est validée en rattrapage, la note de l'examen de rattrapage est écrêtée à 10/20\n(classe ECTS E).\nAlternance : l'élève peut passer en rattrapage l'examen de tous les modules dont la moyenne est\ninférieure à 10/20. Les UE organisées exclusivement sous forme de TP ou de travaux personnalisés n'ont\npas d'examen final et ne sont pas rattrapables. Un projet (autre que le PFE) peut être validé, refusé ou\nfaire l'objet d'un rattrapage avec un complément de travaux.\nCours du soir : les UE de projets d'intégration ne sont pas rattrapables, comme en cours du jour."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-5/Conditions de passage en année supérieure"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-5 Conditions de passage en année supérieure\nLes règles de passage en année supérieure sont résumées dans le tableau suivant.\n[Tableau p.6]\nSession: Principale; Conditions d'admission: • Moyenne générale >= 10/20 • Nombre de crédits acquis pour l’année en cours = 40 ECTS. • Déficit cumulé = 0 ECTS\nSession: Rattrapage; Conditions d'admission: • Moyenne générale >= 10/20 • Déficit cumulé <= 10 ECTS (Il doit être égal à 0 ECTS si l'élève est en 4ème année)\nLes élèves, n’ayant pas satisfait les conditions précitées d’admission en année supérieure, sont\nconsidérés comme des cas spécifiques qui seront soumis au « Conseil Annuel » pour délibération. Il s’agit\nprécisément des élèves ayant obtenu après rattrapage une moyenne générale supérieure ou égale à\n10/20 et ayant totalisé un déficit cumulé supérieur à 10 ECTS, et des élèves n’ayant pas obtenu la\nmoyenne générale au terme de la session de rattrapage. Le « Conseil Annuel » peut prononcer pour ces\ncas soit l’admission en année supérieure avec ou sans déficit, soit le redoublement, soit l'exclusion."
+    },
+    {
+     "article_keys": [
+      "D1-004/6/Fonctionnement de la session de rattrapage - cours du jour"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 6 : Fonctionnement de la session de rattrapage - cours du jour\nL'élève non déclaré admis à la session principale est autorisé à passer l'épreuve d'examen final en\nsession de rattrapage.\nSi la moyenne générale de la session principale est inférieure à 10/20, l'étudiant peut repasser tous les\nmodules dont la moyenne est inférieure à 10/20.\nSi la moyenne générale est supérieure ou égale à 10/20, l'étudiant peut repasser les modules dont la\nmoyenne est inférieure à 10/20 appartenant à des UE non validées (moyenne inférieure à 8/20), de\nl'année en cours ou des années précédentes. Les projets intégrés ne sont pas rattrapables ; ils sont à\nvalider lors d'une session exceptionnelle de validation de projets.\nEn cas de repassage, la note obtenue remplace l'une des notes (contrôle continu ou examen de la session\nprincipale) avec la pondération correspondante, et la note retenue est celle qui donne la meilleure\nmoyenne du module."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-6/Classement par unité d'enseignement"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-6 Classement par unité d'enseignement\nLes élèves d’une promotion ayant validé une UE, en session principale, sont classés par ordre de mérite\nen leur affectant selon leur moyenne dans l’UE la classe A pour les premiers 10%, la classe B pour les\n30% suivants, la classe C pour les 30% suivants et la classe D pour les 30% restants de l’échelle de notation\nECTS. Lorsque la validation est faite en session de rattrapage les élèves sont affectés à la classe E et la\nnote obtenue à l’examen de rattrapage est écrêtée à 10/20. Les élèves n’ayant pas validé une UE sont\naffectés soit à la classe Fx si la note de la dite UE est supérieure ou égale à 08/20, soit à la classe F si la\nnote de ladite UE est inférieure à 08/20.\n[Tableau p.7]\nNote ECTS: A; Pourcentage d'élèves admis: 10% des meilleures notes obtenues en session principale\nNote ECTS: B; Pourcentage d'élèves admis: 30% suivantes obtenues en session principale\nNote ECTS: C; Pourcentage d'élèves admis: 30% suivantes obtenues en session principale\nNote ECTS: D; Pourcentage d'élèves admis: 30% suivantes obtenues en session principale\nNote ECTS: E; Pourcentage d'élèves admis: UE validée après la session de rattrapage (note finale écrêtée à 10/20)\nNote ECTS: Fx; Pourcentage d'élèves admis: UE non validée (note obtenue en session principale entre 08/20 et 10/20)\nNote ECTS: F; Pourcentage d'élèves admis: UE non validée (note obtenue en session principale inférieure à 08/20)"
+    }
+   ],
+   "reply": "En cours du soir après le rattrapage, vous pouvez passer en année supérieure avec un déficit cumulé inférieur ou égal à 10 ECTS, à condition d'avoir une moyenne générale supérieure ou égale à 10/20 [D1-002, art. 7-5, p. 6]. Ce déficit cumulé doit être égal à 0 ECTS si vous êtes en 4ème année [D1-002, art. 7-5, p. 6].",
+   "seconds": 0.92,
+   "output_tokens": 109,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-06",
+   "regime": "alternance",
+   "answerable": "yes",
+   "question": "Alternance : aprés le rattrapage, je peux passer en année sup avec combien d'ECTS de retard au maximum ?",
+   "expected_article": "D1-003/7-6/Conditions de passage en année supérieure",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 7 : Fonctionnement de la session de rattrapage - cours du soir et alternance\nCours du soir : la session de rattrapage est planifiée par unité d'enseignement, de façon semestrielle.\nL'étudiant a le droit de s'inscrire au repassage de tous les examens des modules dont la moyenne est\ninférieure à 10/20. Si l'UE est validée en rattrapage, la note de l'examen de rattrapage est écrêtée à 10/20\n(classe ECTS E).\nAlternance : l'élève peut passer en rattrapage l'examen de tous les modules dont la moyenne est\ninférieure à 10/20. Les UE organisées exclusivement sous forme de TP ou de travaux personnalisés n'ont\npas d'examen final et ne sont pas rattrapables. Un projet (autre que le PFE) peut être validé, refusé ou\nfaire l'objet d'un rattrapage avec un complément de travaux.\nCours du soir : les UE de projets d'intégration ne sont pas rattrapables, comme en cours du jour."
+    },
+    {
+     "article_keys": [
+      "D1-003/7-6/Conditions de passage en année supérieure"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\n7-6 Conditions de passage en année supérieure\nLes règles de passage en année supérieure sont résumées dans le tableau suivant :\n[Tableau p.5]\nSession: Principale; Conditions d'admission:  Moyenne générale >= 10/20  Nombre de crédits acquis pour l’année en cours égal à 45 ECTS  Déficit cumulé = 0 ECTS\nSession: Rattrapage; Conditions d'admission:  Moyenne générale >= 10/20  Déficit cumulé <= 12 ECTS (Il doit être égal à 0 ECTS si l'élève est en 4ème année)\nL’admission à la session principale exige les conditions suivantes :\n▪ La moyenne générale doit être supérieure ou égale à 10/20.\n▪ Le nombre d’ECTS acquis pour l’année en cours doit être égal à 45 ECTS.\n▪ Le nombre d’ECTS antérieurs cumulés non validés doit être nul.\nL’admission à la session de contrôle exige les conditions suivantes :\n▪ La moyenne générale doit être supérieure ou égale à 10/20.\n▪ Le nombre d’ECTS antérieurs cumulés non validés doit être inférieur ou égal à 12.\nLes élèves, n’ayant pas satisfait les conditions précitées d’admission en année supérieure seront déclaré\nredoublants"
+    },
+    {
+     "article_keys": [
+      "D1-004/0/Préambule"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nEcole Supérieure Privée d'Ingénierie et de Technologies (ESPRIT)\nProcédure : absences, justificatifs et sessions de rattrapage\nVersion d'octobre 2026\nRéférence : ESPRIT-ABS-01\nPublic concerné : Cours du jour, cours du soir, alternance (règles distinguées par régime)\nAnnée de référence : 2024-2025"
+    },
+    {
+     "article_keys": [
+      "D1-003/9/Conditions d’obtention du diplôme"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 9 : Conditions d’obtention du diplôme\nLe diplôme d’ingénieur ESPRIT est délivré aux élèves de quatrième année ayant :\n Obtenu la validation de toutes les UE, et par conséquent, la totalité des crédits ECTS correspondants aux\nquatre années d’études.\n Atteint le niveau B2 de certifications en langues française et anglaise suite aux examens internes. A défaut,\nl’élève doit justifier d’une certification internationale équivalente au niveau B2 (TOIEC ≥720, TEF ≥ 534) en\ncours de validité et délivrée par un centre agréé.\n Obtenu une note supérieure ou égale à 10/20 au projet de fin d’études.\n Obtenu un quitus administratif délivré par la Scolarité de l’École attestant que l’élève a rempli toutes ses\nobligations administratives et légales vis-à-vis de l’École\nA la fin de sa scolarité et en cas de succès, chaque alternant reçoit son diplôme, éventuellement son Supplément\nau Diplôme (SD), le relevé de notes de la quatrième année et l'attestation de diplôme. Le SD est un document qui\ndonne une idée à l’employeur sur la nature et le niveau de qualification du diplômé, son parcours, et la spécificité\nde l’institution qui lui a délivré son diplôme."
+    },
+    {
+     "article_keys": [
+      "D1-003/7-7/Redoublement"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\n7-7 Redoublement\nLe redoublement est autorisé une seule fois au cours des quatre années de la scolarité.\nEn cas de redoublement, les UE sont de deux types :\n- UE validée durant l’année précédente : dans ce cas, l’élève peut repasser tout module composant l’UE dans\nle but d’améliorer sa moyenne générale. La nouvelle moyenne du module est calculée selon la même\nprocédure décrite dans le paragraphe 7.3. Elle sera retenue si elle est supérieure à l'ancienne moyenne.\n- UE non validée durant l’année précédente (moyenne UE inférieure à 10/20) : dans ce cas, l'élève doit\nobligatoirement repasser tous les modules dont la moyenne est inférieure à 10/20 de l'UE non validée. Tous\nles résultats obtenus l’année précédente dans ces modules sont annulés et l’élève est tenu d’assister à\ntoutes les séances, de passer toutes les épreuves d’évaluation : contrôle continu, TP, test, examen, etc.\n- L'élève doit assister à tout nouveau module introduit dans le programme.\n- En cas de modification dans l'UE (ajout / suppression de modules ou modification des coefficients des\nmodules), l'élève doit contacter le directeur de la formation.\nIl est vivement recommandé à l’élève d’assister à tous les modules même s’ils sont validés."
+    }
+   ],
+   "reply": "Après la session de rattrapage, un étudiant en alternance peut passer en année supérieure avec un déficit cumulé maximal de 12 ECTS [D1-003, art. 7-6, p. 5]. Ce déficit doit cependant être égal à 0 ECTS si l'élève est en 4ème année [D1-003, art. 7-6, p. 5].",
+   "seconds": 1.11,
+   "output_tokens": 91,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-07",
+   "regime": "jour",
+   "answerable": "yes",
+   "question": "j'ai raté 2 jours de cours pour raison médicale (cours du jour), j'ai combien de temps pour envoyer mon justificatif ?",
+   "expected_article": "D1-001/9/Assiduité",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 2 : Absence à un examen final ou à un devoir surveillé (DS)\nToute absence à une épreuve (examen, épreuve pratique ou devoir surveillé) entraîne la note zéro, sauf\njustificatif recevable.\nCours du jour : seuls les cas d'accident, de maladie contagieuse, d'hospitalisation ou de décès d'un parent\nproche sont considérés comme justificatifs pour une épreuve finale. Un certificat médical simple ne\nconstitue pas un justificatif.\nCours du soir et alternance : en cas de force majeure (hospitalisation, décès d'un parent ou mission de\ntravail), l'étudiant avise le responsable de la scolarité dans un délai ne dépassant pas 48 heures à compter\nde la date de l'épreuve, avec remise des pièces justificatives. Cours du soir : un simple certificat médical\nn'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être\nconsidéré comme un motif valable."
+    },
+    {
+     "article_keys": [
+      "D1-004/5/Absence à une évaluation intermédiaire et assiduité"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 5 : Absence à une évaluation intermédiaire et assiduité\nPour un suivi de TP, un contrôle continu ou un test, l'étudiant présente un justificatif d'absence à la\nscolarité, qui informe les parties concernées après vérification (cours du jour).\nCours du jour : en cas d'absence pour raison médicale ou de force majeure, le justificatif est adressé au\nservice de scolarité dans un délai maximal d'une semaine.\nCours du soir et alternance : le certificat médical ou justificatif est adressé à la scolarité au plus tard le\nlendemain du début de l'empêchement. Au-delà de trois absences non justifiées à un module, un\navertissement est adressé à l'élève ; en cas de récidive, son dossier est soumis aux instances\nadministratives qui peuvent l'exclure de l'école.\nLa présence à tous les contrôles est obligatoire : toute absence non justifiée entraîne la note zéro."
+    },
+    {
+     "article_keys": [
+      "D1-001/3/Inscription des élèves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 3 : Inscription des élèves\nAfin de pouvoir suivre une formation à l’école, les élèves doivent être inscrits. Pour ce faire, ils doivent\ndéposer un dossier d’inscription (les diplômes, les relevés de notes, le dossier médical et les\nattestations de stage) et s'acquitter des frais de scolarité dont ils sont redevables dans les délais fixés\npar l’Administration.\n● Report d’inscription\nLe report d’inscription consiste en la possibilité de reporter l’inscription actuelle à un délai ultérieur.\n- Chaque étudiant bénéficie d’un seul report d’inscription sur la durée totale de la scolarité.\n- Un formulaire de demande du report doit être rempli et déposé au bureau d’ordre de l’école.\n- Pour bénéficier de la possibilité de remboursement des frais, les demandes de report d'inscription\ndoivent être déposées au plus tard le 30 novembre de l’année en cours.\n- Si les délais sont respectés, l’étudiant a le droit au remboursement des frais de scolarité à l’exception\ndes frais d’inscription.\n● Annulation d'inscription :\nL’annulation d’inscription consiste au retrait de l'inscription de l’année en cours et/ou à l’abandon\ndéfinitif du cursus de formation. En cas d’annulation, un formulaire de demande d’annulation doit être\nrempli et déposé au bureau d’ordre de l’école.\nTrois configurations peuvent se présenter :\na) la demande d’annulation est déposée avant le 30 novembre : l’étudiant a le droit au remboursement\ndes frais de scolarité à l’exception des frais d’inscription.\nb) la demande d'annulation est déposée entre le 1er décembre et le 31 janvier : Les frais de scolarité\nrelatifs à la première tranche sont retenus, ils ne sont pas remboursés. L’étudiant a le droit au\nremboursement de la partie restante des frais de scolarité.\nc) la demande d'annulation est déposée à partir du 1er février :\nAucun remboursement ne sera effectué."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-8/Déroulement des épreuves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-8 Déroulement des épreuves (suite)\n• Toute absence à une épreuve : examen, épreuve pratique ou devoir surveillé entraînera un\nzéro.\n• A la fin de l’épreuve, chaque étudiant doit remettre la copie d’examen.\nAbsence à un examen final ou à un DS :\nToute absence non justifiée à un examen entraînera un zéro. L’étudiant peut se présenter à la session\nde rattrapage si l’unité d’enseignement incluant le module n’est pas validée à la session principale.\nJustificatifs d’absence :\nSeuls les cas d’accidents, de maladies contagieuses, d’hospitalisations où de décès d’un parent proche\nsont considérés comme justificatif d’absence à une épreuve finale. Les certificats médicaux ne\nconstituent pas un justificatif d’absence. Toutefois, les demandes de repassage exceptionnelles sont\ntraitées au cas par cas et se font suite à un dépôt de dossier auprès de la scolarité qui prendra la charge\nde vérifier le justificatif et d’informer les parties concernées après concertation avec les chefs de\ndépartement respectifs de l’élève ingénieur.\nAbsence à une évaluation intermédiaire (suivi de TP, CC, test, etc..) :\nL’élève ingénieur est tenu de présenter un justificatif d’absence (hospitalisation, certificat médical,\netc.) à la scolarité qui informera les parties concernées après vérification du justificatif d’absence.\nGestion des fraudes\nToute fraude ou tentative de fraude lors d’un devoir surveillé ou d’un examen peut conduire son auteur\ndevant le conseil de discipline qui l’expose à des sanctions disciplinaires administratives et\npédagogiques.\nLes sanctions peuvent être sous forme d’avertissement, de blâme, d'interdiction de participation à une\nou deux des sessions d'examen, de privation du rachat, de privation de la mobilité internationale,\nd’exclusion de l'école pour une période d'une année universitaire au maximum, d'interdiction\nprovisoire d’inscription à l'établissement pour une période de deux années universitaires au maximum\nou de l'exclusion définitive de l'école."
+    },
+    {
+     "article_keys": [
+      "D1-001/9/Assiduité"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 9 : Assiduité\n▪ L’absentéisme répétitif peut donner lieu à un suivi personnalisé, les parents seront informés\nvia l’espace parents de la plateforme ou autre moyen de communication.\n▪ L’élève doit respecter l’horaire des enseignements définis par l’emploi du temps de la classe\nà laquelle il est affecté. Les élèves se présentant en retard aux activités d’enseignement peuvent\nse voir refuser l’accès à la salle de classe.\n▪ La présence des élèves à toutes les activités pédagogiques (cours intégrés, travaux pratiques,\nséminaires, stages, visites d’entreprises) est obligatoire. Le suivi de l’assiduité est assuré par\nles enseignants et l'administration.\n▪ En cas d’absence pour des raisons médicales ou pour cas de force majeure, l’élève doit adresser\nau service de scolarité un justificatif d’absence, dans un délai maximal d’une semaine.\n▪ La présence à toutes les épreuves (tests, devoirs, examens, etc.) est obligatoire. Toute absence\nnon justifiée entraîne un zéro."
+    }
+   ],
+   "reply": "Pour les cours du jour, le justificatif d'absence pour raison médicale doit être adressé au service de scolarité dans un délai maximal d'une semaine [D1-001, art. 9, p. 13].",
+   "seconds": 0.84,
+   "output_tokens": 52,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-08",
+   "regime": "soir",
+   "answerable": "yes",
+   "question": "cours du soir : j'ai raté 2 jours de cours pour raison médicale, j'ai combien de temps pour envoyer mon justificatif ?",
+   "expected_article": "D1-002/9/Assiduité",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 2 : Absence à un examen final ou à un devoir surveillé (DS)\nToute absence à une épreuve (examen, épreuve pratique ou devoir surveillé) entraîne la note zéro, sauf\njustificatif recevable.\nCours du jour : seuls les cas d'accident, de maladie contagieuse, d'hospitalisation ou de décès d'un parent\nproche sont considérés comme justificatifs pour une épreuve finale. Un certificat médical simple ne\nconstitue pas un justificatif.\nCours du soir et alternance : en cas de force majeure (hospitalisation, décès d'un parent ou mission de\ntravail), l'étudiant avise le responsable de la scolarité dans un délai ne dépassant pas 48 heures à compter\nde la date de l'épreuve, avec remise des pièces justificatives. Cours du soir : un simple certificat médical\nn'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être\nconsidéré comme un motif valable."
+    },
+    {
+     "article_keys": [
+      "D1-004/5/Absence à une évaluation intermédiaire et assiduité"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 5 : Absence à une évaluation intermédiaire et assiduité\nPour un suivi de TP, un contrôle continu ou un test, l'étudiant présente un justificatif d'absence à la\nscolarité, qui informe les parties concernées après vérification (cours du jour).\nCours du jour : en cas d'absence pour raison médicale ou de force majeure, le justificatif est adressé au\nservice de scolarité dans un délai maximal d'une semaine.\nCours du soir et alternance : le certificat médical ou justificatif est adressé à la scolarité au plus tard le\nlendemain du début de l'empêchement. Au-delà de trois absences non justifiées à un module, un\navertissement est adressé à l'élève ; en cas de récidive, son dossier est soumis aux instances\nadministratives qui peuvent l'exclure de l'école.\nLa présence à tous les contrôles est obligatoire : toute absence non justifiée entraîne la note zéro."
+    },
+    {
+     "article_keys": [
+      "D1-002/3/Inscription des élèves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 3 : Inscription des élèves\nAfin de pouvoir suivre une formation à l’École, les élèves doivent être obligatoirement inscrits. Pour ce\nfaire, ils doivent s'acquitter des frais de scolarité dont ils sont redevables dans les délais fixés par\nl’Administration. La première tranche est exigée à l'inscription, la deuxième tranche doit être réglée avant\nla fin du mois de janvier\n• Report d'inscription\n- Il n'est accordé qu'un seul report sur l'ensemble de la scolarité.\n- Les demandes de report d'inscription doivent être déposées au plus tard le 30 novembre de\nl’année en cours.\n- Les droits d'inscription ne sont pas remboursables. Le reste des frais de scolarité est\nremboursable dans un délai ne dépassant pas un mois à compter de la date de notification.\n- Aucune demande de report d'inscription n'est recevable après le 30 novembre.\n• Annulation d'inscription : retrait définitif de l'inscription et abandon du cursus\na) Les demandes d'annulation déposées avant le 30 novembre : Les droits d'inscription ne sont pas\nremboursables. Le reste des frais de scolarité est remboursable dans un délai ne dépassant pas un\nmois à compter de la date de notification.\nb) Les demandes d'annulation déposées entre le 1er décembre et le 31 janvier : Le montant de la\n1ère tranche est prélevé automatiquement. Le reste des frais de scolarité est remboursable dans\nun délai ne dépassant pas un mois à compter de la date de notification.\nc) Les demandes d'annulation déposées à partir du 1er février : Aucun remboursement ne sera\neffectué."
+    },
+    {
+     "article_keys": [
+      "D1-002/4/Organisation de la scolarité"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 4 : Organisation de la scolarité\nLes enseignements en cours du soir sont planifiés dès le démarrage de l’année universitaire jusqu’au 31\njuillet. Les séances se déroulent comme suit :\n- Du lundi au Vendredi entre 18h30 et 20h30.\n- Samedi : 14h à 16h et de 16h15 à 18h\nLes élèves ont l’obligation de se tenir informés sur le site WEB de l’École, de tous les communiqués\norganisant les études, le calendrier et le régime des examens, les stages ainsi que la vie culturelle et\nsociale au sein de l’école."
+    },
+    {
+     "article_keys": [
+      "D1-002/9/Assiduité"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 9 : Assiduité\nL’absentéisme volontaire constitue un manquement à l’assiduité et peut faire l’objet d’une procédure\ndisciplinaire au terme de laquelle une sanction peut être prononcée.\nL’élève doit respecter l’horaire des enseignements définis par l’emploi du temps de la classe à laquelle il\nest affecté. Les élèves se présentant en retard aux activités d’enseignement peuvent ne pas être admis en\nclasse.\nLa présence des élèves à tous les enseignements (cours intégrés, travaux pratiques, séminaires, stages,\nvisites d’entreprises) est obligatoire. Le suivi de l’assiduité est assuré par les enseignants et\nl’Administration.\nEn cas d’absence pour des raisons médicales ou pour force majeure, l’élève doit adresser au Service de\nScolarité un certificat médical ou un justificatif, au plus tard le lendemain du début de l’empêchement.\nAu-delà de trois absences non justifiées à un module, un avertissement est adressé à l’élève. En cas de\nrécidive, son dossier est soumis aux instances administratives qui pourraient être amenées à l’exclure\nde l’Ecole.\nLa présence à tous les contrôles (tests, devoirs, examens, etc.) est obligatoire. Toute absence à un\ncontrôle est sanctionnée par la note zéro."
+    }
+   ],
+   "reply": "Pour les cours du soir, en cas d'absence pour raisons médicales ou force majeure, le certificat médical ou justificatif doit être adressé au Service de Scolarité au plus tard le lendemain du début de l'empêchement [D1-002, art. 9, p. 9]. Un simple certificat médical n'étant pas considéré comme un motif valable selon le règlement fictif, veuillez noter que cette règle s'applique sous réserve des conditions médicales admises [D1-004, art. 2, p. 1] (procédure de démonstration).",
+   "seconds": 1.1,
+   "output_tokens": 127,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-09",
+   "regime": "alternance",
+   "answerable": "yes",
+   "question": "En alternance on a le droit de redoubler combien de fois ?",
+   "expected_article": "D1-003/7-7/Redoublement",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-003/7-7/Redoublement"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\n7-7 Redoublement\nLe redoublement est autorisé une seule fois au cours des quatre années de la scolarité.\nEn cas de redoublement, les UE sont de deux types :\n- UE validée durant l’année précédente : dans ce cas, l’élève peut repasser tout module composant l’UE dans\nle but d’améliorer sa moyenne générale. La nouvelle moyenne du module est calculée selon la même\nprocédure décrite dans le paragraphe 7.3. Elle sera retenue si elle est supérieure à l'ancienne moyenne.\n- UE non validée durant l’année précédente (moyenne UE inférieure à 10/20) : dans ce cas, l'élève doit\nobligatoirement repasser tous les modules dont la moyenne est inférieure à 10/20 de l'UE non validée. Tous\nles résultats obtenus l’année précédente dans ces modules sont annulés et l’élève est tenu d’assister à\ntoutes les séances, de passer toutes les épreuves d’évaluation : contrôle continu, TP, test, examen, etc.\n- L'élève doit assister à tout nouveau module introduit dans le programme.\n- En cas de modification dans l'UE (ajout / suppression de modules ou modification des coefficients des\nmodules), l'élève doit contacter le directeur de la formation.\nIl est vivement recommandé à l’élève d’assister à tous les modules même s’ils sont validés."
+    },
+    {
+     "article_keys": [
+      "D1-003/7-2/Evaluation des alternant"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\n7-2 Evaluation des alternant\nL’évaluation a pour objet de vérifier que l’alternant a acquis les connaissances et compétences correspondant aux\nobjectifs pédagogiques de l’enseignement dispensé et à juger de l’aptitude de l'alternant à valider chaque UE.\nLes modalités d’évaluation, quelle que soit leur forme, doivent garantir une totale équité entre les alternants.\nLe programme de chaque année universitaire représente un total de 45 ECTS. Des missions sont à réaliser tout au\nlong des années des quatre années de formation :\n- 1ère année : Mission Entreprise\n- 2ème année : Mission Entreprise\n- 3ème année Mission Entreprise\n- 4ème année : Un Projet de fin d’études\nUne mission Entreprise est évaluée à 10 ECTS. Les évaluations des missions seront réalisées en collaboration entre\nles encadrants académiques et les encadrants professionnels.\nL’étudiant peut déposer une demande de double correction d’une épreuve écrite auprès de service examen dans\nun délai d’une semaine après l’affichage de la note de cette épreuve.\nL’évaluation du travail de l’élève est basée sur un système de contrôle continu et un examen final. Les épreuves\npeuvent être écrites, orales ou pratiques. L’examen final est organisé en deux sessions :\n- Une session principale.\n- Une session de rattrapage.\nLe contrôle continu comprend, selon la forme des enseignements propres à chaque UE, la participation en cours,\ndes tests écrits et/ou oraux, des tests pratiques, des travaux personnalisés réalisés individuellement ou en groupe\net donnant lieu à un rapport écrit et/ou à une soutenance orale, et un devoir surveillé, etc."
+    },
+    {
+     "article_keys": [
+      "D1-008/2/Principe de la double correction"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : réclamation et révision de note (double correction)\nArticle 2 : Principe de la double correction\nL'étudiant peut déposer une demande de double correction d'une épreuve écrite auprès du service\nexamen, dans un délai d'une semaine après l'affichage de la note de cette épreuve. Cette règle est prévue\npar les règlements du cours du soir et de l'alternance (article 7-2). Le règlement du cours du jour ne la\nmentionne pas : l'étudiant du cours du jour se renseigne auprès du service examen."
+    },
+    {
+     "article_keys": [
+      "D1-007/7/Prolongation et échec"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : dépôt du rapport et soutenance du projet de fin d'études\nArticle 7 : Prolongation et échec\nLes élèves n'ayant pas validé leur stage, n'ayant pas soutenu avec succès le PFE ou n'ayant pas obtenu\nleurs certifications linguistiques (niveau B2 en français et en anglais) peuvent bénéficier d'une\nprolongation de scolarité de 6 mois au maximum. À l'issue de la prolongation, l'élève n'ayant pas validé\nson PFE est considéré comme redoublant et doit refaire son PFE avec un sujet différent, si les conditions\nde redoublement sont satisfaites."
+    },
+    {
+     "article_keys": [
+      "D1-003/2/Statut Alternant"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 2 : Statut Alternant\nL’inscrit dans ce parcours de formation par apprentissage sera qualifié en tant qu’alternant. Il s’engage à\nparticiper à l’ensemble des activités pédagogiques (cours, séances pédagogiques à l’extérieur et séminaires\néventuels, …) organisées par ESPRIT et à se présenter aux épreuves du diplôme. L’alternant doit se mobiliser sur\nles missions et sur les objectifs qui lui sont confiés et répondre aux niveaux d'exigences du cahier des charges de\nla formation. Chaque alternant est responsable de la tenue de son journal de bord dans lequel sont consignées\ntoutes ses évaluations."
+    }
+   ],
+   "reply": "En régime d'alternance, le redoublement est autorisé une seule fois au cours des quatre années de la scolarité [D1-003, art. 7-7, p. 6].",
+   "seconds": 1.05,
+   "output_tokens": 46,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-10",
+   "regime": "jour",
+   "answerable": "yes",
+   "question": "Le stage d'immersion, c'est combien de semaines minimum et combien de crédits ?",
+   "expected_article": "D1-001/7-9/Stage",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-010/2/Les trois stages"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide pratique des stages (hors projet de fin d'études)\nArticle 2 : Les trois stages\nLe stage est une activité obligatoire et notée. Les stages sont :\n• Stage de formation humaine et sociale : 2 ECTS, 4 semaines minimum, durant l'été de la 1ère année\ndu tronc commun ; organismes acceptés : ONG, club, lycée, entreprise, organisme civil.\n• Stage d'immersion en entreprise : 3 ECTS, 6 semaines minimum, durant l'été de la 3ème année (1ère\nannée du cycle ingénieur) ; entreprise, bureau d'études, usine, laboratoire (expérimental ou de\nrecherche).\n• Stage ingénieur : 5 ECTS, 8 semaines minimum, durant l'été de la 4ème année (2ème année du cycle\ningénieur) ; entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)."
+    },
+    {
+     "article_keys": [
+      "D1-007/2/Conditions de démarrage"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : dépôt du rapport et soutenance du projet de fin d'études\nArticle 2 : Conditions de démarrage\nCours du jour : le stage de PFE, d'une durée minimale de 6 mois (26 semaines, 30 ECTS), démarre après\nla validation du premier semestre de la 5ème année et la validation des crédits antérieurs dépassant le\nseuil minimal autorisé par le conseil de classe.\nCours du soir : durée minimale de 5 mois, à réaliser en entreprise, en 4ème année. Alternance : le PFE\npeut démarrer en 4ème année ; seuls les élèves ayant réussi les examens de la 4ème année et validé\ntoutes les UE peuvent soutenir."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-9/Stage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-9 Stage\nLe stage est une activité obligatoire et notée. Trois stages sont exigés :\n▪ Stage de formation humaine et sociale\n▪ Stage d'immersion en entreprise\n▪ Stage ingénieur\nAu terme de chaque stage, l’élève devra présenter un journal, un rapport de stage et une attestation\nde stage délivrée par l’entreprise d’accueil.\n[Tableau p.11 (manual serialisation)]\nStage: Stage de formation humaine et sociale; Nombre d'ECTS: 2; Durée minimale: 4 semaines; Période: durant l'été de la 1ère année du tronc commun; Domaines acceptés: organisation non gouvernementale (ONG), club, lycée, entreprise, organisme civil\nStage: Stage d'immersion en entreprise; Nombre d'ECTS: 3; Durée minimale: 6 semaines; Période: durant l'été de la 3ème année (1ère année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)\nStage: Stage ingénieur; Nombre d'ECTS: 5; Durée minimale: 8 semaines; Période: durant l'été de la 4ème année (2ème année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)"
+    },
+    {
+     "article_keys": [
+      "D1-001/5/Programme des études"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 5 : Programme des études\nLe programme de formation se présente sous la forme d’Unités d’Enseignement (UE). Chaque UE est\ncomposée d’un ou de plusieurs éléments constitutifs de l’unité d’enseignement (ECUE) structurés\nautour d’objectifs pédagogiques communs. Un nombre de crédits ECTS (European Credit Transfer\nSystem) est affecté à chaque Unité d’Enseignement, reflétant le volume global de travail que l’élève\nest supposé fournir prenant en compte les heures enseignées (HE) et non enseignées (HNE).\nLe programme de chaque année universitaire représente un total de 60 ECTS avec en moyenne 5 UE\npar semestre ponctués par des stages. L’étudiant est redevable de 4 stages durant les 10 semestres\nd’études : Un stage de formation humaine et sociale, d’une durée de 4 semaines, un stage d’immersion\nen entreprise d’une durée de 6 semaines, un stage ingénieur d’une durée de 8 semaines et un stage de\nfin d’études donnant lieu à un projet de fin d’études (PFE) d’une durée de 28 semaines.\nChaque UE est décrite par une fiche contenant le nom du responsable de l’UE, les volumes horaires\ndes formations (cours intégré présentiel, travaux pratiques, ateliers, projets, etc.), le nombre de crédits\n(ECTS) de l’UE, la liste des modules la composant avec leurs crédits, les prérequis et une synthèse\ndes acquis d'apprentissage. Les modules sont décrits quant à eux par des fiches modules (syllabus)\ncontenant plus de détails sur la formation et l’évaluation : prérequis et acquis d'apprentissage\nspécifiques et modes d’évaluation détaillés."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-10/Stage de Projet de Fin d’Etudes (PFE)"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-10 Stage de Projet de Fin d’Etudes (PFE)\nLe stage de projet de fin d'études (PFE), d'une durée minimale de 6 mois, démarre après la validation\ndu premier semestre de la 5ème année et la validation des crédits antérieurs ayant dépassé le seuil\nminimal autorisé par le conseil de classe. Le stage de projet de fin d'études donne lieu à la rédaction\nd'un rapport et est couronné par une soutenance devant un jury composé de trois membres dont le\nprésident du jury, le ou les encadrants (académiques et professionnels) et un membre invité.\nL'évaluation du stage se fait à travers :\no Des évaluations périodiques\no Un suivi académique\no Un suivi professionnel\no Un suivi technique\no Une évaluation de la soutenance finale\no Un jury final\n▪ L’étudiant devra déposer, auprès du service des stages ou via la plateforme des PFE’s :\no Son rapport de stage signé par les encadrants, professionnel et académique et portant\nle cachet de l’entreprise d’accueil,\no Un rapport anti-plagiat avec un taux de plagiat inférieur à 18%,\no Une attestation de stage octroyée par l'organisme d’accueil.\n[Tableau p.12 (manual serialisation)]\nStage: Stage de PFE; Nombre d'ECTS: 30; Durée minimale: 26 semaines; Période: 2ème semestre de la 5ème année (3ème année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)"
+    }
+   ],
+   "reply": "Le stage d'immersion en entreprise dure 6 semaines minimum et confère 3 ECTS [D1-001, art. 7-9, p. 11]. Ces dispositions s'appliquent au régime des cours du jour [D1-001, art. 7-9, p. 11].",
+   "seconds": 1.02,
+   "output_tokens": 74,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-11",
+   "regime": "jour",
+   "answerable": "yes",
+   "question": "Cours du jour : si je me fais choper en train de tricher pendant un exam, ça se passe comment et je risque quoi ?",
+   "expected_article": "D1-001/10/Honnêteté intellectuelle|D1-001/7-8/Déroulement des épreuves",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-011/9/Sanctions disciplinaires"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nRèglement intérieur : vie sur le campus\nArticle 9 : Sanctions disciplinaires\nUn étudiant peut être traduit devant le conseil de discipline en cas d'irrespect envers un enseignant ou un\nagent de l'administration, de fraude ou tentative de fraude, ou de plagiat. Il est convoqué par écrit, informé\ndes faits reprochés et a le droit de se défendre. Les sanctions possibles sont fixées par le règlement de\nscolarité du régime de l'étudiant : cours du jour (règlement du cours du jour, article 7-8, gestion des\nfraudes) et cours du soir (règlement du cours du soir, article 12). Alternance : le règlement de l'alternance\n(article 12, Discipline) impose le respect mutuel et interdit toute violence, sans fixer de liste de sanctions ;\nen cas de fraude, le conseil de discipline décide de la sanction, qui peut aller jusqu'à l'exclusion de l'école\n(article 11). Le non-remboursement des frais de scolarité en cas de renvoi est prévu par le règlement du\ncours du soir."
+    },
+    {
+     "article_keys": [
+      "D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 2 : Absence à un examen final ou à un devoir surveillé (DS)\nToute absence à une épreuve (examen, épreuve pratique ou devoir surveillé) entraîne la note zéro, sauf\njustificatif recevable.\nCours du jour : seuls les cas d'accident, de maladie contagieuse, d'hospitalisation ou de décès d'un parent\nproche sont considérés comme justificatifs pour une épreuve finale. Un certificat médical simple ne\nconstitue pas un justificatif.\nCours du soir et alternance : en cas de force majeure (hospitalisation, décès d'un parent ou mission de\ntravail), l'étudiant avise le responsable de la scolarité dans un délai ne dépassant pas 48 heures à compter\nde la date de l'épreuve, avec remise des pièces justificatives. Cours du soir : un simple certificat médical\nn'est pas considéré comme un motif valable. Alternance : un simple certificat médical peut ne pas être\nconsidéré comme un motif valable."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-8/Déroulement des épreuves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-8 Déroulement des épreuves (suite)\n• Toute absence à une épreuve : examen, épreuve pratique ou devoir surveillé entraînera un\nzéro.\n• A la fin de l’épreuve, chaque étudiant doit remettre la copie d’examen.\nAbsence à un examen final ou à un DS :\nToute absence non justifiée à un examen entraînera un zéro. L’étudiant peut se présenter à la session\nde rattrapage si l’unité d’enseignement incluant le module n’est pas validée à la session principale.\nJustificatifs d’absence :\nSeuls les cas d’accidents, de maladies contagieuses, d’hospitalisations où de décès d’un parent proche\nsont considérés comme justificatif d’absence à une épreuve finale. Les certificats médicaux ne\nconstituent pas un justificatif d’absence. Toutefois, les demandes de repassage exceptionnelles sont\ntraitées au cas par cas et se font suite à un dépôt de dossier auprès de la scolarité qui prendra la charge\nde vérifier le justificatif et d’informer les parties concernées après concertation avec les chefs de\ndépartement respectifs de l’élève ingénieur.\nAbsence à une évaluation intermédiaire (suivi de TP, CC, test, etc..) :\nL’élève ingénieur est tenu de présenter un justificatif d’absence (hospitalisation, certificat médical,\netc.) à la scolarité qui informera les parties concernées après vérification du justificatif d’absence.\nGestion des fraudes\nToute fraude ou tentative de fraude lors d’un devoir surveillé ou d’un examen peut conduire son auteur\ndevant le conseil de discipline qui l’expose à des sanctions disciplinaires administratives et\npédagogiques.\nLes sanctions peuvent être sous forme d’avertissement, de blâme, d'interdiction de participation à une\nou deux des sessions d'examen, de privation du rachat, de privation de la mobilité internationale,\nd’exclusion de l'école pour une période d'une année universitaire au maximum, d'interdiction\nprovisoire d’inscription à l'établissement pour une période de deux années universitaires au maximum\nou de l'exclusion définitive de l'école."
+    },
+    {
+     "article_keys": [
+      "D1-001/10/Honnêteté intellectuelle"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 10 : Honnêteté intellectuelle\nL’étudiant doit être conscient de l’importance de l'honnêteté intellectuelle et doit l’adopter tout au\nlong de son cursus de formation.\nSi une fraude ou une tentative de fraude est détectée lors de tout type d’évaluation, le surveillant est\ntenu de récupérer les outils qui ont servi à la falsification et les annexer au procès-verbal. Si l’étudiant\nrefuse de remettre au surveillant les outils de fraude, un représentant de la scolarité se présentera à la\nsalle et se chargera de prendre note des faits. Un rapport de fraude est déposé auprès du chef de\ndépartement de la scolarité qui se chargera de lancer la procédure adéquate après consultation et\nconcertation avec les parties prenantes.\nL’étudiant peut être conduit devant le conseil de l’école, qui après avoir auditionné, se prononce sur\nla mesure à prendre, qui peut aller jusqu'à son exclusion de l'établissement.\nPlagiat dans la rédaction des rapports :\nLa référence bibliographique de l'œuvre est indispensable. Dans le cas des textes, l'indication de la\nréférence bibliographique n'est pas suffisante. Le texte doit être placé entre guillemets pour le rendre\nidentifiable.\nUn programme informatique de détection de plagiat est en vigueur chez les enseignants. Tout\nétudiant est tenu de communiquer son ouvrage en version électronique. En présence d'un acte de\nplagiat, l'enseignant doit en avertir le chef de département académique, le coordinateur pédagogique\ndes stages et le chef de département des stages qui auront la charge de prendre les mesures\nnécessaires."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-8/Déroulement des épreuves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-8 Déroulement des épreuves\nLors des épreuves, les étudiants sont tenus de respecter les règles suivantes :\n• Chaque étudiant doit se présenter 15 minutes avant le démarrage de l’épreuve muni\nobligatoirement de sa carte d’étudiant ou à défaut d’une pièce d’identité. Tout étudiant ne\njustifiant pas son identité (CIN, passeport ou carte d’étudiant) ne sera pas autorisé à accéder à\nla salle d’examen et il sera marqué absent.\nNB: aucun laissez-passer ne sera fourni à cet effet par la scolarité.\n• La signature de la feuille d’émargement est requise au début et à la fin de chaque épreuve.\n• L’étudiant doit remplir toutes les informations se trouvant dans l’entête de la feuille d’examen\net doit indiquer, sur chaque feuille, le numéro de la feuille et le nombre total des feuilles\nrendues.\n• Tout étudiant accusant un retard dépassant 20 minutes après la distribution des sujets ne sera\npas admis dans la salle.\n• L’étudiant qui arrive après le démarrage de l’épreuve ne bénéficie pas d'un délai\nsupplémentaire pour compenser son retard.\n• L’étudiant pourra quitter la salle après au moins 30 minutes du démarrage de l’épreuve.\n• Il est formellement interdit de quitter la salle d’examen pendant le déroulement des épreuves.\nLes cas exceptionnels nécessitant un aménagement particulier (une autorisation de sortie au\nWC) sont demandés à déposer un dossier médical à la scolarité au préalable afin d’avoir le\nconsentement.\n• Tous les appareils connectés (téléphones, montres connectées, écouteurs, lunettes connectées,\netc.) doivent être éteints et rangés avant d’entrer dans la salle. Tout appareil connecté apparent\npendant l’épreuve sera considéré comme une fraude.\n• Il est formellement interdit d'échanger le matériel entre les étudiants (correcteur, calculatrice,\ncrayon, stylo…).\n• L'enseignant surveillant annonce et applique les consignes et les règles essentielles au bon\ndéroulement des épreuves."
+    }
+   ],
+   "reply": "En cas de fraude ou de tentative de fraude, l'étudiant s'expose à un renvoi devant le conseil de discipline [D1-011, art. 9, p. 2 (procédure de démonstration)] ou le conseil de l'école [D1-001, art. 10, p. 14], ce qui peut entraîner des sanctions allant de l'avertissement jusqu'à l'exclusion définitive de l'école [D1-001, art. 7-8, p. 9].",
+   "seconds": 1.17,
+   "output_tokens": 122,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-12",
+   "regime": "soir",
+   "answerable": "yes",
+   "question": "En cours du soir, si un prof trouve du plagiat dans mon rapport, j'aurai quelle note et quelles sanctions je risque ?",
+   "expected_article": "D1-002/10/Honnêteté intellectuelle|D1-002/12/Comparution devant le conseil de discipline",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-002/10/Honnêteté intellectuelle"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 10 : Honnêteté intellectuelle (suite)\nLorsqu’un plagiat est constaté, la note de 0/20 est attribuée à l’UE. Un rapport est adressé au directeur\nde l’école qui peut réunir le conseil de discipline pour décider de la sanction à adresser au plagiaire."
+    },
+    {
+     "article_keys": [
+      "D1-011/9/Sanctions disciplinaires"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nRèglement intérieur : vie sur le campus\nArticle 9 : Sanctions disciplinaires\nUn étudiant peut être traduit devant le conseil de discipline en cas d'irrespect envers un enseignant ou un\nagent de l'administration, de fraude ou tentative de fraude, ou de plagiat. Il est convoqué par écrit, informé\ndes faits reprochés et a le droit de se défendre. Les sanctions possibles sont fixées par le règlement de\nscolarité du régime de l'étudiant : cours du jour (règlement du cours du jour, article 7-8, gestion des\nfraudes) et cours du soir (règlement du cours du soir, article 12). Alternance : le règlement de l'alternance\n(article 12, Discipline) impose le respect mutuel et interdit toute violence, sans fixer de liste de sanctions ;\nen cas de fraude, le conseil de discipline décide de la sanction, qui peut aller jusqu'à l'exclusion de l'école\n(article 11). Le non-remboursement des frais de scolarité en cas de renvoi est prévu par le règlement du\ncours du soir."
+    },
+    {
+     "article_keys": [
+      "D1-002/10/Honnêteté intellectuelle"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 10 : Honnêteté intellectuelle\nTout manquement aux règles élémentaires de probité et d’honnêteté intellectuelle (plagiat, fraudes\ndurant les examens, etc.) constitue un manquement aux obligations de scolarité. Les élèves doivent\nsigner, au moment de l’inscription, le Formulaire d’adhésion aux règles d’honnêteté intellectuelle.\nSi une fraude ou tentative de fraude pendant les épreuves (examen ou contrôle continu) est constatée,\nle surveillant doit saisir les feuilles de réponse de l’élève ainsi que tous les éléments ayant été utilisés\npour la fraude. L’élève peut continuer l’épreuve avec une feuille blanche. Le surveillant de l’épreuve doit\nétablir un rapport et y joindre les éléments saisis ainsi que les deux feuilles de réponse en prenant bien\nsoin de les distinguer. Le rapport est soumis au Conseil de Discipline qui, après audition de l’élève,\ndécidera de la sanction à prendre qui peut aller jusqu’à l’exclusion de l’école.\nLe plagiat est une faute très grave qui a fait l’objet du décret loi numéro 2008-2422 du 23 Juin 2008 qui\na fixé le niveau de gravité du plagiat et des sanctions correspondantes qui peuvent aller jusqu’à\nl’annulation du/des diplômes obtenus. Le plagiat est l’acte de prétendre être l’auteur d’un travail qui\nappartient à quelqu’un d’autre. Ce travail peut être un simple texte, un texte traduit, un résultat, une\nméthode, une idée, une donnée, un graphique, etc. Pour éviter d’être qualifié de plagiaire, il faut\nindiquer la référence bibliographique du travail. Pour les textes, l’indication de la référence\nbibliographique n’est pas suffisante. Il faut placer le texte entre guillemets pour le distinguer du reste du\ntexte.\nUn système de détection informatique de plagiat est utilisé par les enseignants. Tout élève peut se voir\ndemander son travail sous format électronique. En cas de plagiat, l’enseignant doit informer la direction\net lui communiquer les éléments dont il dispose."
+    },
+    {
+     "article_keys": [
+      "D1-002/12/Comparution devant le conseil de discipline"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 12 : Comparution devant le conseil de discipline\nUn élève est traduit devant le conseil de discipline dans les cas suivants :\n- L’élève a fait l'objet d'un rapport faisant état d'irrespect envers un enseignant, un agent de\nl’Administration.\n- L’élève a fait l’objet d’un rapport pour fraude ou tentative de fraude pendant une épreuve\nd’examen ou de contrôle continu.\n- Un rapport faisant état de plagiat\nL’élève convoqué devant le Conseil de discipline doit être informé des faits qui lui sont reprochés.\nTout élève appelé à comparaitre devant le Conseil de discipline est convoqué par écrit, et a le droit de\nse défendre.\nLe conseil de discipline délibère d’une des sanctions suivantes :\n1. Avertissement\n2. Blâme\n3. Interdiction de passer les examens d’une ou deux sessions\n4. Renvoi de l’école pour une période maximale d’une année universitaire\n5. Renvoi définitif de l’École\nDans les deux derniers cas, l’élève n’a pas le droit au remboursement des frais de scolarité."
+    },
+    {
+     "article_keys": [
+      "D1-008/8/Ce que ce guide ne couvre pas"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : réclamation et révision de note (double correction)\nArticle 8 : Ce que ce guide ne couvre pas\nLa contestation d'une décision disciplinaire (fraude, plagiat, irrespect) relève du conseil de discipline :\nl'étudiant est convoqué par écrit, informé des faits qui lui sont reprochés et a le droit de se défendre. Les\nréclamations sur le déroulement des cours, la logistique ou l'environnement scolaire peuvent être\nadressées à la cellule d'écoute et d'accompagnement."
+    }
+   ],
+   "reply": "En cas de plagiat, la note de 0/20 est attribuée à l'UE [D1-002, art. 10, p. 9]. Un rapport est adressé au directeur qui peut réunir le conseil de discipline pour décider de la sanction [D1-002, art. 10, p. 9], laquelle peut aller jusqu'à l'exclusion de l'école [D1-002, art. 10, p. 9] ou l'annulation du diplôme [D1-002, art. 10, p. 9].",
+   "seconds": 1.44,
+   "output_tokens": 137,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-13",
+   "regime": "soir",
+   "answerable": "yes",
+   "question": "cours du soir: je trouve ma note d'écrit trop basse, jusqu'à quand je peux demander une double correction et quelle note sera gardée ?",
+   "expected_article": "D1-002/7-2/Evaluation des élèves|D1-008/6/Note retenue",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-008/2/Principe de la double correction"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : réclamation et révision de note (double correction)\nArticle 2 : Principe de la double correction\nL'étudiant peut déposer une demande de double correction d'une épreuve écrite auprès du service\nexamen, dans un délai d'une semaine après l'affichage de la note de cette épreuve. Cette règle est prévue\npar les règlements du cours du soir et de l'alternance (article 7-2). Le règlement du cours du jour ne la\nmentionne pas : l'étudiant du cours du jour se renseigne auprès du service examen."
+    },
+    {
+     "article_keys": [
+      "D1-008/6/Note retenue"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : réclamation et révision de note (double correction)\nArticle 6 : Note retenue\nLa note finale est la moyenne des deux corrections. Si l'écart entre les deux notes dépasse 3 points sur\n20, une troisième correction est effectuée et la note finale est la moyenne des deux notes les plus\nproches.\nLa note finale peut être supérieure ou inférieure à la note initiale."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-8/Redoublement"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-8 Redoublement\nLe redoublement est autorisé une seule fois au cours des quatre années de la scolarité.\nEn cas de redoublement, les UE sont de deux types :\n- UE validée durant l’année précédente : dans ce cas, l’élève peut repasser tout module\ncomposant l’UE dans le but d’améliorer sa moyenne générale. La nouvelle moyenne du module\nest calculée selon la même procédure décrite dans le paragraphe 7.3. Elle sera retenue si elle est\nsupérieure à l'ancienne moyenne.\n- UE non validée durant l’année précédente (moyenne UE inférieure à 10/20) : dans ce cas, l'élève\ndoit obligatoirement repasser tous les modules dont la moyenne est inférieure à 10/20 de l'UE\nnon validée. Tous les résultats obtenus l’année précédente dans ces modules sont annulés et\nl’élève est tenu d’assister à toutes les séances, de passer toutes les épreuves d’évaluation :\ncontrôle continu, TP, test, examen, etc.\n- L'élève doit assister à tout nouveau module introduit dans le programme.\n- En cas de modification dans l'UE (ajout / suppression de modules ou modification des\ncoefficients des modules), l'élève doit contacter le directeur de la formation.\nIl est vivement recommandé à l’élève d’assister à tous les modules même s’ils sont validés."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-7/Session de rattrapage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-7 Session de rattrapage\nEn Cours du Soir, La session de rattrapage est planifiée par Unité d’Enseignement (UE) de façon\nsemestrielle.\nUne session de rattrapage est planifiée pour tous les modules. Si un étudiant valide une UE avec une\nmoyenne supérieure ou égale à 10/20, il cumule les ECTS affectés à l’UE, par conséquent, il n’est pas\nobligé de repasser toutes les épreuves des modules constituants l’UE. L’étudiant a le droit de s’inscrire\npour le repassage de tous les examens des modules dont la moyenne est inférieure à 10/20.\nA la fin de l'année universitaire, un Conseil de classe Annuel est planifié pour la session principale.\nToutes les UEs de l’année universitaire dont la moyenne est supérieure ou égale à 8/20 sont validées\npour un étudiant ayant une moyenne générale supérieure ou égale à 10/20.\nLes UEs qui sont organisées exclusivement sous forme de travaux pratiques, de travaux\npersonnalisés ou de projet n’ont pas d’examen final et ne peuvent pas faire l’objet de\nrattrapage.\nLes UEs concernant les projets d’intégration ne sont pas rattrapables."
+    },
+    {
+     "article_keys": [
+      "D1-002/4/Organisation de la scolarité"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 4 : Organisation de la scolarité\nLes enseignements en cours du soir sont planifiés dès le démarrage de l’année universitaire jusqu’au 31\njuillet. Les séances se déroulent comme suit :\n- Du lundi au Vendredi entre 18h30 et 20h30.\n- Samedi : 14h à 16h et de 16h15 à 18h\nLes élèves ont l’obligation de se tenir informés sur le site WEB de l’École, de tous les communiqués\norganisant les études, le calendrier et le régime des examens, les stages ainsi que la vie culturelle et\nsociale au sein de l’école."
+    }
+   ],
+   "reply": "En cours du soir, la demande de double correction s'effectue dans un délai d'une semaine après l'affichage de la note [D1-008, art. 2, p. 1] (procédure de démonstration). La note finale retenue est la moyenne des deux corrections, ou la moyenne des deux notes les plus proches en cas de troisième correction [D1-008, art. 6, p. 1] (procédure de démonstration).",
+   "seconds": 0.94,
+   "output_tokens": 106,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-14",
+   "regime": "soir",
+   "answerable": "yes",
+   "question": "Cours du soir : on est en décembre, je peux encore demander un report d'inscription ?",
+   "expected_article": "D1-002/3/Inscription des élèves",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-009/2/Report d'inscription"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : report et annulation d'inscription\nArticle 2 : Report d'inscription\nLe report consiste à reporter l'inscription de l'année en cours à une date ultérieure. Chaque étudiant\nbénéficie d'un seul report sur la durée totale de sa scolarité. Un formulaire de demande est rempli et\ndéposé au bureau d'ordre de l'école. Pour bénéficier d'un remboursement, la demande doit être déposée\nau plus tard le 30 novembre de l'année en cours. Aucune demande de report n'est recevable après le 30\nnovembre (cours du soir).\nSi le délai est respecté, les frais de scolarité sont remboursés, à l'exception des frais (droits) d'inscription."
+    },
+    {
+     "article_keys": [
+      "D1-009/4/Délai de remboursement"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : report et annulation d'inscription\nArticle 4 : Délai de remboursement\nCours du soir : le remboursement est effectué dans un délai ne dépassant pas un mois à compter de la\ndate de notification. La première tranche est exigée à l'inscription et la deuxième doit être réglée avant la\nfin du mois de janvier.\nCours du jour : le règlement ne fixe pas de délai de remboursement."
+    },
+    {
+     "article_keys": [
+      "D1-002/3/Inscription des élèves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 3 : Inscription des élèves\nAfin de pouvoir suivre une formation à l’École, les élèves doivent être obligatoirement inscrits. Pour ce\nfaire, ils doivent s'acquitter des frais de scolarité dont ils sont redevables dans les délais fixés par\nl’Administration. La première tranche est exigée à l'inscription, la deuxième tranche doit être réglée avant\nla fin du mois de janvier\n• Report d'inscription\n- Il n'est accordé qu'un seul report sur l'ensemble de la scolarité.\n- Les demandes de report d'inscription doivent être déposées au plus tard le 30 novembre de\nl’année en cours.\n- Les droits d'inscription ne sont pas remboursables. Le reste des frais de scolarité est\nremboursable dans un délai ne dépassant pas un mois à compter de la date de notification.\n- Aucune demande de report d'inscription n'est recevable après le 30 novembre.\n• Annulation d'inscription : retrait définitif de l'inscription et abandon du cursus\na) Les demandes d'annulation déposées avant le 30 novembre : Les droits d'inscription ne sont pas\nremboursables. Le reste des frais de scolarité est remboursable dans un délai ne dépassant pas un\nmois à compter de la date de notification.\nb) Les demandes d'annulation déposées entre le 1er décembre et le 31 janvier : Le montant de la\n1ère tranche est prélevé automatiquement. Le reste des frais de scolarité est remboursable dans\nun délai ne dépassant pas un mois à compter de la date de notification.\nc) Les demandes d'annulation déposées à partir du 1er février : Aucun remboursement ne sera\neffectué."
+    },
+    {
+     "article_keys": [
+      "D1-002/4/Organisation de la scolarité"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 4 : Organisation de la scolarité\nLes enseignements en cours du soir sont planifiés dès le démarrage de l’année universitaire jusqu’au 31\njuillet. Les séances se déroulent comme suit :\n- Du lundi au Vendredi entre 18h30 et 20h30.\n- Samedi : 14h à 16h et de 16h15 à 18h\nLes élèves ont l’obligation de se tenir informés sur le site WEB de l’École, de tous les communiqués\norganisant les études, le calendrier et le régime des examens, les stages ainsi que la vie culturelle et\nsociale au sein de l’école."
+    },
+    {
+     "article_keys": [
+      "D1-002/1/(sans titre)"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 1 : Le présent règlement entre en vigueur à compter de l'année universitaire 2019-2020. Il\nannule et remplace tous les règlements de scolarité antérieurs."
+    }
+   ],
+   "reply": "Non, aucune demande de report d'inscription n'est recevable après le 30 novembre pour les cours du soir [D1-002, art. 3, p. 3]. Par conséquent, en étant en décembre, votre demande ne sera plus acceptée [D1-009, art. 2, p. 1] (procédure de démonstration).",
+   "seconds": 0.96,
+   "output_tokens": 84,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-15",
+   "regime": "alternance",
+   "answerable": "yes",
+   "question": "Si mon contrat avec l'entreprise s'arrête, je peux continuer la formation en alternance ?",
+   "expected_article": "D1-003/4/Exclusion du Parcours Alternance",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-003/4/Exclusion du Parcours Alternance"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 4 : Exclusion du Parcours Alternance\nL'alternant se retire du programme de formation en alternance s'il n'est plus employé par l'ENTREPRISE. La rupture\ndu contrat de travail, quelle qu'en soit la raison (démission, résiliation ou autre), entraîne l'exclusion automatique\nde la formation à ESPRIT. Sa réintégration dépend de :\n1- L'avis de l'entreprise partenaire\n2- La décision du conseil de discipline et l'accord de la direction des études\n3- Le remboursement de tous les frais engagés durant son parcours de formation en alternance.\nL'ensemble de la procédure sera géré par les entités pédagogiques et administratives d’ESPRIT"
+    },
+    {
+     "article_keys": [
+      "D1-003/5/Organisation des études"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 5 : Organisation des études\nLa durée totale de la formation est de 4 ans ; elle se déroule dans le cadre d’une convention de formation par\nalternance entre l’école et l’entreprise selon un planning établi au début de chaque année universitaire : Les\nséquences de la formation par année sont fixées par les responsables de la formation des deux organismes\nESPRIT et l’ENTREPRISE. Le calendrier annuel, les emplois du temps, le régime des examens et les stages ainsi\nque la vie culturelle et sociale au sein de l’école sont communiqués aux élèves par l’administration au début\nde l’année universitaire aux alternants et aux tuteurs académiques.\nLa formation est organisée de la manière suivante :\n Des enseignements de base permettant l'acquisition des connaissances indispensables s'articulant autour\ndes sciences de base : mathématiques appliquées, informatique, langues, sciences humaines et sociales.\n Des enseignements d'approfondissement, axés sur l'acquisition et l’utilisation des concepts et techniques\nde base.\n Des enseignements de spécialisation orientés métier.\n Dès la quatrième année, l’étudiant pourra commencer son projet de fin d'études et suivre sa formation de\nprofessionnalisation selon la séquence d’étude définie.\n Les enseignements sont dispensés sous forme de cours intégrés (CI), ou de travaux pratiques/travaux\npersonnalisés ou en groupe et de mini-projets (MP). Ils sont organisés en unités d’enseignement (UE).\n Des sessions de préparation aux certifications techniques et linguistiques (français et anglais) sont prévues\ndans le cursus de formation. Aucun crédit ECTS n’est attribué à ces activités.\nLe projet de fin d’études a pour objet de valider les travaux réalisés par l’alternant en vue d’appliquer les\nconnaissances acquises au cours de la formation par apprentissage.\nL’élève est autorisé à passer en session de rattrapage l’épreuve de l’examen de tous les modules dont la moyenne\nest inférieure à 10/20."
+    },
+    {
+     "article_keys": [
+      "D1-003/0/Préambule"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nRèglement & Engagement\nFormation par Alternance\nJe Soussigné, NOM et PRENOM, titulaire de la C.I.N n° XXXXXXXXX, ci-après dénommé « ALTERNANT », m’engage\nà respecter tous les articles du présent règlement.\nPréambule\nL’Ecole Supérieure Privée d’Ingénierie et de Technologies ESPRIT en partenariat avec l’ENTREPRISE met en\nplace une formation par alternance d’ingénieur. Ce document définit l’ensemble des processus qui mène à\nl’obtention du diplôme : l’admission dans la formation, le déroulement de la formation, les modalités d’évaluation\net les conditions de délivrance du diplôme ainsi que les acteurs et instances concernés.\nCette formation est à double vocation :\n Former des futurs ingénieurs aux techniques d’organisation et d’amélioration des performances de la\nproduction, d’une part, et,\n Donner aux diplômés un savoir-faire en matière de maitrise d’ouvrage en informatique et plus\nparticulièrement une capacité à imaginer des solutions en matière de système d’information, d’autre part.\nL'objectif principal de la formation est de former des ingénieurs disposant d'une forte compétence technique,\nconscients de la finalité économique de leur métier, préparés à accompagner les changements techniques, aptes\nà maîtriser la gestion des projets et à animer des équipes, capables de comprendre l'environnement de\nl'entreprise et de s'adapter à son évolution dans un environnement multiculturel."
+    },
+    {
+     "article_keys": [
+      "D1-007/7/Prolongation et échec"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : dépôt du rapport et soutenance du projet de fin d'études\nArticle 7 : Prolongation et échec\nLes élèves n'ayant pas validé leur stage, n'ayant pas soutenu avec succès le PFE ou n'ayant pas obtenu\nleurs certifications linguistiques (niveau B2 en français et en anglais) peuvent bénéficier d'une\nprolongation de scolarité de 6 mois au maximum. À l'issue de la prolongation, l'élève n'ayant pas validé\nson PFE est considéré comme redoublant et doit refaire son PFE avec un sujet différent, si les conditions\nde redoublement sont satisfaites."
+    },
+    {
+     "article_keys": [
+      "D1-013/4/Conditions de candidature"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide : mobilité internationale (échange et double diplôme)\nArticle 4 : Conditions de candidature\nPeut candidater l'étudiant qui :\n• est régulièrement inscrit et a validé l'année précédente ;\n• justifie du niveau de langue demandé par l'établissement partenaire ;\n• ne fait pas l'objet d'une sanction de privation de la mobilité internationale prévue par le règlement de\nscolarité. Pour l'alternance, le départ suppose en outre l'accord écrit de l'entreprise d'accueil."
+    }
+   ],
+   "reply": "Non, la rupture du contrat entraîne l'exclusion automatique de la formation et la réintégration est soumise à des conditions strictes [D1-003, art. 4, p. 2].",
+   "seconds": 0.89,
+   "output_tokens": 44,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-16",
+   "regime": "alternance",
+   "answerable": "yes",
+   "question": "en alternance, les UE qui sont que du TP, on peut les rattraper ?",
+   "expected_article": "D1-003/5/Organisation des études",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-003/5/Organisation des études"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 5 : Organisation des études (suite)\nLes UEs qui sont organisées exclusivement sous forme de travaux pratiques ou de travaux personnalisés n’ont pas\nd’examen final et ne peuvent pas faire l’objet de rattrapage.\nUn projet (autre que le PFE) peut être validé, refusé ou faire l'objet d'un rattrapage avec l’exigence de procéder à\nun complément des travaux accomplis."
+    },
+    {
+     "article_keys": [
+      "D1-004/7/Fonctionnement de la session de rattrapage - cours du soir et alternance"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 7 : Fonctionnement de la session de rattrapage - cours du soir et alternance\nCours du soir : la session de rattrapage est planifiée par unité d'enseignement, de façon semestrielle.\nL'étudiant a le droit de s'inscrire au repassage de tous les examens des modules dont la moyenne est\ninférieure à 10/20. Si l'UE est validée en rattrapage, la note de l'examen de rattrapage est écrêtée à 10/20\n(classe ECTS E).\nAlternance : l'élève peut passer en rattrapage l'examen de tous les modules dont la moyenne est\ninférieure à 10/20. Les UE organisées exclusivement sous forme de TP ou de travaux personnalisés n'ont\npas d'examen final et ne sont pas rattrapables. Un projet (autre que le PFE) peut être validé, refusé ou\nfaire l'objet d'un rattrapage avec un complément de travaux.\nCours du soir : les UE de projets d'intégration ne sont pas rattrapables, comme en cours du jour."
+    },
+    {
+     "article_keys": [
+      "D1-003/7-5/Validation des UE"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\n7-5 Validation des UE\nDurant la session principale et la session de rattrapage, la validation de l'UE est assujettie aux modalités qui\nsuivent :\n▪ Si la moyenne générale est supérieure ou égale à 10/20, l’UE est validée avec une moyenne\nsupérieure ou égale à 08/20, exceptés les projets et les missions entreprise qui ne sont validés qu’avec\nune moyenne supérieure ou égale à 10/20.\n▪ Si la moyenne générale est inférieure à 10/20, l’UE est validée avec une moyenne supérieure ou égale\nà 10/20.\n▪ En cas où la moyenne de l’UE est inférieure à 08/20, dans les deux sessions principales et rattrapage\nde l’année en cours, l’UE n’est pas validée. L’élève aura, alors, la possibilité de repasser les examens\ndes modules (faisant l’objet de l’UE) dont la moyenne obtenue est inférieure à 10/20, ultérieurement,\nsous forme de validation de crédits ECTS.\n▪ La note obtenue au cours de la session de validation des crédits, sera considérée comme moyenne\nde l’UE en question.\n▪ Si la note obtenue est supérieure à 08/20, l’UE sera validée, excepté les projets qui ne sont validés\nqu’avec une moyenne supérieure ou égale à 10/20.\n▪ La moyenne générale est obtenue à partir des moyennes des UE pondérées de leurs crédits ECTS."
+    },
+    {
+     "article_keys": [
+      "D1-003/7-7/Redoublement"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\n7-7 Redoublement\nLe redoublement est autorisé une seule fois au cours des quatre années de la scolarité.\nEn cas de redoublement, les UE sont de deux types :\n- UE validée durant l’année précédente : dans ce cas, l’élève peut repasser tout module composant l’UE dans\nle but d’améliorer sa moyenne générale. La nouvelle moyenne du module est calculée selon la même\nprocédure décrite dans le paragraphe 7.3. Elle sera retenue si elle est supérieure à l'ancienne moyenne.\n- UE non validée durant l’année précédente (moyenne UE inférieure à 10/20) : dans ce cas, l'élève doit\nobligatoirement repasser tous les modules dont la moyenne est inférieure à 10/20 de l'UE non validée. Tous\nles résultats obtenus l’année précédente dans ces modules sont annulés et l’élève est tenu d’assister à\ntoutes les séances, de passer toutes les épreuves d’évaluation : contrôle continu, TP, test, examen, etc.\n- L'élève doit assister à tout nouveau module introduit dans le programme.\n- En cas de modification dans l'UE (ajout / suppression de modules ou modification des coefficients des\nmodules), l'élève doit contacter le directeur de la formation.\nIl est vivement recommandé à l’élève d’assister à tous les modules même s’ils sont validés."
+    },
+    {
+     "article_keys": [
+      "D1-004/6/Fonctionnement de la session de rattrapage - cours du jour"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 6 : Fonctionnement de la session de rattrapage - cours du jour\nL'élève non déclaré admis à la session principale est autorisé à passer l'épreuve d'examen final en\nsession de rattrapage.\nSi la moyenne générale de la session principale est inférieure à 10/20, l'étudiant peut repasser tous les\nmodules dont la moyenne est inférieure à 10/20.\nSi la moyenne générale est supérieure ou égale à 10/20, l'étudiant peut repasser les modules dont la\nmoyenne est inférieure à 10/20 appartenant à des UE non validées (moyenne inférieure à 8/20), de\nl'année en cours ou des années précédentes. Les projets intégrés ne sont pas rattrapables ; ils sont à\nvalider lors d'une session exceptionnelle de validation de projets.\nEn cas de repassage, la note obtenue remplace l'une des notes (contrôle continu ou examen de la session\nprincipale) avec la pondération correspondante, et la note retenue est celle qui donne la meilleure\nmoyenne du module."
+    }
+   ],
+   "reply": "En régime d'alternance, les unités d'enseignement organisées exclusivement sous forme de travaux pratiques ou de travaux personnalisés n'ont pas d'examen final et ne peuvent pas faire l'objet de rattrapage [D1-003, art. 5, p. 3].",
+   "seconds": 1.02,
+   "output_tokens": 63,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-17",
+   "regime": "all",
+   "answerable": "yes",
+   "question": "je suis super stressé avec les exams, il y a quelqu'un à qui parler à l'école ?",
+   "expected_article": "D1-001/12/Charte de l’étudiante et de l’étudiant Espritiens|D1-003/12/Charte de l’étudiante et de l’étudiant Espritiens",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-011/8/Cellule d'écoute et d'accompagnement"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nRèglement intérieur : vie sur le campus\nArticle 8 : Cellule d'écoute et d'accompagnement\nLa cellule d'écoute est un espace confidentiel et volontaire qui accueille, écoute, informe et oriente les\nétudiants (scolarité, stress, anxiété, mal-être). Elle reçoit aussi les réclamations sur le déroulement des\ncours, la logistique et l'environnement scolaire, et peut orienter vers un praticien si nécessaire."
+    },
+    {
+     "article_keys": [
+      "D1-002/14/La vie à ESPRIT"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 14 : La vie à ESPRIT (suite)\nToute personne présente à l’École doit s’abstenir de tous les actes qui seraient de nature à perturber\nle travail de celles qui s’y trouvent, à endommager les immeubles ou le matériel et d’une façon générale\nà troubler la bonne marche de l’établissement\nDans l’École, la tenue vestimentaire doit être correcte, et nul ne peut porter une tenue destinée à\ndissimuler son visage lors d’un examen écrit ou oral. Cette exigence doit également être respectée lors\ndes déplacements organisés en dehors de l’École (visites d’entreprise, de chantier ou voyage d’études)\neu égard à l’image de l’Ecole véhiculée à cette occasion. De même, dans tous leurs contacts extérieurs,\nen particulier avec les organismes partenaires de l’École assurant leur logement et leur restauration,\nles élèves devront veiller à ce que leur comportement ne nuise en aucune façon à la réputation de\nl’École. Toute attitude pouvant nuire à l’image de l’Ecole peut faire l’objet de sanctions.\nToute réunion non autorisée explicitement par la Direction est formellement interdite. Il est\nformellement interdit d’écrire sur les murs et tout affichage doit être autorisé par l’Administration.\nLes élèves doivent faire preuve de responsabilité en faisant part des problèmes rencontrés au cours de\nleur scolarité au Service de Scolarité, afin que celui-ci puisse débattre constructivement avec la\ndirection de l’École des éventuelles mesures à prendre."
+    },
+    {
+     "article_keys": [
+      "D1-003/12/Charte de l’étudiante et de l’étudiant Espritiens"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 12 : Charte de l’étudiante et de l’étudiant Espritiens (suite)\n· A cet effet, l’étudiant consent à la collecte et au traitement de ses données personnelles par\nl’école conformément aux politiques de protection des données en vigueur.\n·\nLa cellule d’écoute\nLa cellule d'écoute est basée sur la participation des élèves : cette démarche doit rester volontaire.\nLa cellule d’écoute et d’accompagnement est un espace confidentiel qui a pour objectif d’accueillir, écouter, comprendre,\ninformer et orienter les élèves d'ESPRIT.\nC’est un espace où les élèves peuvent parler de leurs doutes, de leurs problèmes et trouver une orientation des différents\ndomaines (scolarité, stress/anxiété, tristesse, mal être diffus…)\nLa primauté est accordée au soutien de la parole, et l’écoute, comme l’initiation d’une réflexion personnelle, afin d’élaborer avec\nl’élève des réponses adaptées à chaque situation. - A ce titre, et si besoin, des orientations vers différents partenaires peuvent\nêtre soutenues en facilitant et en accompagnant l’élève dans cette démarche.\nMissions\n▪ Recevoir et écouter en entretiens individuels les étudiants à leur demande (permanence libre et\nprises de rendez-vous)\n▪ Recevoir tout type de réclamation concernant le déroulement des cours, la logistique,\nl’environnement scolaire.\n▪ Être en relation avec les délégués de classes.\n▪ Apporter une aide aux étudiants par le biais de conseils et d’orientations cohérentes.\n▪ Proposer un relais auprès de praticien pour une prise en charge thérapeutique si nécessaire.\n▪ Proposer des mesures préventives.\nAnnexe 1 : Charte de la mailing liste\nLa mailing liste des anciens d'ESPRIT a pour objet de garder le contact entre les membres de la grande famille de\nnotre école. Le rôle des anciens dans le rayonnement de l'école et même dans la contribution à la formation des\nactuels élèves-ingénieurs est primordial."
+    },
+    {
+     "article_keys": [
+      "D1-002/14/La vie à ESPRIT"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 14 : La vie à ESPRIT\nLes élèves ne doivent pas porter atteinte à l’image de l’École.\nL'École n’est en aucun cas responsable des vols et dégradations de toute nature pouvant affecter les\nbiens personnels des élèves.\nLes élèves sont astreints aux obligations suivantes :\nPréserver un environnement propre et sain à l’École.\nEviter toute violence verbale ou physique ou mener une activité contraire à la mission de l’École. Ne\npas utiliser les téléphones portables lors des examens et des devoirs surveillés.\nObéir aux instructions des agents et des cadres de l’administration.\nS’abstenir de tout acte perturbateur qui risque de compromettre le déroulement normal des cours.\nVeiller à la bonne conservation des biens et des équipements de l’École.\nTout dommage constaté expose son auteur à des sanctions et des poursuites disciplinaires. L’École se\nréserve le droit de demander des réparations. La prévention des risques d’accidents et de maladies est\nimpérative et exige de chacun le respect total de toutes les prescriptions applicables en matière\nd’hygiène et de sécurité. A cet effet, les consignes générales et particulières de sécurité en vigueur dans\nl’École, doivent être strictement respectées sous peine de sanctions disciplinaires.\nIl est interdit de fumer à l’intérieur des locaux de l’École et en dehors des lieux destinés à cet effet.\nLes élèves peuvent accéder aux locaux et installations de l’École sous réserve d’être porteurs\nd’une carte ou document attestant la régularité de leur situation."
+    },
+    {
+     "article_keys": [
+      "D1-005/6/Rappel des règles le jour de l'épreuve"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : aménagements particuliers pour les examens\nArticle 6 : Rappel des règles le jour de l'épreuve\nChaque étudiant se présente 15 minutes avant le début de l'épreuve, muni de sa carte d'étudiant ou d'une\npièce d'identité. Aucun étudiant ne peut quitter la salle avant 30 minutes. Les appareils connectés sont\néteints et rangés avant l'entrée en salle. Un aménagement accordé ne dispense pas de ces règles, sauf\nmention expresse dans la décision."
+    }
+   ],
+   "reply": "Tu peux t'adresser à la cellule d'écoute et d'accompagnement, un espace confidentiel et volontaire pour parler du stress et de l'anxiété [D1-011, art. 8, p. 1] (procédure de démonstration). Cet espace d'accueil et d'orientation est également disponible pour écouter les élèves et apporter des conseils adaptés [D1-003, art. 12, p. 8].",
+   "seconds": 1.32,
+   "output_tokens": 103,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-18",
+   "regime": "all",
+   "answerable": "yes",
+   "question": "J'ai besoin d'un aménagement pour les examens (tiers temps), je dois déposer quoi et avant quand ?",
+   "expected_article": "D1-005/4/Dossier de demande|D1-001/7-8/Déroulement des épreuves",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-005/3/Aménagements possibles"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : aménagements particuliers pour les examens\nArticle 3 : Aménagements possibles\nSelon la situation, la scolarité peut accorder :\n• une autorisation de sortie pendant l'épreuve ;\n• un temps supplémentaire d'un tiers de la durée de l'épreuve ;\n• une salle séparée ou une place réservée ;\n• l'usage d'un matériel adapté, après accord de l'enseignant responsable."
+    },
+    {
+     "article_keys": [
+      "D1-005/1/Objet"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : aménagements particuliers pour les examens\nArticle 1 : Objet\nCe guide explique comment demander un aménagement particulier pour passer une épreuve dans de\nbonnes conditions."
+    },
+    {
+     "article_keys": [
+      "D1-002/3/Inscription des élèves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 3 : Inscription des élèves\nAfin de pouvoir suivre une formation à l’École, les élèves doivent être obligatoirement inscrits. Pour ce\nfaire, ils doivent s'acquitter des frais de scolarité dont ils sont redevables dans les délais fixés par\nl’Administration. La première tranche est exigée à l'inscription, la deuxième tranche doit être réglée avant\nla fin du mois de janvier\n• Report d'inscription\n- Il n'est accordé qu'un seul report sur l'ensemble de la scolarité.\n- Les demandes de report d'inscription doivent être déposées au plus tard le 30 novembre de\nl’année en cours.\n- Les droits d'inscription ne sont pas remboursables. Le reste des frais de scolarité est\nremboursable dans un délai ne dépassant pas un mois à compter de la date de notification.\n- Aucune demande de report d'inscription n'est recevable après le 30 novembre.\n• Annulation d'inscription : retrait définitif de l'inscription et abandon du cursus\na) Les demandes d'annulation déposées avant le 30 novembre : Les droits d'inscription ne sont pas\nremboursables. Le reste des frais de scolarité est remboursable dans un délai ne dépassant pas un\nmois à compter de la date de notification.\nb) Les demandes d'annulation déposées entre le 1er décembre et le 31 janvier : Le montant de la\n1ère tranche est prélevé automatiquement. Le reste des frais de scolarité est remboursable dans\nun délai ne dépassant pas un mois à compter de la date de notification.\nc) Les demandes d'annulation déposées à partir du 1er février : Aucun remboursement ne sera\neffectué."
+    },
+    {
+     "article_keys": [
+      "D1-001/3/Inscription des élèves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 3 : Inscription des élèves\nAfin de pouvoir suivre une formation à l’école, les élèves doivent être inscrits. Pour ce faire, ils doivent\ndéposer un dossier d’inscription (les diplômes, les relevés de notes, le dossier médical et les\nattestations de stage) et s'acquitter des frais de scolarité dont ils sont redevables dans les délais fixés\npar l’Administration.\n● Report d’inscription\nLe report d’inscription consiste en la possibilité de reporter l’inscription actuelle à un délai ultérieur.\n- Chaque étudiant bénéficie d’un seul report d’inscription sur la durée totale de la scolarité.\n- Un formulaire de demande du report doit être rempli et déposé au bureau d’ordre de l’école.\n- Pour bénéficier de la possibilité de remboursement des frais, les demandes de report d'inscription\ndoivent être déposées au plus tard le 30 novembre de l’année en cours.\n- Si les délais sont respectés, l’étudiant a le droit au remboursement des frais de scolarité à l’exception\ndes frais d’inscription.\n● Annulation d'inscription :\nL’annulation d’inscription consiste au retrait de l'inscription de l’année en cours et/ou à l’abandon\ndéfinitif du cursus de formation. En cas d’annulation, un formulaire de demande d’annulation doit être\nrempli et déposé au bureau d’ordre de l’école.\nTrois configurations peuvent se présenter :\na) la demande d’annulation est déposée avant le 30 novembre : l’étudiant a le droit au remboursement\ndes frais de scolarité à l’exception des frais d’inscription.\nb) la demande d'annulation est déposée entre le 1er décembre et le 31 janvier : Les frais de scolarité\nrelatifs à la première tranche sont retenus, ils ne sont pas remboursés. L’étudiant a le droit au\nremboursement de la partie restante des frais de scolarité.\nc) la demande d'annulation est déposée à partir du 1er février :\nAucun remboursement ne sera effectué."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-8/Déroulement des épreuves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-8 Déroulement des épreuves\nLors des épreuves, les étudiants sont tenus de respecter les règles suivantes :\n• Chaque étudiant doit se présenter 15 minutes avant le démarrage de l’épreuve muni\nobligatoirement de sa carte d’étudiant ou à défaut d’une pièce d’identité. Tout étudiant ne\njustifiant pas son identité (CIN, passeport ou carte d’étudiant) ne sera pas autorisé à accéder à\nla salle d’examen et il sera marqué absent.\nNB: aucun laissez-passer ne sera fourni à cet effet par la scolarité.\n• La signature de la feuille d’émargement est requise au début et à la fin de chaque épreuve.\n• L’étudiant doit remplir toutes les informations se trouvant dans l’entête de la feuille d’examen\net doit indiquer, sur chaque feuille, le numéro de la feuille et le nombre total des feuilles\nrendues.\n• Tout étudiant accusant un retard dépassant 20 minutes après la distribution des sujets ne sera\npas admis dans la salle.\n• L’étudiant qui arrive après le démarrage de l’épreuve ne bénéficie pas d'un délai\nsupplémentaire pour compenser son retard.\n• L’étudiant pourra quitter la salle après au moins 30 minutes du démarrage de l’épreuve.\n• Il est formellement interdit de quitter la salle d’examen pendant le déroulement des épreuves.\nLes cas exceptionnels nécessitant un aménagement particulier (une autorisation de sortie au\nWC) sont demandés à déposer un dossier médical à la scolarité au préalable afin d’avoir le\nconsentement.\n• Tous les appareils connectés (téléphones, montres connectées, écouteurs, lunettes connectées,\netc.) doivent être éteints et rangés avant d’entrer dans la salle. Tout appareil connecté apparent\npendant l’épreuve sera considéré comme une fraude.\n• Il est formellement interdit d'échanger le matériel entre les étudiants (correcteur, calculatrice,\ncrayon, stylo…).\n• L'enseignant surveillant annonce et applique les consignes et les règles essentielles au bon\ndéroulement des épreuves."
+    }
+   ],
+   "reply": "La scolarité peut accorder un temps supplémentaire d'un tiers selon la situation [D1-005, art. 3, p. 1] (procédure de démonstration). Les délais de dépôt ne sont pas précisés dans les extraits fournis.",
+   "seconds": 2.12,
+   "output_tokens": 58,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": false
+  },
+  {
+   "id": "T1-19",
+   "regime": "all",
+   "answerable": "yes",
+   "question": "En combien de temps on obtient un relevé de notes ?",
+   "expected_article": "D1-006/4/Comment faire la demande",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-006/4/Comment faire la demande"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : certificats de scolarité, relevés de notes et diplôme\nArticle 4 : Comment faire la demande\nLa demande se fait auprès du service de la scolarité avec le formulaire FORM-03 et une pièce d'identité\n(CIN, passeport ou carte d'étudiant).\nDélais indicatifs : certificat de scolarité, 3 jours ouvrables ; relevé de notes, 7 jours ouvrables à partir de la\npublication officielle des résultats. Le document est retiré à la scolarité par l'étudiant ou par une personne\nmunie d'une procuration écrite et de sa propre pièce d'identité."
+    },
+    {
+     "article_keys": [
+      "D1-008/5/Traitement de la demande"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : réclamation et révision de note (double correction)\nArticle 5 : Traitement de la demande\nLa copie est transmise à un second correcteur désigné par le chef de département, qui ne connaît pas la\nnote initiale.\nDélai de traitement indicatif : 10 jours ouvrables après le dépôt de la demande. Le résultat est notifié par\nl'adresse e-mail institutionnelle de l'étudiant."
+    },
+    {
+     "article_keys": [
+      "D1-003/8/Absences des examens"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 8 : Absences des examens\nLe calendrier des examens est porté préalablement à la connaissance des alternants et des enseignants. Il doit être\nrespecté. L’absence à une épreuve entraîne la note zéro. Toutefois, et en cas d’empêchement dû à une force\nmajeure (hospitalisation, décès d’un parent ou mission de travail), l’alternant doit aviser le responsable de la\nscolarité dans un délai ne dépassant pas 48h à compter de la date de l’épreuve avec remise des pièces justificatives.\nUne commission désignée par la direction de l’école étudie les différents cas et peut accorder ou refuser le\nrepassage de l’examen. Il est à noter qu’un simple certificat médical peut ne pas être considéré comme un motif\nvalable."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-2/Evaluation des élèves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-2 Evaluation des élèves\nL’évaluation a pour objet de vérifier que l’élève a acquis les connaissances et compétences\ncorrespondant aux objectifs pédagogiques de l’enseignement dispensé et à juger de l’aptitude de l'élève\nà valider chaque UE.\nLes modalités d’évaluation, quelle que soit leurs formes, doivent garantir une totale équité entre les\nélèves.\nLe calendrier des examens est porté préalablement à la connaissance des élèves et des enseignants. Il\ndoit être respecté. L’absence à une épreuve entraîne la note zéro. Toutefois, et en cas d’empêchement\ndû à une force majeure (hospitalisation, décès d’un parent ou mission de travail), l’élève doit aviser le\nresponsable de la scolarité dans un délai ne dépassant pas 48h à compter de la date de l’épreuve avec\nremise des pièces justificatives. Une commission désignée par la direction de l’école étudie les différents\ncas et peut accorder ou refuser le repassage de l’examen. Il est à noter qu’un simple certificat médical\nn'est pas considéré comme un motif valable.\nL’étudiant peut déposer une demande de double correction d’une épreuve écrite auprès de service\nexamen dans un délai d’une semaine après l’affichage de la note de cette épreuve.\nL’évaluation du travail de l’élève est basée sur un système de contrôle continu et un examen final. Les\népreuves peuvent être écrites, orales ou pratiques. L’examen final est organisé en deux sessions :\n Une session principale\n Une session de rattrapage.\nLe contrôle continu comprend, selon la forme des enseignements propres à chaque module, des tests\nécrits et/ou oraux, des tests pratiques, des travaux personnalisés réalisés individuellement ou en groupe\net donnant lieu à un rapport écrit et/ou à une soutenance orale, et devoir surveillé, etc."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-3/Calcul de la moyenne d'un module"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-3 Calcul de la moyenne d'un module\nAprès la session principale, la moyenne d’un module est une moyenne pondérée des différentes notes\nobtenues en contrôle continu, travaux pratiques et examen. Si un examen doit être repassé en session\nde rattrapage, la note obtenue remplacera l’une des notes (contrôle continu ou examen session\nprincipale) avec le coefficient correspondant. La combinaison retenue est celle qui donne la meilleure\nmoyenne générale. Ainsi la moyenne du module en session de rattrapage est égale au sup :\n- de la moyenne de la session principale\n- des deux moyennes pondérées obtenues en substituant la note obtenue en session de\nrattrapage à l’une des notes, ayant servi au calcul de la moyenne de la session principale,\naffectées de leurs coefficients respectifs."
+    }
+   ],
+   "reply": "Le délai indicatif pour obtenir un relevé de notes est de 7 jours ouvrables à partir de la publication officielle des résultats [D1-006, art. 4, p. 1] (procédure de démonstration). Pour toute précision, veuillez contacter la scolarité à scolarite@esprit.tn.",
+   "seconds": 1.09,
+   "output_tokens": 71,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-20",
+   "regime": "jour",
+   "answerable": "yes",
+   "question": "Je dois signer une convention avant de commencer mon stage d'été ? et si je l'ai pas ?",
+   "expected_article": "D1-010/4/Recherche du stage et convention",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-010/4/Recherche du stage et convention"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide pratique des stages (hors projet de fin d'études)\nArticle 4 : Recherche du stage et convention\nL'étudiant trouve lui-même sa structure d'accueil. Avant le premier jour de stage, une convention de stage\ntripartite (étudiant, école, organisme d'accueil) est signée par les trois parties et déposée auprès du\nservice des stages. Un stage commencé sans convention signée n'est pas reconnu par l'école."
+    },
+    {
+     "article_keys": [
+      "D1-013/7/Contrat d'études et reconnaissance des crédits"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide : mobilité internationale (échange et double diplôme)\nArticle 7 : Contrat d'études et reconnaissance des crédits\nAvant le départ, l'étudiant signe un contrat d'études qui fixe les modules suivis chez le partenaire et leur\néquivalence. Toute modification est validée par le service de la mobilité internationale et le département\nconcerné. Les crédits validés chez le partenaire sont reconnus selon ce contrat."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-9/Stage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-9 Stage\nLe stage est une activité obligatoire et notée. Trois stages sont exigés :\n▪ Stage de formation humaine et sociale\n▪ Stage d'immersion en entreprise\n▪ Stage ingénieur\nAu terme de chaque stage, l’élève devra présenter un journal, un rapport de stage et une attestation\nde stage délivrée par l’entreprise d’accueil.\n[Tableau p.11 (manual serialisation)]\nStage: Stage de formation humaine et sociale; Nombre d'ECTS: 2; Durée minimale: 4 semaines; Période: durant l'été de la 1ère année du tronc commun; Domaines acceptés: organisation non gouvernementale (ONG), club, lycée, entreprise, organisme civil\nStage: Stage d'immersion en entreprise; Nombre d'ECTS: 3; Durée minimale: 6 semaines; Période: durant l'été de la 3ème année (1ère année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)\nStage: Stage ingénieur; Nombre d'ECTS: 5; Durée minimale: 8 semaines; Période: durant l'été de la 4ème année (2ème année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)"
+    },
+    {
+     "article_keys": [
+      "D1-001/7-10/Stage de Projet de Fin d’Etudes (PFE)"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-10 Stage de Projet de Fin d’Etudes (PFE)\nLe stage de projet de fin d'études (PFE), d'une durée minimale de 6 mois, démarre après la validation\ndu premier semestre de la 5ème année et la validation des crédits antérieurs ayant dépassé le seuil\nminimal autorisé par le conseil de classe. Le stage de projet de fin d'études donne lieu à la rédaction\nd'un rapport et est couronné par une soutenance devant un jury composé de trois membres dont le\nprésident du jury, le ou les encadrants (académiques et professionnels) et un membre invité.\nL'évaluation du stage se fait à travers :\no Des évaluations périodiques\no Un suivi académique\no Un suivi professionnel\no Un suivi technique\no Une évaluation de la soutenance finale\no Un jury final\n▪ L’étudiant devra déposer, auprès du service des stages ou via la plateforme des PFE’s :\no Son rapport de stage signé par les encadrants, professionnel et académique et portant\nle cachet de l’entreprise d’accueil,\no Un rapport anti-plagiat avec un taux de plagiat inférieur à 18%,\no Une attestation de stage octroyée par l'organisme d’accueil.\n[Tableau p.12 (manual serialisation)]\nStage: Stage de PFE; Nombre d'ECTS: 30; Durée minimale: 26 semaines; Période: 2ème semestre de la 5ème année (3ème année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)"
+    },
+    {
+     "article_keys": [
+      "D1-001/7-8/Déroulement des épreuves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-8 Déroulement des épreuves\nLors des épreuves, les étudiants sont tenus de respecter les règles suivantes :\n• Chaque étudiant doit se présenter 15 minutes avant le démarrage de l’épreuve muni\nobligatoirement de sa carte d’étudiant ou à défaut d’une pièce d’identité. Tout étudiant ne\njustifiant pas son identité (CIN, passeport ou carte d’étudiant) ne sera pas autorisé à accéder à\nla salle d’examen et il sera marqué absent.\nNB: aucun laissez-passer ne sera fourni à cet effet par la scolarité.\n• La signature de la feuille d’émargement est requise au début et à la fin de chaque épreuve.\n• L’étudiant doit remplir toutes les informations se trouvant dans l’entête de la feuille d’examen\net doit indiquer, sur chaque feuille, le numéro de la feuille et le nombre total des feuilles\nrendues.\n• Tout étudiant accusant un retard dépassant 20 minutes après la distribution des sujets ne sera\npas admis dans la salle.\n• L’étudiant qui arrive après le démarrage de l’épreuve ne bénéficie pas d'un délai\nsupplémentaire pour compenser son retard.\n• L’étudiant pourra quitter la salle après au moins 30 minutes du démarrage de l’épreuve.\n• Il est formellement interdit de quitter la salle d’examen pendant le déroulement des épreuves.\nLes cas exceptionnels nécessitant un aménagement particulier (une autorisation de sortie au\nWC) sont demandés à déposer un dossier médical à la scolarité au préalable afin d’avoir le\nconsentement.\n• Tous les appareils connectés (téléphones, montres connectées, écouteurs, lunettes connectées,\netc.) doivent être éteints et rangés avant d’entrer dans la salle. Tout appareil connecté apparent\npendant l’épreuve sera considéré comme une fraude.\n• Il est formellement interdit d'échanger le matériel entre les étudiants (correcteur, calculatrice,\ncrayon, stylo…).\n• L'enseignant surveillant annonce et applique les consignes et les règles essentielles au bon\ndéroulement des épreuves."
+    }
+   ],
+   "reply": "Oui, une convention tripartite doit être signée avant le premier jour de stage [D1-010, art. 4, p. 1] (procédure de démonstration). Si le stage est commencé sans convention signée, il ne sera pas reconnu par l'école [D1-010, art. 4, p. 1] (procédure de démonstration).",
+   "seconds": 8.95,
+   "output_tokens": 86,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-21",
+   "regime": "all",
+   "answerable": "yes",
+   "question": "Pour faire une demande de repassage exceptionnel, je dois apporter quels papiers ?",
+   "expected_article": "D1-004/3/Dossier de demande de repassage exceptionnel|D1-001/7-8/Déroulement des épreuves",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-004/3/Dossier de demande de repassage exceptionnel"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : absences, justificatifs et sessions de rattrapage\nArticle 3 : Dossier de demande de repassage exceptionnel\nL'étudiant dont l'absence est justifiée peut demander un repassage exceptionnel. La demande est traitée\nau cas par cas.\nLe dossier est déposé auprès du service de la scolarité et comprend :\n• le formulaire de demande de repassage exceptionnel (modèle FORM-01) ;\n• une pièce d'identité (CIN, passeport ou carte d'étudiant) ;\n• le justificatif officiel original (attestation d'hospitalisation, acte de décès, attestation de l'autorité\ncompétente, ordre de mission pour l'alternance), accompagné d'une copie.\nCours du jour : le règlement ne fixe pas de délai de dépôt ; la demande est traitée au cas par cas par la\nscolarité."
+    },
+    {
+     "article_keys": [
+      "D1-005/4/Dossier de demande"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : aménagements particuliers pour les examens\nArticle 4 : Dossier de demande\nLe dossier comprend le formulaire FORM-04, un document médical récent établi par un médecin et une\npièce d'identité. Il est déposé à la scolarité au moins 7 jours avant le début de la session d'examens. Un\ndossier déposé après ce délai est étudié si possible, mais l'aménagement ne peut pas être garanti."
+    },
+    {
+     "article_keys": [
+      "D1-003/8/Absences des examens"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\nArticle 8 : Absences des examens\nLe calendrier des examens est porté préalablement à la connaissance des alternants et des enseignants. Il doit être\nrespecté. L’absence à une épreuve entraîne la note zéro. Toutefois, et en cas d’empêchement dû à une force\nmajeure (hospitalisation, décès d’un parent ou mission de travail), l’alternant doit aviser le responsable de la\nscolarité dans un délai ne dépassant pas 48h à compter de la date de l’épreuve avec remise des pièces justificatives.\nUne commission désignée par la direction de l’école étudie les différents cas et peut accorder ou refuser le\nrepassage de l’examen. Il est à noter qu’un simple certificat médical peut ne pas être considéré comme un motif\nvalable."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-8/Déroulement des épreuves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-8 Déroulement des épreuves\nLors des épreuves, les étudiants sont tenus de respecter les règles suivantes :\n• Chaque étudiant doit se présenter 15 minutes avant le démarrage de l’épreuve muni\nobligatoirement de sa carte d’étudiant ou à défaut d’une pièce d’identité. Tout étudiant ne\njustifiant pas son identité (CIN, passeport ou carte d’étudiant) ne sera pas autorisé à accéder à\nla salle d’examen et il sera marqué absent.\nNB: aucun laissez-passer ne sera fourni à cet effet par la scolarité.\n• La signature de la feuille d’émargement est requise au début et à la fin de chaque épreuve.\n• L’étudiant doit remplir toutes les informations se trouvant dans l’entête de la feuille d’examen\net doit indiquer, sur chaque feuille, le numéro de la feuille et le nombre total des feuilles\nrendues.\n• Tout étudiant accusant un retard dépassant 20 minutes après la distribution des sujets ne sera\npas admis dans la salle.\n• L’étudiant qui arrive après le démarrage de l’épreuve ne bénéficie pas d'un délai\nsupplémentaire pour compenser son retard.\n• L’étudiant pourra quitter la salle après au moins 30 minutes du démarrage de l’épreuve.\n• Il est formellement interdit de quitter la salle d’examen pendant le déroulement des épreuves.\nLes cas exceptionnels nécessitant un aménagement particulier (une autorisation de sortie au\nWC) sont demandés à déposer un dossier médical à la scolarité au préalable afin d’avoir le\nconsentement.\n• Tous les appareils connectés (téléphones, montres connectées, écouteurs, lunettes connectées,\netc.) doivent être éteints et rangés avant d’entrer dans la salle. Tout appareil connecté apparent\npendant l’épreuve sera considéré comme une fraude.\n• Il est formellement interdit d'échanger le matériel entre les étudiants (correcteur, calculatrice,\ncrayon, stylo…).\n• L'enseignant surveillant annonce et applique les consignes et les règles essentielles au bon\ndéroulement des épreuves."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-8/Déroulement des épreuves"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-8 Déroulement des épreuves (suite)\n• Toute absence à une épreuve : examen, épreuve pratique ou devoir surveillé entraînera un\nzéro.\n• A la fin de l’épreuve, chaque étudiant doit remettre la copie d’examen.\nAbsence à un examen final ou à un DS :\nToute absence non justifiée à un examen entraînera un zéro. L’étudiant peut se présenter à la session\nde rattrapage si l’unité d’enseignement incluant le module n’est pas validée à la session principale.\nJustificatifs d’absence :\nSeuls les cas d’accidents, de maladies contagieuses, d’hospitalisations où de décès d’un parent proche\nsont considérés comme justificatif d’absence à une épreuve finale. Les certificats médicaux ne\nconstituent pas un justificatif d’absence. Toutefois, les demandes de repassage exceptionnelles sont\ntraitées au cas par cas et se font suite à un dépôt de dossier auprès de la scolarité qui prendra la charge\nde vérifier le justificatif et d’informer les parties concernées après concertation avec les chefs de\ndépartement respectifs de l’élève ingénieur.\nAbsence à une évaluation intermédiaire (suivi de TP, CC, test, etc..) :\nL’élève ingénieur est tenu de présenter un justificatif d’absence (hospitalisation, certificat médical,\netc.) à la scolarité qui informera les parties concernées après vérification du justificatif d’absence.\nGestion des fraudes\nToute fraude ou tentative de fraude lors d’un devoir surveillé ou d’un examen peut conduire son auteur\ndevant le conseil de discipline qui l’expose à des sanctions disciplinaires administratives et\npédagogiques.\nLes sanctions peuvent être sous forme d’avertissement, de blâme, d'interdiction de participation à une\nou deux des sessions d'examen, de privation du rachat, de privation de la mobilité internationale,\nd’exclusion de l'école pour une période d'une année universitaire au maximum, d'interdiction\nprovisoire d’inscription à l'établissement pour une période de deux années universitaires au maximum\nou de l'exclusion définitive de l'école."
+    }
+   ],
+   "reply": "Pour effectuer une demande de repassage exceptionnel, le dossier doit inclure le formulaire de demande (modèle FORM-01), une pièce d'identité et le justificatif officiel original avec une copie [D1-004, art. 3, p. 1] (procédure de démonstration). Veuillez préciser votre régime d'études afin de vérifier les conditions spécifiques applicables à votre situation.",
+   "seconds": 1.32,
+   "output_tokens": 87,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-22",
+   "regime": "all",
+   "answerable": "yes",
+   "question": "Mon rapport de PFE doit etre rendu combien de jours avant la soutenance ?",
+   "expected_article": "D1-007/4/Calendrier de dépôt",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-007/4/Calendrier de dépôt"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : dépôt du rapport et soutenance du projet de fin d'études\nArticle 4 : Calendrier de dépôt\nLe rapport complet est déposé au plus tard 15 jours avant la date de soutenance. Le service des stages\nvérifie la complétude du dossier sous 3 jours ouvrables et en informe l'étudiant par e-mail institutionnel. Un\ndossier incomplet empêche la programmation de la soutenance."
+    },
+    {
+     "article_keys": [
+      "D1-007/2/Conditions de démarrage"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nProcédure : dépôt du rapport et soutenance du projet de fin d'études\nArticle 2 : Conditions de démarrage\nCours du jour : le stage de PFE, d'une durée minimale de 6 mois (26 semaines, 30 ECTS), démarre après\nla validation du premier semestre de la 5ème année et la validation des crédits antérieurs dépassant le\nseuil minimal autorisé par le conseil de classe.\nCours du soir : durée minimale de 5 mois, à réaliser en entreprise, en 4ème année. Alternance : le PFE\npeut démarrer en 4ème année ; seuls les élèves ayant réussi les examens de la 4ème année et validé\ntoutes les UE peuvent soutenir."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-9/Projet de Fin d’Etudes (PFE)"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-9 Projet de Fin d’Etudes (PFE)\nLe projet de fin d'études (PFE), d'une durée minimale de 5 mois, peut démarrer pour un étudiant inscrit\nen quatrième année Cours du Soir et a pour objectif la mise en pratique des connaissances acquises\ndurant le cursus. Il est à réaliser dans une entreprise.\nLe projet de fin d'études donne lieu à la rédaction d'un rapport et est couronné par une soutenance\ndevant un jury désigné par le directeur de l’école sur proposition du chef de la spécialité concernée. Ce\njury est composé au moins de trois membres dont le président du jury, le ou les encadrants et le\nrapporteur. Le directeur de l’École peut inviter, en outre, toute personne dont la compétence est\nreconnue dans le domaine pour faire partie du jury.\nNe sont autorisés à soutenir le projet de fin d’études que les élèves ayant réussi les examens de la\nquatrième année et ayant obtenu la validation de toutes les UE.\nLes élèves n’ayant pas obtenu la validation de leur stage et/ou n’ayant pas soutenu avec succès le projet\nde fin d’études et/ou n’ayant pas obtenu leurs certifications linguistiques, peuvent bénéficier d’une\nprolongation de scolarité d'une durée maximale de 6 mois.\nA l’issue de la prolongation, l’élève n’ayant pas validé son PFE, est considéré comme redoublant et doit\nrefaire son PFE avec un sujet différent si les conditions de redoublement sont satisfaites."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-10/Stage de Projet de Fin d’Etudes (PFE)"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-10 Stage de Projet de Fin d’Etudes (PFE)\nLe stage de projet de fin d'études (PFE), d'une durée minimale de 6 mois, démarre après la validation\ndu premier semestre de la 5ème année et la validation des crédits antérieurs ayant dépassé le seuil\nminimal autorisé par le conseil de classe. Le stage de projet de fin d'études donne lieu à la rédaction\nd'un rapport et est couronné par une soutenance devant un jury composé de trois membres dont le\nprésident du jury, le ou les encadrants (académiques et professionnels) et un membre invité.\nL'évaluation du stage se fait à travers :\no Des évaluations périodiques\no Un suivi académique\no Un suivi professionnel\no Un suivi technique\no Une évaluation de la soutenance finale\no Un jury final\n▪ L’étudiant devra déposer, auprès du service des stages ou via la plateforme des PFE’s :\no Son rapport de stage signé par les encadrants, professionnel et académique et portant\nle cachet de l’entreprise d’accueil,\no Un rapport anti-plagiat avec un taux de plagiat inférieur à 18%,\no Une attestation de stage octroyée par l'organisme d’accueil.\n[Tableau p.12 (manual serialisation)]\nStage: Stage de PFE; Nombre d'ECTS: 30; Durée minimale: 26 semaines; Période: 2ème semestre de la 5ème année (3ème année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)"
+    },
+    {
+     "article_keys": [
+      "D1-003/7-8/Projet de Fin d’Etudes (PFE)"
+     ],
+     "doc_status": "official",
+     "text": "Règlement & Engagement — Formation par alternance 2024-2025\n7-8Projet de Fin d’Etudes (PFE)\nLe projet de fin d'études (PFE) peut démarrer pour un étudiant inscrit en quatrième année et a pour objectif la mise\nen pratique des connaissances acquises durant le cursus.\nLe projet de fin d'études donne lieu à la rédaction d'un rapport et est couronné par une soutenance devant un jury\ndésigné par le directeur de l’école sur proposition du chef de la spécialité concernée. Ce jury est composé au moins\nde trois membres dont le président du jury, le ou les encadrants et le rapporteur. Le directeur de l’École peut inviter,\nen outre, toute personne dont la compétence est reconnue dans le domaine pour faire partie du jury.\nNe sont autorisés à soutenir le projet de fin d’études que les élèves ayant réussi les examens de la quatrième année\net ayant obtenu la validation de toutes les UE.\nLes élèves n’ayant pas obtenu la validation de leur stage et/ou n’ayant pas soutenu avec succès le projet de fin\nd’études et/ou n’ayant pas obtenu leurs certifications linguistiques, peuvent bénéficier d’une prolongation de\nscolarité d'une durée maximale de 6 mois.\nA l’issue de la prolongation, l’élève n’ayant pas validé son PFE, est considéré comme redoublant et doit refaire son\nPFE avec un sujet différent si les conditions de redoublement sont satisfaites."
+    }
+   ],
+   "reply": "Le rapport complet doit être déposé au plus tard 15 jours avant la date de soutenance [D1-007, art. 4, p. 1] (procédure de démonstration). Veuillez préciser votre régime d'études pour confirmer les modalités officielles applicables à votre situation.",
+   "seconds": 0.81,
+   "output_tokens": 64,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": false,
+   "expected_cited": true
+  },
+  {
+   "id": "T1-23",
+   "regime": "jour",
+   "answerable": "no",
+   "question": "C'est combien exactement les frais de scolarité en 4ème année cours du jour ?",
+   "expected_article": "",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-012/4/Paiement en plusieurs tranches"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide : paiement des frais de scolarité et échéanciers\nArticle 4 : Paiement en plusieurs tranches\nLes frais de scolarité sont réglés selon l'échéancier remis à l'inscription, en une ou plusieurs tranches. La\npremière tranche est réglée au moment de l'inscription ; les tranches suivantes avant les dates d'échéance\nindiquées sur l'échéancier."
+    },
+    {
+     "article_keys": [
+      "D1-012/1/Objet"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide : paiement des frais de scolarité et échéanciers\nArticle 1 : Objet\nCe guide explique comment régler les frais de scolarité, demander un échéancier et obtenir un reçu de\npaiement. Il ne fixe pas le barème annuel : celui-ci est communiqué par le service financier lors de\nl'inscription. Les règles de report, d'annulation et de remboursement figurent dans le règlement de\nscolarité et dans la procédure de report et d'annulation d'inscription."
+    },
+    {
+     "article_keys": [
+      "D1-001/5/Programme des études"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 5 : Programme des études\nLe programme de formation se présente sous la forme d’Unités d’Enseignement (UE). Chaque UE est\ncomposée d’un ou de plusieurs éléments constitutifs de l’unité d’enseignement (ECUE) structurés\nautour d’objectifs pédagogiques communs. Un nombre de crédits ECTS (European Credit Transfer\nSystem) est affecté à chaque Unité d’Enseignement, reflétant le volume global de travail que l’élève\nest supposé fournir prenant en compte les heures enseignées (HE) et non enseignées (HNE).\nLe programme de chaque année universitaire représente un total de 60 ECTS avec en moyenne 5 UE\npar semestre ponctués par des stages. L’étudiant est redevable de 4 stages durant les 10 semestres\nd’études : Un stage de formation humaine et sociale, d’une durée de 4 semaines, un stage d’immersion\nen entreprise d’une durée de 6 semaines, un stage ingénieur d’une durée de 8 semaines et un stage de\nfin d’études donnant lieu à un projet de fin d’études (PFE) d’une durée de 28 semaines.\nChaque UE est décrite par une fiche contenant le nom du responsable de l’UE, les volumes horaires\ndes formations (cours intégré présentiel, travaux pratiques, ateliers, projets, etc.), le nombre de crédits\n(ECTS) de l’UE, la liste des modules la composant avec leurs crédits, les prérequis et une synthèse\ndes acquis d'apprentissage. Les modules sont décrits quant à eux par des fiches modules (syllabus)\ncontenant plus de détails sur la formation et l’évaluation : prérequis et acquis d'apprentissage\nspécifiques et modes d’évaluation détaillés."
+    },
+    {
+     "article_keys": [
+      "D1-001/1/Objet du règlement"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 1 : Le règlement de scolarité entre en vigueur à compter de l'année universitaire 2021- 2022.\nIl annule et remplace tous les règlements de scolarité antérieurs."
+    },
+    {
+     "article_keys": [
+      "D1-001/4/Organisation des études"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 4 : Organisation des études\nL’année universitaire comprend deux semestres d’études, d’une durée de 16 semaines chacun, dont\ndeux semaines réservées aux examens. Le calendrier annuel, les emplois du temps, le régime des\nexamens et les stages ainsi que la vie culturelle et sociale au sein de l’école sont communiqués aux\nélèves par l’administration au début de l’année universitaire.\nLa formation est organisée de la manière suivante :\n▪ Des enseignements de base : étalés sur quatre semestres (du semestre 1 au semestre 4). Ils\npermettent l'acquisition des connaissances indispensables s'articulant autour des sciences de\nbase (mathématiques appliquées, physique, électronique, informatique, langues, sciences\nhumaines et sociales).\n▪ Des enseignements d'approfondissement et de spécialisation : Ils sont axés sur l'acquisition\net l’utilisation des concepts et des techniques de base relatifs à chacune des spécialités\nproposées à savoir : Génie Informatique (GI), Génie des Télécommunications (GT), Génie\nElectromécanique (GEM) et Génie Civil (GC).\n▪ Des projets intégrés : Un projet intégré est planifié chaque année universitaire. Il vise à\nintégrer les connaissances acquises dans différents modules en les mettant en pratique.\n▪ Un stage de projet de fin d’études : planifié pendant le dixième semestre. Il consiste à\ndévelopper un projet authentique dans toutes ses dimensions : technique, organisationnelle,\nhumaine et économique et ce dans le cadre d’un stage."
+    }
+   ],
+   "reply": "Information non trouvée dans le règlement [D1-012, art. 1, p. 1] (procédure de démonstration). Pour connaître le montant exact des frais de scolarité, veuillez contacter le service financier ou la scolarité (scolarite@esprit.tn).",
+   "seconds": 1.28,
+   "output_tokens": 64,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": true,
+   "expected_cited": null
+  },
+  {
+   "id": "T1-24",
+   "regime": "all",
+   "answerable": "no",
+   "question": "La bibliothèque est ouverte jusqu'à quelle heure le samedi ?",
+   "expected_article": "",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-002/4/Organisation de la scolarité"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 4 : Organisation de la scolarité\nLes enseignements en cours du soir sont planifiés dès le démarrage de l’année universitaire jusqu’au 31\njuillet. Les séances se déroulent comme suit :\n- Du lundi au Vendredi entre 18h30 et 20h30.\n- Samedi : 14h à 16h et de 16h15 à 18h\nLes élèves ont l’obligation de se tenir informés sur le site WEB de l’École, de tous les communiqués\norganisant les études, le calendrier et le régime des examens, les stages ainsi que la vie culturelle et\nsociale au sein de l’école."
+    },
+    {
+     "article_keys": [
+      "D1-012/2/Service compétent"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide : paiement des frais de scolarité et échéanciers\nArticle 2 : Service compétent\nLe service financier traite les paiements, les échéanciers, les reçus et les remboursements.\n• Adresse : finance@esprit.tn\n• Bureau : Bloc B, bureau 03\n• Accueil : du lundi au vendredi, de 8h30 à 12h30 et de 13h30 à 15h30 Les demandes envoyées par\ne-mail indiquent le nom, la classe et l'objet de la demande."
+    },
+    {
+     "article_keys": [
+      "D1-002/14/La vie à ESPRIT"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\nArticle 14 : La vie à ESPRIT (suite)\nEn dehors des heures d’enseignement, l’élève dispose librement de son temps et est appelé à le gérer\nau mieux pour tirer pleinement profit de sa formation. Un certain nombre d’activités sportives,\nculturelles et de loisir lui sont proposées dans le cadre des clubs existants dans l’École. En outre, les\nélèves peuvent participer à la création et à l’animation de nouveaux clubs et organiser des\nmanifestations sportives et culturelles (excursions, représentations théâtrales ou musicales, projection\nde films, etc.) avec l’appui logistique de l’Administration. Toutes ces activités doivent être soumises au\nvisa préalable de celle-ci, et s'inscrire au programme d'activité du comité des élèves.\nTous les élèves ont le droit d’accès aux laboratoires moyennant l'autorisation de l'administration et sur\nproposition des enseignants et des directeurs des départements. Ils sont responsables de l’utilisation de\nces équipements, et tenus de respecter les normes et consignes de sécurité lors de l’utilisation des\néquipements et des machines et de la manipulation de matériaux.\nDans la cour, les halls, les aires de circulation, le restaurant et le foyer et pendant les intercours et les\nrécréations, les élèves doivent se comporter de la manière la plus civique et observer les règles de bonne\nconduite. Les agissements, quels qu’ils soient, contraires à la morale, aux bonnes mœurs, à la\ndéontologie universitaire et à l’esprit civique, sont formellement condamnés et exposent leurs auteurs\nà des sanctions disciplinaires. Tout traitement dégradant et humiliant contre la personne humaine, tant\nphysique que moral est proscrit. Il s’agit notamment des actes de discrimination, de harcèlement, de\nmenaces ou de diffamation.\nLes élèves doivent se conformer au présent règlement de scolarité de l’École. Tout manquement à ce\nrèglement entraîne des sanctions disciplinaires à l’encontre de l’élève fautif."
+    },
+    {
+     "article_keys": [
+      "D1-011/2/Accès aux locaux"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nRèglement intérieur : vie sur le campus\nArticle 2 : Accès aux locaux\nLes étudiants accèdent aux locaux et installations de l'école sous réserve d'être porteurs d'une carte ou\nd'un document attestant la régularité de leur situation.\nEn cas de perte de la carte d'étudiant, l'étudiant le signale à la scolarité dans un délai de 48 heures."
+    },
+    {
+     "article_keys": [
+      "D1-002/7-7/Session de rattrapage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du soir\n7-7 Session de rattrapage\nEn Cours du Soir, La session de rattrapage est planifiée par Unité d’Enseignement (UE) de façon\nsemestrielle.\nUne session de rattrapage est planifiée pour tous les modules. Si un étudiant valide une UE avec une\nmoyenne supérieure ou égale à 10/20, il cumule les ECTS affectés à l’UE, par conséquent, il n’est pas\nobligé de repasser toutes les épreuves des modules constituants l’UE. L’étudiant a le droit de s’inscrire\npour le repassage de tous les examens des modules dont la moyenne est inférieure à 10/20.\nA la fin de l'année universitaire, un Conseil de classe Annuel est planifié pour la session principale.\nToutes les UEs de l’année universitaire dont la moyenne est supérieure ou égale à 8/20 sont validées\npour un étudiant ayant une moyenne générale supérieure ou égale à 10/20.\nLes UEs qui sont organisées exclusivement sous forme de travaux pratiques, de travaux\npersonnalisés ou de projet n’ont pas d’examen final et ne peuvent pas faire l’objet de\nrattrapage.\nLes UEs concernant les projets d’intégration ne sont pas rattrapables."
+    }
+   ],
+   "reply": "Information non trouvée dans la règlement. Veuillez contacter la scolarité (scolarite@esprit.tn) pour toute information relative aux horaires d'ouverture de la bibliothèque.",
+   "seconds": 2.21,
+   "output_tokens": 36,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": true,
+   "expected_cited": null
+  },
+  {
+   "id": "T1-25",
+   "regime": "jour",
+   "answerable": "no",
+   "question": "Je peux faire mon stage ingénieur à l'étranger ? il y a des démarches spéciales ?",
+   "expected_article": "",
+   "retrieved": [
+    {
+     "article_keys": [
+      "D1-010/8/Stage non validé"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide pratique des stages (hors projet de fin d'études)\nArticle 8 : Stage non validé\nPour obtenir le diplôme d'ingénieur, tous les stages requis doivent être validés. Un stage non validé doit\nêtre refait selon les modalités fixées par le service des stages."
+    },
+    {
+     "article_keys": [
+      "D1-010/2/Les trois stages"
+     ],
+     "doc_status": "FICTITIOUS",
+     "text": "[DOCUMENT FICTIF — projet CampusFlow AI, non officiel]\nGuide pratique des stages (hors projet de fin d'études)\nArticle 2 : Les trois stages\nLe stage est une activité obligatoire et notée. Les stages sont :\n• Stage de formation humaine et sociale : 2 ECTS, 4 semaines minimum, durant l'été de la 1ère année\ndu tronc commun ; organismes acceptés : ONG, club, lycée, entreprise, organisme civil.\n• Stage d'immersion en entreprise : 3 ECTS, 6 semaines minimum, durant l'été de la 3ème année (1ère\nannée du cycle ingénieur) ; entreprise, bureau d'études, usine, laboratoire (expérimental ou de\nrecherche).\n• Stage ingénieur : 5 ECTS, 8 semaines minimum, durant l'été de la 4ème année (2ème année du cycle\ningénieur) ; entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)."
+    },
+    {
+     "article_keys": [
+      "D1-001/7-9/Stage"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\n7-9 Stage\nLe stage est une activité obligatoire et notée. Trois stages sont exigés :\n▪ Stage de formation humaine et sociale\n▪ Stage d'immersion en entreprise\n▪ Stage ingénieur\nAu terme de chaque stage, l’élève devra présenter un journal, un rapport de stage et une attestation\nde stage délivrée par l’entreprise d’accueil.\n[Tableau p.11 (manual serialisation)]\nStage: Stage de formation humaine et sociale; Nombre d'ECTS: 2; Durée minimale: 4 semaines; Période: durant l'été de la 1ère année du tronc commun; Domaines acceptés: organisation non gouvernementale (ONG), club, lycée, entreprise, organisme civil\nStage: Stage d'immersion en entreprise; Nombre d'ECTS: 3; Durée minimale: 6 semaines; Période: durant l'été de la 3ème année (1ère année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)\nStage: Stage ingénieur; Nombre d'ECTS: 5; Durée minimale: 8 semaines; Période: durant l'été de la 4ème année (2ème année cycle ingénieur); Domaines acceptés: entreprise, bureau d'études, usine, laboratoire (expérimental ou de recherche)"
+    },
+    {
+     "article_keys": [
+      "D1-001/8/Conditions d’obtention du diplôme"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 8 : Conditions d’obtention du diplôme\nLe diplôme d’ingénieur d’ESPRIT est délivré aux élèves de cinquième année après :\n▪ Validation de toutes les UEs et acquisition de la totalité des crédits ECTS correspondants aux\nannées d’études à ESPRIT.\n▪ Validation de tous les stages requis.\n▪ Obtention du niveau B2 en langues française et anglaise en deuxième année cycle préparatoire\nou en deuxième année du cycle ingénieur à travers une évaluation interne. A défaut, l’élève\ndoit justifier d’une certification internationale équivalente au niveau B2 en cours de validité et\ndélivrée par un centre de langue agréé.\n▪ Obtention d'une note supérieure ou égale à 10/20 au projet de fin d’études.\n▪ Régularisation d'un quitus administratif délivré par la scolarité de l’école attestant que l’élève\na rempli toutes ses obligations administratives et légales vis-à-vis de l’école (paiement intégral\ndes frais de scolarité, restitution des documents empruntés de la bibliothèque, retour de\nmatériel emprunté…).\nA la fin de sa scolarité et en cas de succès, chaque élève reçoit son diplôme, le relevé de notes de la\ncinquième année et l'attestation de diplôme.\nLes élèves n’ayant pas validé leur stage et/ou n’ayant pas soutenu avec succès le projet de fin d’études\net/ou n’ayant pas obtenu leurs certifications linguistiques (niveau B2 en Français et en Anglais),\npeuvent bénéficier d’une prolongation de scolarité d'une durée maximale de 6 mois. Au-delà de ce\ndélai, il est impératif de procéder à des ajustements au niveau de la scolarité et du service des stages\navant de procéder à la mise en place tardive de la soutenance.\nA l’issue de la prolongation, l’élève n’ayant pas validé son stage de PFE, est considéré comme\nredoublant et doit refaire son PFE avec un sujet différent si les conditions de redoublement sont\nsatisfaites."
+    },
+    {
+     "article_keys": [
+      "D1-001/6/Régime des études"
+     ],
+     "doc_status": "official",
+     "text": "Règlement de scolarité 2024-2025 — Cours du jour\nArticle 6 : Régime des études\nPour l’obtention du diplôme d’Ingénieur, les élèves doivent suivre une formation d’une durée de :\n▪ Cinq ans : pour les candidats dont le dernier diplôme universitaire est le baccalauréat\nscientifique.\n▪ Quatre ans : pour les candidats admis en première année de classe préparatoire.\n▪ Trois ans : pour les candidats ayant été admis aux Concours nationaux d'entrée aux Écoles\nd’ingénieurs, ou ayant un diplôme de Technicien supérieur, ou une licence ou tout autre\ndiplôme scientifique ou technique équivalent.\n▪ Deux ans : pour les candidats ayant été admis en 1ème année Master ou en 1ème année cycle\ningénieur ou encore les candidats ayant obtenu le diplôme de Master.\nLes enseignements sont dispensés sous forme de cours intégrés, de Workshops, de séminaires, de\ntravaux pratiques, d’Apprentissage Par Projets et par Problèmes (APP) et de projets."
+    }
+   ],
+   "reply": "Information non trouvée dans le règlement concernant la possibilité de faire le stage ingénieur à l'étranger ou les démarches spéciales associées. Pour toute question, veuillez contacter la scolarité à scolarite@esprit.tn.",
+   "seconds": 0.82,
+   "output_tokens": 47,
+   "checks_pass": true,
+   "check_failures": [],
+   "said_not_found": true,
+   "expected_cited": null
+  }
+ ]
+}
