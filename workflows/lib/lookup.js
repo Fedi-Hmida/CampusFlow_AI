@@ -82,6 +82,23 @@ function lookupContact(dirRows, query) {
   return { found: true, status: 'found', contact: blankToNull(role), escalation_path: escalation(dirRows, role.role_id) };
 }
 
+// Student wording → catalogue wording (found in the WF-3 smoke test: « double correction » never matched
+// « Vérification de copie »). When a synonym matches, only its catalogue words are scored.
+const SYNONYMS = [
+  [/double correction|recorrection|revoir ma copie|contester (ma|une|mon) (note|copie)|reclamation (de|sur) (ma |une )?note/, 'verification copie'],
+  [/(perdu|perte|oublie).{0,25}convocation|nouvelle convocation/, 'duplicata convocation'],
+  [/plusieurs fois|echeancier|payer .{0,25}frais|paiement en (plusieurs|tranches)/, 'echeancier paiement'],
+  [/certificat de scolarite/, 'attestation scolarite'],
+  [/carte .{0,15}(perdue|volee)|(perdu|perte).{0,15}carte/, 'duplicata carte etudiant'],
+  [/bulletin de notes|mes notes officielles/, 'releve notes'],
+];
+
+function topicWords(topic) {
+  const n = norm(topic);
+  const hit = SYNONYMS.find(([re]) => re.test(n));
+  return (hit ? hit[1] : n).split(' ').filter(w => w.length > 2);
+}
+
 function lookupRequest(reqRows, dirRows, query) {
   const q = query || {};
   let cands;
@@ -89,7 +106,7 @@ function lookupRequest(reqRows, dirRows, query) {
     const id = String(q.request_id).trim().toUpperCase();
     cands = reqRows.filter(r => r.request_id === id || r.request_id.startsWith(id + '-'));
   } else if (norm(q.topic)) {
-    const words = norm(q.topic).split(' ').filter(w => w.length > 2);
+    const words = topicWords(q.topic);
     const scored = reqRows.map(r => ({ r, s: words.filter(w => norm(`${r.request_type} ${r.category}`).split(' ').includes(w)).length }))
       .filter(x => x.s > 0);
     const best = Math.max(0, ...scored.map(x => x.s));

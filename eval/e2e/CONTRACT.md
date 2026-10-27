@@ -45,3 +45,14 @@ JSON Schema: [wf3_response.schema.json](wf3_response.schema.json). Example:
 | all | latency p50 / p90 per set and mode · revised / fallback rates | `timings_s`, `revised`, `fallback` |
 
 Both modes (`hybrid`, `local`) on T1 at least; the report compares them.
+
+## Opening the endpoint (Fedi's laptop)
+The assistant runs on Fedi's laptop, so evaluation runs happen there:
+1. `git pull` on Fedi's laptop (to get the harness branch), then publish the test entrance for the run:
+   `docker compose exec n8n n8n publish:workflow --id=cfWF3TestEntry01` and `docker compose restart n8n`.
+2. Run the harness against `http://127.0.0.1:5678/webhook/wf3-test` (both modes: `"mode": "hybrid"` / `"local"`;
+   local ≈ 2–3 min per regulation question).
+3. **Always** unpublish afterwards: `docker compose exec n8n n8n unpublish:workflow --id=cfWF3TestEntry01` + restart.
+`scripts/workflows/smoke_wf3.py` does steps 1 and 3 automatically and is the reference client (8 cases, all
+contract-valid on 27 Oct). Extra request field for tests only: `"force_error": "smoke"` makes the assistant fail on
+purpose to check the error answer (`fallback: true`, `checks.failures: ["error"]`).

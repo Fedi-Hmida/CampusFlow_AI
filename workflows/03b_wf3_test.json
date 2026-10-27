@@ -1,0 +1,302 @@
+[
+ {
+  "id": "cfWF3TestEntry01",
+  "name": "03b_wf3_test",
+  "active": false,
+  "settings": {
+   "executionOrder": "v1",
+   "errorWorkflow": "cfWF4Errors00001"
+  },
+  "nodes": [
+   {
+    "id": "735e4ba4-af31-5ff1-b4b5-33eb15e3c52f",
+    "name": "Test entrance",
+    "type": "n8n-nodes-base.webhook",
+    "typeVersion": 2.1,
+    "position": [
+     0,
+     300
+    ],
+    "parameters": {
+     "httpMethod": "POST",
+     "path": "wf3-test",
+     "responseMode": "responseNode",
+     "options": {}
+    },
+    "webhookId": "91ba5b2d-c098-5bc5-9244-57f6a06499be"
+   },
+   {
+    "id": "6eaaabf7-eaa0-5407-bc9c-b62adf404da3",
+    "name": "Assistant",
+    "type": "n8n-nodes-base.executeWorkflow",
+    "typeVersion": 1.2,
+    "position": [
+     220,
+     300
+    ],
+    "parameters": {
+     "source": "database",
+     "workflowId": {
+      "__rl": true,
+      "mode": "id",
+      "value": "cfWF3Assistant01"
+     },
+     "mode": "once",
+     "options": {
+      "waitForSubWorkflow": true
+     }
+    },
+    "onError": "continueErrorOutput"
+   },
+   {
+    "id": "e1ad9530-d2ec-5795-8ad2-a8b09d8d8279",
+    "name": "Respond",
+    "type": "n8n-nodes-base.respondToWebhook",
+    "typeVersion": 1.1,
+    "position": [
+     440,
+     200
+    ],
+    "parameters": {
+     "respondWith": "json",
+     "responseBody": "={{ JSON.stringify($json.response) }}",
+     "options": {}
+    }
+   },
+   {
+    "id": "3588f18d-3e73-52d9-b567-e9af2458afd9",
+    "name": "Error answer",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     440,
+     420
+    ],
+    "parameters": {
+     "jsCode": "const FRIENDLY = \"Désolé, je n'ai pas pu traiter ta question à cause d'un problème technique. Réessaie dans un instant, ou contacte la scolarité (scolarite@esprit.tn).\";\n\n// Contract-valid answer when the assistant failed, so the evaluation counts the failure instead of crashing\nconst body = $('Test entrance').first().json.body || {};\nreturn [{ json: { response: { test_id: String(body.test_id || ''), reply: FRIENDLY, route: { intents: [], agents: [], missing_fields: [] },\n  citations: [], retrieved: [], tool_rows: [], checks: { pass: false, failures: ['error'] }, revised: false, fallback: true,\n  timings_s: { total: 0 }, mode: body.mode === 'local' ? 'local' : 'hybrid', config: 'error' } } }];\n"
+    }
+   },
+   {
+    "id": "f2796d51-30a8-5552-8827-34641dba72e0",
+    "name": "Respond error",
+    "type": "n8n-nodes-base.respondToWebhook",
+    "typeVersion": 1.1,
+    "position": [
+     660,
+     420
+    ],
+    "parameters": {
+     "respondWith": "json",
+     "responseBody": "={{ JSON.stringify($json.response) }}",
+     "options": {}
+    }
+   },
+   {
+    "id": "c769106b-3358-561e-b013-832934730485",
+    "name": "Run row",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     660,
+     200
+    ],
+    "parameters": {
+     "jsCode": "const SOURCE = \"test\";\n\n// One log row per run (ESA-403): what ran and how long — never the question text, the chat id or a name (NFR-03)\nconst r = $('Assistant').first().json.response;\nconst row = { ts: new Date().toISOString(), source: SOURCE, intents: r.route.intents, agents: r.route.agents, checks_pass: r.checks.pass,\n              failures: r.checks.failures, revised: r.revised, fallback: r.fallback, timings_s: r.timings_s, mode: r.mode, config: r.config };\nreturn [{ json: { line: JSON.stringify(row) + '\\n' } }];\n"
+    }
+   },
+   {
+    "id": "c54da92d-719e-588c-9710-e836c75af4e4",
+    "name": "Run to file",
+    "type": "n8n-nodes-base.convertToFile",
+    "typeVersion": 1.1,
+    "position": [
+     880,
+     200
+    ],
+    "parameters": {
+     "operation": "toText",
+     "sourceProperty": "line",
+     "options": {
+      "fileName": "runs.jsonl"
+     }
+    }
+   },
+   {
+    "id": "7ec6aa07-7d06-580d-89c3-0c2ddd0ef22d",
+    "name": "Run append",
+    "type": "n8n-nodes-base.readWriteFile",
+    "typeVersion": 1.1,
+    "position": [
+     1100,
+     200
+    ],
+    "parameters": {
+     "operation": "write",
+     "fileName": "/logs/runs.jsonl",
+     "dataPropertyName": "data",
+     "options": {
+      "append": true
+     }
+    }
+   },
+   {
+    "id": "488b571a-98d7-526f-bd8e-8f0ebd4c451f",
+    "name": "Error row",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
+    "position": [
+     880,
+     420
+    ],
+    "parameters": {
+     "jsCode": "const SOURCE = \"test\";\n\nconst e = $('Assistant').first().json;\nconst row = { ts: new Date().toISOString(), source: SOURCE, error: String((e.error && (e.error.message || e.error)) || 'unknown').slice(0, 200) };\nreturn [{ json: { line: JSON.stringify(row) + '\\n' } }];\n"
+    }
+   },
+   {
+    "id": "94306853-c8d6-5d6a-9368-857d40166293",
+    "name": "Error to file",
+    "type": "n8n-nodes-base.convertToFile",
+    "typeVersion": 1.1,
+    "position": [
+     1100,
+     420
+    ],
+    "parameters": {
+     "operation": "toText",
+     "sourceProperty": "line",
+     "options": {
+      "fileName": "errors.jsonl"
+     }
+    }
+   },
+   {
+    "id": "ae97943e-1fa9-5171-b5ec-88bb02564f9d",
+    "name": "Error append",
+    "type": "n8n-nodes-base.readWriteFile",
+    "typeVersion": 1.1,
+    "position": [
+     1320,
+     420
+    ],
+    "parameters": {
+     "operation": "write",
+     "fileName": "/logs/errors.jsonl",
+     "dataPropertyName": "data",
+     "options": {
+      "append": true
+     }
+    }
+   }
+  ],
+  "connections": {
+   "Test entrance": {
+    "main": [
+     [
+      {
+       "node": "Assistant",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Assistant": {
+    "main": [
+     [
+      {
+       "node": "Respond",
+       "type": "main",
+       "index": 0
+      }
+     ],
+     [
+      {
+       "node": "Error answer",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Respond": {
+    "main": [
+     [
+      {
+       "node": "Run row",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Run row": {
+    "main": [
+     [
+      {
+       "node": "Run to file",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Run to file": {
+    "main": [
+     [
+      {
+       "node": "Run append",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Error answer": {
+    "main": [
+     [
+      {
+       "node": "Respond error",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Respond error": {
+    "main": [
+     [
+      {
+       "node": "Error row",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Error row": {
+    "main": [
+     [
+      {
+       "node": "Error to file",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Error to file": {
+    "main": [
+     [
+      {
+       "node": "Error append",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   }
+  },
+  "pinData": {},
+  "tags": []
+ }
+]

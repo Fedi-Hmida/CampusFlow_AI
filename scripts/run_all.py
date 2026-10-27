@@ -25,6 +25,7 @@ STEPS = [
     "scripts/testsets/build_t4.py",              # T4 ground truth for the photos (CF-208d)
     "scripts/testsets/triage_d5.py",             # D5 candidates → status per row + Router dev labels (CF-208b)
     "scripts/workflows/build_tools.py",          # n8n tool workflows generated from workflows/lib/lookup.js (CF-019)
+    "scripts/workflows/build_wf3.py",            # WF-3 core + entries + LLM sub-workflow + WF-4 (ESA-401..403)
 ]
 
 
@@ -37,7 +38,7 @@ def main() -> None:
     if (ROOT / "eval/testsets/T4_photos/T4-01_convocation_ds14_5ds6.png").exists():
         subprocess.run([sys.executable, "-X", "utf8", str(ROOT / "scripts/testsets/degrade_t4.py")], cwd=ROOT, check=True)
     # CF-019 / CF-010: lookup tools and Critic checks (same code as in n8n), tested against the rebuilt tables
-    tests = ["workflows/lib/lookup.test.js", "workflows/lib/checks.test.js"]
+    tests = ["workflows/lib/lookup.test.js", "workflows/lib/checks.test.js", "workflows/lib/assistant.test.js"]
     if shutil.which("node"):
         print("\n=== node --test " + " ".join(tests), flush=True)
         if subprocess.run(["node", "--test", *tests], cwd=ROOT).returncode:

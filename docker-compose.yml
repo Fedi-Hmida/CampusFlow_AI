@@ -17,13 +17,16 @@ services:
       N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY:?Set N8N_ENCRYPTION_KEY in .env}
       # n8n 2.x name (WEBHOOK_URL is deprecated); the value still comes from WEBHOOK_URL in .env
       N8N_WEBHOOK_URL: ${WEBHOOK_URL:?Set WEBHOOK_URL in .env}
-      # n8n 2.x only reads files from allow-listed folders; regulation PDFs live in /data
-      N8N_RESTRICT_FILE_ACCESS_TO: /data
+      # n8n 2.x only reads / writes allow-listed folders: /data (read-only inputs), /t4 (test photos, read-only),
+      # /logs (WF-4 run log, writable, git-ignored, never contains Telegram ids)
+      N8N_RESTRICT_FILE_ACCESS_TO: /data;/t4;/logs
       # n8n sits behind the ngrok reverse proxy
       N8N_PROXY_HOPS: "1"
     volumes:
       - n8n_data:/home/node/.n8n
       - ./data:/data:ro
+      - ./eval/testsets/T4_photos:/t4:ro
+      - ./logs:/logs
     depends_on:
       - qdrant
       - ollama
