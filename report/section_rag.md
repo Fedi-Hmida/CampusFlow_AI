@@ -31,7 +31,7 @@ Les questions non répondables doivent être examinées séparément : le systè
 
 ## Résultats (T1, 22 questions répondables, 26 octobre)
 
-Les deux index ont été remplis par le workflow WF-1 (77 et 168 points, vérifiés un à un). Les métriques sont calculées au niveau du chunk (k compte les chunks transmis à l’agent), avec le filtre de régime de la question :
+Les deux index ont été remplis par le workflow WF-1 (77 et 168 points, vérifiés un à un). Les métriques détaillées dans [results_T1.md](../eval/retrieval/results_T1.md) et [results_T1.json](../eval/retrieval/results_T1.json) sont calculées au niveau du chunk (k compte les chunks transmis à l’agent), avec le filtre de régime de la question :
 
 | Stratégie | Hit@5 | Recall@5 | MRR | Hit@3 | Texte transmis (top 5) |
 |---|---:|---:|---:|---:|---:|
@@ -57,4 +57,4 @@ Le corpus est limité à 13 documents, en deçà de la recommandation de 20 à 6
 - [Jeu de test T1](../eval/testsets/T1_regulations.csv)
 - [Définitions et auto-test des métriques](../eval/retrieval/retrieval_metrics.py)
 - [Réponses de référence sans RAG](../eval/baselines/baseline_no_rag.md)
-- [Résultats détaillés T1 (A / B)](../eval/retrieval/results_T1.md) · [Journal d’indexation](../eval/retrieval/ingestion_log.md)
+- [Résultats détaillés T1 (A / B)](../eval/retrieval/results_T1.md) · [Données brutes T1 (JSON)](../eval/retrieval/results_T1.json) · [Journal d’indexation](../eval/retrieval/ingestion_log.md)
