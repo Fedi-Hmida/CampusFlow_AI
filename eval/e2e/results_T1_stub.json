@@ -1,0 +1,1362 @@
+{
+  "set": "T1",
+  "mode": "stub",
+  "endpoint": "http://127.0.0.1:5678/webhook/wf3-test",
+  "models": {
+    "router": "qwen3:4b-instruct-2507-q4_K_M",
+    "regulations": "qwen3:4b-instruct-2507-q4_K_M",
+    "embeddings": "bge-m3:567m"
+  },
+  "n_questions": 25,
+  "n_runs": 1,
+  "summary": {
+    "score_mean": 1.0,
+    "score_total": 25.0,
+    "schema_valid_count": 25,
+    "schema_valid_rate": 1.0,
+    "checks_passed_count": 25,
+    "checks_passed_rate": 1.0,
+    "latency_p50": 13.8,
+    "latency_p90": 13.98,
+    "revised_count": 0,
+    "fallback_count": 0
+  },
+  "details": [
+    {
+      "id": "T1-01",
+      "question": "Jsuis tombé malade le jour de mon exam final (grosse migraine), j'ai un certif du médecin : ça suffit pour le repasser ?",
+      "reply": "Non : en cours du jour, un certificat médical n'est pas un justificatif d'absence. Seuls un accident, une maladie contagieuse, une hospitalisation ou le décès d'un parent proche justifient une absence à une épreuve finale. L'étudiant peut déposer un dossier de repassage exceptionnel à la scolarité, traité au cas par cas. [D1-001, art. 7-8, p. 10]",
+      "citations": [
+        {
+          "doc_id": "D1-001",
+          "article": "7-8",
+          "page": 10
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-001/7-8/Déroulement des épreuves"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-01",
+        "question": "Jsuis tombé malade le jour de mon exam final (grosse migraine), j'ai un certif du médecin : ça suffit pour le repasser ?",
+        "regime": "jour",
+        "topic": "absences",
+        "expected_doc_id": "D1-001",
+        "expected_article": "D1-001/7-8/Déroulement des épreuves",
+        "expected_page": "10",
+        "expected_answer": "Non : en cours du jour, un certificat médical n'est pas un justificatif d'absence. Seuls un accident, une maladie contagieuse, une hospitalisation ou le décès d'un parent proche justifient une absence à une épreuve finale. L'étudiant peut déposer un dossier de repassage exceptionnel à la scolarité, traité au cas par cas.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-02",
+      "question": "Cours du soir : j'ai loupé l'examen à cause d'une migraine et j'ai seulement un certificat médical, est-ce que ça marche ?",
+      "reply": "Non : un simple certificat médical n'est pas un motif valable. Seule la force majeure (hospitalisation, décès d'un parent ou mission de travail) est prise en compte : il faut aviser le responsable de la scolarité dans les 48 h suivant l'épreuve, avec les pièces justificatives. Une commission désignée par la direction de l'école étudie le cas et accorde ou refuse le repassage. [D1-002, art. 7-2, p. 5]",
+      "citations": [
+        {
+          "doc_id": "D1-002",
+          "article": "7-2",
+          "page": 5
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-002/7-2/Evaluation des élèves"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-02",
+        "question": "Cours du soir : j'ai loupé l'examen à cause d'une migraine et j'ai seulement un certificat médical, est-ce que ça marche ?",
+        "regime": "soir",
+        "topic": "absences",
+        "expected_doc_id": "D1-002",
+        "expected_article": "D1-002/7-2/Evaluation des élèves",
+        "expected_page": "5",
+        "expected_answer": "Non : un simple certificat médical n'est pas un motif valable. Seule la force majeure (hospitalisation, décès d'un parent ou mission de travail) est prise en compte : il faut aviser le responsable de la scolarité dans les 48 h suivant l'épreuve, avec les pièces justificatives. Une commission désignée par la direction de l'école étudie le cas et accorde ou refuse le repassage.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-03",
+      "question": "Je suis en alternance et j'étais malade le jour d'un examen, j'ai qu'un certificat du médecin. Je fais comment ?",
+      "reply": "En cas de force majeure (hospitalisation, décès d'un parent ou mission de travail), l'alternant avise le responsable de la scolarité dans les 48 h suivant l'épreuve, avec les pièces justificatives. Un simple certificat médical peut ne pas être accepté. Une commission désignée par la direction de l'école étudie le cas et accorde ou refuse le repassage. [D1-003, art. 8, p. 7]",
+      "citations": [
+        {
+          "doc_id": "D1-003",
+          "article": "8",
+          "page": 7
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-003/8/Absences des examens"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-03",
+        "question": "Je suis en alternance et j'étais malade le jour d'un examen, j'ai qu'un certificat du médecin. Je fais comment ?",
+        "regime": "alternance",
+        "topic": "absences",
+        "expected_doc_id": "D1-003",
+        "expected_article": "D1-003/8/Absences des examens",
+        "expected_page": "7",
+        "expected_answer": "En cas de force majeure (hospitalisation, décès d'un parent ou mission de travail), l'alternant avise le responsable de la scolarité dans les 48 h suivant l'épreuve, avec les pièces justificatives. Un simple certificat médical peut ne pas être accepté. Une commission désignée par la direction de l'école étudie le cas et accorde ou refuse le repassage.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-04",
+      "question": "En cours du jour, il me faut combien de crédits pour être admis en année supérieure dès la session principale ?",
+      "reply": "60 ECTS acquis pour l'année en cours. Une moyenne générale d'au moins 10/20. Aucun ECTS antérieur non validé. [D1-001, art. 7-5, p. 7]",
+      "citations": [
+        {
+          "doc_id": "D1-001",
+          "article": "7-5",
+          "page": 7
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-001/7-5/Conditions de passage en année supérieure"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-04",
+        "question": "En cours du jour, il me faut combien de crédits pour être admis en année supérieure dès la session principale ?",
+        "regime": "jour",
+        "topic": "grading",
+        "expected_doc_id": "D1-001",
+        "expected_article": "D1-001/7-5/Conditions de passage en année supérieure",
+        "expected_page": "7",
+        "expected_answer": "60 ECTS acquis pour l'année en cours. Une moyenne générale d'au moins 10/20. Aucun ECTS antérieur non validé.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-05",
+      "question": "cours du soir : aprés le rattrapage, je peux passer en année sup avec combien d'ECTS de retard au maximum ?",
+      "reply": "Après le rattrapage : moyenne générale ≥ 10/20 et déficit cumulé ≤ 10 ECTS (0 ECTS en 4e année). Sinon, le cas est soumis au Conseil annuel pour délibération. [D1-002, art. 7-5, p. 6]",
+      "citations": [
+        {
+          "doc_id": "D1-002",
+          "article": "7-5",
+          "page": 6
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-002/7-5/Conditions de passage en année supérieure"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-05",
+        "question": "cours du soir : aprés le rattrapage, je peux passer en année sup avec combien d'ECTS de retard au maximum ?",
+        "regime": "soir",
+        "topic": "retakes",
+        "expected_doc_id": "D1-002",
+        "expected_article": "D1-002/7-5/Conditions de passage en année supérieure",
+        "expected_page": "6|7",
+        "expected_answer": "Après le rattrapage : moyenne générale ≥ 10/20 et déficit cumulé ≤ 10 ECTS (0 ECTS en 4e année). Sinon, le cas est soumis au Conseil annuel pour délibération.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-06",
+      "question": "Alternance : aprés le rattrapage, je peux passer en année sup avec combien d'ECTS de retard au maximum ?",
+      "reply": "Moyenne générale ≥ 10/20. Au plus 12 ECTS antérieurs non validés. 0 ECTS de déficit si l'élève est en 4e année. Sinon, l'élève est déclaré redoublant. [D1-003, art. 7-6, p. 5]",
+      "citations": [
+        {
+          "doc_id": "D1-003",
+          "article": "7-6",
+          "page": 5
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-003/7-6/Conditions de passage en année supérieure"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-06",
+        "question": "Alternance : aprés le rattrapage, je peux passer en année sup avec combien d'ECTS de retard au maximum ?",
+        "regime": "alternance",
+        "topic": "retakes",
+        "expected_doc_id": "D1-003",
+        "expected_article": "D1-003/7-6/Conditions de passage en année supérieure",
+        "expected_page": "5|6",
+        "expected_answer": "Moyenne générale ≥ 10/20. Au plus 12 ECTS antérieurs non validés. 0 ECTS de déficit si l'élève est en 4e année. Sinon, l'élève est déclaré redoublant.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-07",
+      "question": "j'ai raté 2 jours de cours pour raison médicale (cours du jour), j'ai combien de temps pour envoyer mon justificatif ?",
+      "reply": "Une semaine au maximum, au service de la scolarité. [D1-001, art. 9, p. 13]",
+      "citations": [
+        {
+          "doc_id": "D1-001",
+          "article": "9",
+          "page": 13
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-001/9/Assiduité"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-07",
+        "question": "j'ai raté 2 jours de cours pour raison médicale (cours du jour), j'ai combien de temps pour envoyer mon justificatif ?",
+        "regime": "jour",
+        "topic": "absences",
+        "expected_doc_id": "D1-001",
+        "expected_article": "D1-001/9/Assiduité",
+        "expected_page": "13",
+        "expected_answer": "Une semaine au maximum, au service de la scolarité.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-08",
+      "question": "cours du soir : j'ai raté 2 jours de cours pour raison médicale, j'ai combien de temps pour envoyer mon justificatif ?",
+      "reply": "Au plus tard le lendemain du début de l'empêchement : certificat médical ou justificatif au service de scolarité. Au-delà de 3 absences non justifiées dans un module : avertissement. [D1-002, art. 9, p. 9]",
+      "citations": [
+        {
+          "doc_id": "D1-002",
+          "article": "9",
+          "page": 9
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-002/9/Assiduité"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-08",
+        "question": "cours du soir : j'ai raté 2 jours de cours pour raison médicale, j'ai combien de temps pour envoyer mon justificatif ?",
+        "regime": "soir",
+        "topic": "absences",
+        "expected_doc_id": "D1-002",
+        "expected_article": "D1-002/9/Assiduité",
+        "expected_page": "9",
+        "expected_answer": "Au plus tard le lendemain du début de l'empêchement : certificat médical ou justificatif au service de scolarité. Au-delà de 3 absences non justifiées dans un module : avertissement.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-09",
+      "question": "En alternance on a le droit de redoubler combien de fois ?",
+      "reply": "Une seule fois sur les quatre années de la scolarité. [D1-003, art. 7-7, p. 6]",
+      "citations": [
+        {
+          "doc_id": "D1-003",
+          "article": "7-7",
+          "page": 6
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-003/7-7/Redoublement"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-09",
+        "question": "En alternance on a le droit de redoubler combien de fois ?",
+        "regime": "alternance",
+        "topic": "retakes",
+        "expected_doc_id": "D1-003",
+        "expected_article": "D1-003/7-7/Redoublement",
+        "expected_page": "6",
+        "expected_answer": "Une seule fois sur les quatre années de la scolarité.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-10",
+      "question": "Le stage d'immersion, c'est combien de semaines minimum et combien de crédits ?",
+      "reply": "6 semaines minimum et 3 ECTS. Pendant l'été de la 3e année (1re année du cycle ingénieur). [D1-001, art. 7-9, p. 11]",
+      "citations": [
+        {
+          "doc_id": "D1-001",
+          "article": "7-9",
+          "page": 11
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-001/7-9/Stage"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-10",
+        "question": "Le stage d'immersion, c'est combien de semaines minimum et combien de crédits ?",
+        "regime": "jour",
+        "topic": "internships",
+        "expected_doc_id": "D1-001",
+        "expected_article": "D1-001/7-9/Stage",
+        "expected_page": "11",
+        "expected_answer": "6 semaines minimum et 3 ECTS. Pendant l'été de la 3e année (1re année du cycle ingénieur).",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-11",
+      "question": "Cours du jour : si je me fais choper en train de tricher pendant un exam, ça se passe comment et je risque quoi ?",
+      "reply": "Le surveillant récupère les outils de fraude et les annexe au procès-verbal. Un rapport de fraude est déposé auprès du chef de département de la scolarité. La fraude peut conduire l'étudiant devant le conseil de discipline. Sanctions possibles : avertissement, blâme, interdiction d'une ou deux sessions d'examen, privation du rachat, privation de la mobilité internationale, exclusion d'un an au maximum, interdiction provisoire d'inscription de deux ans au maximum, exclusion définitive. [D1-001, art. 10, p. 14]",
+      "citations": [
+        {
+          "doc_id": "D1-001",
+          "article": "10",
+          "page": 14
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-001/10/Honnêteté intellectuelle"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-11",
+        "question": "Cours du jour : si je me fais choper en train de tricher pendant un exam, ça se passe comment et je risque quoi ?",
+        "regime": "jour",
+        "topic": "discipline",
+        "expected_doc_id": "D1-001",
+        "expected_article": "D1-001/10/Honnêteté intellectuelle|D1-001/7-8/Déroulement des épreuves",
+        "expected_page": "14|10",
+        "expected_answer": "Le surveillant récupère les outils de fraude et les annexe au procès-verbal. Un rapport de fraude est déposé auprès du chef de département de la scolarité. La fraude peut conduire l'étudiant devant le conseil de discipline. Sanctions possibles : avertissement, blâme, interdiction d'une ou deux sessions d'examen, privation du rachat, privation de la mobilité internationale, exclusion d'un an au maximum, interdiction provisoire d'inscription de deux ans au maximum, exclusion définitive.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-12",
+      "question": "En cours du soir, si un prof trouve du plagiat dans mon rapport, j'aurai quelle note et quelles sanctions je risque ?",
+      "reply": "0/20 à l'UE. Un rapport est adressé au directeur, qui peut réunir le conseil de discipline. Sanctions possibles : avertissement, blâme, interdiction des examens d'une ou deux sessions, renvoi d'un an au maximum, renvoi définitif. Pas de remboursement des frais de scolarité dans les deux derniers cas. [D1-002, art. 10, p. 10]",
+      "citations": [
+        {
+          "doc_id": "D1-002",
+          "article": "10",
+          "page": 10
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-002/10/Honnêteté intellectuelle"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-12",
+        "question": "En cours du soir, si un prof trouve du plagiat dans mon rapport, j'aurai quelle note et quelles sanctions je risque ?",
+        "regime": "soir",
+        "topic": "discipline",
+        "expected_doc_id": "D1-002",
+        "expected_article": "D1-002/10/Honnêteté intellectuelle|D1-002/12/Comparution devant le conseil de discipline",
+        "expected_page": "10",
+        "expected_answer": "0/20 à l'UE. Un rapport est adressé au directeur, qui peut réunir le conseil de discipline. Sanctions possibles : avertissement, blâme, interdiction des examens d'une ou deux sessions, renvoi d'un an au maximum, renvoi définitif. Pas de remboursement des frais de scolarité dans les deux derniers cas.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-13",
+      "question": "cours du soir: je trouve ma note d'écrit trop basse, jusqu'à quand je peux demander une double correction et quelle note sera gardée ?",
+      "reply": "Dans la semaine qui suit l'affichage de la note, auprès du service examen (règlement officiel du cours du soir). Note retenue : la moyenne des deux corrections. Troisième correction si l'écart dépasse 3 points sur 20. Source FICTIVE : à présenter comme non officielle (règle de précédence A2). [D1-002, art. 7-2, p. 5]",
+      "citations": [
+        {
+          "doc_id": "D1-002",
+          "article": "7-2",
+          "page": 5
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-002/7-2/Evaluation des élèves"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-13",
+        "question": "cours du soir: je trouve ma note d'écrit trop basse, jusqu'à quand je peux demander une double correction et quelle note sera gardée ?",
+        "regime": "soir",
+        "topic": "grading",
+        "expected_doc_id": "D1-002|D1-008",
+        "expected_article": "D1-002/7-2/Evaluation des élèves|D1-008/6/Note retenue",
+        "expected_page": "5|1",
+        "expected_answer": "Dans la semaine qui suit l'affichage de la note, auprès du service examen (règlement officiel du cours du soir). Note retenue : la moyenne des deux corrections. Troisième correction si l'écart dépasse 3 points sur 20. Source FICTIVE : à présenter comme non officielle (règle de précédence A2).",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-14",
+      "question": "Cours du soir : on est en décembre, je peux encore demander un report d'inscription ?",
+      "reply": "Non : aucune demande de report n'est recevable après le 30 novembre. [D1-002, art. 3, p. 3]",
+      "citations": [
+        {
+          "doc_id": "D1-002",
+          "article": "3",
+          "page": 3
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-002/3/Inscription des élèves"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-14",
+        "question": "Cours du soir : on est en décembre, je peux encore demander un report d'inscription ?",
+        "regime": "soir",
+        "topic": "registration",
+        "expected_doc_id": "D1-002",
+        "expected_article": "D1-002/3/Inscription des élèves",
+        "expected_page": "3",
+        "expected_answer": "Non : aucune demande de report n'est recevable après le 30 novembre.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-15",
+      "question": "Si mon contrat avec l'entreprise s'arrête, je peux continuer la formation en alternance ?",
+      "reply": "Non : la rupture du contrat de travail entraîne l'exclusion automatique de la formation. La réintégration dépend de l'avis de l'entreprise, de la décision du conseil de discipline avec l'accord de la direction des études, et du remboursement des frais engagés. [D1-003, art. 4, p. 2]",
+      "citations": [
+        {
+          "doc_id": "D1-003",
+          "article": "4",
+          "page": 2
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-003/4/Exclusion du Parcours Alternance"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-15",
+        "question": "Si mon contrat avec l'entreprise s'arrête, je peux continuer la formation en alternance ?",
+        "regime": "alternance",
+        "topic": "registration",
+        "expected_doc_id": "D1-003",
+        "expected_article": "D1-003/4/Exclusion du Parcours Alternance",
+        "expected_page": "2",
+        "expected_answer": "Non : la rupture du contrat de travail entraîne l'exclusion automatique de la formation. La réintégration dépend de l'avis de l'entreprise, de la décision du conseil de discipline avec l'accord de la direction des études, et du remboursement des frais engagés.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-16",
+      "question": "en alternance, les UE qui sont que du TP, on peut les rattraper ?",
+      "reply": "Non : les UE organisées uniquement en TP ou travaux personnalisés n'ont pas d'examen final et ne sont pas rattrapables. [D1-003, art. 5, p. 3]",
+      "citations": [
+        {
+          "doc_id": "D1-003",
+          "article": "5",
+          "page": 3
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-003/5/Organisation des études"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-16",
+        "question": "en alternance, les UE qui sont que du TP, on peut les rattraper ?",
+        "regime": "alternance",
+        "topic": "retakes",
+        "expected_doc_id": "D1-003",
+        "expected_article": "D1-003/5/Organisation des études",
+        "expected_page": "3",
+        "expected_answer": "Non : les UE organisées uniquement en TP ou travaux personnalisés n'ont pas d'examen final et ne sont pas rattrapables.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-17",
+      "question": "je suis super stressé avec les exams, il y a quelqu'un à qui parler à l'école ?",
+      "reply": "Oui : la cellule d'écoute et d'accompagnement, espace confidentiel qui accueille, écoute, informe et oriente les élèves. La démarche est volontaire. Domaines : scolarité, stress/anxiété, tristesse, mal-être. [D1-001, art. 12, p. 17]",
+      "citations": [
+        {
+          "doc_id": "D1-001",
+          "article": "12",
+          "page": 17
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-001/12/Charte de l’étudiante et de l’étudiant Espritiens"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-17",
+        "question": "je suis super stressé avec les exams, il y a quelqu'un à qui parler à l'école ?",
+        "regime": "all",
+        "topic": "campus life",
+        "expected_doc_id": "D1-001|D1-003",
+        "expected_article": "D1-001/12/Charte de l’étudiante et de l’étudiant Espritiens|D1-003/12/Charte de l’étudiante et de l’étudiant Espritiens",
+        "expected_page": "17|11",
+        "expected_answer": "Oui : la cellule d'écoute et d'accompagnement, espace confidentiel qui accueille, écoute, informe et oriente les élèves. La démarche est volontaire. Domaines : scolarité, stress/anxiété, tristesse, mal-être.",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-18",
+      "question": "J'ai besoin d'un aménagement pour les examens (tiers temps), je dois déposer quoi et avant quand ?",
+      "reply": "Le dossier comprend le formulaire FORM-04, un document médical récent et une pièce d'identité. Il est déposé à la scolarité au moins 7 jours avant le début de la session. Le règlement officiel (cours du jour) prévoit seulement un dossier médical déposé au préalable à la scolarité. Source FICTIVE : à présenter comme non officielle (règle de précédence A2). [D1-005, art. 4, p. 1]",
+      "citations": [
+        {
+          "doc_id": "D1-005",
+          "article": "4",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-005/4/Dossier de demande"
+          ],
+          "doc_status": "FICTITIOUS"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-18",
+        "question": "J'ai besoin d'un aménagement pour les examens (tiers temps), je dois déposer quoi et avant quand ?",
+        "regime": "all",
+        "topic": "exams",
+        "expected_doc_id": "D1-005|D1-001",
+        "expected_article": "D1-005/4/Dossier de demande|D1-001/7-8/Déroulement des épreuves",
+        "expected_page": "1|9",
+        "expected_answer": "Le dossier comprend le formulaire FORM-04, un document médical récent et une pièce d'identité. Il est déposé à la scolarité au moins 7 jours avant le début de la session. Le règlement officiel (cours du jour) prévoit seulement un dossier médical déposé au préalable à la scolarité. Source FICTIVE : à présenter comme non officielle (règle de précédence A2).",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-19",
+      "question": "En combien de temps on obtient un relevé de notes ?",
+      "reply": "7 jours ouvrables à partir de la publication officielle des résultats. Demande au service de la scolarité avec le formulaire FORM-03 et une pièce d'identité. Source FICTIVE : à présenter comme non officielle (règle de précédence A2). [D1-006, art. 4, p. 1]",
+      "citations": [
+        {
+          "doc_id": "D1-006",
+          "article": "4",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-006/4/Comment faire la demande"
+          ],
+          "doc_status": "FICTITIOUS"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-19",
+        "question": "En combien de temps on obtient un relevé de notes ?",
+        "regime": "all",
+        "topic": "registration",
+        "expected_doc_id": "D1-006",
+        "expected_article": "D1-006/4/Comment faire la demande",
+        "expected_page": "1",
+        "expected_answer": "7 jours ouvrables à partir de la publication officielle des résultats. Demande au service de la scolarité avec le formulaire FORM-03 et une pièce d'identité. Source FICTIVE : à présenter comme non officielle (règle de précédence A2).",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-20",
+      "question": "Je dois signer une convention avant de commencer mon stage d'été ? et si je l'ai pas ?",
+      "reply": "Oui : une convention tripartite est signée avant le premier jour de stage et déposée au service des stages. Sans convention signée, le stage n'est pas reconnu. Source FICTIVE : à présenter comme non officielle (règle de précédence A2). [D1-010, art. 4, p. 1]",
+      "citations": [
+        {
+          "doc_id": "D1-010",
+          "article": "4",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-010/4/Recherche du stage et convention"
+          ],
+          "doc_status": "FICTITIOUS"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-20",
+        "question": "Je dois signer une convention avant de commencer mon stage d'été ? et si je l'ai pas ?",
+        "regime": "jour",
+        "topic": "internships",
+        "expected_doc_id": "D1-010",
+        "expected_article": "D1-010/4/Recherche du stage et convention",
+        "expected_page": "1",
+        "expected_answer": "Oui : une convention tripartite est signée avant le premier jour de stage et déposée au service des stages. Sans convention signée, le stage n'est pas reconnu. Source FICTIVE : à présenter comme non officielle (règle de précédence A2).",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-21",
+      "question": "Pour faire une demande de repassage exceptionnel, je dois apporter quels papiers ?",
+      "reply": "Le formulaire FORM-01, une pièce d'identité, et le justificatif officiel original avec une copie. Le dossier est déposé auprès du service de la scolarité. Le règlement officiel (cours du jour) dit seulement que le dossier est déposé auprès de la scolarité. Source FICTIVE : à présenter comme non officielle (règle de précédence A2). [D1-004, art. 3, p. 1]",
+      "citations": [
+        {
+          "doc_id": "D1-004",
+          "article": "3",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-004/3/Dossier de demande de repassage exceptionnel"
+          ],
+          "doc_status": "FICTITIOUS"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-21",
+        "question": "Pour faire une demande de repassage exceptionnel, je dois apporter quels papiers ?",
+        "regime": "all",
+        "topic": "retakes",
+        "expected_doc_id": "D1-004|D1-001",
+        "expected_article": "D1-004/3/Dossier de demande de repassage exceptionnel|D1-001/7-8/Déroulement des épreuves",
+        "expected_page": "1|10",
+        "expected_answer": "Le formulaire FORM-01, une pièce d'identité, et le justificatif officiel original avec une copie. Le dossier est déposé auprès du service de la scolarité. Le règlement officiel (cours du jour) dit seulement que le dossier est déposé auprès de la scolarité. Source FICTIVE : à présenter comme non officielle (règle de précédence A2).",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-22",
+      "question": "Mon rapport de PFE doit etre rendu combien de jours avant la soutenance ?",
+      "reply": "Au plus tard 15 jours avant la soutenance. Les règlements officiels ne fixent pas ce délai. Source FICTIVE : à présenter comme non officielle (règle de précédence A2). [D1-007, art. 4, p. 1]",
+      "citations": [
+        {
+          "doc_id": "D1-007",
+          "article": "4",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-007/4/Calendrier de dépôt"
+          ],
+          "doc_status": "FICTITIOUS"
+        }
+      ],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 13.8,
+        "router": 1.1,
+        "retrieval": 0.1,
+        "regulations": 12.6
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": null,
+        "checks_pass": true,
+        "reason": "expected article cited and checks passed"
+      },
+      "row": {
+        "id": "T1-22",
+        "question": "Mon rapport de PFE doit etre rendu combien de jours avant la soutenance ?",
+        "regime": "all",
+        "topic": "internships",
+        "expected_doc_id": "D1-007",
+        "expected_article": "D1-007/4/Calendrier de dépôt",
+        "expected_page": "1",
+        "expected_answer": "Au plus tard 15 jours avant la soutenance. Les règlements officiels ne fixent pas ce délai. Source FICTIVE : à présenter comme non officielle (règle de précédence A2).",
+        "answerable": "yes",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-23",
+      "question": "C'est combien exactement les frais de scolarité en 4ème année cours du jour ?",
+      "reply": "Information non trouvée dans les 13 documents du corpus réglementaire. Veuillez vous adresser au service financier (finance@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 14.1,
+        "router": 1.2,
+        "retrieval": 0.1,
+        "regulations": 12.8
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": true,
+        "checks_pass": true,
+        "reason": "unanswerable correctly identified"
+      },
+      "row": {
+        "id": "T1-23",
+        "question": "C'est combien exactement les frais de scolarité en 4ème année cours du jour ?",
+        "regime": "jour",
+        "topic": "registration",
+        "expected_doc_id": "",
+        "expected_article": "",
+        "expected_page": "",
+        "expected_answer": "Information non trouvée dans les 13 documents. Orienter vers le service financier (FIN).",
+        "answerable": "no",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-24",
+      "question": "La bibliothèque est ouverte jusqu'à quelle heure le samedi ?",
+      "reply": "Information non trouvée dans les 13 documents du corpus réglementaire. Veuillez contacter la scolarité générale (service.scolarite@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 14.1,
+        "router": 1.2,
+        "retrieval": 0.1,
+        "regulations": 12.8
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": true,
+        "checks_pass": true,
+        "reason": "unanswerable correctly identified"
+      },
+      "row": {
+        "id": "T1-24",
+        "question": "La bibliothèque est ouverte jusqu'à quelle heure le samedi ?",
+        "regime": "all",
+        "topic": "campus life",
+        "expected_doc_id": "",
+        "expected_article": "",
+        "expected_page": "",
+        "expected_answer": "Information non trouvée dans les 13 documents. Orienter vers la scolarité, contact général (SCO-GEN).",
+        "answerable": "no",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T1-25",
+      "question": "Je peux faire mon stage ingénieur à l'étranger ? il y a des démarches spéciales ?",
+      "reply": "Information non trouvée dans les 13 documents du corpus réglementaire. Veuillez contacter le département des stages (stages@esprit.tn) et la mobilité internationale (mobilite-internationale@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "total": 14.1,
+        "router": 1.2,
+        "retrieval": 0.1,
+        "regulations": 12.8
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "article_cited": true,
+        "not_found_correct": true,
+        "checks_pass": true,
+        "reason": "unanswerable correctly identified"
+      },
+      "row": {
+        "id": "T1-25",
+        "question": "Je peux faire mon stage ingénieur à l'étranger ? il y a des démarches spéciales ?",
+        "regime": "jour",
+        "topic": "internships",
+        "expected_doc_id": "",
+        "expected_article": "",
+        "expected_page": "",
+        "expected_answer": "Information non trouvée dans les 13 documents. Orienter vers le département des stages (STAGE) et la mobilité internationale (MOB).",
+        "answerable": "no",
+        "verified_by": "Fedi"
+      }
+    }
+  ]
+}
