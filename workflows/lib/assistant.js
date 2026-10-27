@@ -40,9 +40,10 @@ function parseRouter(text) {
 }
 
 // Which branches run, in a fixed order. Out of scope only when nothing else was asked.
-function decidePaths(route, hasPhoto) {
+// A photo sent without a caption has nothing to refuse: read it (CF-405).
+function decidePaths(route, hasPhoto, question = '') {
   const known = PATH_ORDER.filter(p => (route.intents || []).includes(p));
-  if (!known.length) return ['out_of_scope'];
+  if (!known.length) return hasPhoto && !String(question).trim() && !route.injection_suspected ? ['vision'] : ['out_of_scope'];
   return hasPhoto ? ['vision', ...known.filter(p => p !== 'vision')] : known;
 }
 
@@ -172,6 +173,14 @@ function photoFacts(v) {
   return `D'après ce qui est lu sur ta photo : ${parts.join(', ')}. (Information lue sur le document, à vérifier auprès du bureau des examens.)`;
 }
 
+// Reply to a photo without a question: what was read (labelled) and what the student wants to know.
+function photoOnlyReply(v, lang) {
+  if (v && v.document_type === 'unrelated') return "Cette image ne ressemble pas à un document de l'école. Envoie une convocation, un emploi du temps ou un avis, ou pose ta question.";
+  const facts = photoFacts(v);
+  if (!facts) return "Je n'arrive pas à lire ce document. Envoie une photo plus nette, à plat et bien éclairée, ou écris ta question.";
+  return facts + "\nQue veux-tu savoir sur ce document ? Par exemple : « je peux repasser cette épreuve ? » ou « à qui je m'adresse ? » (précise ton régime : cours du jour, du soir ou alternance).";
+}
+
 // FNV-1a 32-bit: a stable key for per-chat memory (the regime) without storing the Telegram id itself
 function hashChat(id) {
   let h = 0x811c9dc5;
@@ -179,5 +188,5 @@ function hashChat(id) {
   return 'c' + h.toString(16);
 }
 
-if (typeof module !== 'undefined') module.exports = { normalizeInput, regimeFromText, parseRouter, decidePaths, ref, regulationsUser,
+if (typeof module !== 'undefined') module.exports = { normalizeInput, regimeFromText, parseRouter, decidePaths, photoOnlyReply, ref, regulationsUser,
   citations, calendarReply, contactReply, refusalReply, fallbackReply, mergeSections, contractResponse, hashChat, frDate, regimeNote, photoFacts };

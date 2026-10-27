@@ -105,3 +105,18 @@ test('photoFacts: what the photo says, labelled as read on the photo; nothing wh
 test('hashChat: stable, not reversible to the chat id', () => {
   assert.equal(A.hashChat(42), A.hashChat(42)); assert.notEqual(A.hashChat(42), '42'); assert.notEqual(A.hashChat(42), A.hashChat(43));
 });
+
+// CF-405 — a photo sent without a caption (live 27 Oct: refused as out of scope, Vision never ran)
+test('decidePaths: a bare photo goes to Vision; a real out-of-scope question with a photo is still refused', () => {
+  assert.deepEqual(A.decidePaths({ intents: ['out_of_scope'] }, true, ''), ['vision']);
+  assert.deepEqual(A.decidePaths({ intents: ['out_of_scope'] }, true, 'Quelle est ma note ?'), ['out_of_scope']);
+  assert.deepEqual(A.decidePaths({ intents: ['out_of_scope'], injection_suspected: true }, true, ''), ['out_of_scope']);
+  assert.deepEqual(A.decidePaths({ intents: ['out_of_scope'] }, false, ''), ['out_of_scope']);
+});
+
+test('photoOnlyReply: what was read (labelled) + what do you want to know; unrelated and unreadable handled', () => {
+  const t = A.photoOnlyReply({ document_type: 'convocation', module_name: 'Probabilités', module_code: 'MATH201', class_group: '2A7', session: 'Rattrapage', date: '2027-06-16', start_time: '14:00', end_time: '16:00', room: 'C21' }, 'fr');
+  assert.match(t, /lu sur ta photo/); assert.match(t, /16\/06\/2027/); assert.match(t, /Que veux-tu savoir/);
+  assert.match(A.photoOnlyReply({ document_type: 'unrelated' }, 'fr'), /ne ressemble pas/);
+  assert.match(A.photoOnlyReply({ image_readable: false }, 'fr'), /n'arrive pas à lire/);
+});
