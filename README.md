@@ -21,6 +21,17 @@ Final project — Advanced DL (DS14), ESPRIT 2026–2027 · Team: Fedi, Doua, In
 | `eval/` | `testsets/` (T1–T5, `T4_photos/`) · `review/` (`sheets/`, `ticks/`, `verified/`) · `retrieval/` (metrics + notebook) · `agents/` (tool test, Vision prompt eval) · `latency/` · `baselines/` · `candidates/` (D5 — **not** a test set) |
 | `prompts/` · `diagrams/` · `report/` | prompt library (`P-<AGENT>-001.md`, `schemas/`, `examples/`, `archive/`) · architecture diagrams and org chart · technical report |
 
+## 0. Fast path: one command
+After steps 1–3 (prerequisites, Docker memory, `.env`) and creating the n8n owner account at http://localhost:5678:
+```powershell
+.venv\Scripts\python -X utf8 scripts\setup\bootstrap.py --gemini [--telegram]
+```
+It starts the stack, pulls the models, creates the credentials with the ids the workflows expect (secrets typed, hidden,
+never stored in the repo), imports and publishes the workflows, indexes the regulations (WF-1) and prints the next step.
+Safe to re-run. `--telegram` needs **your own** bot and ngrok domain: the script refuses the team bot's token.
+Teammates and the three ways to use the platform: [team/RUN_THE_PLATFORM.md](team/RUN_THE_PLATFORM.md).
+Without Telegram, put placeholders in `NGROK_AUTHTOKEN` / `NGROK_DOMAIN` and start only `n8n qdrant ollama`.
+
 ## 1. Prerequisites
 - Windows 10/11 with **Docker Desktop (WSL2 backend)**, or Linux with Docker Engine; **Git**.
 - **16 GB RAM minimum** (24 GB comfortable), ~15 GB free disk for images and models.
@@ -54,7 +65,7 @@ docker compose up -d
 docker compose ps        # n8n, qdrant, ollama, ngrok: Up
 ```
 Python tools (scripts/, eval/): `python -m venv .venv` then `.venv\Scripts\python -m pip install -r requirements.txt`,
-then `.venv\Scripts\python scriptsun_all.py` (rebuilds and validates everything; must end with 0 error).
+then `.venv\Scripts\python scripts\run_all.py` (rebuilds and validates everything; must end with 0 error).
 
 Check: n8n http://localhost:5678 · Qdrant http://localhost:6333/dashboard · Ollama http://localhost:11434/api/version.
 Ports are bound to `127.0.0.1` (not reachable from the LAN).
@@ -102,9 +113,12 @@ The assistant is generated, not edited by hand: `scripts/workflows/build_wf3.py`
 | `04_wf4_errors` | logs unhandled errors to `logs/errors.jsonl` | yes (error trigger, no URL) |
 | `03b_wf3_test` | test entrance `POST /webhook/wf3-test` ([eval/e2e/CONTRACT.md](eval/e2e/CONTRACT.md)) | **only during a test run** |
 
-- Smoke test of the 8 cases (publishes the test entrance for the run, always unpublishes it):
+- Smoke test of the 9 cases (publishes the test entrance for the run, always unpublishes it):
   `.venv\Scripts\python -X utf8 scripts\workflows\smoke_wf3.py [--mode hybrid|local]` → `eval/agents/wf3_smoke.md`.
 - Switch providers: `config/agents.json` `"mode": "hybrid"` (default) or `"local"`, then rebuild and re-import.
+- Index the regulations (WF-1, ≈ 5–6 min on CPU; the bootstrap does it when the collections are missing):
+  `docker compose exec -e N8N_RUNNERS_BROKER_PORT=5699 n8n n8n execute --id=cfWF1IndexRegs01` (own task-broker port:
+  the running n8n holds the default one) → Qdrant `regs_structured` 168 points, `regs_fixed` 77.
 - Run log: `logs/runs.jsonl` (one row per question: route, timings, checks, mode — no question text, no chat id).
 
 ## 8b. Import and test the smoke-test workflow (Phase 0, retired since WF-3 owns the bot)
