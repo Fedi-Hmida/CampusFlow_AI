@@ -34,19 +34,67 @@
     }
    },
    {
-    "id": "5d316978-db55-51fd-8945-40a0e7fe738f",
-    "name": "Acknowledge",
-    "type": "n8n-nodes-base.telegram",
-    "typeVersion": 1.2,
+    "id": "d9ccc4f3-b1bd-55a6-aaeb-60127b552225",
+    "name": "Needs ack?",
+    "type": "n8n-nodes-base.code",
+    "typeVersion": 2,
     "position": [
      220,
      300
     ],
     "parameters": {
+     "jsCode": "// ESA-401 / ESA-402 — pure logic of WF-3 (the assistant). Unit-tested by workflows/lib/assistant.test.js and embedded\n// verbatim into the n8n Code nodes by scripts/workflows/build_wf3.py. No require(): n8n Code nodes run in a sandbox.\n\nconst PATH_ORDER = ['vision', 'regulations', 'calendar', 'admin'];\nconst DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];\nconst CONTACT_DEFAULT = 'scolarite@esprit.tn';\n\nfunction clean(s) { return String(s ?? '').replace(/\\s+/g, ' ').trim(); }\n\n// Test webhook body or Telegram update → one canonical input (the rest of WF-3 never looks at the raw source)\nfunction normalizeInput(raw, defaultMode) {\n  const mode = m => (m === 'hybrid' || m === 'local') ? m : defaultMode;\n  if (raw && raw.body && raw.body.question !== undefined) {\n    const b = raw.body;\n    return { source: 'test', test_id: String(b.test_id ?? ''), question: clean(b.question), regime: b.regime || null,\n             class_group: b.class_group || null, photo: b.photo || null, mode: mode(b.mode), chat: null };\n  }\n  const m = (raw && raw.message) || {};\n  return { source: 'telegram', test_id: '', question: clean(m.text || m.caption || ''), regime: null, class_group: null,\n           photo: Array.isArray(m.photo) && m.photo.length ? { telegram: true } : null, mode: defaultMode, chat: m.chat ? m.chat.id : null };\n}\n\nfunction regimeFromText(text) {\n  const t = String(text || '').toLowerCase();\n  if (/cours du soir|\\ben soir\\b|\\bsoir\\b/.test(t)) return 'soir';\n  if (/alternan/.test(t)) return 'alternance';\n  if (/cours du jour|\\bdu jour\\b/.test(t)) return 'jour';\n  return null;\n}\n\nfunction parseRouter(text) {\n  try {\n    const o = JSON.parse(text);\n    const intents = Array.isArray(o.intents) && o.intents.length ? o.intents : ['regulations'];\n    return { language: o.language || 'fr', intents, entities: o.entities || {}, missing_fields: o.missing_fields || [],\n             injection_suspected: !!o.injection_suspected };\n  } catch (e) {\n    return { language: 'fr', intents: ['regulations'], entities: {}, missing_fields: [], injection_suspected: false, parse_error: true };\n  }\n}\n\n// Which branches run, in a fixed order. Out of scope only when nothing else was asked.\n// A photo sent without a caption has nothing to refuse: read it (CF-405).\nfunction decidePaths(route, hasPhoto, question = '') {\n  const known = PATH_ORDER.filter(p => (route.intents || []).includes(p));\n  if (!known.length) return hasPhoto && !String(question).trim() && !route.injection_suspected ? ['vision'] : ['out_of_scope'];\n  return hasPhoto ? ['vision', ...known.filter(p => p !== 'vision')] : known;\n}\n\nfunction ref(c) {\n  const key = (c.article_keys || [])[c.article_keys.length - 1] || '';\n  return `[${c.doc_id}, art. ${key.split('/')[1] || '?'}, p. ${c.page_start ?? '?'}]`;\n}\n\nconst REGIME_FR = { jour: 'cours du jour', soir: 'cours du soir', alternance: 'alternance' };\nfunction regulationsUser(question, regime, chunks) {\n  const head = `Régime de l'étudiant : ${REGIME_FR[regime] || 'non précisé'}\\nQuestion : ${question}\\n\\nEXTRAITS :\\n`;\n  return head + chunks.map(c => `${ref(c)} (${c.doc_status === 'official' ? 'officiel' : 'FICTIF'})\\n${c.text}`).join('\\n\\n');\n}\n\nfunction citations(reply) {\n  return [...String(reply).matchAll(/\\[(D1-\\d{3})([^\\]]*)\\]/g)].map(m => {\n    const a = m[2].match(/art(?:icle)?\\.?\\s*([\\w-]+)/i);\n    const p = m[2].match(/p\\.\\s*(\\d+)/);\n    return { doc_id: m[1], article: a ? a[1] : '', page: p ? Number(p[1]) : null };\n  });\n}\n\nfunction frDate(iso) {\n  const [y, mo, d] = String(iso).split('-').map(Number);\n  const wd = DAYS[new Date(Date.UTC(y, mo - 1, d)).getUTCDay()];\n  return `${wd} ${String(d).padStart(2, '0')}/${String(mo).padStart(2, '0')}/${y}`;\n}\n\nfunction calendarReply(res, lang) {\n  if (!res || !res.found) {\n    if (res && res.status === 'needs_input') {\n      const need = (res.needs || []).map(n => ({ module: 'le module', class_group: 'ta classe (ex. 5DS6)', session: 'la session' }[n] || n));\n      return `Pour retrouver ton épreuve, il me faut ${need.join(' et ')}.`;\n    }\n    if (res && res.status === 'not_published') return \"La date de cette session n'est pas encore publiée dans le calendrier. Renseigne-toi auprès du bureau des examens (examen@esprit.tn).\";\n    return \"Je ne trouve pas cette épreuve dans le calendrier des examens. Vérifie le module et la classe, ou contacte le bureau des examens (examen@esprit.tn).\";\n  }\n  const lines = res.matches.slice(0, 5).map(m => {\n    const end = m.end_time ? ` – ${m.end_time}` : ' (fin non communiquée)';\n    const room = m.room ? `salle ${m.room}` : 'salle non communiquée';\n    return `• ${m.module_name} (${m.class_group}) — ${m.assessment}, session ${m.session} : ${frDate(m.date)}, ${m.start_time}${end}, ${room}.`;\n  });\n  const st = res.matches.map(m => m.data_status || '');\n  const notes = [];\n  if (st.some(s => /FICTITIOUS/.test(s))) notes.push('donnée de démonstration (fictive)');\n  if (st.some(s => /projected/.test(s))) notes.push('date prévisionnelle (calendrier projeté)');\n  const src = `Source : calendrier des examens, mis à jour le ${res.matches[0].last_updated}${notes.length ? ' — ' + notes.join(', ') : ''}.`;\n  return [res.status === 'ambiguous' ? 'Plusieurs épreuves correspondent :' : null, ...lines, src].filter(Boolean).join('\\n');\n}\n\nfunction contactReply(res, draft, lang) {\n  if (!res || !res.found) {\n    if (res && res.status === 'needs_input') {\n      const need = (res.needs || []).map(n => ({ regime: 'ton régime (cours du jour, du soir ou alternance)', class_group: 'ta classe', level: 'ton niveau' }[n] || n));\n      return `Pour te donner la bonne démarche, il me faut ${need.join(' et ')}.`;\n    }\n    return `Je ne trouve pas ce service ou cette démarche. Contacte la scolarité (${CONTACT_DEFAULT}).`;\n  }\n  const c = res.contact || {};\n  const who = `${c.role_title || 'Service'} — ${c.email || 'e-mail non communiqué'}${c.office ? ', ' + c.office : ''}${c.hours ? ' (' + c.hours + ')' : ''}`;\n  const out = [];\n  if (res.request) {\n    const q = res.request;\n    out.push(`Démarche : ${q.request_type}.`);\n    if (q.required_documents) out.push(`Pièces : ${q.required_documents}.`);\n    if (q.deadline_rule) out.push(`Délai : ${q.deadline_rule}.`);\n    if (q.processing_time) out.push(`Traitement : ${q.processing_time}.`);\n    out.push(`À adresser à : ${who}.`);\n    if (res.is_fictitious) out.push('(procédure de démonstration, fictive)');\n  } else {\n    out.push(`Contact : ${who}.`);\n  }\n  if (draft) out.push(`Brouillon à envoyer toi-même :\\n${draft}`);\n  return out.join('\\n');\n}\n\n// The student's own records (grades, absences, file) — the only out-of-scope case that names the registrar\nfunction isPersonal(question) {\n  const t = String(question ?? '').normalize('NFKD').replace(/[̀-ͯ]/g, '').toLowerCase();\n  return /\\b(ma|mes|mon)\\s+(notes?|moyennes?|absences?|dossier|resultats?|bulletin|releve|classement)\\b/.test(t);\n}\n\nfunction refusalReply(lang, injection, personal = false) {\n  if (lang === 'en') return injection ? 'I cannot change my instructions. I can help with regulations, exam dates and administrative contacts.'\n    : 'That is outside what I can help with. I answer questions on school regulations, exam dates and administrative contacts.';\n  if (injection) return 'Je ne peux pas modifier mes consignes. Je peux t\\'aider sur le règlement, les dates d\\'examen et les contacts administratifs.';\n  return personal\n    ? `Cette demande est hors de mon périmètre (je n'ai pas accès aux dossiers personnels). Je peux t'aider sur le règlement, les dates d'examen et les contacts administratifs ; pour ton dossier, contacte la scolarité (${CONTACT_DEFAULT}).`\n    : \"Cette demande est hors de mon périmètre. Je réponds sur le règlement de scolarité, les dates d'examen, les bureaux et démarches administratives, et je lis les photos de convocations ou d'emplois du temps. Écris /aide pour des exemples.\";\n}\n\n// Greetings and commands are answered at once, without the Router (CF-406). A greeting followed by a question is a question.\nfunction smallTalk(text) {\n  const t = String(text ?? '').trim().toLowerCase();\n  if (!t) return null;\n  if (/^\\/(reset|nouveau)\\b/.test(t)) return 'reset';\n  if (t.startsWith('/')) return 'start';\n  if (/^(merci|thanks|thank you)(\\s+(beaucoup|bien|a toi|à toi))?\\s*[!.]*$/.test(t)) return 'thanks';\n  if (/^(bonjour|bonsoir|salut|hello|hi|hey|coucou|salam)(\\s+\\S{1,12})?\\s*[!.]*$/.test(t)) return 'start';\n  return null;\n}\n\nfunction smallTalkReply(kind, lang) {\n  if (kind === 'reset') return \"C'est reparti à zéro : j'ai oublié ton régime. Pose ta question (et précise cours du jour, du soir ou alternance si la règle en dépend).\";\n  if (kind === 'thanks') return 'Avec plaisir ! Une autre question sur le règlement, un examen ou une démarche ?';\n  return [\n    \"👋 Bonjour ! Je suis CampusFlow AI, l'assistant des étudiants d'ESPRIT (projet de cours ; certaines données sont des exemples fictifs, toujours signalés).\",\n    'Je peux :',\n    '• répondre sur le règlement de scolarité, avec la source (document, article, page) ;',\n    \"• donner la date, l'heure et la salle d'un examen ;\",\n    \"• te dire à quel bureau t'adresser et préparer un brouillon de demande ;\",\n    \"• lire la photo d'une convocation ou d'un emploi du temps.\",\n    'Exemples :',\n    \"– « C'est quand l'épreuve d'Advanced Deep Learning pour la classe 5DS6 ? »\",\n    '– « Cours du jour : si on me surprend en train de tricher pendant un examen, je risque quoi ? »',\n    '– « À qui je demande une attestation de scolarité ? Je suis en 4SE1. »',\n    'Précise ton régime (cours du jour, du soir ou alternance) : les règles en dépendent. /reset pour repartir à zéro.',\n  ].join('\\n');\n}\n\n// Telegram is sent as HTML: escaping makes it show exactly what we wrote (Markdown ate « [D1-…] »).\nfunction toTelegramHtml(text) {\n  return String(text ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');\n}\n\n// A regime remembered from earlier messages is said, never applied silently.\nfunction regimeRecall(regime, lang) {\n  if (!regime || !REGIME_FR[regime]) return '';\n  return `ℹ️ Réponse pour le ${REGIME_FR[regime].replace(/^alternance$/, \"régime de l'alternance\")} (régime retenu de tes messages précédents ; écris /reset pour l'oublier).`;\n}\n\nfunction fallbackReply(lang) {\n  return lang === 'en' ? `Information not found in the regulations. Please contact the registrar's office (${CONTACT_DEFAULT}).`\n    : `Information non trouvée dans le règlement. Contacte la scolarité (${CONTACT_DEFAULT}).`;\n}\n\nconst ICON = { 'Règle': '📘', 'Créneau': '📅', 'Démarche': '🗂️', 'Photo': '🖼️' };\nfunction mergeSections(sections) {\n  const s = sections.filter(x => x && clean(x.text));\n  if (s.length === 1) return s[0].text.trim();\n  return s.map(x => `${ICON[x.title] || '•'} ${x.title}\\n${x.text.trim()}`).join('\\n\\n');\n}\n\nfunction contractResponse(o) {\n  const r2 = x => Math.round(x * 100) / 100;\n  const t = {};\n  for (const [k, v] of Object.entries(o.timings || {})) if (typeof v === 'number') t[k] = r2(v);\n  return {\n    test_id: o.test_id || '', reply: o.reply || '',\n    route: { intents: o.route.intents || [], agents: (o.paths || []).filter(p => p !== 'out_of_scope'), missing_fields: o.route.missing_fields || [] },\n    citations: o.citations || [],\n    retrieved: (o.retrieved || []).map(c => ({ article_keys: c.article_keys, doc_status: c.doc_status })),\n    tool_rows: o.tool_rows || [], checks: { pass: !!(o.checks && o.checks.pass), failures: (o.checks && o.checks.failures) || [] },\n    revised: !!o.revised, fallback: !!o.fallback, timings_s: t, mode: o.mode, config: o.config || '',\n  };\n}\n\n// NFR-08: rules differ by regime — when the student has not said it, the reply asks (unless it is already a fallback)\nfunction regimeNote(regime, isFallback, lang) {\n  if (regime || isFallback) return '';\n  return lang === 'en' ? 'ℹ️ Rules can differ by programme: tell me if you are in day classes, evening classes or work-study.'\n    : 'ℹ️ La règle peut changer selon ton régime : dis-moi si tu es en cours du jour, du soir ou en alternance.';\n}\n\n// What the photo itself says (Vision), labelled as such — used when the calendar does not know the exam\nfunction photoFacts(v) {\n  if (!v || !(v.date || v.room || v.start_time)) return '';\n  const parts = [];\n  const mod = [v.module_name, v.module_code ? `(${v.module_code})` : ''].filter(Boolean).join(' ');\n  if (mod) parts.push(mod + (v.class_group ? `, ${v.class_group}` : ''));\n  if (v.session) parts.push(`session ${v.session}`);\n  if (v.date) parts.push(frDate(v.date));\n  if (v.start_time) parts.push(v.end_time ? `${v.start_time} – ${v.end_time}` : v.start_time);\n  if (v.room) parts.push(`salle ${v.room}`);\n  return `D'après ce qui est lu sur ta photo : ${parts.join(', ')}. (Information lue sur le document, à vérifier auprès du bureau des examens.)`;\n}\n\n// Reply to a photo without a question: what was read (labelled) and what the student wants to know.\nfunction photoOnlyReply(v, lang) {\n  if (v && v.document_type === 'unrelated') return \"Cette image ne ressemble pas à un document de l'école. Envoie une convocation, un emploi du temps ou un avis, ou pose ta question.\";\n  const facts = photoFacts(v);\n  if (!facts) return \"Je n'arrive pas à lire ce document. Envoie une photo plus nette, à plat et bien éclairée, ou écris ta question.\";\n  return facts + \"\\nQue veux-tu savoir sur ce document ? Par exemple : « je peux repasser cette épreuve ? » ou « à qui je m'adresse ? » (précise ton régime : cours du jour, du soir ou alternance).\";\n}\n\n// FNV-1a 32-bit: a stable key for per-chat memory (the regime) without storing the Telegram id itself\nfunction hashChat(id) {\n  let h = 0x811c9dc5;\n  for (const ch of String(id)) { h ^= ch.charCodeAt(0); h = Math.imul(h, 0x01000193) >>> 0; }\n  return 'c' + h.toString(16);\n}\n\nif (typeof module !== 'undefined') module.exports = { normalizeInput, regimeFromText, parseRouter, decidePaths, photoOnlyReply, ref, regulationsUser,\n  citations, calendarReply, contactReply, refusalReply, isPersonal, smallTalk, smallTalkReply, toTelegramHtml, regimeRecall, fallbackReply, mergeSections, contractResponse, hashChat, frDate, regimeNote, photoFacts };\n\n\n// « je cherche… » only when there is something to search: not for a greeting or a command (CF-406)\nconst m = $json.message || {};\nconst photo = Array.isArray(m.photo) && m.photo.length > 0;\nreturn [{ json: { ...$json, ack: photo || !smallTalk(m.text || m.caption || '') } }];\n"
+    }
+   },
+   {
+    "id": "de0306cc-8baa-5da8-96d2-c658d9a582f0",
+    "name": "Ack?",
+    "type": "n8n-nodes-base.if",
+    "typeVersion": 2.2,
+    "position": [
+     440,
+     300
+    ],
+    "parameters": {
+     "conditions": {
+      "options": {
+       "caseSensitive": true,
+       "leftValue": "",
+       "typeValidation": "loose",
+       "version": 2
+      },
+      "conditions": [
+       {
+        "id": "52f73c0b-f71d-5daa-982a-3e8cf9018318",
+        "leftValue": "={{ $json.ack }}",
+        "rightValue": "",
+        "operator": {
+         "type": "boolean",
+         "operation": "true",
+         "singleValue": true
+        }
+       }
+      ],
+      "combinator": "and"
+     },
+     "options": {}
+    }
+   },
+   {
+    "id": "5d316978-db55-51fd-8945-40a0e7fe738f",
+    "name": "Acknowledge",
+    "type": "n8n-nodes-base.telegram",
+    "typeVersion": 1.2,
+    "position": [
+     660,
+     200
+    ],
+    "parameters": {
      "chatId": "={{ $json.message.chat.id }}",
      "text": "Je cherche dans le règlement et les tables… (quelques secondes)",
      "additionalFields": {
-      "appendAttribution": false
+      "appendAttribution": false,
+      "parse_mode": "HTML"
      }
     },
     "credentials": {
@@ -62,7 +110,7 @@
     "type": "n8n-nodes-base.code",
     "typeVersion": 2,
     "position": [
-     440,
+     880,
      300
     ],
     "parameters": {
@@ -75,7 +123,7 @@
     "type": "n8n-nodes-base.executeWorkflow",
     "typeVersion": 1.2,
     "position": [
-     660,
+     1100,
      300
     ],
     "parameters": {
@@ -98,14 +146,15 @@
     "type": "n8n-nodes-base.telegram",
     "typeVersion": 1.2,
     "position": [
-     880,
+     1320,
      200
     ],
     "parameters": {
      "chatId": "={{ $json.chat }}",
-     "text": "={{ $json.reply }}",
+     "text": "={{ $json.reply_tg }}",
      "additionalFields": {
-      "appendAttribution": false
+      "appendAttribution": false,
+      "parse_mode": "HTML"
      }
     },
     "credentials": {
@@ -121,14 +170,15 @@
     "type": "n8n-nodes-base.telegram",
     "typeVersion": 1.2,
     "position": [
-     880,
+     1320,
      420
     ],
     "parameters": {
      "chatId": "={{ $('Telegram').first().json.message.chat.id }}",
      "text": "Désolé, je n'ai pas pu traiter ta question à cause d'un problème technique. Réessaie dans un instant, ou contacte la scolarité (scolarite@esprit.tn).",
      "additionalFields": {
-      "appendAttribution": false
+      "appendAttribution": false,
+      "parse_mode": "HTML"
      }
     },
     "credentials": {
@@ -144,7 +194,7 @@
     "type": "n8n-nodes-base.code",
     "typeVersion": 2,
     "position": [
-     1100,
+     1540,
      200
     ],
     "parameters": {
@@ -157,7 +207,7 @@
     "type": "n8n-nodes-base.convertToFile",
     "typeVersion": 1.1,
     "position": [
-     1320,
+     1760,
      200
     ],
     "parameters": {
@@ -174,7 +224,7 @@
     "type": "n8n-nodes-base.readWriteFile",
     "typeVersion": 1.1,
     "position": [
-     1540,
+     1980,
      200
     ],
     "parameters": {
@@ -192,7 +242,7 @@
     "type": "n8n-nodes-base.code",
     "typeVersion": 2,
     "position": [
-     1100,
+     1540,
      420
     ],
     "parameters": {
@@ -205,7 +255,7 @@
     "type": "n8n-nodes-base.convertToFile",
     "typeVersion": 1.1,
     "position": [
-     1320,
+     1760,
      420
     ],
     "parameters": {
@@ -222,7 +272,7 @@
     "type": "n8n-nodes-base.readWriteFile",
     "typeVersion": 1.1,
     "position": [
-     1540,
+     1980,
      420
     ],
     "parameters": {
@@ -240,7 +290,36 @@
     "main": [
      [
       {
+       "node": "Needs ack?",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Needs ack?": {
+    "main": [
+     [
+      {
+       "node": "Ack?",
+       "type": "main",
+       "index": 0
+      }
+     ]
+    ]
+   },
+   "Ack?": {
+    "main": [
+     [
+      {
        "node": "Acknowledge",
+       "type": "main",
+       "index": 0
+      }
+     ],
+     [
+      {
+       "node": "Original update",
        "type": "main",
        "index": 0
       }

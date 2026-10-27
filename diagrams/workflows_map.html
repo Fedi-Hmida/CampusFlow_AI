@@ -72,7 +72,7 @@ svg text{font-family:'Segoe UI',system-ui,sans-serif}
 <text x="325.0" y="226" class="msub">entrance (tests)</text>
 <rect x="490" y="120" width="210" height="46" rx="9" fill="#13998f1a" stroke="#13998f" stroke-width="2"/>
 <text x="595.0" y="140" class="mname">03_wf3_assistant</text>
-<text x="595.0" y="156" class="msub">orchestrator · 42 nodes</text>
+<text x="595.0" y="156" class="msub">orchestrator · 44 nodes</text>
 <rect x="790" y="20" width="170" height="46" rx="9" fill="#3b7dd81a" stroke="#3b7dd8" stroke-width="2"/>
 <text x="875.0" y="40" class="mname">20_llm_call</text>
 <text x="875.0" y="56" class="msub">every model call</text>
@@ -101,67 +101,81 @@ svg text{font-family:'Segoe UI',system-ui,sans-serif}
 </svg></div>
 <div class="legend"><span><i style="border-color:#2e9e5b;background:#2e9e5b22"></i>trigger / entrance</span><span><i style="border-color:#e8833a;background:#e8833a22"></i>JavaScript (tested lib code)</span><span><i style="border-color:#7b5cd6;background:#7b5cd622"></i>IF decision</span><span><i style="border-color:#13998f;background:#13998f22"></i>calls another workflow</span><span><i style="border-color:#3b7dd8;background:#3b7dd822"></i>HTTP: Gemini · Ollama · Qdrant</span><span><i style="border-color:#2aa1d8;background:#2aa1d822"></i>Telegram</span><span><i style="border-color:#7d8794;background:#7d879422"></i>file read / write</span></div>
 <div class="section">Entrances</div>
-<div class="grid g2"><div class="card"><div class="head"><span class="name">03a_wf3_telegram</span><span class="badge" style="background:#2e9e5b">Published</span><span class="role">12 nodes · Telegram entrance: owns the bot, acknowledges, calls the assistant, replies, logs the run</span></div><svg width="945" height="267" xmlns="http://www.w3.org/2000/svg">
+<div class="grid g2"><div class="card"><div class="head"><span class="name">03a_wf3_telegram</span><span class="badge" style="background:#2e9e5b">Published</span><span class="role">14 nodes · Telegram entrance: owns the bot, acknowledges, calls the assistant, replies, logs the run</span></div><svg width="1187" height="267" xmlns="http://www.w3.org/2000/svg">
 <path d="M84.0,114.0 C119.5,114.0 119.5,114.0 155.0,114.0" class="edge"/>
 <path d="M148.0,110.0 L155.0,114.0 L148.0,118.0" class="arrow"/>
 <path d="M205.0,114.0 C240.5,114.0 240.5,114.0 276.0,114.0" class="edge"/>
 <path d="M269.0,110.0 L276.0,114.0 L269.0,118.0" class="arrow"/>
-<path d="M326.0,114.0 C361.5,114.0 361.5,114.0 397.00000000000006,114.0" class="edge"/>
-<path d="M390.00000000000006,110.0 L397.00000000000006,114.0 L390.00000000000006,118.0" class="arrow"/>
-<path d="M447.00000000000006,114.0 C482.5,114.0 482.5,59.0 518.0,59.0" class="edge"/>
-<path d="M511.0,55.0 L518.0,59.0 L511.0,63.0" class="arrow"/>
-<path d="M447.00000000000006,114.0 C482.5,114.0 482.5,180.0 518.0,180.0" class="edge"/>
-<path d="M511.0,176.0 L518.0,180.0 L511.0,184.0" class="arrow"/>
-<text x="453.00000000000006" y="128.0" class="elab error">error</text>
-<path d="M568.0,59.0 C603.5,59.0 603.5,59.0 639.0,59.0" class="edge"/>
-<path d="M632.0,55.0 L639.0,59.0 L632.0,63.0" class="arrow"/>
-<path d="M689.0,59.0 C724.5,59.0 724.5,59.0 760.0000000000001,59.0" class="edge"/>
+<path d="M326.0,114.0 C361.5,114.0 361.5,59.0 397.00000000000006,59.0" class="edge"/>
+<path d="M390.00000000000006,55.0 L397.00000000000006,59.0 L390.00000000000006,63.0" class="arrow"/>
+<text x="332.0" y="105.0" class="elab true">true</text>
+<path d="M326.0,114.0 C422.0,114.0 422.0,114.0 518.0,114.0" class="edge"/>
+<path d="M511.0,110.0 L518.0,114.0 L511.0,118.0" class="arrow"/>
+<text x="332.0" y="128.0" class="elab false">false</text>
+<path d="M447.00000000000006,59.0 C482.5,59.0 482.5,114.0 518.0,114.0" class="edge"/>
+<path d="M511.0,110.0 L518.0,114.0 L511.0,118.0" class="arrow"/>
+<path d="M568.0,114.0 C603.5,114.0 603.5,114.0 639.0,114.0" class="edge"/>
+<path d="M632.0,110.0 L639.0,114.0 L632.0,118.0" class="arrow"/>
+<path d="M689.0,114.0 C724.5,114.0 724.5,59.0 760.0000000000001,59.0" class="edge"/>
 <path d="M753.0000000000001,55.0 L760.0000000000001,59.0 L753.0000000000001,63.0" class="arrow"/>
+<path d="M689.0,114.0 C724.5,114.0 724.5,180.0 760.0000000000001,180.0" class="edge"/>
+<path d="M753.0000000000001,176.0 L760.0000000000001,180.0 L753.0000000000001,184.0" class="arrow"/>
+<text x="695.0" y="128.0" class="elab error">error</text>
 <path d="M810.0000000000001,59.0 C845.5000000000001,59.0 845.5000000000001,59.0 881.0000000000001,59.0" class="edge"/>
 <path d="M874.0000000000001,55.0 L881.0000000000001,59.0 L874.0000000000001,63.0" class="arrow"/>
-<path d="M568.0,180.0 C603.5,180.0 603.5,180.0 639.0,180.0" class="edge"/>
-<path d="M632.0,176.0 L639.0,180.0 L632.0,184.0" class="arrow"/>
-<path d="M689.0,180.0 C724.5,180.0 724.5,180.0 760.0000000000001,180.0" class="edge"/>
-<path d="M753.0000000000001,176.0 L760.0000000000001,180.0 L753.0000000000001,184.0" class="arrow"/>
+<path d="M931.0000000000001,59.0 C966.5,59.0 966.5,59.0 1002.0,59.0" class="edge"/>
+<path d="M995.0,55.0 L1002.0,59.0 L995.0,63.0" class="arrow"/>
+<path d="M1052.0,59.0 C1087.5,59.0 1087.5,59.0 1123.0,59.0" class="edge"/>
+<path d="M1116.0,55.0 L1123.0,59.0 L1116.0,63.0" class="arrow"/>
 <path d="M810.0000000000001,180.0 C845.5000000000001,180.0 845.5000000000001,180.0 881.0000000000001,180.0" class="edge"/>
 <path d="M874.0000000000001,176.0 L881.0000000000001,180.0 L874.0000000000001,184.0" class="arrow"/>
+<path d="M931.0000000000001,180.0 C966.5,180.0 966.5,180.0 1002.0,180.0" class="edge"/>
+<path d="M995.0,176.0 L1002.0,180.0 L995.0,184.0" class="arrow"/>
+<path d="M1052.0,180.0 C1087.5,180.0 1087.5,180.0 1123.0,180.0" class="edge"/>
+<path d="M1116.0,176.0 L1123.0,180.0 L1116.0,184.0" class="arrow"/>
 <rect x="34.0" y="89.0" width="50" height="50" rx="18" fill="#2e9e5b1f" stroke="#2e9e5b" stroke-width="2"/>
 <text x="59.0" y="119.0" class="tag" fill="#2e9e5b">TG</text>
 <text x="59.0" y="154.0" class="lab">Telegram</text>
-<rect x="155.0" y="89.0" width="50" height="50" rx="9" fill="#2aa1d81f" stroke="#2aa1d8" stroke-width="2"/>
-<text x="180.0" y="119.0" class="tag" fill="#2aa1d8">TG</text>
-<text x="180.0" y="154.0" class="lab">Acknowledge</text>
-<rect x="276.0" y="89.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
-<text x="301.0" y="119.0" class="tag" fill="#e8833a">JS</text>
-<text x="301.0" y="154.0" class="lab">Original update</text>
-<rect x="397.00000000000006" y="89.0" width="50" height="50" rx="9" fill="#13998f1f" stroke="#13998f" stroke-width="2"/>
-<text x="422.00000000000006" y="119.0" class="tag" fill="#13998f">↗</text>
-<text x="422.00000000000006" y="154.0" class="lab">Assistant</text>
-<text x="422.00000000000006" y="168.0" class="sub" fill="#13998f">→ 03_wf3_assistant</text>
-<rect x="518.0" y="34.0" width="50" height="50" rx="9" fill="#2aa1d81f" stroke="#2aa1d8" stroke-width="2"/>
-<text x="543.0" y="64.0" class="tag" fill="#2aa1d8">TG</text>
-<text x="543.0" y="99.0" class="lab">Send reply</text>
-<rect x="518.0" y="155.0" width="50" height="50" rx="9" fill="#2aa1d81f" stroke="#2aa1d8" stroke-width="2"/>
-<text x="543.0" y="185.0" class="tag" fill="#2aa1d8">TG</text>
-<text x="543.0" y="220.0" class="lab">Friendly error</text>
-<rect x="639.0" y="34.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
-<text x="664.0" y="64.0" class="tag" fill="#e8833a">JS</text>
-<text x="664.0" y="99.0" class="lab">Run row</text>
-<rect x="760.0000000000001" y="34.0" width="50" height="50" rx="9" fill="#7d87941f" stroke="#7d8794" stroke-width="2"/>
-<text x="785.0000000000001" y="64.0" class="tag" fill="#7d8794">FILE</text>
-<text x="785.0000000000001" y="99.0" class="lab">Run to file</text>
-<rect x="881.0000000000001" y="34.0" width="50" height="50" rx="9" fill="#7d87941f" stroke="#7d8794" stroke-width="2"/>
-<text x="906.0000000000001" y="64.0" class="tag" fill="#7d8794">FILE</text>
-<text x="906.0000000000001" y="99.0" class="lab">Run append</text>
-<rect x="639.0" y="155.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
-<text x="664.0" y="185.0" class="tag" fill="#e8833a">JS</text>
-<text x="664.0" y="220.0" class="lab">Error row</text>
-<rect x="760.0000000000001" y="155.0" width="50" height="50" rx="9" fill="#7d87941f" stroke="#7d8794" stroke-width="2"/>
-<text x="785.0000000000001" y="185.0" class="tag" fill="#7d8794">FILE</text>
-<text x="785.0000000000001" y="220.0" class="lab">Error to file</text>
-<rect x="881.0000000000001" y="155.0" width="50" height="50" rx="9" fill="#7d87941f" stroke="#7d8794" stroke-width="2"/>
-<text x="906.0000000000001" y="185.0" class="tag" fill="#7d8794">FILE</text>
-<text x="906.0000000000001" y="220.0" class="lab">Error append</text>
+<rect x="155.0" y="89.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
+<text x="180.0" y="119.0" class="tag" fill="#e8833a">JS</text>
+<text x="180.0" y="154.0" class="lab">Needs ack?</text>
+<rect x="276.0" y="89.0" width="50" height="50" rx="9" fill="#7b5cd61f" stroke="#7b5cd6" stroke-width="2"/>
+<text x="301.0" y="119.0" class="tag" fill="#7b5cd6">IF</text>
+<text x="301.0" y="154.0" class="lab">Ack?</text>
+<rect x="397.00000000000006" y="34.0" width="50" height="50" rx="9" fill="#2aa1d81f" stroke="#2aa1d8" stroke-width="2"/>
+<text x="422.00000000000006" y="64.0" class="tag" fill="#2aa1d8">TG</text>
+<text x="422.00000000000006" y="99.0" class="lab">Acknowledge</text>
+<rect x="518.0" y="89.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
+<text x="543.0" y="119.0" class="tag" fill="#e8833a">JS</text>
+<text x="543.0" y="154.0" class="lab">Original update</text>
+<rect x="639.0" y="89.0" width="50" height="50" rx="9" fill="#13998f1f" stroke="#13998f" stroke-width="2"/>
+<text x="664.0" y="119.0" class="tag" fill="#13998f">↗</text>
+<text x="664.0" y="154.0" class="lab">Assistant</text>
+<text x="664.0" y="168.0" class="sub" fill="#13998f">→ 03_wf3_assistant</text>
+<rect x="760.0000000000001" y="34.0" width="50" height="50" rx="9" fill="#2aa1d81f" stroke="#2aa1d8" stroke-width="2"/>
+<text x="785.0000000000001" y="64.0" class="tag" fill="#2aa1d8">TG</text>
+<text x="785.0000000000001" y="99.0" class="lab">Send reply</text>
+<rect x="760.0000000000001" y="155.0" width="50" height="50" rx="9" fill="#2aa1d81f" stroke="#2aa1d8" stroke-width="2"/>
+<text x="785.0000000000001" y="185.0" class="tag" fill="#2aa1d8">TG</text>
+<text x="785.0000000000001" y="220.0" class="lab">Friendly error</text>
+<rect x="881.0000000000001" y="34.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
+<text x="906.0000000000001" y="64.0" class="tag" fill="#e8833a">JS</text>
+<text x="906.0000000000001" y="99.0" class="lab">Run row</text>
+<rect x="1002.0" y="34.0" width="50" height="50" rx="9" fill="#7d87941f" stroke="#7d8794" stroke-width="2"/>
+<text x="1027.0" y="64.0" class="tag" fill="#7d8794">FILE</text>
+<text x="1027.0" y="99.0" class="lab">Run to file</text>
+<rect x="1123.0" y="34.0" width="50" height="50" rx="9" fill="#7d87941f" stroke="#7d8794" stroke-width="2"/>
+<text x="1148.0" y="64.0" class="tag" fill="#7d8794">FILE</text>
+<text x="1148.0" y="99.0" class="lab">Run append</text>
+<rect x="881.0000000000001" y="155.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
+<text x="906.0000000000001" y="185.0" class="tag" fill="#e8833a">JS</text>
+<text x="906.0000000000001" y="220.0" class="lab">Error row</text>
+<rect x="1002.0" y="155.0" width="50" height="50" rx="9" fill="#7d87941f" stroke="#7d8794" stroke-width="2"/>
+<text x="1027.0" y="185.0" class="tag" fill="#7d8794">FILE</text>
+<text x="1027.0" y="220.0" class="lab">Error to file</text>
+<rect x="1123.0" y="155.0" width="50" height="50" rx="9" fill="#7d87941f" stroke="#7d8794" stroke-width="2"/>
+<text x="1148.0" y="185.0" class="tag" fill="#7d8794">FILE</text>
+<text x="1148.0" y="220.0" class="lab">Error append</text>
 </svg></div><div class="card"><div class="head"><span class="name">03b_wf3_test</span><span class="badge" style="background:#c98a12">Test only · off</span><span class="role">11 nodes · Test entrance (POST /webhook/wf3-test) for the evaluation harness: published only during tests</span></div><svg width="824" height="267" xmlns="http://www.w3.org/2000/svg">
 <path d="M84.0,114.0 C119.5,114.0 119.5,114.0 155.0,114.0" class="edge"/>
 <path d="M148.0,110.0 L155.0,114.0 L148.0,118.0" class="arrow"/>
@@ -220,16 +234,24 @@ svg text{font-family:'Segoe UI',system-ui,sans-serif}
 <text x="785.0000000000001" y="220.0" class="lab">Error append</text>
 </svg></div></div>
 <div class="section">Core: the assistant</div>
-<div class="card"><div class="head"><span class="name">03_wf3_assistant</span><span class="badge" style="background:#2e9e5b">Published</span><span class="role">42 nodes · The assistant (orchestrator): Router → Vision / Regulations / Calendar / Admin → merged reply</span></div><svg width="1884" height="865" xmlns="http://www.w3.org/2000/svg">
-<text x="28" y="28.0" class="rowt">1 · Input, photo, Router, out-of-scope, Vision</text>
+<div class="card"><div class="head"><span class="name">03_wf3_assistant</span><span class="badge" style="background:#2e9e5b">Published</span><span class="role">44 nodes · The assistant (orchestrator): Router → Vision / Regulations / Calendar / Admin → merged reply</span></div><svg width="1884" height="865" xmlns="http://www.w3.org/2000/svg">
+<text x="28" y="28.0" class="rowt">1 · Input, greetings / commands, photo, Router, out-of-scope, Vision</text>
 <text x="28" y="305.0" class="rowt">2 · Regulations agent (RAG over Qdrant + checks + one revision)</text>
 <line x1="24" x2="1874.0000000000002" y1="285.0" y2="285.0" class="sep"/>
 <text x="28" y="582.0" class="rowt">3 · Calendar and Admin agents (exact tools) → Output</text>
 <line x1="24" x2="1874.0000000000002" y1="562.0" y2="562.0" class="sep"/>
 <path d="M84.0,158.0 C119.5,158.0 119.5,158.0 155.0,158.0" class="edge"/>
 <path d="M148.0,154.0 L155.0,158.0 L148.0,162.0" class="arrow"/>
-<path d="M205.0,158.0 C301.0,158.0 301.0,224.0 397.00000000000006,224.0" class="edge"/>
+<path d="M205.0,158.0 C240.5,158.0 240.5,158.0 276.0,158.0" class="edge"/>
+<path d="M269.0,154.0 L276.0,158.0 L269.0,162.0" class="arrow"/>
+<path d="M326.0,158.0 C361.5,158.0 361.5,81.0 397.00000000000006,81.0" class="edge"/>
+<path d="M390.00000000000006,77.0 L397.00000000000006,81.0 L390.00000000000006,85.0" class="arrow"/>
+<text x="332.0" y="149.0" class="elab true">true</text>
+<path d="M326.0,158.0 C361.5,158.0 361.5,224.0 397.00000000000006,224.0" class="edge"/>
 <path d="M390.00000000000006,220.0 L397.00000000000006,224.0 L390.00000000000006,228.0" class="arrow"/>
+<text x="332.0" y="172.0" class="elab false">false</text>
+<path d="M447.00000000000006,81.0 H1837.0000000000002 V574.0 H1728.0000000000002 V767.0 H1750.0000000000002" class="edge"/>
+<path d="M1743.0000000000002,763.0 L1750.0000000000002,767.0 L1743.0000000000002,771.0" class="arrow"/>
 <path d="M447.00000000000006,224.0 C482.5,224.0 482.5,191.0 518.0,191.0" class="edge"/>
 <path d="M511.0,187.0 L518.0,191.0 L511.0,195.0" class="arrow"/>
 <text x="453.00000000000006" y="215.0" class="elab true">true</text>
@@ -252,7 +274,7 @@ svg text{font-family:'Segoe UI',system-ui,sans-serif}
 <path d="M1173.0,158.0 C1208.5,158.0 1208.5,213.0 1244.0,213.0" class="edge"/>
 <path d="M1237.0,209.0 L1244.0,213.0 L1237.0,217.0" class="arrow"/>
 <text x="1179.0" y="172.0" class="elab false">false</text>
-<path d="M1294.0,81.0 H1837.0000000000002 V574.0 H1728.0000000000002 V767.0 H1750.0000000000002" class="edge"/>
+<path d="M1294.0,81.0 H1830.0000000000002 V567.0 H1728.0000000000002 V767.0 H1750.0000000000002" class="edge"/>
 <path d="M1743.0000000000002,763.0 L1750.0000000000002,767.0 L1743.0000000000002,771.0" class="arrow"/>
 <path d="M1294.0,213.0 C1329.5,213.0 1329.5,169.0 1365.0,169.0" class="edge"/>
 <path d="M1358.0,165.0 L1365.0,169.0 L1358.0,173.0" class="arrow"/>
@@ -269,7 +291,7 @@ svg text{font-family:'Segoe UI',system-ui,sans-serif}
 <path d="M128.0,490.0 C163.5,490.0 163.5,446.0 199.0,446.0" class="edge"/>
 <path d="M192.0,442.0 L199.0,446.0 L192.0,450.0" class="arrow"/>
 <text x="134.0" y="481.0" class="elab true">true</text>
-<path d="M128.0,490.0 H1823.0000000000002 V567.0 H34.0 V767.0 H56.0" class="edge"/>
+<path d="M128.0,490.0 H1816.0000000000002 V560.0 H34.0 V767.0 H56.0" class="edge"/>
 <path d="M49.0,763.0 L56.0,767.0 L49.0,771.0" class="arrow"/>
 <text x="134.0" y="504.0" class="elab false">false</text>
 <path d="M249.0,446.0 C284.5,446.0 284.5,446.0 320.0,446.0" class="edge"/>
@@ -298,7 +320,7 @@ svg text{font-family:'Segoe UI',system-ui,sans-serif}
 <path d="M1402.0,398.0 L1409.0,402.0 L1402.0,406.0" class="arrow"/>
 <path d="M1459.0,402.0 C1494.5,402.0 1494.5,446.0 1530.0000000000002,446.0" class="edge"/>
 <path d="M1523.0000000000002,442.0 L1530.0000000000002,446.0 L1523.0000000000002,450.0" class="arrow"/>
-<path d="M1580.0000000000002,446.0 H1816.0000000000002 V560.0 H34.0 V767.0 H56.0" class="edge"/>
+<path d="M1580.0000000000002,446.0 H1809.0000000000002 V553.0 H34.0 V767.0 H56.0" class="edge"/>
 <path d="M49.0,763.0 L56.0,767.0 L49.0,771.0" class="arrow"/>
 <path d="M106.0,767.0 C141.5,767.0 141.5,723.0 177.0,723.0" class="edge"/>
 <path d="M170.0,719.0 L177.0,723.0 L170.0,727.0" class="arrow"/>
@@ -346,6 +368,12 @@ svg text{font-family:'Segoe UI',system-ui,sans-serif}
 <rect x="155.0" y="133.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
 <text x="180.0" y="163.0" class="tag" fill="#e8833a">JS</text>
 <text x="180.0" y="198.0" class="lab">Input</text>
+<rect x="276.0" y="133.0" width="50" height="50" rx="9" fill="#7b5cd61f" stroke="#7b5cd6" stroke-width="2"/>
+<text x="301.0" y="163.0" class="tag" fill="#7b5cd6">IF</text>
+<text x="301.0" y="198.0" class="lab">Small talk?</text>
+<rect x="397.00000000000006" y="56.0" width="50" height="50" rx="9" fill="#e8833a1f" stroke="#e8833a" stroke-width="2"/>
+<text x="422.00000000000006" y="86.0" class="tag" fill="#e8833a">JS</text>
+<text x="422.00000000000006" y="121.0" class="lab">Small talk reply</text>
 <rect x="397.00000000000006" y="199.0" width="50" height="50" rx="9" fill="#7b5cd61f" stroke="#7b5cd6" stroke-width="2"/>
 <text x="422.00000000000006" y="229.0" class="tag" fill="#7b5cd6">IF</text>
 <text x="422.00000000000006" y="264.0" class="lab">Test photo?</text>
