@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"notice\",\n  \"module_name\": null,\n  \"module_code\": null,\n  \"class_group\": null,\n  \"regime\": null,\n  \"assessment\": null,\n  \"session\": \"Rattrapage\",\n  \"date\": null,\n  \"start_time\": null,\n  \"end_time\": null,\n  \"room\": null,\n  \"change\": null,\n  \"timetable\": null,\n  \"visible_rules\": [\n    \"Les étudiants dont la moyenne dans une unité d'apprentissage est inférieure à 8/20 sont inscrits d'office à la session de contrôle.\",\n    \"Les autres étudiants qui souhaitent améliorer leur moyenne générale doivent déposer le formulaire d'inscription auprès du bureau des examens dans un délai de 5 jours ouvrables après la publication des résultats de la session principale.\",\n    \"Aucune inscription ne sera acceptée après ce délai.\"\n  ],\n  \"injection_detected\": false,\n  \"fictitious_label\": true,\n  \"uncertain_fields\": [],\n  \"image_readable\": true\n}",
+ "seconds": 5.5
+}

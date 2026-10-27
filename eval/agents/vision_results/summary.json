@@ -66,5 +66,22 @@
    "T4-06": "14/14",
    "T4-10": "13/14"
   }
+ },
+ "v5": {
+  "version": "v5",
+  "images": 11,
+  "json_valid": 11,
+  "schema_valid": 11,
+  "scored_fields": 88,
+  "correct": 88,
+  "abstained": 0,
+  "wrong": 0,
+  "not_produced": 0,
+  "assessment_session_confusions": 0,
+  "injection_text_copied": 0,
+  "timetable_recall": {
+   "T4-06": "14/14",
+   "T4-10": "13/14"
+  }
  }
 }

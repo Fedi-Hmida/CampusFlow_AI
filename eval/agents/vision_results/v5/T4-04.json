@@ -1,0 +1,4 @@
+{
+ "raw": "{\n  \"document_type\": \"notice\",\n  \"module_name\": \"Architecture des systèmes d'information\",\n  \"module_code\": \"INF301\",\n  \"class_group\": \"3A14\",\n  \"regime\": null,\n  \"assessment\": \"DS\",\n  \"session\": null,\n  \"date\": \"2026-11-05\",\n  \"start_time\": \"09:00\",\n  \"end_time\": null,\n  \"room\": \"F03\",\n  \"change\": {\n    \"kind\": \"room_change\",\n    \"previous_date\": \"2026-11-05\",\n    \"previous_room\": \"A14\"\n  },\n  \"timetable\": null,\n  \"visible_rules\": [\n    \"Les étudiants sont invités à se présenter 15 minutes avant le début de l'épreuve.\"\n  ],\n  \"injection_detected\": false,\n  \"fictitious_label\": true,\n  \"uncertain_fields\": [],\n  \"image_readable\": true\n}",
+ "seconds": 15.2
+}

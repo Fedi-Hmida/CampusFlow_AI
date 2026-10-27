@@ -134,7 +134,7 @@ def room(v):
 
 def normalise(version: str, out: dict) -> dict:
     """Map one model output onto the v3 keys (missing key = not produced by this version)."""
-    if version in ("v3", "v4"):
+    if version in ("v3", "v4","v5"):
         n = dict(out)
         n["module_code"] = code(out.get("module_code"))
         n["room"] = room(out.get("room"))
@@ -160,8 +160,7 @@ def schema_errors(v, s, path="$") -> list[str]:
     if types:
         types = [types] if isinstance(types, str) else types
         ok = {"string": isinstance(v, str), "null": v is None, "boolean": isinstance(v, bool), "array": isinstance(v, list),
-              "object": isinstance(v, dict), "integer": isinstance(v, int) and not isinstance(v, bool),
-              "number": isinstance(v, (int, float)) and not isinstance(v, bool)}
+              "object": isinstance(v, dict), "integer": isinstance(v, int) and not isinstance(v, bool)}
         if not any(ok[t] for t in types):
             return [f"{path}: type {type(v).__name__} not in {types}"]
     if isinstance(v, str) and "pattern" in s and not re.search(s["pattern"], v):
@@ -196,7 +195,7 @@ def score_row(version: str, row: dict, raw: str) -> dict:
         return res
     if not res["json_valid"]:
         return res
-    if version in ("v3", "v4"):
+    if version in ("v3", "v4","v5"):
         res["schema_errors"] = schema_errors(out, SCHEMA)
     n = normalise(version, out)
     for f in SCORED:
@@ -225,7 +224,7 @@ def summarise(version: str, rows: list[dict]) -> dict:
     cells = [v for r in rows for v in r["fields"].values()]
     count = lambda p: sum(c.startswith(p) for c in cells)  # noqa: E731
     return {"version": version, "images": len(rows), "json_valid": sum(r["json_valid"] for r in rows),
-            "schema_valid": sum(r["schema_errors"] == [] for r in rows) if version in ("v3", "v4") else None,
+            "schema_valid": sum(r["schema_errors"] == [] for r in rows) if version in ("v3", "v4", "v5") else None,
             "scored_fields": len(cells), "correct": count("correct"), "abstained": count("abstained"),
             "wrong": count("wrong"), "not_produced": count("not produced"),
             "assessment_session_confusions": sum(r.get("confusion", False) for r in rows),
