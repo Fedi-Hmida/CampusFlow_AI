@@ -110,7 +110,7 @@ page), an absence check or a table cell — all checked automatically by `script
 - Max consecutive words shared with the sources: 1
 - [ ] OK  [ ] fix: ____
 
-### T1-09 — retakes · regime `alternance`
+### T1-09 — retakes · regime `alternance` · **CHANGED**
 - **Question**: En alternance on a le droit de redoubler combien de fois ?
 - **expected_article**: `D1-003/7-7/Redoublement`
   - **Claim**: Une seule fois sur les quatre années de la scolarité.
@@ -173,7 +173,7 @@ page), an absence check or a table cell — all checked automatically by `script
 - Max consecutive words shared with the sources: 2
 - [ ] OK  [ ] fix: ____
 
-### T1-14 — registration · regime `soir`
+### T1-14 — registration · regime `soir` · **CHANGED**
 - **Question**: Cours du soir : on est en décembre, je peux encore demander un report d'inscription ?
 - **expected_article**: `D1-002/3/Inscription des élèves`
   - **Claim**: Non : aucune demande de report n'est recevable après le 30 novembre.
@@ -264,7 +264,7 @@ page), an absence check or a table cell — all checked automatically by `script
 - Max consecutive words shared with the sources: 4
 - [ ] OK  [ ] fix: ____
 
-### T1-22 — internships · regime `all`
+### T1-22 — internships · regime `all` · **CHANGED**
 - **Question**: Mon rapport de PFE doit etre rendu combien de jours avant la soutenance ?
 - **expected_article**: `D1-007/4/Calendrier de dépôt`
   - **Claim**: Au plus tard 15 jours avant la soutenance.
@@ -275,7 +275,7 @@ page), an absence check or a table cell — all checked automatically by `script
 - Max consecutive words shared with the sources: 3
 - [ ] OK  [ ] fix: ____
 
-### T1-23 — registration · regime `jour`
+### T1-23 — registration · regime `jour` · **CHANGED**
 - **Question**: C'est combien exactement les frais de scolarité en 4ème année cours du jour ?
 - **expected_article**: `—`
   - **Claim**: Information non trouvée dans les 13 documents.
@@ -285,7 +285,7 @@ page), an absence check or a table cell — all checked automatically by `script
 - Max consecutive words shared with the sources: 0
 - [ ] OK  [ ] fix: ____
 
-### T1-24 — campus life · regime `all`
+### T1-24 — campus life · regime `all` · **CHANGED**
 - **Question**: La bibliothèque est ouverte jusqu'à quelle heure le samedi ?
 - **expected_article**: `—`
   - **Claim**: Information non trouvée dans les 13 documents.
@@ -295,7 +295,7 @@ page), an absence check or a table cell — all checked automatically by `script
 - Max consecutive words shared with the sources: 0
 - [ ] OK  [ ] fix: ____
 
-### T1-25 — internships · regime `jour`
+### T1-25 — internships · regime `jour` · **CHANGED**
 - **Question**: Je peux faire mon stage ingénieur à l'étranger ? il y a des démarches spéciales ?
 - **expected_article**: `—`
   - **Claim**: Information non trouvée dans les 13 documents.

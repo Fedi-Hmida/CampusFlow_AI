@@ -15,7 +15,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-013/3/Formes de mobilité · D1-007/7/Prolongation et échec · D1-001/7-5/Conditions de passage en année supérieure · D1-003/7-6/Conditions de passage en année supérieure · D1-002/7-5/Conditions de passage en année supérieure
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [ ] invented: ____  [] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-002 (all) — checks: PASS
 
@@ -195,7 +195,7 @@ The automatic checks (citations, numbers, dates, contacts, FICTIF label) are alr
 
 **Excerpts used:** D1-004/2/Absence à un examen final ou à un devoir surveillé (DS) · D1-003/8/Absences des examens · D1-004/5/Absence à une évaluation intermédiaire et assiduité · D1-001/7-8/Déroulement des épreuves · D1-001/7-8/Déroulement des épreuves
 
-- [ ] grounded  [ ] invented: ____  [ ] « non trouvée » à tort (the excerpts answer it): ____
+- [ ] grounded  [ ] invented: ____  [x] « non trouvée » à tort (the excerpts answer it): ____
 
 ## D5-017 (all) — checks: PASS
 
