@@ -29,7 +29,7 @@ function facts(text) {
   return out;
 }
 
-function citations(reply) {
+function citedRefs(reply) {   // not « citations »: assistant.js has one and both share a Code node (CF-404)
   return [...reply.matchAll(/\[(D1-\d{3})([^\]]*)\]/g)].map(m => {
     const art = m[2].match(/art(?:icle)?\.?\s*([\w-]+)/i);
     return { doc: m[1], article: art ? art[1] : null, raw: m[0] };
@@ -45,7 +45,7 @@ function checkReply(reply, { retrieved = [], allowed = [] } = {}) {
   if (!text) return { pass: false, failures: [{ check: 'empty', detail: 'empty reply' }] };
 
   const notFound = /non trouv|introuvable|not found/i.test(fold(text));
-  const cites = citations(text);
+  const cites = citedRefs(text);
   if (!cites.length && !notFound) add('citation_present', 'no [D1-xxx, art. N] citation');
 
   const keys = retrieved.flatMap(c => c.article_keys || []);
@@ -71,4 +71,4 @@ function checkReply(reply, { retrieved = [], allowed = [] } = {}) {
   return { pass: failures.length === 0, failures };
 }
 
-if (typeof module !== 'undefined') module.exports = { checkReply, facts, citations };
+if (typeof module !== 'undefined') module.exports = { checkReply, facts, citedRefs };

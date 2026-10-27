@@ -96,9 +96,11 @@ def main() -> None:
             body, expect = CASES[name]
             res, err, wall = call({"test_id": f"smoke-{name}", "mode": a.mode, "regime": None, "class_group": None, "photo": None, **body})
             errs = schema_errors(res, SCHEMA) if res is not None else [err]
+            if res is not None and res["fallback"] != (name == "error"):   # a fallback is contract-valid but not an answer (CF-404)
+                errs.append(f"fallback={res['fallback']} (checks {res['checks']})")
             good = res is not None and not errs
             ok += good
-            lines += [f"## {name} — {'✅ contract-valid' if good else '❌'} · {wall:.1f} s", "", f"**Question:** {body['question']}", "",
+            lines += [f"## {name} — {'✅ valid answer' if good else '❌'} · {wall:.1f} s", "", f"**Question:** {body['question']}", "",
                       f"**Expected:** {expect}", ""]
             if res is not None:
                 lines += ["**Reply:**", "", "> " + res["reply"].replace("\n", "\n> "), "",
@@ -109,9 +111,9 @@ def main() -> None:
             print(f"{name}: {'OK' if good else 'FAIL'} {wall:.1f}s {err or ''}", flush=True)
     finally:
         undeploy()
-    lines.insert(3, f"**{ok}/{len(a.cases)} responses valid against the contract.** Test entrance unpublished after the run.")
+    lines.insert(3, f"**{ok}/{len(a.cases)} answers valid (contract + no unexpected fallback).** Test entrance unpublished after the run.")
     (ROOT / "eval/agents/wf3_smoke.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    print(f"{ok}/{len(a.cases)} contract-valid · eval/agents/wf3_smoke.md")
+    print(f"{ok}/{len(a.cases)} valid · eval/agents/wf3_smoke.md")
 
 
 if __name__ == "__main__":

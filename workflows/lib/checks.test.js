@@ -61,3 +61,14 @@ test('a directory contact passed as allowed is not an invented fact', () => {
 test('empty reply fails', () => {
   assert.equal(ok('').pass, false);
 });
+
+// CF-404 — the « Checks again » node embeds checks.js and assistant.js in one scope (as build_wf3.py does).
+// assistant.js has its own citations(); checkReply must not pick it up (live 27 Oct: a valid revision was rejected).
+test('checkReply still works when embedded together with assistant.js', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const src = f => fs.readFileSync(path.join(__dirname, f), 'utf8');
+  const embedded = new Function(`${src('checks.js')}\n${src('assistant.js')}\nreturn checkReply;`)();
+  const reply = "Les certificats médicaux ne sont pas un justificatif [D1-001, art. 7-8, p. 9].";
+  assert.deepEqual(embedded(reply, { retrieved: RETRIEVED }).failures, []);
+});
