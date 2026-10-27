@@ -57,7 +57,17 @@ def node(wf, name, type_, version, pos, params, **extra):
     return {"id": nid(wf, name), "name": name, "type": type_, "typeVersion": version, "position": pos, "parameters": params, **extra}
 
 
+def top_names(js: str) -> set:
+    return set(re.findall(r"^(?:function|const|let|var)\s+([A-Za-z_$][\w$]*)", js, re.M))
+
+
 def code(wf, name, pos, js, libs=()):
+    # libs share one scope: a name defined twice would silently shadow the first (CF-404: citations())
+    seen = {}
+    for i, part in enumerate([*libs, js]):
+        for n in top_names(part):
+            assert n not in seen, f"{wf}/{name}: '{n}' defined in embedded parts {seen[n]} and {i}"
+            seen[n] = i
     return node(wf, name, "n8n-nodes-base.code", 2, pos, {"jsCode": "".join(l + "\n" for l in libs) + js})
 
 
