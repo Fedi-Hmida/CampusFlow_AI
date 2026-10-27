@@ -1,0 +1,759 @@
+{
+  "set": "T3",
+  "mode": "local",
+  "endpoint": "http://127.0.0.1:5678/webhook/wf3-test",
+  "models": {
+    "router": "qwen3:4b-instruct-2507-q4_K_M",
+    "regulations": "qwen3:4b-instruct-2507-q4_K_M",
+    "embeddings": "bge-m3:567m"
+  },
+  "n_questions": 10,
+  "n_runs": 1,
+  "summary": {
+    "score_mean": 0.7,
+    "score_total": 7.0,
+    "schema_valid_count": 10,
+    "schema_valid_rate": 1.0,
+    "checks_passed_count": 10,
+    "checks_passed_rate": 1.0,
+    "latency_p50": 9.65,
+    "latency_p90": 116.49,
+    "revised_count": 0,
+    "fallback_count": 0
+  },
+  "details": [
+    {
+      "id": "T3-01",
+      "question": "Qui contacter pour une attestation de scolarité ? Je suis en 4e année.",
+      "reply": "Démarche : Attestation de scolarité.\nPièces : Formulaire FORM-03 ; pièce d'identité (CIN, passeport ou carte d'étudiant).\nDélai : Aucun délai fixé.\nTraitement : 3 jours ouvrables (délai indicatif).\nÀ adresser à : Service élèves 4ème année — service.eleves4eme@esprit.tn, Bloc G (Lundi-vendredi 8h30-12h30 et 13h30-16h30).\n(procédure de démonstration, fictive)",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "request_type": "Attestation de scolarité",
+          "handler_role_id": "SCO-LEVEL",
+          "required_documents": "Formulaire FORM-03 ; pièce d'identité (CIN, passeport ou carte d'étudiant)",
+          "deadline_rule": "Aucun délai fixé",
+          "source_ref": "D1-006/4/Comment faire la demande",
+          "regime": "all",
+          "request_id": "REQ-01",
+          "category": "Pièces administratives",
+          "routing_rule": "Service élèves du niveau de l'étudiant",
+          "processing_time": "3 jours ouvrables (délai indicatif)",
+          "source": "FICTITIOUS — procedure D1-006 ; values aligned with the cited articles (CF-108)"
+        },
+        {
+          "role_id": "SCO-4A",
+          "role_title": "Service élèves 4ème année",
+          "department": "Scolarité",
+          "person_name": null,
+          "email": "service.eleves4eme@esprit.tn",
+          "office": "Bloc G",
+          "hours": "Lundi-vendredi 8h30-12h30 et 13h30-16h30",
+          "handles": "Demandes de pièces administratives des étudiants de 4ème année",
+          "reports_to": "DEP-HEAD",
+          "escalation_level": "1",
+          "level_scope": "4A",
+          "source": "avis de la scolarité (email et bloc) ; horaires à confirmer ; FICTITIOUS (office/hours not verified)"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 9.71,
+        "admin": 0.31,
+        "total": 10.07
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-01",
+        "question": "Qui contacter pour une attestation de scolarité ? Je suis en 4e année.",
+        "regime": "all",
+        "expected_role_id": "SCO-4A",
+        "expected_documents": "Formulaire FORM-03 ; pièce d'identité (CIN, passeport ou carte d'étudiant)",
+        "expected_deadline": "Aucun délai fixé",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-02",
+      "question": "Cours du jour : j'ai raté un examen car j'étais hospitalisé, je m'adresse à qui et je fournis quoi ?",
+      "reply": "📘 Règle\nTu t'addresses à la scolarité et tu fournis un certificat médical justifiant ta hospitalisation. [D1-001, art. 7-8, p. 9]\n\n🗂️ Démarche\nContact : Scolarité (contact général) — scolarite@esprit.tn, Bloc E (Lundi-vendredi 8h30-12h30 et 13h30-16h30).",
+      "citations": [
+        {
+          "doc_id": "D1-001",
+          "article": "7-8",
+          "page": 9
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)"
+          ],
+          "doc_status": "FICTITIOUS"
+        },
+        {
+          "article_keys": [
+            "D1-004/5/Absence à une évaluation intermédiaire et assiduité"
+          ],
+          "doc_status": "FICTITIOUS"
+        },
+        {
+          "article_keys": [
+            "D1-001/7-8/Déroulement des épreuves"
+          ],
+          "doc_status": "official"
+        },
+        {
+          "article_keys": [
+            "D1-001/7-6/Session de rattrapage"
+          ],
+          "doc_status": "official"
+        },
+        {
+          "article_keys": [
+            "D1-001/7-8/Déroulement des épreuves"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "route": {
+        "intents": [
+          "regulations",
+          "admin"
+        ],
+        "agents": [
+          "regulations",
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "SCO-GEN",
+          "role_title": "Scolarité (contact général)",
+          "department": "Scolarité",
+          "person_name": null,
+          "email": "scolarite@esprit.tn",
+          "office": "Bloc E",
+          "hours": "Lundi-vendredi 8h30-12h30 et 13h30-16h30",
+          "handles": "Questions générales de scolarité, dossiers des étudiants, justificatifs d'absence",
+          "reports_to": "DIR-ETU",
+          "escalation_level": "1",
+          "level_scope": "tous niveaux",
+          "source": "avis de la scolarité (email et bloc) ; horaires à confirmer ; FICTITIOUS (office/hours not verified)"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 10.38,
+        "retrieval": 0.45,
+        "regulations": 136.92,
+        "admin": 0.35,
+        "total": 148.2
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-02",
+        "question": "Cours du jour : j'ai raté un examen car j'étais hospitalisé, je m'adresse à qui et je fournis quoi ?",
+        "regime": "jour",
+        "expected_role_id": "SCO-GEN",
+        "expected_documents": "Dossier de demande de repassage exceptionnel déposé à la scolarité ; justificatif recevable uniquement pour accident, maladie contagieuse, hospitalisation ou décès d'un parent proche (un certificat médical n'est pas un justificatif)",
+        "expected_deadline": "Aucun délai fixé par le règlement ; demande traitée au cas par cas",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-03",
+      "question": "Cours du soir : absent à un exam pour une mission de travail, je préviens qui et avant quand ?",
+      "reply": "📘 Règle\nL'étudiant doit aviser le responsable de la scolarité dans un délai ne dépassant pas 48 heures à compter de la date de l'épreuve, avec remise des pièces justificatives [D1-002, art. 7-2, p. 5]. Un simple certificat médical n'est pas considéré comme un motif valable [D1-002, art. 7-2, p. 5].\n\n🗂️ Démarche\nContact : Scolarité (contact général) — scolarite@esprit.tn, Bloc E (Lundi-vendredi 8h30-12h30 et 13h30-16h30).",
+      "citations": [
+        {
+          "doc_id": "D1-002",
+          "article": "7-2",
+          "page": 5
+        },
+        {
+          "doc_id": "D1-002",
+          "article": "7-2",
+          "page": 5
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-004/5/Absence à une évaluation intermédiaire et assiduité"
+          ],
+          "doc_status": "FICTITIOUS"
+        },
+        {
+          "article_keys": [
+            "D1-004/2/Absence à un examen final ou à un devoir surveillé (DS)"
+          ],
+          "doc_status": "FICTITIOUS"
+        },
+        {
+          "article_keys": [
+            "D1-002/4/Organisation de la scolarité"
+          ],
+          "doc_status": "official"
+        },
+        {
+          "article_keys": [
+            "D1-002/9/Assiduité"
+          ],
+          "doc_status": "official"
+        },
+        {
+          "article_keys": [
+            "D1-002/7-2/Evaluation des élèves"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "route": {
+        "intents": [
+          "regulations",
+          "admin"
+        ],
+        "agents": [
+          "regulations",
+          "admin"
+        ],
+        "missing_fields": [
+          "class_group"
+        ]
+      },
+      "tool_rows": [
+        {
+          "role_id": "SCO-GEN",
+          "role_title": "Scolarité (contact général)",
+          "department": "Scolarité",
+          "person_name": null,
+          "email": "scolarite@esprit.tn",
+          "office": "Bloc E",
+          "hours": "Lundi-vendredi 8h30-12h30 et 13h30-16h30",
+          "handles": "Questions générales de scolarité, dossiers des étudiants, justificatifs d'absence",
+          "reports_to": "DIR-ETU",
+          "escalation_level": "1",
+          "level_scope": "tous niveaux",
+          "source": "avis de la scolarité (email et bloc) ; horaires à confirmer ; FICTITIOUS (office/hours not verified)"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 15.22,
+        "retrieval": 0.3,
+        "regulations": 96.98,
+        "admin": 0.36,
+        "total": 112.97
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 1.0,
+      "score_detail": {
+        "score": 1.0,
+        "office_ok": true,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "all criteria met"
+      },
+      "row": {
+        "id": "T3-03",
+        "question": "Cours du soir : absent à un exam pour une mission de travail, je préviens qui et avant quand ?",
+        "regime": "soir",
+        "expected_role_id": "SCO-GEN",
+        "expected_documents": "Pièces justificatives de force majeure (hospitalisation, décès d'un parent, mission de travail) ; un simple certificat médical n'est pas un motif valable",
+        "expected_deadline": "Aviser le responsable de la scolarité dans un délai ne dépassant pas 48 h à compter de la date de l'épreuve",
+        "email_status": "delivered (unverified)",
+        "verified_by": "delegated by Fedi (26 Oct)"
+      }
+    },
+    {
+      "id": "T3-04",
+      "question": "Je suis en alternance, j'ai manqué 2 jours de cours (malade) : j'envoie le justificatif à qui et quand ?",
+      "reply": "Contact : Scolarité (contact général) — scolarite@esprit.tn, Bloc E (Lundi-vendredi 8h30-12h30 et 13h30-16h30).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "SCO-GEN",
+          "role_title": "Scolarité (contact général)",
+          "department": "Scolarité",
+          "person_name": null,
+          "email": "scolarite@esprit.tn",
+          "office": "Bloc E",
+          "hours": "Lundi-vendredi 8h30-12h30 et 13h30-16h30",
+          "handles": "Questions générales de scolarité, dossiers des étudiants, justificatifs d'absence",
+          "reports_to": "DIR-ETU",
+          "escalation_level": "1",
+          "level_scope": "tous niveaux",
+          "source": "avis de la scolarité (email et bloc) ; horaires à confirmer ; FICTITIOUS (office/hours not verified)"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 10.9,
+        "admin": 0.31,
+        "total": 11.27
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 0.5,
+      "score_detail": {
+        "score": 0.5,
+        "office_ok": true,
+        "docs_ok": false,
+        "deadline_ok": false,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "office=True, docs=False, dl=False, reg=True"
+      },
+      "row": {
+        "id": "T3-04",
+        "question": "Je suis en alternance, j'ai manqué 2 jours de cours (malade) : j'envoie le justificatif à qui et quand ?",
+        "regime": "alternance",
+        "expected_role_id": "SCO-GEN",
+        "expected_documents": "Certificat médical ou justificatif adressé au service de scolarité",
+        "expected_deadline": "Au plus tard le lendemain du début de l'empêchement ; au-delà de trois absences non justifiées à un module : avertissement",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-05",
+      "question": "Je veux reporter mon inscription (cours du jour) : c'est jusqu'à quand et je dépose où ?",
+      "reply": "Je ne trouve pas ce service ou cette démarche. Contacte la scolarité (scolarite@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 8.84,
+        "admin": 0.3,
+        "total": 9.23
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 0.5,
+      "score_detail": {
+        "score": 0.5,
+        "office_ok": true,
+        "docs_ok": false,
+        "deadline_ok": false,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "office=True, docs=False, dl=False, reg=True"
+      },
+      "row": {
+        "id": "T3-05",
+        "question": "Je veux reporter mon inscription (cours du jour) : c'est jusqu'à quand et je dépose où ?",
+        "regime": "jour",
+        "expected_role_id": "SCO-GEN",
+        "expected_documents": "Formulaire de demande de report rempli et déposé au bureau d'ordre de l'école",
+        "expected_deadline": "Au plus tard le 30 novembre de l'année en cours pour bénéficier du remboursement ; un seul report sur toute la scolarité",
+        "email_status": "delivered (unverified)",
+        "verified_by": "delegated by Fedi (26 Oct)"
+      }
+    },
+    {
+      "id": "T3-06",
+      "question": "Qui s'occupe des conventions de stage ?",
+      "reply": "Contact : Département des stages — departement.stage@esprit.tn, Bloc D, bureau 05 (Lundi-vendredi 9h00-12h00 et 14h00-16h00).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "STAGE",
+          "role_title": "Département des stages",
+          "department": "Stages",
+          "person_name": null,
+          "email": "departement.stage@esprit.tn",
+          "office": "Bloc D, bureau 05",
+          "hours": "Lundi-vendredi 9h00-12h00 et 14h00-16h00",
+          "handles": "Conventions de stage, attestations de stage, affectation et suivi des stages (PFE inclus)",
+          "reports_to": "DIR-ETU",
+          "escalation_level": "1",
+          "level_scope": "tous niveaux",
+          "source": "email fourni par l'équipe ; bureau et horaires à confirmer ; FICTITIOUS (office/hours not verified)"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 7.3,
+        "admin": 0.33,
+        "total": 7.7
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 0.75,
+      "score_detail": {
+        "score": 0.75,
+        "office_ok": true,
+        "docs_ok": false,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "office=True, docs=False, dl=True, reg=True"
+      },
+      "row": {
+        "id": "T3-06",
+        "question": "Qui s'occupe des conventions de stage ?",
+        "regime": "jour",
+        "expected_role_id": "STAGE",
+        "expected_documents": "Formulaire de convention (3 exemplaires) ; Lettre d'acceptation ou offre de stage de l'entreprise ; Attestation d'assurance ; Carte étudiant",
+        "expected_deadline": "Convention tripartite signée par les trois parties avant le premier jour de stage et déposée au service des stages",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-07",
+      "question": "Je voudrais partir en échange à l'étranger, je contacte qui ?",
+      "reply": "Je ne trouve pas ce service ou cette démarche. Contacte la scolarité (scolarite@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 7.76,
+        "admin": 0.33,
+        "total": 8.17
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 0.5,
+      "score_detail": {
+        "score": 0.5,
+        "office_ok": false,
+        "docs_ok": false,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "office=False, docs=False, dl=True, reg=True"
+      },
+      "row": {
+        "id": "T3-07",
+        "question": "Je voudrais partir en échange à l'étranger, je contacte qui ?",
+        "regime": "all",
+        "expected_role_id": "MOB",
+        "expected_documents": "CV ; Lettre de motivation ; Relevés de notes ; Copie du passeport ; Attestation de niveau de langue",
+        "expected_deadline": "Selon l'appel à candidatures de l'année",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-08",
+      "question": "Je veux payer mes frais de scolarité en plusieurs fois, à qui je demande ?",
+      "reply": "Contact : Service financier — finance@esprit.tn, Bloc B, bureau 03 (Lundi-vendredi 8h30-12h30 et 13h30-15h30).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [
+        {
+          "role_id": "FIN",
+          "role_title": "Service financier",
+          "department": "Finance",
+          "person_name": null,
+          "email": "finance@esprit.tn",
+          "office": "Bloc B, bureau 03",
+          "hours": "Lundi-vendredi 8h30-12h30 et 13h30-15h30",
+          "handles": "Frais de scolarité, paiements, échéanciers, remboursements, reçus de paiement",
+          "reports_to": "DIR",
+          "escalation_level": "1",
+          "level_scope": "tous niveaux",
+          "source": "email fourni par l'équipe ; bureau et horaires à confirmer ; FICTITIOUS (office/hours not verified)"
+        }
+      ],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 7.64,
+        "admin": 0.44,
+        "total": 8.14
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 0.5,
+      "score_detail": {
+        "score": 0.5,
+        "office_ok": true,
+        "docs_ok": false,
+        "deadline_ok": false,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "office=True, docs=False, dl=False, reg=True"
+      },
+      "row": {
+        "id": "T3-08",
+        "question": "Je veux payer mes frais de scolarité en plusieurs fois, à qui je demande ?",
+        "regime": "all",
+        "expected_role_id": "FIN",
+        "expected_documents": "Demande écrite motivée ; Justificatifs de la situation financière ; Carte étudiant",
+        "expected_deadline": "Avant la date d'échéance fixée par le service financier",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-09",
+      "question": "Le service élèves de 3e année ne me répond pas, à qui je peux remonter ?",
+      "reply": "Je ne trouve pas ce service ou cette démarche. Contacte la scolarité (scolarite@esprit.tn).",
+      "citations": [],
+      "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 8.81,
+        "admin": 0.35,
+        "total": 9.21
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 0.75,
+      "score_detail": {
+        "score": 0.75,
+        "office_ok": false,
+        "docs_ok": true,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "office=False, docs=True, dl=True, reg=True"
+      },
+      "row": {
+        "id": "T3-09",
+        "question": "Le service élèves de 3e année ne me répond pas, à qui je peux remonter ?",
+        "regime": "all",
+        "expected_role_id": "DEP-HEAD",
+        "expected_documents": "—",
+        "expected_deadline": "—",
+        "email_status": "delivered (unverified)",
+        "verified_by": "Fedi"
+      }
+    },
+    {
+      "id": "T3-10",
+      "question": "Cours du soir : je veux une double correction de mon examen écrit, où et avant quand ?",
+      "reply": "La double correction d'un examen écrit est possible auprès du service examen, dans un délai d'une semaine après l'affichage de la note [D1-008, art. 2, p. 1] (procédure de démonstration).  \nL'endroit n'est pas précisé dans les extraits.",
+      "citations": [
+        {
+          "doc_id": "D1-008",
+          "article": "2",
+          "page": 1
+        }
+      ],
+      "retrieved": [
+        {
+          "article_keys": [
+            "D1-008/2/Principe de la double correction"
+          ],
+          "doc_status": "FICTITIOUS"
+        },
+        {
+          "article_keys": [
+            "D1-008/3/Épreuves concernées"
+          ],
+          "doc_status": "FICTITIOUS"
+        },
+        {
+          "article_keys": [
+            "D1-002/4/Organisation de la scolarité"
+          ],
+          "doc_status": "official"
+        },
+        {
+          "article_keys": [
+            "D1-002/7-7/Session de rattrapage"
+          ],
+          "doc_status": "official"
+        },
+        {
+          "article_keys": [
+            "D1-002/7-8/Redoublement"
+          ],
+          "doc_status": "official"
+        }
+      ],
+      "route": {
+        "intents": [
+          "regulations"
+        ],
+        "agents": [
+          "regulations"
+        ],
+        "missing_fields": [
+          "class_group",
+          "module"
+        ]
+      },
+      "tool_rows": [],
+      "checks": {
+        "pass": true,
+        "failures": []
+      },
+      "revised": false,
+      "fallback": false,
+      "timings_s": {
+        "router": 11.88,
+        "retrieval": 0.19,
+        "regulations": 60.94,
+        "total": 73.09
+      },
+      "schema_valid": true,
+      "schema_errors": [],
+      "score": 0.5,
+      "score_detail": {
+        "score": 0.5,
+        "office_ok": false,
+        "docs_ok": false,
+        "deadline_ok": true,
+        "regime_ok": true,
+        "checks_pass": true,
+        "reason": "office=False, docs=False, dl=True, reg=True"
+      },
+      "row": {
+        "id": "T3-10",
+        "question": "Cours du soir : je veux une double correction de mon examen écrit, où et avant quand ?",
+        "regime": "soir",
+        "expected_role_id": "EXA",
+        "expected_documents": "Demande écrite sur le formulaire FORM-02 (nom, prénom, classe, numéro d'étudiant, module, date de l'épreuve, note affichée, motif) ; pièce d'identité si demandée",
+        "expected_deadline": "Une semaine après l'affichage de la note, auprès du service examen",
+        "email_status": "delivered (unverified)",
+        "verified_by": "delegated by Fedi (26 Oct)"
+      }
+    }
+  ]
+}

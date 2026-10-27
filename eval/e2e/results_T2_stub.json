@@ -28,6 +28,15 @@
       "reply": "L'examen de Advanced Deep Learning pour la classe 5DS6 (Principale) aura lieu le 2027-01-15 à partir de 09:00 jusqu'à 11:00 en salle B12.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "Advanced Deep Learning",
@@ -81,6 +90,15 @@
       "reply": "L'examen de Advanced Deep Learning pour la classe 5DS6 (Rattrapage) aura lieu le 2027-02-15 à partir de 09:00 jusqu'à 11:00 en salle A21.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "Advanced Deep Learning",
@@ -134,6 +152,15 @@
       "reply": "L'examen de MLOps et déploiement pour la classe 5DS7 (Principale) aura lieu le 2027-01-20 à partir de 09:00 jusqu'à 11:00 en salle B13.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "MLOps et déploiement",
@@ -187,6 +214,15 @@
       "reply": "L'examen de Big Data Analytics pour la classe 5SIM1 (Principale) aura lieu le 2027-01-18 à partir de 13:00 jusqu'à 15:00 en salle C04.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "Big Data Analytics",
@@ -240,6 +276,15 @@
       "reply": "L'examen de MLOps et déploiement pour la classe 5SIM1 (Rattrapage) aura lieu le 2027-02-17 à partir de 09:00 jusqu'à 11:00 en salle A21.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "MLOps et déploiement",
@@ -293,6 +338,15 @@
       "reply": "L'examen de Big Data Analytics pour la classe 5DS7 (Rattrapage) aura lieu le 2027-02-16 à partir de 09:00 jusqu'à 11:00 en salle A21.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "Big Data Analytics",
@@ -346,6 +400,15 @@
       "reply": "L'examen de Financial Analysis pour la classe 3A1 (Principale) aura lieu le 2026-10-27 à partir de 09:00 (salle non communiquée).",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "Financial Analysis",
@@ -399,6 +462,15 @@
       "reply": "L'examen de framework PHP pour la classe 4SE1 (Principale) aura lieu le 2026-10-27 à partir de 11:00 (salle non communiquée).",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "framework PHP",
@@ -452,6 +524,15 @@
       "reply": "L'examen de Algorithmic 2 pour la classe 1A1 (Principale) aura lieu le 2027-03-11 à partir de 10:30 (salle non communiquée).",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "Algorithmic 2",
@@ -505,6 +586,15 @@
       "reply": "Aucun examen trouvé dans le calendrier pour le module Quantum Computing en classe 5DS6 (Principale).",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [],
       "checks": {
         "pass": true,
@@ -548,6 +638,15 @@
       "reply": "L'examen de Microcontroller Architecture pour la classe 2A1 (Principale) aura lieu le 2026-10-28 à partir de 09:00 (salle non communiquée).",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "Microcontroller Architecture",
@@ -601,6 +700,15 @@
       "reply": "L'épreuve de rattrapage pour Financial Analysis en 3A1 n'est pas encore publiée (date et salle non communiquées).",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "calendar"
+        ],
+        "agents": [
+          "calendar"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "module": "Financial Analysis",

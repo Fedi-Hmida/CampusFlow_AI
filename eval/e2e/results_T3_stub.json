@@ -28,6 +28,15 @@
       "reply": "Vous devez contacter le service correspondant (SCO-4A, e-mail: service.eleves4eme@esprit.tn). Pièces requises : Formulaire FORM-03 ; pièce d'identité (CIN, passeport ou carte d'étudiant). Délai : Aucun délai fixé.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "SCO-4A",
@@ -76,6 +85,15 @@
       "reply": "Vous devez contacter le service correspondant (SCO-GEN, e-mail: service.scolarite@esprit.tn). Pièces requises : Dossier de demande de repassage exceptionnel déposé à la scolarité ; justificatif recevable uniquement pour accident, maladie contagieuse, hospitalisation ou décès d'un parent proche (un certificat médical n'est pas un justificatif). Délai : Aucun délai fixé par le règlement ; demande traitée au cas par cas.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "SCO-GEN",
@@ -124,6 +142,15 @@
       "reply": "Vous devez contacter le service correspondant (SCO-GEN, e-mail: service.scolarite@esprit.tn). Pièces requises : Pièces justificatives de force majeure (hospitalisation, décès d'un parent, mission de travail) ; un simple certificat médical n'est pas un motif valable. Délai : Aviser le responsable de la scolarité dans un délai ne dépassant pas 48 h à compter de la date de l'épreuve.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "SCO-GEN",
@@ -172,6 +199,15 @@
       "reply": "Vous devez contacter le service correspondant (SCO-GEN, e-mail: service.scolarite@esprit.tn). Pièces requises : Certificat médical ou justificatif adressé au service de scolarité. Délai : Au plus tard le lendemain du début de l'empêchement ; au-delà de trois absences non justifiées à un module : avertissement.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "SCO-GEN",
@@ -220,6 +256,15 @@
       "reply": "Vous devez contacter le service correspondant (SCO-GEN, e-mail: service.scolarite@esprit.tn). Pièces requises : Formulaire de demande de report rempli et déposé au bureau d'ordre de l'école. Délai : Au plus tard le 30 novembre de l'année en cours pour bénéficier du remboursement ; un seul report sur toute la scolarité.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "SCO-GEN",
@@ -268,6 +313,15 @@
       "reply": "Vous devez contacter le service correspondant (STAGE, e-mail: stages@esprit.tn). Pièces requises : Formulaire de convention (3 exemplaires) ; Lettre d'acceptation ou offre de stage de l'entreprise ; Attestation d'assurance ; Carte étudiant. Délai : Convention tripartite signée par les trois parties avant le premier jour de stage et déposée au service des stages.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "STAGE",
@@ -316,6 +370,15 @@
       "reply": "Vous devez contacter le service correspondant (MOB, e-mail: mobilite-internationale@esprit.tn). Pièces requises : CV ; Lettre de motivation ; Relevés de notes ; Copie du passeport ; Attestation de niveau de langue. Délai : Selon l'appel à candidatures de l'année.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "MOB",
@@ -364,6 +427,15 @@
       "reply": "Vous devez contacter le service correspondant (FIN, e-mail: finance@esprit.tn). Pièces requises : Demande écrite motivée ; Justificatifs de la situation financière ; Carte étudiant. Délai : Avant la date d'échéance fixée par le service financier.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "FIN",
@@ -412,6 +484,15 @@
       "reply": "Vous devez contacter le service correspondant (DEP-HEAD, e-mail: chef.departement@esprit.tn).",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "DEP-HEAD",
@@ -460,6 +541,15 @@
       "reply": "Vous devez contacter le service correspondant (EXA, e-mail: examen@esprit.tn). Pièces requises : Demande écrite sur le formulaire FORM-02 (nom, prénom, classe, numéro d'étudiant, module, date de l'épreuve, note affichée, motif) ; pièce d'identité si demandée. Délai : Une semaine après l'affichage de la note, auprès du service examen.",
       "citations": [],
       "retrieved": [],
+      "route": {
+        "intents": [
+          "admin"
+        ],
+        "agents": [
+          "admin"
+        ],
+        "missing_fields": []
+      },
       "tool_rows": [
         {
           "role_id": "EXA",

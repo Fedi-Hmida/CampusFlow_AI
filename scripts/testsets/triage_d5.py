@@ -153,6 +153,16 @@ def main() -> None:
             "question": q, "router_intents": intents(r), "status": status, "reasons": " | ".join(why),
             "router_dev": "no" if status == "leak" else "yes",
         })
+    # CF-412 (Doua): human label review of the Router dev rows; a row whose « current » differs from ours is stale → stop
+    review = ROOT / "eval/candidates/D5_label_review.csv"
+    if review.exists():
+        by_id = {o["d5_id"]: o for o in out}
+        for r in read(review):
+            o = by_id[r["d5_id"]]
+            if r["current"] != o["router_intents"]:
+                raise SystemExit(f"{review.name}: {r['d5_id']} reviewed as « {r['current']} » but triage says « {o['router_intents']} »")
+            if r["proposed"] and r["proposed"] != r["current"]:
+                o["router_intents"] = r["proposed"]
     with open(OUT, "w", encoding="utf-8", newline="") as f:
         w = csv.DictWriter(f, fieldnames=COLS, lineterminator="\n")
         w.writeheader()

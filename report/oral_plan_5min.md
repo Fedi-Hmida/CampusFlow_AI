@@ -24,18 +24,18 @@
 
 ### Slide 2 (1:00 – 2:00) — Découpage documentaire : A (fixe) vs B (par article)
 - **Contenu :** Comparaison sur T1 ([results_T1.md](../eval/retrieval/results_T1.md), [results_T1.json](../eval/retrieval/results_T1.json)) ; la stratégie A (77 fenêtres) transmet 8 843 caractères contre 4 145 pour la stratégie B (168 articles). Avec le quota « officiel d'abord » (3 officiels + 2 fictifs), la stratégie B atteint **Hit@5 = 1,00** et **Recall@5 = 0,93**.
-- **Message clé :** *« Le découpage par article (B) divise le texte par deux et garantit 100 % de rappel des articles attendus grâce au quota officiel d'abord. »*
+- **Message clé :** *« Le découpage par article (B) divise le texte par deux ; avec le quota officiel d'abord, chaque question répondable a au moins un article attendu dans le top 5 (Hit@5 = 1,00) et 93 % des articles attendus sont retrouvés (Recall@5 = 0,93). »*
 
 ### Slide 3 (2:00 – 3:00) — Le banc d'essai e2e : automatisation et contrats stricts
-- **Contenu :** Banc d'essai déterministe ([run_e2e.py](../eval/e2e/run_e2e.py)) et simulateur contractuel ([stub_wf3.py](../eval/e2e/stub_wf3.py)) ; 53 questions scellées (T1 à T5) vérifiées à 100 % contre les schémas JSON ([wf3_response.schema.json](../eval/e2e/wf3_response.schema.json)) et filtrées par le Critic automatique.
-- **Message clé :** *« Une commande unique évalue l'assistant de bout en bout avec validation de schéma et notation objective sans complaisance. »*
+- **Contenu :** Banc d'essai déterministe ([run_e2e.py](../eval/e2e/run_e2e.py)) et simulateur contractuel ([stub_wf3.py](../eval/e2e/stub_wf3.py)) ; 53 questions (T1 à T5) exécutées sur le vrai bot : 100 % conformes au contrat ([wf3_response.schema.json](../eval/e2e/wf3_response.schema.json)) ; T1 22/25, T2 12/12, T3 3/10, T5 6/6, p90 ≤ 18,7 s ([section_evaluation.md](section_evaluation.md)). Le banc a lui-même révélé un vrai défaut (session « Rattrapage » inventée), corrigé et re-mesuré.
+- **Message clé :** *« Une commande unique évalue le vrai bot de bout en bout — et le banc lui-même est testé : 14 défauts de notation corrigés avant de croire un chiffre. »*
 
 ### Slide 4 (3:00 – 4:00) — Latence CPU et décision d'architecture (ADR-010)
 - **Contenu :** Modèle local Qwen3 4B limité à 4,13 tokens/s en génération sur CPU ([README.md](../eval/latency/README.md)) $\rightarrow$ 113,5 s pour un RAG local ; adoption du mode hybride ([budget.md](../eval/latency/budget.md)) avec Router/outils/checks en local et rédaction sur Gemini Flash-Lite $\rightarrow$ **14,3 s**, sous la cible NFR-01 de 90 s.
-- **Message clé :** *« Le mode hybride préserve la confidentialité des données personnelles en local tout en divisant la latence par 8 pour rester sous les 90 secondes. »*
+- **Message clé :** *« Le mode hybride divise la latence par 8 pour rester sous les 90 secondes : seuls la question et des extraits publics ou fictifs partent vers Gemini, jamais un identifiant ni un dossier personnel (refusés en local par le Router). »*
 
 ### Slide 5 (4:00 – 5:00) — Limites et intégrité scientifique
-- **Contenu :** Transparence sur les limites réelles : petit échantillon (53 questions), exécution unique, dépendance à un calendrier projeté ([exam_calendar.csv](../data/tables/exam_calendar.csv)) et 10 documents fictifs. Évaluation complète en conditions réelles du bot notée en attente (*not measured*).
+- **Contenu :** Transparence sur les limites réelles : petit échantillon (53 questions), exécution unique, dépendance à un calendrier projeté ([exam_calendar.csv](../data/tables/exam_calendar.csv)) et 10 documents fictifs. Échecs assumés : 3 erreurs de routage sur T1 et des démarches incomplètes sur T3 (3/10), identiques en mode local.
 - **Message clé :** *« Une démarche d'ingénieur rigoureuse : mesurer les composants réels, tracer chaque chiffre vers un fichier et expliciter chaque limite. »*
 
 ---

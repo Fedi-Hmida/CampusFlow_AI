@@ -10,16 +10,16 @@ Le Router classe les demandes étudiantes vers les agents appropriés. La v1 uti
 
 | Indicateur | v1 few-shot | v2 |
 |---|---:|---:|
-| Intentions exactement correctes | 46/57 | **51/57** |
-| Similarité moyenne Jaccard | 0,83 | **0,91** |
+| Intentions exactement correctes | 47/57 | **52/57** |
+| Similarité moyenne Jaccard | 0,85 | **0,93** |
 | JSON et schéma valides | 57/57 | **57/57** |
 | Régimes inventés | 0 | 1 |
-| Rappel hors périmètre | 0,60 | **0,80** |
+| Rappel hors périmètre | 0,75 | **1,00** |
 | Temps par appel | 52,8 s | **10,0 s** |
 
 Sources : [analyse v1](../eval/agents/router_v1.md), [analyse v2](../eval/agents/router_v2.md), [scores v1](../eval/agents/router_results/scores_few.json), [scores v2](../eval/agents/router_results/scores_v2_few.json).
 
-La v2 améliore la classification et réduit la taille des réponses. Toutefois, le temps v1 est mesuré en *wall time*, contre le temps modèle pour v2 : les durées ne constituent donc pas une comparaison strictement équivalente. Les 57 questions D5 sont synthétiques et leurs étiquettes nécessitent encore une validation humaine. Un chevauchement entre un exemple et une question de développement a également été identifié puis corrigé après les mesures.
+La v2 améliore la classification et réduit la taille des réponses. Toutefois, le temps v1 est mesuré en *wall time*, contre le temps modèle pour v2 : les durées ne constituent donc pas une comparaison strictement équivalente. Les 57 questions D5 sont synthétiques ; leurs étiquettes ont été relues une à une (revue CF-412) et une seule a été corrigée (D5-049 : « envoie un e-mail de ma part » relève de l'agent administratif, qui prépare un brouillon sans rien envoyer). Les scores ont été recalculés à partir des sorties enregistrées, sans nouvel appel au modèle. Un chevauchement entre un exemple et une question de développement a également été identifié puis corrigé après les mesures.
 
 ## Regulations : v2 → v3
 

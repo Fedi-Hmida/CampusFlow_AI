@@ -8,20 +8,21 @@ present; agents derived by n8n), 11 examples chosen from the measured v1 errors
 
 | Metric | v1 few-shot (30 examples) | **v2 (11 examples, compact)** |
 |---|---:|---:|
-| Intents exactly right | 46 / 57 | **51 / 57** |
-| Intent overlap (Jaccard) | 0.83 | **0.91** |
+| Intents exactly right | 47 / 57 | **52 / 57** |
+| Intent overlap (Jaccard) | 0.85 | **0.93** |
 | Valid JSON / schema-valid | 57 / 57 | 57 / 57 |
 | Regime invented / missed | 0 / 2 | 1 / 2 |
-| Out-of-scope precision / recall | 1.00 / 0.60 | 1.00 / **0.80** |
+| Out-of-scope precision / recall | 1.00 / 0.75 | 1.00 / **1.00** |
 | Seconds per call (model time) | 52.8 (wall) | **10.0** (2.5 prompt + 7.5 output) |
 | Output tokens | — | 37 |
+
+> **Relabelled 27 Oct (CF-412, Doua's label review):** D5-049 « envoie un email … de ma part » is `admin` (the bot drafts, never sends), not `out_of_scope`. Scores re-computed from the saved model outputs, no new call.
 
 - **Speed:** the static prefix (system prompt + examples, ≈ 1 250 tokens) is read once, then served from Ollama's cache
   (≈ 1 s even when another agent ran in between — [tuning](../latency/tuning_2026-10-26.jsonl)); the shorter output does
   the rest.
 - **Fixed:** D5-047 (« ma note en Probabilités ») is now out of scope.
-- **Remaining 6:** D5-049 « envoie un email de ma part » → admin **by design** (Admin drafts, never sends; the D5 label says
-  out of scope); D5-020 / 041 extra admin intent; D5-009 / 033 calendar vs regulations on retake dates; D5-051 (duplicata
+- **Remaining 5:** D5-020 / 041 extra admin intent; D5-009 / 033 calendar vs regulations on retake dates; D5-051 (duplicata
   cost) → regulations. 1 invented regime (D5-026). Labels are unverified (Fedi's review pending).
 - **Leak found after the run (fixed):** example R22 (inherited from v1) shared 6 words with dev row D5-020; v1 few-shot
   and v2 were measured with it. No inflation: D5-020 counts as a miss in both. The example is rephrased and the

@@ -1,6 +1,6 @@
 """CF-411 — Stub WF-3 webhook server for end-to-end evaluation.
 
-Simulates the assistant test endpoint (POST http://127.0.0.1:5678/webhook/wf3-test)
+Simulates the assistant test endpoint (POST http://127.0.0.1:5699/webhook/wf3-test; 5699, never n8n's 5678)
 as specified in eval/e2e/CONTRACT.md and eval/e2e/wf3_response.schema.json.
 
 Can return:
@@ -10,7 +10,7 @@ Can return:
 - 'invalid_json': malformed JSON or schema-invalid response
 
 Run:
-  .venv/Scripts/python eval/e2e/stub_wf3.py [--port 5678] [--behavior correct|wrong|not_found|invalid_json]
+  .venv/Scripts/python eval/e2e/stub_wf3.py [--port 5699] [--behavior correct|wrong|not_found|invalid_json]
 """
 import argparse
 import csv
@@ -346,7 +346,7 @@ class StubRequestHandler(BaseHTTPRequestHandler):
         pass
 
 
-def run_server(port: int = 5678, behavior: str = "correct") -> None:
+def run_server(port: int = 5699, behavior: str = "correct") -> None:
     server_address = ("127.0.0.1", port)
     handler = StubRequestHandler
     handler.behavior = behavior
@@ -361,7 +361,7 @@ def run_server(port: int = 5678, behavior: str = "correct") -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="WF-3 test webhook stub server")
-    parser.add_argument("--port", type=int, default=5678, help="Port to listen on (default: 5678)")
+    parser.add_argument("--port", type=int, default=5699, help="Port to listen on (default: 5699, never n8n's 5678)")
     parser.add_argument("--behavior", choices=["correct", "wrong", "not_found", "invalid_json"],
                         default="correct", help="Stub behavior mode (default: correct)")
     args = parser.parse_args()

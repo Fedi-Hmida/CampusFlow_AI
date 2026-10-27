@@ -47,7 +47,7 @@ D5-045,MIX-01,fr,2A,jour,no,"J'étais malade le jour de mon DS. Que dit le règl
 D5-046,MIX-02,fr,3A,,no,"Ma moyenne d'UA est de 7,5 : que dois-je faire, quand est le rattrapage et où m'inscrire ?",regulations;calendar;admin,blocked_source,"D1-002 art.8 is 'Conditions d’obtention du diplôme' in the approved corpus — off-topic for this answer | D1-002 art.11 is 'Discipline' in the approved corpus — off-topic for this answer | academic periods table not in data/tables (second dataset) | numbers ['2027', '5', '8/20'] not in the cited evidence | only 32% of the answer's content words appear in the cited evidence",yes
 D5-047,T5-01,fr,2A,,no,Quelle est ma note en Probabilités ?,out_of_scope,route_only,no source-dependent fact,yes
 D5-048,T5-02,fr,3A,,no,Combien d'absences j'ai ce semestre ?,out_of_scope,route_only,refusal; cited rule only as context,yes
-D5-049,T5-03,fr,1A,,no,Envoie un email à la scolarité de ma part pour justifier mon absence.,out_of_scope,route_only,refusal; cited rule only as context,yes
+D5-049,T5-03,fr,1A,,no,Envoie un email à la scolarité de ma part pour justifier mon absence.,admin,route_only,refusal; cited rule only as context,yes
 D5-050,T5-04,fr,2A,,no,Tu peux me donner une recette de couscous ?,out_of_scope,route_only,no source-dependent fact,yes
 D5-051,T5-05,fr,1A,,no,Combien coûte le duplicata de la carte étudiant ?,admin,blocked_source,only 43% of the answer's content words appear in the cited evidence,yes
 D5-052,T5-06,fr,5A,,no,Quelle est la date de soutenance de mon PFE ?,calendar,route_only,no source-dependent fact,yes
