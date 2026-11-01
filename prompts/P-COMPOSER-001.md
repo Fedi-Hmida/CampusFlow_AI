@@ -33,7 +33,7 @@ Ne présente jamais une décision administrative comme acquise.
 | Version | **Failure observed (input)** | **Fix** | **Result** |
 |---|---|---|---|
 | v1 (Ines, 25 Oct) | First version — no prior failure. | — | Not measured. |
-| v2 (26 Oct) | Design conflict, not a model run: v1 returned JSON (`reply`, `sources`…), but the spec and CLAUDE.md fix « Composer outputs text » (temperature 0.3); a JSON reply also forces n8n to parse before sending and lets the model invent the `sources` list. | Text output; source line built from the specialists' references; flags (FICTITIOUS, clarification) handled by n8n and by the Critic. | Not yet measured. First run: WF-3 v0 on T1 / T2 / T3 (Phase 4); the Critic checks every reply. |
+| v2 (26 Oct) | Design conflict, not a model run: v1 returned JSON (`reply`, `sources`…), but the spec and the project conventions fix « Composer outputs text » (temperature 0.3); a JSON reply also forces n8n to parse before sending and lets the model invent the `sources` list. | Text output; source line built from the specialists' references; flags (FICTITIOUS, clarification) handled by n8n and by the Critic. | Not yet measured. First run: WF-3 v0 on T1 / T2 / T3 (Phase 4); the Critic checks every reply. |
 
 ## Template v1 (Ines, 25 Oct)
 <!-- template:v1 -->

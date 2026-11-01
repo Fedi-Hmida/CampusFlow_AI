@@ -39,4 +39,4 @@ an invented score.
 8. **Evaluation hygiene**: no T1–T5 question in a prompt or example (validator: < 6 shared consecutive words).
 9. **Language**: French or English as the student writes; other languages are acknowledged, not faked.
 
-Model settings: temperature 0–0.2 for JSON agents, 0.3 for the Composer (CLAUDE.md).
+Model settings: temperature 0–0.2 for JSON agents, 0.3 for the Composer (project convention).
