@@ -3,7 +3,7 @@
 **Always read `Docs/` before acting** (start with `Docs/00_Index.md`).
 
 ## Summary
-CampusFlow AI is a Telegram assistant for ESPRIT students, built as the final project of the Advanced DL course (DS14)
+CampusFlow AI is a Telegram assistant for ESPRIT students, built as the final project of the Advanced DL course (class 5DS9)
 by Fedi, Doua and Ines. It answers questions about regulations (RAG over PDFs, with citations), exam dates and
 administrative contacts (exact lookup tools), and helps prepare administrative requests. An orchestrator–worker
 multi-agent system in n8n (Router → Vision / Regulations / Calendar / Admin → Composer → Critic) uses versioned prompts

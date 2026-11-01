@@ -5,7 +5,50 @@ and request drafts, plus photo understanding (convocations, notices, timetables)
 models in Ollama, vectors in Qdrant — all in Docker; image reading and the long-writing agents use Gemini Flash-Lite
 (per-agent hybrid for the 90 s latency target — ADR-010, switch in `config/agents.json`).
 
-Final project — Advanced DL (DS14), ESPRIT 2026–2027 · Team: Fedi, Doua, Ines · Exact versions: [VERSIONS.md](VERSIONS.md)
+Final project — Advanced Deep Learning, ESPRIT 2026–2027 · Class 5DS9 · Supervisor: Ghassen Fodha
+Exact versions: [VERSIONS.md](VERSIONS.md)
+
+| Team member | Main contributions |
+|---|---|
+| Fedi Hmida | architecture, assistant workflow WF-3, Docker infrastructure, integration and reviews |
+| Douaa Omrani | RAG strategy, end-to-end test harness, evaluation |
+| Ines Bendhifallah | Regulations and Vision prompts, multimodal part |
+
+## For the reviewer: where to start
+1. **What it does and how:** [diagrams/architecture.md](diagrams/architecture.md) and the generated map of every
+   workflow node, [diagrams/workflows_map.png](diagrams/workflows_map.png). Router → Vision / Regulations (RAG) /
+   Calendar / Admin → Composer → Critic: dates, rooms and e-mails come from exact tables (no LLM); every citation, date
+   and e-mail is checked in code before the reply.
+2. **Report (French):** [architecture](report/section_architecture.md) · [multi-agent](report/section_multiagent.md) ·
+   [RAG](report/section_rag.md) · [prompts](report/section_prompts.md) · [multimodal](report/section_multimodal.md) ·
+   [evaluation](report/section_evaluation.md) · [limits](report/section_limits.md) · design decisions
+   [diagrams/phase2_decisions.md](diagrams/phase2_decisions.md).
+3. **Results** (real bot, hybrid mode, 53 team-written questions, one run per set; details and failures in
+   [section_evaluation.md](report/section_evaluation.md)):
+
+   | Set | Fully correct | Latency p90 |
+   |---|---:|---:|
+   | T1 Regulations (final set, run once) | 22 / 25 | 18.7 s |
+   | T2 Calendar | 12 / 12 (after one documented fix) | 14.5 s |
+   | T3 Contacts and procedures (known limit) | 3 / 10 | 13.8 s |
+   | T5 Robustness (out of scope, photo injection…) | 6 / 6 | 12.0 s |
+
+   Retrieval (T1, 22 answerable questions): Hit@5 0.86 with fixed 2 000-character chunks → 1.00 with article-level
+   chunks and official documents ranked first, using half the context ([results_T1.md](eval/retrieval/results_T1.md)).
+4. **Check it without Docker or API keys** (Python 3.11+, Node.js 18+):
+   ```powershell
+   python -m venv .venv; .venv\Scripts\python -m pip install -r requirements.txt
+   .venv\Scripts\python -X utf8 scripts\run_all.py      # rebuilds all data outputs → "254 checks: 254 pass"
+   node --test workflows/lib/assistant.test.js workflows/lib/checks.test.js workflows/lib/lookup.test.js   # 69 pass
+   .venv\Scripts\python -X utf8 eval\e2e\scoring_test.py
+   ```
+5. **Run the full bot:** sections 0–8 below (needs Docker, 16 GB RAM, and your own Gemini key, Telegram bot and ngrok).
+
+**Data notice.** The corpus holds 3 official ESPRIT regulations (2024–2025, provided by the team, used for this
+course only) and 10 **fictitious** procedures and guides written by the team, labelled `*_FICTIF.pdf`
+([data/regs/CORPUS_CARD.md](data/regs/CORPUS_CARD.md)). The tables mix real names with projected or fictitious
+values; every row says which in its `source` / `data_status` column, and the bot labels demonstration data in its
+replies. No secret is stored in this repository: keys live in `.env` (not committed) and in n8n's encrypted credentials.
 
 ## Repository layout
 | Path | Content |
@@ -33,7 +76,8 @@ Teammates and the three ways to use the platform: [team/RUN_THE_PLATFORM.md](tea
 Without Telegram, put placeholders in `NGROK_AUTHTOKEN` / `NGROK_DOMAIN` and start only `n8n qdrant ollama`.
 
 ## 1. Prerequisites
-- Windows 10/11 with **Docker Desktop (WSL2 backend)**, or Linux with Docker Engine; **Git**.
+- Windows 10/11 with **Docker Desktop (WSL2 backend)**, or Linux with Docker Engine; **Git**; **Python 3.11+**
+  (scripts, evaluation) and **Node.js 18+** (unit tests of the workflow code).
 - **16 GB RAM minimum** (24 GB comfortable), ~15 GB free disk for images and models.
 - Free accounts: **Telegram** (bot via @BotFather), **ngrok** (free dev domain), **Google AI Studio** (Gemini API key).
 
