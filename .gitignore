@@ -16,10 +16,10 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 
-# Local Claude Code settings
-.claude/settings.local.json
+# Local tooling (not part of the project)
+.claude/
+CLAUDE.md
 
-# Superpowers execution scratch
 .superpowers/
 
 # Excluded raw documents (duplicates / personal data) — kept locally only
