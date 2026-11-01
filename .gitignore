@@ -16,11 +16,7 @@ __pycache__/
 .ipynb_checkpoints/
 .venv/
 
-# Local tooling (not part of the project)
-.claude/
-CLAUDE.md
 
-.superpowers/
 
 # Excluded raw documents (duplicates / personal data) — kept locally only
 data/raw/excluded/
